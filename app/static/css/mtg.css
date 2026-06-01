@@ -1,0 +1,1466 @@
+/* ===== Component CSS for mtgkubbur.is =============================================
+   Loaded BEFORE tailwind.css so Tailwind utilities win via specificity/cascade.
+   Sources:
+     (A) Ported from mtgkubbur.github.io/styles.css (non-reactable components only)
+         - Dark-mode selectors use [data-theme="dark"] (not Quarto's body class)
+         - All reactable (.rt-*) selectors removed
+         - Quarto-runtime-only selectors removed (quarto-content, cell-output-display,
+           observablehq, body:has constructs, svg[viewBox] fill rules)
+         - Bootstrap navbar aria-label selectors removed
+     (B) Score-table plain-table rebuild (replaces reactable targeting)
+     (C) Navbar + footer chrome (from theme.scss / theme-dark.scss)
+   ================================================================================ */
+
+/* ─── Inter variable font (vendored) ─── */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/static/fonts/inter/inter-variable.woff2") format("woff2");
+}
+
+/* ─── Page hero header — rich parchment with depth ─── */
+.page-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  padding: 3rem 1.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      ellipse 60% 100% at 50% 40%,
+      rgba(201, 168, 76, 0.15) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 100% 80% at 20% 80%,
+      rgba(14, 104, 171, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 100% 80% at 80% 80%,
+      rgba(0, 115, 62, 0.04) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, #e0d3c0 0%, #ece5da 40%, #f6f2ec 80%, #fefefe 100%);
+  border-bottom: none;
+  box-shadow:
+    inset 0 -1px 0 0 rgba(201, 168, 76, 0.2),
+    0 1px 3px rgba(42, 31, 20, 0.06);
+}
+
+/* Central oval — bolder card-back ellipse */
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201, 168, 76, 0.18);
+  background: radial-gradient(
+    ellipse,
+    rgba(201, 168, 76, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Outer frame ring */
+.page-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Mana color pips row */
+.page-header .mana-pips {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-header .mana-pips .ms {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.page-header .mana-pips .ms:hover {
+  transform: scale(1.3);
+}
+
+.page-header .mana-pip-w {
+  color: #c9a84c;
+  opacity: 0.7;
+}
+.page-header .mana-pip-u {
+  color: #0e68ab;
+  opacity: 0.7;
+}
+.page-header .mana-pip-b {
+  color: #3d3028;
+  opacity: 0.5;
+}
+.page-header .mana-pip-r {
+  color: #d3202a;
+  opacity: 0.7;
+}
+.page-header .mana-pip-g {
+  color: #00733e;
+  opacity: 0.7;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1008;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.page-header .subtitle {
+  color: #5c4f42;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.page-header .page-desc {
+  color: #7a7068;
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0;
+  font-weight: 400;
+}
+
+.date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(201, 168, 76, 0.12);
+  color: #8b6914;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 14px;
+  margin-top: 1rem;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  box-shadow: 0 1px 2px rgba(139, 105, 20, 0.08);
+}
+
+/* ─── Shared card elevation ─── */
+.score-table,
+.h2h-card,
+.h2h-elo-chart,
+.cube-combined-card,
+.player-summary {
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.score-table:hover,
+.h2h-card:hover,
+.h2h-elo-chart:hover,
+.cube-combined-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: #c4bfb9;
+}
+
+/* ─── Score table card shell ─── */
+.score-table {
+  font-size: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px 8px;
+  box-shadow:
+    var(--shadow-card),
+    0 0 0 1px rgba(201, 168, 76, 0.06);
+}
+
+/* Score-table colour accent classes (plain <td> targets — kept) */
+.score-table .score-elo-cell {
+  color: #2c1e10;
+}
+
+.score-table .score-prev-cell {
+  color: #7a6e60;
+}
+
+.score-table .wins-col {
+  color: #00733e;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-table .losses-col {
+  color: #d3202a;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-table .winrate-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  min-width: 30px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Cube filter panel toggle ─── */
+.cube-table-panel {
+  display: none;
+}
+
+.cube-table-panel.active {
+  display: block;
+}
+
+/* ─── OJS / selector dropdown styling ─── */
+#cube-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+#cube-selector label,
+#cube-page-selector label,
+#event-date-selector label,
+#player-selector label,
+#player-selectors label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+#cube-selector select,
+#cube-page-selector select,
+#event-date-selector select,
+#player-selector select,
+#player-selectors select {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--surface-card);
+  transition: box-shadow 0.15s ease;
+}
+
+#cube-selector select:focus,
+#cube-page-selector select:focus,
+#event-date-selector select:focus,
+#player-selector select:focus,
+#player-selectors select:focus {
+  box-shadow: 0 0 0 2px rgba(14, 104, 171, 0.15);
+  outline: none;
+}
+
+/* ─── Dashboard grid layout ─── */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.dashboard-grid .cell,
+.chart-row-full .cell {
+  min-width: 0;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dashboard-grid .cell:hover,
+.chart-row-full .cell:hover {
+  box-shadow: 0 4px 12px rgba(42, 31, 20, 0.1);
+  border-color: #c4bfb9;
+}
+
+.chart-row-full {
+  margin-bottom: 1rem;
+}
+
+.profile-charts {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Axis label typography */
+.profile-charts svg text,
+.h2h-elo-chart svg text {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Combined cube table ─── */
+.cube-combined-card {
+  max-width: 580px;
+  margin: 0 auto 1.5rem;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.cube-affinity-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5c4f42;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.cube-combined-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.cube-combined-table th {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #5c4f42;
+  padding: 4px 8px;
+  border-bottom: 1px solid #d4cfc9;
+}
+
+.cube-combined-table th:first-child {
+  text-align: left;
+}
+
+.cube-combined-table td {
+  text-align: center;
+  padding: 8px 8px;
+  vertical-align: middle;
+}
+
+.cube-combined-table tr:hover td {
+  background: #f9faf4;
+}
+
+.cube-record-name {
+  text-align: left !important;
+  font-weight: 500;
+}
+
+.cube-record-pip {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Inline gamma bar inside table cell */
+.gamma-cell {
+  min-width: 130px;
+}
+
+.gamma-bar-inline {
+  display: inline-flex;
+  align-items: center;
+  width: 70px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+.gamma-bar-neg-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.gamma-bar-pos-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.gamma-bar-mid {
+  width: 1px;
+  height: 100%;
+  background: #d4cfc9;
+  flex-shrink: 0;
+}
+
+.gamma-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  min-width: 2px;
+}
+
+.gamma-val {
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .cube-combined-card {
+    max-width: none;
+  }
+}
+
+/* Cube category footnote */
+.cube-footnote {
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ─── Per-cube detail toggle ─── */
+.cube-detail-toggle {
+  border-top: 1px solid #d4cfc9;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+.cube-detail-toggle summary {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 0;
+  user-select: none;
+}
+
+.cube-detail-toggle summary:hover {
+  color: var(--text-primary);
+}
+
+.cube-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 14px;
+}
+
+.cube-detail-table th {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #7a7670;
+  padding: 6px 8px;
+  border-bottom: 1px solid #d4cfc9;
+}
+
+.cube-detail-table th:first-child {
+  text-align: left;
+}
+
+.cube-detail-table td {
+  text-align: center;
+  padding: 6px 8px;
+}
+
+.cube-detail-table td:first-child {
+  text-align: left;
+}
+
+.cube-detail-name {
+  font-weight: 500;
+}
+
+.cube-detail-table tr:hover td {
+  background: #f9faf4;
+}
+
+/* Chart card titles */
+.chart-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.25rem;
+  text-align: center;
+}
+
+/* ─── Player summary card ─── */
+.player-summary {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background: var(--surface-soft);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+
+.player-summary .stat {
+  text-align: center;
+}
+
+.player-summary .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2a1f14;
+  line-height: 1.2;
+}
+
+.player-summary .stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #5c4f42;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Empty state for charts */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #5c4f42;
+  font-size: 1rem;
+}
+
+.empty-state .empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .player-summary {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .player-summary .stat-value {
+    font-size: 1.25rem;
+  }
+}
+
+/* ─── Head-to-Head (Einvígi) ─── */
+
+/* Desktop: side-by-side card + chart */
+.h2h-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .h2h-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Horizontal selector row */
+#player-selectors {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#player-selectors form {
+  flex: 0 1 260px;
+}
+
+@media (max-width: 600px) {
+  #player-selectors {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+}
+
+.h2h-card {
+  max-width: none;
+  margin: 0;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.h2h-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.h2h-player {
+  text-align: center;
+  flex: 1;
+}
+
+.h2h-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2a1f14;
+}
+
+.h2h-wins {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.h2h-wins-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.h2h-vs {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #5c4f42;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.h2h-bar-container {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 28px;
+  margin-bottom: 0.5rem;
+}
+
+.h2h-bar-fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 32px;
+  transition: width 0.3s ease;
+}
+
+.h2h-total {
+  text-align: center;
+  font-size: 13px;
+  color: #5c4f42;
+  margin-bottom: 1rem;
+}
+
+.h2h-cube-breakdown {
+  border-top: 1px solid #d4cfc9;
+  padding-top: 1rem;
+}
+
+.h2h-cube-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5c4f42;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.h2h-cube-table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+.h2h-cube-table th {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #5c4f42;
+  padding: 4px 8px;
+  border-bottom: 1px solid #d4cfc9;
+}
+
+.h2h-cube-table th:first-child {
+  text-align: left;
+}
+
+.h2h-cube-table td {
+  text-align: center;
+  padding: 6px 8px;
+}
+
+.h2h-cube-table td:first-child {
+  text-align: left;
+}
+
+.h2h-cube-table tr:hover td {
+  background: #f9faf4;
+}
+
+@media (max-width: 768px) {
+  .h2h-card {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  .h2h-name {
+    font-size: 1rem;
+  }
+  .h2h-wins {
+    font-size: 1.35rem;
+  }
+  .h2h-header {
+    gap: 0.75rem;
+  }
+}
+
+/* ─── ELO difference chart (Einvígi) ─── */
+.h2h-elo-chart {
+  max-width: none;
+  margin: 0;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.h2h-chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a1f14;
+  margin-bottom: 2px;
+}
+
+.h2h-chart-subtitle {
+  font-size: 12px;
+  color: #5c4f42;
+  margin-bottom: 0.75rem;
+}
+
+.h2h-chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 12px;
+  color: #5c4f42;
+}
+
+.h2h-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.h2h-legend-pip {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* ─── Cube page selector centering ─── */
+#cube-page-selector,
+#event-date-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Event date selector — more prominent ─── */
+#event-date-selector select {
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--surface-card);
+  border: 2px solid var(--mtg-gold);
+  padding: 8px 14px;
+  font-size: 15px;
+}
+
+#event-date-selector select:focus {
+  box-shadow: 0 0 0 3px rgba(139, 105, 20, 0.15);
+  border-color: var(--mtg-gold);
+}
+
+/* ─── Column group headers for tables ─── */
+.col-group-header {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: 4px;
+  text-align: center;
+}
+
+/* ─── Trophy card (Kubbar page) ─── */
+.trophy-card {
+  max-width: 440px;
+  margin: 0 auto 1.5rem;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.trophy-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: #c4bfb9;
+}
+
+.trophy-table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+.trophy-table th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  color: #5c4f42;
+  padding: 4px 8px;
+  border-bottom: 1px solid #d4cfc9;
+}
+
+.trophy-table th:nth-child(2) {
+  text-align: center;
+}
+
+.trophy-table td {
+  padding: 6px 8px;
+}
+
+.trophy-table tr:hover td {
+  background: #f9faf4;
+}
+
+/* ─── Recent events (Kubbar page) ─── */
+.recent-events-card {
+  max-width: 580px;
+  margin: 0 auto 1.5rem;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.recent-events-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: #c4bfb9;
+}
+
+.recent-event-block {
+  margin-bottom: 1rem;
+}
+
+.recent-event-block:last-child {
+  margin-bottom: 0;
+}
+
+.recent-event-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.recent-event-block + .recent-event-block {
+  border-top: 1px solid var(--border-default);
+  padding-top: 1rem;
+}
+
+/* ─── Kubbar page content width ─── */
+.kubbar-content {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ─── Calendar page (Dagatal) ─── */
+.calendar-content {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.calendar-table-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.calendar-table-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: #c4bfb9;
+}
+
+.calendar-next-event td {
+  font-weight: 700;
+}
+
+.calendar-next-event td:first-child {
+  border-left: 3px solid var(--mtg-gold);
+}
+
+.calendar-past-toggle {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.calendar-past-toggle summary {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 0;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-past-toggle summary:hover {
+  color: var(--text-primary);
+}
+
+.calendar-past-toggle .trophy-table {
+  margin-top: 0.75rem;
+}
+
+/* ─── Reduced motion support ─── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DARK THEME OVERRIDES
+   App uses [data-theme="dark"] on <html> when dark mode is active.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Dark: Glass card surfaces ─── */
+[data-theme="dark"] .score-table,
+[data-theme="dark"] .h2h-card,
+[data-theme="dark"] .h2h-elo-chart,
+[data-theme="dark"] .cube-combined-card,
+[data-theme="dark"] .player-summary,
+[data-theme="dark"] .trophy-card,
+[data-theme="dark"] .recent-events-card,
+[data-theme="dark"] .dashboard-grid .cell,
+[data-theme="dark"] .chart-row-full .cell {
+  background: var(--surface-card);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 900px) {
+  [data-theme="dark"] .score-table,
+  [data-theme="dark"] .h2h-card,
+  [data-theme="dark"] .h2h-elo-chart,
+  [data-theme="dark"] .cube-combined-card,
+  [data-theme="dark"] .player-summary,
+  [data-theme="dark"] .trophy-card,
+  [data-theme="dark"] .recent-events-card,
+  [data-theme="dark"] .dashboard-grid .cell,
+  [data-theme="dark"] .chart-row-full .cell {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .score-table:hover,
+[data-theme="dark"] .h2h-card:hover,
+[data-theme="dark"] .h2h-elo-chart:hover,
+[data-theme="dark"] .cube-combined-card:hover,
+[data-theme="dark"] .trophy-card:hover,
+[data-theme="dark"] .recent-events-card:hover,
+[data-theme="dark"] .dashboard-grid .cell:hover,
+[data-theme="dark"] .chart-row-full .cell:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ─── Dark: Page hero header ─── */
+[data-theme="dark"] .page-header {
+  background:
+    radial-gradient(
+      ellipse 50% 90% at 50% 40%,
+      rgba(212, 168, 67, 0.18) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 15% 70%,
+      rgba(59, 158, 221, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 85% 70%,
+      rgba(46, 204, 113, 0.06) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, #1a1820 0%, #141218 60%, #0e0e14 100%);
+  box-shadow: inset 0 -1px 0 0 rgba(212, 168, 67, 0.15);
+}
+
+[data-theme="dark"] .page-header::before {
+  border-color: rgba(212, 168, 67, 0.15);
+  background: radial-gradient(
+    ellipse,
+    rgba(212, 168, 67, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+[data-theme="dark"] .page-header::after {
+  border-color: rgba(212, 168, 67, 0.06);
+}
+
+[data-theme="dark"] .page-header .mana-pips .ms:hover {
+  filter: brightness(1.3);
+}
+
+[data-theme="dark"] .page-header .mana-pip-w {
+  color: #d4a843;
+  opacity: 1;
+}
+[data-theme="dark"] .page-header .mana-pip-u {
+  color: #3b9edd;
+  opacity: 1;
+}
+[data-theme="dark"] .page-header .mana-pip-b {
+  color: #6a6060;
+  opacity: 1;
+}
+[data-theme="dark"] .page-header .mana-pip-r {
+  color: #e74c3c;
+  opacity: 1;
+}
+[data-theme="dark"] .page-header .mana-pip-g {
+  color: #2ecc71;
+  opacity: 1;
+}
+
+[data-theme="dark"] .page-header h1 {
+  color: #e8e4dc;
+}
+
+[data-theme="dark"] .page-header .subtitle,
+[data-theme="dark"] .page-header .page-desc {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .date-badge {
+  background: rgba(212, 168, 67, 0.15);
+  color: #d4a843;
+  border-color: rgba(212, 168, 67, 0.2);
+  box-shadow: none;
+}
+
+/* ─── Dark: Score table ─── */
+[data-theme="dark"] .score-table {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .score-table .score-elo-cell {
+  color: #e8e4dc;
+}
+
+[data-theme="dark"] .score-table .score-prev-cell {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .score-table .wins-col {
+  color: #2ecc71;
+}
+
+[data-theme="dark"] .score-table .losses-col {
+  color: #e74c3c;
+}
+
+/* ─── Dark: OJS dropdown styling ─── */
+[data-theme="dark"] #cube-selector label,
+[data-theme="dark"] #cube-page-selector label,
+[data-theme="dark"] #player-selector label,
+[data-theme="dark"] #player-selectors label {
+  color: #e8e4dc;
+}
+
+[data-theme="dark"] #cube-selector select,
+[data-theme="dark"] #cube-page-selector select,
+[data-theme="dark"] #player-selector select,
+[data-theme="dark"] #player-selectors select {
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #c8c4bc;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] #cube-selector select:focus,
+[data-theme="dark"] #cube-page-selector select:focus,
+[data-theme="dark"] #player-selector select:focus,
+[data-theme="dark"] #player-selectors select:focus {
+  box-shadow: 0 0 0 2px rgba(59, 158, 221, 0.2);
+  border-color: #3b9edd;
+}
+
+[data-theme="dark"] #event-date-selector select {
+  border-color: var(--mtg-gold);
+  color: #e8e4dc;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] #event-date-selector select:focus {
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.2);
+}
+
+/* ─── Dark: Cube combined table ─── */
+[data-theme="dark"] .cube-affinity-title {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .cube-combined-table th {
+  color: #7a7670;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .cube-combined-table td {
+  color: #c8c4bc;
+}
+
+[data-theme="dark"] .cube-combined-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .cube-detail-toggle {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .cube-detail-table th {
+  color: #7a7670;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .cube-detail-table td {
+  color: #c8c4bc;
+}
+
+[data-theme="dark"] .cube-detail-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .gamma-bar-mid {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .cube-footnote {
+  color: #9a9590;
+}
+
+/* ─── Dark: Chart titles ─── */
+[data-theme="dark"] .chart-title {
+  color: #aaa59f;
+}
+
+/* ─── Dark: Player summary ─── */
+[data-theme="dark"] .player-summary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .player-summary .stat-value {
+  color: #e8e4dc;
+}
+
+[data-theme="dark"] .player-summary .stat-label {
+  color: #7a7670;
+}
+
+/* ─── Dark: Empty state ─── */
+[data-theme="dark"] .empty-state {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .empty-state .empty-icon {
+  opacity: 0.2;
+}
+
+/* ─── Dark: H2H card ─── */
+[data-theme="dark"] .h2h-name {
+  color: #e8e4dc;
+}
+
+[data-theme="dark"] .h2h-vs {
+  color: #9a9590;
+}
+
+[data-theme="dark"] .h2h-total {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .h2h-cube-breakdown {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .h2h-cube-title {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .h2h-cube-table th {
+  color: #7a7670;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .h2h-cube-table td {
+  color: #c8c4bc;
+}
+
+[data-theme="dark"] .h2h-cube-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ─── Dark: ELO chart ─── */
+[data-theme="dark"] .h2h-chart-title {
+  color: #e8e4dc;
+}
+
+[data-theme="dark"] .h2h-chart-subtitle {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .h2h-chart-legend {
+  color: #7a7670;
+}
+
+/* ─── Dark: Trophy & Recent Events (Kubbar page) ─── */
+[data-theme="dark"] .trophy-table th {
+  color: #7a7670;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .trophy-table td {
+  color: #c8c4bc;
+}
+
+[data-theme="dark"] .trophy-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .recent-event-date {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .recent-event-block + .recent-event-block {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .col-group-header {
+  color: #7a7670;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Dark: Calendar page (Dagatal) ─── */
+[data-theme="dark"] .calendar-table-card {
+  background: var(--surface-card);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="dark"] .calendar-table-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-hover);
+}
+
+[data-theme="dark"] .calendar-next-event td:first-child {
+  border-left-color: var(--mtg-gold);
+}
+
+[data-theme="dark"] .calendar-past-toggle summary {
+  color: #7a7670;
+}
+
+[data-theme="dark"] .calendar-past-toggle summary:hover {
+  color: #e8e4dc;
+}
+
+@media (min-width: 900px) {
+  [data-theme="dark"] .calendar-table-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* ===== Score table (Stigatafla) — plain-table rebuild of the reactable look ===== */
+.score-table { font-size: 16px; max-width: 1100px; margin: 0 auto; background: var(--surface-card);
+  border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: 16px 20px 12px;
+  box-shadow: var(--shadow-card), 0 0 0 1px rgba(201, 168, 76, 0.06); }
+.score-table table { width: 100%; border-collapse: collapse; }
+.score-table thead th { color: var(--text-muted); font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.03em; text-align: center; padding: 8px 8px 10px; border-bottom: 2px solid var(--mtg-blue); }
+.score-table thead th:first-child { text-align: left; }
+.score-table thead tr.group-row th { font-size: 11px; letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border-default); padding-bottom: 4px; font-weight: 600; }
+.score-table tbody td { color: var(--text-body); text-align: center; padding: 10px 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06); font-variant-numeric: tabular-nums; }
+[data-theme="dark"] .score-table tbody td { border-color: rgba(255, 255, 255, 0.06); }
+.score-table tbody td.player-cell { text-align: left; font-weight: 500; position: relative; }
+.score-table tbody tr:nth-child(odd) { background: rgba(0, 0, 0, 0.02); }
+[data-theme="dark"] .score-table tbody tr:nth-child(odd) { background: rgba(255, 255, 255, 0.015); }
+.score-table tbody tr:hover td { background: var(--blue-light); }
+[data-theme="dark"] .score-table tbody tr:hover td { background: rgba(59, 158, 221, 0.08); }
+.score-table .wins-col { color: var(--mtg-green); font-weight: 600; }
+.score-table .losses-col { color: var(--mtg-red); font-weight: 600; }
+.score-table .score-elo-cell { font-weight: 700; font-size: 18px; }
+.score-table .score-prev-cell { font-size: 13px; color: var(--text-muted); }
+/* podium */
+.score-table tr.podium-1 td.player-cell, .score-table tr.podium-2 td.player-cell,
+.score-table tr.podium-3 td.player-cell { padding-left: 28px; }
+.score-table tr.podium-1 td.player-cell::before, .score-table tr.podium-2 td.player-cell::before,
+.score-table tr.podium-3 td.player-cell::before { content: ""; position: absolute; left: 10px; top: 50%;
+  transform: translateY(-50%); width: 10px; height: 10px; border-radius: 50%; }
+.score-table tr.podium-1 td.player-cell { border-left: 4px solid #c9a84c; }
+.score-table tr.podium-1 td.player-cell::before { background: linear-gradient(135deg, #e8c84a, #b8941c); }
+.score-table tr.podium-2 td.player-cell { border-left: 4px solid #a8a8a8; }
+.score-table tr.podium-2 td.player-cell::before { background: linear-gradient(135deg, #c8c8c8, #909090); }
+.score-table tr.podium-3 td.player-cell { border-left: 4px solid #b87333; }
+.score-table tr.podium-3 td.player-cell::before { background: linear-gradient(135deg, #d4944a, #9a5e22); }
+.score-table tbody tr:not(.podium-1):not(.podium-2):not(.podium-3) td.player-cell { border-left: 4px solid transparent; }
+.score-table tr.podium-1 { background: linear-gradient(90deg, rgba(201,169,38,0.10), rgba(201,169,38,0.02)); }
+.score-table tr.podium-2 { background: linear-gradient(90deg, rgba(138,138,138,0.08), rgba(138,138,138,0.02)); }
+.score-table tr.podium-3 { background: linear-gradient(90deg, rgba(160,101,42,0.08), rgba(160,101,42,0.02)); }
+[data-theme="dark"] .score-table tr.podium-1 td.player-cell { border-left-color: #d4a843; }
+[data-theme="dark"] .score-table tr.podium-1 td.player-cell::before { background: linear-gradient(135deg,#f0d060,#c49630); }
+[data-theme="dark"] .score-table tr.podium-1 { background: linear-gradient(90deg, rgba(212,168,67,0.12), rgba(212,168,67,0.02)); }
+[data-theme="dark"] .score-table tr.podium-2 { background: linear-gradient(90deg, rgba(160,160,160,0.08), rgba(160,160,160,0.01)); }
+[data-theme="dark"] .score-table tr.podium-3 { background: linear-gradient(90deg, rgba(184,115,51,0.08), rgba(184,115,51,0.01)); }
+/* win-rate bar cell */
+.winrate-cell { display: flex; align-items: center; gap: 6px; justify-content: center; }
+.winrate-bar-track { flex: 1; max-width: 60px; height: 6px; border-radius: 3px; background: rgba(0,0,0,0.06); overflow: hidden; }
+[data-theme="dark"] .winrate-bar-track { background: rgba(255,255,255,0.06); }
+.winrate-bar-fill { height: 100%; border-radius: 3px; }
+.winrate-label { font-size: 12px; color: var(--text-muted); min-width: 30px; text-align: right; font-variant-numeric: tabular-nums; }
+/* delta pills */
+.delta-pill { display: inline-flex; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; padding: 2px 6px; border-radius: 10px; line-height: 1; }
+.delta-pill .arrow { font-size: 9px; }
+.delta-up { color: #2ecc71; background: rgba(46,204,113,0.10); }
+.delta-down { color: #e74c3c; background: rgba(231,76,60,0.10); }
+.delta-zero { color: #4a4640; font-size: 12px; }
+.delta-na { color: #4a4640; }
+/* search + sortable header */
+.score-table-search { margin-bottom: 16px; display: flex; }
+.score-table-search input { border-radius: 8px; border: 1px solid var(--border-default); padding: 6px 10px 6px 32px;
+  background: var(--surface-card); color: var(--text-body); width: 100%; max-width: 280px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235c4f42' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 10px center; background-size: 14px; }
+.score-table-search input:focus { border-color: var(--mtg-blue); box-shadow: 0 0 0 3px rgba(14,104,171,0.12); outline: none; }
+.score-table thead th.sortable { cursor: pointer; user-select: none; }
+.score-table thead th.sortable:hover { color: var(--text-primary); }
+@media (max-width: 768px) { .score-table { font-size: 14px; overflow-x: auto; } .score-table table { min-width: 640px; } }
+/* cube category panels */
+.cube-table-panel { display: none; }
+.cube-table-panel.active { display: block; }
+#cube-selector, #player-selector, #cube-page-selector, #event-date-selector {
+  display: flex; justify-content: center; margin-bottom: 1.5rem; gap: 0.5rem; align-items: center; }
+#cube-selector label, #player-selector label, #cube-page-selector label, #event-date-selector label,
+#player-selectors label { font-weight: 600; color: var(--text-primary); }
+#cube-selector select, #player-selector select, #cube-page-selector select, #player-selectors select {
+  border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 6px 10px; font-size: 14px;
+  color: var(--text-primary); background: var(--surface-card); }
+#event-date-selector select { font-weight: 600; color: var(--text-primary); background: var(--surface-card);
+  border: 2px solid var(--mtg-gold); padding: 8px 14px; font-size: 15px; border-radius: var(--radius-sm); }
+
+/* ===== Navbar (recreated from theme.scss; targets app markup, not Bootstrap) ===== */
+.site-nav { display: flex; align-items: center; gap: 0.25rem; padding: 0.6rem 1.25rem; position: relative;
+  background: linear-gradient(180deg, #1a1008 0%, #0d0700 100%);
+  box-shadow: 0 1px 0 0 rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.4); }
+.site-nav::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5) 20%, #c9a84c 50%, rgba(201,168,76,0.5) 80%, transparent); }
+.nav-brand { font-weight: 700; font-size: 1.15rem; margin-right: 1rem; text-decoration: none;
+  background: linear-gradient(135deg, #f0e6d0 0%, #c9a84c 40%, #e8d8a8 60%, #c9a84c 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.nav-links { display: flex; gap: 0.25rem; }
+.nav-link { color: rgba(249,250,244,0.7); padding: 0.35rem 0.85rem; border-radius: 4px; font-weight: 500;
+  font-size: 0.9rem; text-decoration: none; transition: color .2s, background .2s; position: relative; }
+.nav-link:hover { color: #f9faf4; background: rgba(249,250,244,0.08); }
+.nav-link.active { color: #f9faf4; background: rgba(201,168,76,0.12); font-weight: 600; }
+.nav-link.active::after { content: ""; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 4px; border-radius: 50%; background: #c9a84c; }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 0.75rem; }
+.nav-skra { color: rgba(249,250,244,0.7); text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; }
+.nav-skra:hover { color: #f9faf4; }
+.theme-toggle { width: 34px; height: 34px; border-radius: 999px; border: 1px solid rgba(201,168,76,0.3);
+  background: rgba(255,255,255,0.04); color: #f9faf4; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+[data-theme="dark"] .site-nav { background: linear-gradient(180deg, rgba(18,18,26,0.97), rgba(14,14,20,0.99));
+  box-shadow: 0 1px 0 0 rgba(212,168,67,0.15); }
+[data-theme="dark"] .nav-brand { background: linear-gradient(135deg, #f0dca0, #d4a843, #c49630);
+  -webkit-background-clip: text; background-clip: text; }
+[data-theme="dark"] .nav-link.active { color: #d4a843; background: rgba(212,168,67,0.08); }
+@media (max-width: 640px) { .nav-links { flex-wrap: wrap; } .nav-brand { font-size: 1rem; } }
+
+/* ===== Footer (recreated from theme.scss) ===== */
+.site-footer { border-top: none; color: var(--text-muted); font-size: 0.8rem; padding: 1.5rem 1.25rem 1.25rem;
+  position: relative; background: linear-gradient(180deg, #f5f2ed 0%, #eae6e0 100%); text-align: center; }
+.site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3) 20%, rgba(201,168,76,0.5) 50%, rgba(201,168,76,0.3) 80%, transparent); }
+[data-theme="dark"] .site-footer { background: linear-gradient(180deg, #16161e 0%, #0e0e14 100%); }
+[data-theme="dark"] .site-footer::before { background: linear-gradient(90deg, transparent, rgba(212,168,67,0.2) 30%, rgba(212,168,67,0.35) 50%, rgba(212,168,67,0.2) 70%, transparent); }
+.footer-brand { font-weight: 700; color: var(--text-primary); font-size: 0.9rem; display: block; margin-bottom: 2px; }
+.footer-tagline { font-size: 0.75rem; color: var(--text-muted); }
+.footer-nav { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap; justify-content: center; }
+.footer-nav a { color: var(--text-muted); font-weight: 500; font-size: 0.8rem; text-decoration: none; }
+.footer-nav a:hover { color: var(--mtg-blue); }
+[data-theme="dark"] .footer-nav a:hover { color: var(--mtg-gold); }
+.footer-mana-sep { font-size: 0.65rem; opacity: 0.35; vertical-align: middle; }
+[data-theme="dark"] .footer-mana-sep { opacity: 0.25; }
+.site-main { min-height: 60vh; padding: 1.5rem 1rem 3rem; }
+[x-cloak] { display: none !important; }
