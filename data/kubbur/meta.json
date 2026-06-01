@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-06-01T13:14:37Z",
+  "fit_date": "2026-05-28",
+  "n_players": 24,
+  "n_games": 1425,
+  "n_dates": 40,
+  "reference_date": "2026-05-28",
+  "cmdstan_version": "2.38.0",
+  "model": "bradley_terry_temporal",
+  "tiers": {
+    "High": [
+      "Bolti",
+      "Diddi's Vintage Vanilla",
+      "Nerva's Cube",
+      "Stingvi Power Max",
+      "Vintage Aron",
+      "Vintage Victor"
+    ],
+    "Low": [
+      "Kaldheim Cube",
+      "Khans Cube",
+      "Old Border Cube",
+      "Pauper Cube Diddi",
+      "Pauper Cube Victor",
+      "That's Totally Uncommon",
+      "The Ab Wheel"
+    ],
+    "Medium": [
+      "Final Destination",
+      "Flashdance!",
+      "Horror Cube",
+      "Inventors' Fair",
+      "Meta Memories",
+      "Modern Stories",
+      "Synergy Cube"
+    ],
+    "Other": [
+      "Boltalandið",
+      "Genesis",
+      "Stone Soup Cube",
+      "Super Turbo Time"
+    ]
+  }
+}

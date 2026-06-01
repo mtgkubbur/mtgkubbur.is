@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "calendar",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["date", "cube"],
+    "properties": {
+      "date":      { "type": "string" },
+      "cube":      { "type": "string" },
+      "cube_slug": { "type": "string" },
+      "host":      { "type": ["string", "null"] },
+      "players":   { "type": ["number", "null"] },
+      "link":      { "type": ["string", "null"] }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+[project]
+name = "mtgkubbur-is"
+version = "0.1.0"
+description = "mtgkubbur.is — Magic: The Gathering Cube Drafts á Íslandi"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+    "jinja2>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.24", "httpx>=0.27", "ruff>=0.8"]
+data = ["fastjsonschema>=2.21.2"]
+
+[tool.uv]
+exclude-newer = "2026-05-02"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
