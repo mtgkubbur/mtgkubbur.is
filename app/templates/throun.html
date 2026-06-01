@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block title %}{{ S.throun_title }} — {{ S.brand }}{% endblock %} {% block content %} {% set header_h1 = header_h1 %} {% include "components/page_header.html" %}
+
+<div id="player-selector">
+  <label for="player-select">{{ S.player_picker_label }}</label>
+  <select id="player-select">
+    <option value="">{{ S.player_picker_placeholder }}</option>
+    {% for p in players %}
+    <option value="{{ p.slug }}">{{ p.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<!-- Empty state: shown until a player is chosen -->
+<div id="throun-empty" class="empty-state">
+  <div class="empty-icon">&#9876;</div>
+  <div>{{ S.throun_empty }}</div>
+</div>
+
+<!-- Content: hidden until a player is chosen (JS toggles [hidden]) -->
+<div id="throun-content" hidden>
+  <div id="player-summary"></div>
+
+  <div class="cube-combined-card">
+    <div class="cube-affinity-title">{{ S.cube_combined_title }}</div>
+    <div id="cube-combined-mount"></div>
+    <div class="cube-footnote">
+      {% for part in footnote_parts %}<strong>{{ part.label }}:</strong> {{
+      part.cubes }}{% if not loop.last %} | {% endif %}{% endfor %}
+    </div>
+    <div id="cube-detail-mount"></div>
+  </div>
+
+  <div class="profile-charts">
+    <div class="chart-row-full">
+      <div class="cell">
+        <div class="chart-title">{{ S.chart_elo_title }}</div>
+        <div id="chart-elo"></div>
+      </div>
+    </div>
+    <div class="dashboard-grid">
+      <div class="cell">
+        <div class="chart-title">{{ S.chart_rank_title }}</div>
+        <div id="chart-rank"></div>
+      </div>
+      <div class="cell">
+        <div class="chart-title">{{ S.chart_winrate_title }}</div>
+        <div id="chart-winrate"></div>
+      </div>
+    </div>
+    <div class="dashboard-grid">
+      <div class="cell" id="cell-strength">
+        <div class="chart-title">{{ S.chart_strength_title }}</div>
+        <div id="chart-strength"></div>
+      </div>
+      <div class="cell">
+        <div class="chart-title">{{ S.chart_games_title }}</div>
+        <div id="chart-games"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script type="module" src="/static/js/throun.js"></script>
+{% endblock %}

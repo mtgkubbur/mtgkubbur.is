@@ -35,3 +35,22 @@ def test_data_h2h_endpoint():
 def test_404_renders_chrome():
     r = client.get("/no-such-page")
     assert r.status_code == 404 and "MtG Kubbur" in r.text
+
+
+def test_throun_page_200():
+    r = client.get("/throun")
+    assert r.status_code == 200
+    # mana hero + page-specific copy rendered
+    assert "Þróun og tölfræði einstakra leikmanna" in r.text
+    # dropdown populated from player_index (first option = placeholder)
+    assert "Veldu leikmann..." in r.text
+    first_slug = data.player_index()[0]["slug"]
+    assert f'value="{first_slug}"' in r.text
+    # footnote built from meta.tiers (a known High-tier cube name appears)
+    assert "Nerva" in r.text  # Nerva's Cube in High tier (apostrophe HTML-escaped)
+
+
+def test_throun_active_nav():
+    r = client.get("/throun")
+    # the Leikmaður nav link is marked active on this page
+    assert 'href="/throun"' in r.text and "active" in r.text
