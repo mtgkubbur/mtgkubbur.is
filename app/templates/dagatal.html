@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}{{ S.dagatal_title }} — MtG Kubbur{% endblock %}
+
+{% block content %}
+{% set header_h1 = S.dagatal_title %}
+{% set header_desc = S.dagatal_desc %}
+{% include "components/page_header.html" %}
+
+<div class="calendar-content">
+
+  {# ---- Upcoming events ---- #}
+  {% if not upcoming %}
+  <div class="empty-state">
+    <div class="empty-icon">&#128197;</div>
+    <div>{{ S.no_upcoming }}</div>
+  </div>
+  {% else %}
+  <div class="calendar-table-card">
+    <div class="cube-affinity-title">{{ S.upcoming_title }}</div>
+    <table class="trophy-table">
+      <thead>
+        <tr>
+          <th>{{ S.col_date }}</th>
+          <th>{{ S.col_cube }}</th>
+          <th>{{ S.col_owner }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ev in upcoming %}
+        <tr{% if loop.first %} class="calendar-next-event"{% endif %}>
+          <td>{{ ev.date_fmt }}</td>
+          <td>
+            {% if ev.link and (ev.link.startswith('http://') or ev.link.startswith('https://')) %}
+            <a href="{{ ev.link }}" target="_blank" rel="noopener">{{ ev.cube }}</a>
+            {% else %}
+            {{ ev.cube }}
+            {% endif %}
+          </td>
+          <td>{{ ev.host_display }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+  {# ---- Past events (collapsible, only if any) ---- #}
+  {% if past %}
+  <details class="calendar-past-toggle">
+    <summary>{{ S.past_summary.format(n=past|length) }}</summary>
+    <div class="calendar-table-card">
+      <table class="trophy-table">
+        <thead>
+          <tr>
+            <th>{{ S.col_date }}</th>
+            <th>{{ S.col_cube }}</th>
+            <th>{{ S.col_owner }}</th>
+            <th>{{ S.col_players }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ev in past %}
+          <tr>
+            <td>{{ ev.date_fmt }}</td>
+            <td>
+              {% if ev.link and (ev.link.startswith('http://') or ev.link.startswith('https://')) %}
+              <a href="{{ ev.link }}" target="_blank" rel="noopener">{{ ev.cube }}</a>
+              {% else %}
+              {{ ev.cube }}
+              {% endif %}
+            </td>
+            <td>{{ ev.host_display }}</td>
+            <td>{% if ev.players is not none %}{{ ev.players }}{% else %}—{% endif %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  {% endif %}
+
+</div>
+{% endblock %}
