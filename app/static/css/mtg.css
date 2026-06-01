@@ -1384,8 +1384,8 @@
 [data-theme="dark"] .score-table tr.podium-2 { background: linear-gradient(90deg, rgba(160,160,160,0.08), rgba(160,160,160,0.01)); }
 [data-theme="dark"] .score-table tr.podium-3 { background: linear-gradient(90deg, rgba(184,115,51,0.08), rgba(184,115,51,0.01)); }
 /* win-rate bar cell */
-.winrate-cell { display: flex; align-items: center; gap: 6px; justify-content: center; }
-.winrate-bar-track { flex: 1; max-width: 60px; height: 6px; border-radius: 3px; background: rgba(0,0,0,0.06); overflow: hidden; }
+.winrate-cell { min-width: 84px; display: flex; align-items: center; gap: 6px; justify-content: center; }
+.winrate-bar-track { width: 48px; flex: none; height: 6px; border-radius: 3px; background: rgba(0,0,0,0.06); overflow: hidden; }
 [data-theme="dark"] .winrate-bar-track { background: rgba(255,255,255,0.06); }
 .winrate-bar-fill { height: 100%; border-radius: 3px; }
 .winrate-label { font-size: 12px; color: var(--text-muted); min-width: 30px; text-align: right; font-variant-numeric: tabular-nums; }
