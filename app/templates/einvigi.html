@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block title %}{{ S.einvigi_title }} — {{ S.brand }}{% endblock %} {% block content %} {% include "components/page_header.html" %}
+
+<div id="player-selectors">
+  <form>
+    <label for="einvigi-player1">{{ S.player1_label }}</label>
+    <select id="einvigi-player1">
+      <option value="">{{ S.player_picker_placeholder }}</option>
+      {% for p in players %}
+      <option value="{{ p.slug }}">{{ p.name }}</option>
+      {% endfor %}
+    </select>
+  </form>
+  <form>
+    <label for="einvigi-player2">{{ S.player2_label }}</label>
+    <select id="einvigi-player2">
+      <option value="">{{ S.player_picker_placeholder }}</option>
+      {% for p in players %}
+      <option value="{{ p.slug }}">{{ p.name }}</option>
+      {% endfor %}
+    </select>
+  </form>
+</div>
+
+<div class="h2h-layout">
+  <div id="h2h-card">
+    <div class="empty-state">
+      <div class="empty-icon">&#9876;</div>
+      <div>{{ S.einvigi_empty }}</div>
+    </div>
+  </div>
+  <div id="h2h-elo-chart-mount"></div>
+</div>
+{% endblock %} {% block scripts %}
+<script type="module" src="/static/js/einvigi.js"></script>
+{% endblock %}

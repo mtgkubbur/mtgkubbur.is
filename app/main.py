@@ -11,7 +11,7 @@ from starlette.types import Scope
 
 from app import data
 from app.config import STATIC_DIR
-from app.routes import data_api, rankings, throun
+from app.routes import data_api, einvigi, rankings, throun
 from app.templating import templates
 
 logger = logging.getLogger(__name__)
@@ -44,8 +44,9 @@ app.mount("/static", CachedStaticFiles(directory=STATIC_DIR), name="static")
 app.include_router(data_api.router)
 app.include_router(rankings.router)
 app.include_router(throun.router)
+app.include_router(einvigi.router)
 # Page routers are added by their tasks:
-# throun / einvigi / kubbar / dagatal / methods
+# kubbar / dagatal / methods
 
 
 @app.get("/healthz")
