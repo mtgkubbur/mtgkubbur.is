@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#150b00"/>
+  <text x="16" y="22" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="16" fill="#f9faf4">MK</text>
+  <rect x="0" y="26" width="32" height="6" rx="0 0 6 6" fill="#0e68ab"/>
+</svg>
