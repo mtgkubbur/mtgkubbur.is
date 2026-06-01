@@ -11,7 +11,7 @@ from starlette.types import Scope
 
 from app import data
 from app.config import STATIC_DIR
-from app.routes import data_api
+from app.routes import data_api, rankings
 from app.templating import templates
 
 logger = logging.getLogger(__name__)
@@ -42,8 +42,9 @@ app = FastAPI(title="mtgkubbur.is", docs_url=None, redoc_url=None, lifespan=life
 app.add_middleware(GZipMiddleware, minimum_size=1024, compresslevel=6)
 app.mount("/static", CachedStaticFiles(directory=STATIC_DIR), name="static")
 app.include_router(data_api.router)
+app.include_router(rankings.router)
 # Page routers are added by their tasks:
-# app.include_router(rankings.router) / throun / einvigi / kubbar / dagatal / methods
+# throun / einvigi / kubbar / dagatal / methods
 
 
 @app.get("/healthz")

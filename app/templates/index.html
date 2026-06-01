@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}{{ S.nav_stigatafla }} — {{ S.brand }}{% endblock %}
+
+{% macro render_delta(cell) %}
+  {%- if cell.kind == "up" -%}
+    <span class="delta-pill delta-up"><span class="arrow">▲</span>{{ cell.text }}</span>
+  {%- elif cell.kind == "down" -%}
+    <span class="delta-pill delta-down"><span class="arrow">▼</span>{{ cell.text }}</span>
+  {%- elif cell.kind == "zero" -%}
+    <span class="delta-zero">{{ cell.text }}</span>
+  {%- else -%}
+    <span class="delta-na">{{ cell.text }}</span>
+  {%- endif -%}
+{% endmacro %}
+
+{% block content %}
+{% include "components/page_header.html" %}
+
+<div class="stigatafla-content" x-data="{ selected: 'Allt' }">
+  <div id="cube-selector">
+    <label for="cube-cat-select">{{ S.cube_filter_label }}</label>
+    <select id="cube-cat-select" x-model="selected">
+      {% for p in panels %}
+      <option value="{{ p.data_cube }}">{{ p.label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  {% for p in panels %}
+  <div class="cube-table-panel{% if p.data_cube == 'Allt' %} active{% endif %}"
+       data-cube="{{ p.data_cube }}"
+       :class="{ 'active': selected === '{{ p.data_cube }}' }">
+    {% if p.rows %}
+    <div class="score-table">
+      <div class="score-table-search">
+        <input type="search" placeholder="{{ S.search_placeholder }}"
+               aria-label="{{ S.search_placeholder }}" data-search />
+      </div>
+      <table>
+        <thead>
+          <tr class="group-row">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th colspan="3">{{ S.group_elo }}</th>
+            <th colspan="2">{{ S.group_saeti }}</th>
+          </tr>
+          <tr>
+            <th class="sortable" data-key="player">{{ S.col_player }}</th>
+            <th class="sortable" data-key="wins">{{ S.col_wins }}</th>
+            <th class="sortable" data-key="losses">{{ S.col_losses }}</th>
+            <th class="sortable" data-key="pct">{{ S.col_pct }}</th>
+            <th class="sortable" data-key="elo">{{ S.col_elo }}</th>
+            <th>{{ S.col_prev }}</th>
+            <th>{{ S.col_delta }}</th>
+            <th>{{ S.col_prev }}</th>
+            <th>{{ S.col_delta }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in p.rows %}
+          <tr{% if r.podium %} class="podium-{{ r.podium }}"{% endif %} data-player="{{ r.player }}">
+            <td class="player-cell" data-sort="{{ r.nr }}">{{ r.nr }}. {{ r.player }}</td>
+            <td class="wins-col" data-sort="{{ r.wins if r.wins is not none else -1 }}">{{ r.wins if r.wins is not none else "–" }}</td>
+            <td class="losses-col" data-sort="{{ r.losses if r.losses is not none else -1 }}">{{ r.losses if r.losses is not none else "–" }}</td>
+            <td data-sort="{{ r.pct if r.pct is not none else -1 }}">
+              {% if r.pct is not none %}
+              <span class="winrate-cell">
+                <span class="winrate-bar-track">
+                  <span class="winrate-bar-fill" style="width: {{ r.pct }}%; background: {{ r.bar_colour }};"></span>
+                </span>
+                <span class="winrate-label">{{ r.pct }}%</span>
+              </span>
+              {% else %}–{% endif %}
+            </td>
+            <td class="score-elo-cell" data-sort="{{ r.elo if r.elo is not none else -1 }}">{{ r.elo if r.elo is not none else "–" }}</td>
+            <td class="score-prev-cell">{{ r.prev_elo if r.prev_elo is not none else "–" }}</td>
+            <td>{{ render_delta(r.score_delta_cell) }}</td>
+            <td class="score-prev-cell">{{ r.nr_prev if r.nr_prev is not none else "–" }}</td>
+            <td>{{ render_delta(r.rank_delta_cell) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="empty-state"><div class="empty-icon">⚔</div><div>{{ S.throun_empty }}</div></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/static/js/stigatafla.js"></script>
+{% endblock %}
