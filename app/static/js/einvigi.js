@@ -183,10 +183,13 @@ async function update() {
     getPlayer(slug2),
   ]);
 
-  // alphabetical pair key (matches head_to_head player_a/player_b ordering)
-  const a = name1.localeCompare(name2, "is") <= 0 ? name1 : name2;
-  const b = a === name1 ? name2 : name1;
-  const rec = h2h.find((d) => d.player_a === a && d.player_b === b);
+  // head_to_head player_a/player_b use an internal (non-alphabetical) order,
+  // so match the pair in either orientation.
+  const rec = h2h.find(
+    (d) =>
+      (d.player_a === name1 && d.player_b === name2) ||
+      (d.player_a === name2 && d.player_b === name1),
+  );
 
   const p1Wins = rec ? mapWins(rec, name1).w1 : 0;
   const p2Wins = rec ? mapWins(rec, name1).w2 : 0;
