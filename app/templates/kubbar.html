@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}{{ S.kubbar_title }} — {{ S.brand }}{% endblock %} {% block content %} {% set header_h1 = header_h1 %} {% include "components/page_header.html" %}
+
+<div class="kubbar-content">
+  <div id="cube-page-selector">
+    <label for="cube-select">{{ S.cube_picker_label }}</label>
+    <select id="cube-select">
+      <option value="">{{ S.cube_picker_placeholder }}</option>
+      {% for c in cubes %}
+      <option value="{{ c.slug }}">{{ c.cube }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div id="kubbar-empty" class="empty-state">
+    <div class="empty-icon">&#9876;</div>
+    <div>{{ S.kubbar_empty }}</div>
+  </div>
+
+  <div id="kubbar-summary"></div>
+  <div id="kubbar-trophy"></div>
+  <div id="kubbar-rankings"></div>
+
+  <div id="event-date-selector" hidden>
+    <label for="event-select">{{ S.event_picker_label }}</label>
+    <select id="event-select"></select>
+  </div>
+
+  <div id="kubbar-event"></div>
+</div>
+{% endblock %} {% block scripts %}
+<script type="module" src="/static/js/kubbar.js"></script>
+{% endblock %}
