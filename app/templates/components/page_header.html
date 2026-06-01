@@ -1,0 +1,13 @@
+<header class="page-header">
+  <div class="mana-pips">
+    <i class="ms ms-w mana-pip-w"></i>
+    <i class="ms ms-u mana-pip-u"></i>
+    <i class="ms ms-b mana-pip-b"></i>
+    <i class="ms ms-r mana-pip-r"></i>
+    <i class="ms ms-g mana-pip-g"></i>
+  </div>
+  {% if header_h1 is defined and header_h1 %}<h1>{{ header_h1 }}</h1>{% endif %}
+  {% if header_subtitle is defined and header_subtitle %}<p class="subtitle">{{ header_subtitle }}</p>{% endif %}
+  {% if header_desc is defined and header_desc %}<p class="page-desc">{{ header_desc }}</p>{% endif %}
+  {% if header_badge is defined and header_badge %}<span class="date-badge">{{ header_badge }}</span>{% endif %}
+</header>

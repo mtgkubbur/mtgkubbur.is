@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}404 — {{ S.brand }}{% endblock %}
+{% block content %}
+<div class="empty-state" style="max-width: 600px; margin: 3rem auto;">
+  <div class="empty-icon">❓</div>
+  <div>Síðan fannst ekki</div>
+  <p style="margin-top: 1rem;"><a href="/">{{ S.nav_stigatafla }}</a></p>
+</div>
+{% endblock %}

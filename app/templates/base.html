@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="is" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{{ S.brand }}{% endblock %}</title>
+    <meta name="description" content="{{ S.tagline }}" />
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/fonts/mana-font/css/mana.css" />
+    <link rel="stylesheet" href="/static/css/mtg.css?v=1" />
+    <link rel="stylesheet" href="/static/css/tailwind.css?v=1" />
+    <style>
+      [x-cloak] { display: none !important; }
+      .theme-icon-dark { display: none; }
+      [data-theme="dark"] .theme-icon-light { display: none; }
+      [data-theme="dark"] .theme-icon-dark { display: inline; }
+    </style>
+    <script>
+      (function () {
+        var s = localStorage.getItem("theme");
+        if (s === "dark") document.documentElement.setAttribute("data-theme", "dark");
+      })();
+      function toggleTheme() {
+        var h = document.documentElement;
+        var d = h.getAttribute("data-theme") === "dark";
+        h.setAttribute("data-theme", d ? "light" : "dark");
+        localStorage.setItem("theme", d ? "light" : "dark");
+      }
+    </script>
+    <script>window.STR = {{ strings_json | safe }};</script>
+    <script src="/static/js/vendor/alpine-3.14.8.min.js" defer></script>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a class="nav-brand" href="/">{{ S.brand }}</a>
+      <div class="nav-links">
+        <a class="nav-link {{ 'active' if page == 'stigatafla' else '' }}" href="/">{{ S.nav_stigatafla }}</a>
+        <a class="nav-link {{ 'active' if page == 'leikmadur' else '' }}" href="/throun">{{ S.nav_leikmadur }}</a>
+        <a class="nav-link {{ 'active' if page == 'einvigi' else '' }}" href="/einvigi">{{ S.nav_einvigi }}</a>
+        <a class="nav-link {{ 'active' if page == 'kubbar' else '' }}" href="/kubbar">{{ S.nav_kubbar }}</a>
+        <a class="nav-link {{ 'active' if page == 'dagatal' else '' }}" href="/dagatal">{{ S.nav_dagatal }}</a>
+      </div>
+      <div class="nav-right">
+        <a class="nav-skra" href="https://skra.mtgkubbur.is" target="_blank" rel="noopener">{{ S.nav_skra }}</a>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Skipta um þema" aria-label="Skipta um þema">
+          <span class="theme-icon-light">☀️</span><span class="theme-icon-dark">🌙</span>
+        </button>
+      </div>
+    </nav>
+    <main class="site-main">{% block content %}{% endblock %}</main>
+    {% include "components/footer.html" %}
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
