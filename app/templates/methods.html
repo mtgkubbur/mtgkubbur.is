@@ -1,0 +1,442 @@
+{% extends "base.html" %}
+{% block title %}Statistical Methods — {{ S.brand }}{% endblock %}
+{% block head %}
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+      processEscapes: true,
+    },
+    options: {
+      skipHtmlTags: [
+        "script",
+        "noscript",
+        "style",
+        "textarea",
+        "pre",
+        "code",
+      ],
+    },
+  };
+</script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+<style>
+  .methods-article {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+    line-height: 1.65;
+    color: var(--text-primary);
+  }
+  .methods-article h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+  .methods-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .methods-fitdate {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  .methods-article h2 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .methods-article h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .methods-article p {
+    margin-bottom: 1rem;
+  }
+  .methods-article ul,
+  .methods-article ol {
+    margin: 0 0 1rem 1.5rem;
+  }
+  .methods-article li {
+    margin-bottom: 0.35rem;
+  }
+  .methods-article table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.92rem;
+  }
+  .methods-article th,
+  .methods-article td {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border-default);
+    vertical-align: top;
+  }
+  .methods-article thead th {
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-default);
+  }
+  .methods-article mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+  }
+</style>
+{% endblock %}
+{% block content %}
+<article class="methods-article">
+  <h1>Statistical Methods</h1>
+  <p class="methods-subtitle">Time-Varying Bradley-Terry Model with Attendance-Based Mean Reversion and Cube Effects</p>
+  {% set fit = (meta.fit_date if meta else None) or (meta.reference_date if meta else None) %}
+  {% if fit %}
+  <p class="methods-fitdate">Model fit through {{ fit }}.</p>
+  {% endif %}
+{% raw %}
+
+  <h2>Overview</h2>
+  <p>
+    The ranking system uses a Bayesian Bradley-Terry model to estimate
+    relative player strength from head-to-head match results. The model has
+    three key components:
+  </p>
+  <ol>
+    <li>
+      <strong>Time-varying baseline strength</strong> — Player skill evolves
+      over time via an Ornstein-Uhlenbeck process
+    </li>
+    <li>
+      <strong>Attendance-based mean reversion</strong> — Players who show up
+      maintain their ratings; absent players regress toward the mean
+    </li>
+    <li>
+      <strong>Cube effects</strong> — Players can be relatively stronger or
+      weaker in specific cube formats
+    </li>
+  </ol>
+
+  <h2>The Bradley-Terry Model</h2>
+  <p>
+    For a match between player $i$ and player $j$, the probability that $i$
+    wins is:
+  </p>
+  $$ P(i \text{ wins}) = \text{logit}^{-1}(\alpha_i - \alpha_j) =
+  \frac{\exp(\alpha_i - \alpha_j)}{1 + \exp(\alpha_i - \alpha_j)} $$
+  <p>
+    where $\alpha_k$ is player $k$'s strength on the log-odds scale. When
+    $\alpha_i = \alpha_j$, win probability is 50%. Each unit difference in
+    $\alpha$ corresponds to odds ratio of $e^1 \approx 2.7$ in favor of the
+    stronger player.
+  </p>
+
+  <h2>Temporal Dynamics: Ornstein-Uhlenbeck Process</h2>
+  <p>
+    Player strength evolves over time according to an Ornstein-Uhlenbeck (OU)
+    process that combines two forces:
+  </p>
+  <ol>
+    <li>
+      <strong>Random drift</strong> — Strength can fluctuate due to practice,
+      form changes, metagame shifts, etc.
+    </li>
+    <li>
+      <strong>Mean reversion</strong> — Strength gradually pulls back toward
+      the population average
+    </li>
+  </ol>
+  <p>The evolution equation is:</p>
+  $$ \alpha_{k,t} = \phi_k(t)^{\Delta t} \cdot \alpha_{k,t-1} + \sqrt{\Delta
+  t} \cdot \sigma \cdot z_{k,t} $$
+  <p>where:</p>
+  <ul>
+    <li>
+      $\Delta t$ is the time gap (in weeks) since the previous game night
+    </li>
+    <li>$\sigma$ is a shared volatility parameter</li>
+    <li>$z_{k,t} \sim \text{Normal}(0, 1)$ are standardized innovations</li>
+    <li>
+      $\phi_k(t) \in [0, 1]$ is the mean-reversion rate, which depends on
+      attendance
+    </li>
+  </ul>
+
+  <h3>Attendance-Based Mean Reversion</h3>
+  <p>
+    The key innovation is that the mean-reversion rate depends on whether a
+    player attended:
+  </p>
+  $$ \phi_k(t) = \begin{cases} \phi_{\text{present}} & \text{if player } k
+  \text{ played at time } t \\ \phi_{\text{absent}} & \text{if player } k
+  \text{ was absent} \end{cases} $$
+  <p>
+    where typically $\phi_{\text{present}} > \phi_{\text{absent}}$. This
+    creates asymmetric dynamics:
+  </p>
+  <ul>
+    <li>
+      <strong>Players who attend</strong> maintain their ratings (weak mean
+      reversion, $\phi \approx 1$)
+    </li>
+    <li>
+      <strong>Players who are absent</strong> regress toward the mean faster
+      (stronger mean reversion, smaller $\phi$)
+    </li>
+  </ul>
+  <p>
+    This reflects the intuition that if you don't show up to prove yourself,
+    the system should become more uncertain about your true current
+    strength—and in the Bradley-Terry framework, increased uncertainty
+    manifests as regression toward the mean.
+  </p>
+
+  <h3>Half-Life Interpretation</h3>
+  <p>
+    The half-life tells us how long it takes for a player's "excess strength"
+    (distance from the mean) to decay by 50%:
+  </p>
+  $$ t_{1/2} = -\frac{\ln(2)}{\ln(\phi)} $$
+  <p>
+    For example, if $\phi_{\text{absent}} = 0.85$, the half-life is
+    approximately 4 weeks. This means that if a strong player misses a month
+    of cube nights, they lose about half of their rating advantage over the
+    average player.
+  </p>
+
+  <h2>Cube Effects</h2>
+  <p>
+    Some players are relatively stronger in certain cube formats (e.g.,
+    Vintage Cube vs. Pauper Cube). The model captures this with cube-specific
+    effects $\gamma_{k,c}$:
+  </p>
+  $$ \eta_{ijc,t} = \alpha_{i,t} + \gamma_{i,c} - \alpha_{j,t} - \gamma_{j,c}
+  $$
+  <p>
+    where $\gamma_{k,c}$ represents player $k$'s relative strength in cube
+    format $c$. The cube effects are constrained so that $\sum_c \gamma_{k,c}
+    = 0$ for each player, ensuring that $\alpha_{k,t}$ represents average
+    strength across all cube types.
+  </p>
+  <p>Cube formats are categorized as:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Cubes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>High</td>
+        <td>Vintage Cube, Bolti Vintage Cube, Nerva's Cube</td>
+      </tr>
+      <tr>
+        <td>Medium</td>
+        <td>Modern Cube, Synergy Cube, Bar Cube</td>
+      </tr>
+      <tr>
+        <td>Low</td>
+        <td>Khans Cube, Kaldheim Cube, Old Border Cube, Pauper Cube</td>
+      </tr>
+      <tr>
+        <td>Other</td>
+        <td>Miscellaneous cubes</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    The cube effects are treated as static (not time-varying), which is
+    reasonable since a player's relative affinity for different formats is
+    unlikely to change dramatically week-to-week.
+  </p>
+
+  <h2>Prior Distributions</h2>
+  <p>The model uses the following priors:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Prior</th>
+        <th>Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$\alpha_0$</td>
+        <td>$\text{Normal}(0, 1)$</td>
+        <td>Initial strengths on log-odds scale</td>
+      </tr>
+      <tr>
+        <td>$\sigma$</td>
+        <td>Exponential(1)</td>
+        <td>Volatility; kept moderate</td>
+      </tr>
+      <tr>
+        <td>$\phi_{\text{present}}$</td>
+        <td>Beta(15, 1)</td>
+        <td>Concentrated near 1 (weak reversion)</td>
+      </tr>
+      <tr>
+        <td>$\phi_{\text{absent}}$</td>
+        <td>$\text{Beta}(2, 2)$</td>
+        <td>Symmetric, allows stronger reversion</td>
+      </tr>
+      <tr>
+        <td>$\gamma_{k,c}$</td>
+        <td>$\text{Normal}(0, 0.3)$</td>
+        <td>Small cube effects centered at zero</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    The prior on $\phi_{\text{present}}$ being concentrated near 1 reflects
+    the belief that players who consistently show up should maintain their
+    ratings well. The prior on $\phi_{\text{absent}}$ is more diffuse,
+    allowing the data to inform how quickly absent players should regress.
+  </p>
+
+  <h2>Score Scale (ELO)</h2>
+  <p>
+    For interpretability, results are displayed on an ELO scale centred at
+    <strong>1500</strong> rather than raw log-odds. Each reported score is the
+    posterior median of a player's strength $\alpha_k$, mapped to the ELO
+    scale by
+  </p>
+  $$ \text{bt\_to\_elo}(\alpha_k) = \frac{400}{\ln(10)} \cdot \alpha_k + 1500 $$
+  <p>where <code>bt_to_elo</code> denotes this ELO conversion function.</p>
+  <p>
+    This affine transform is monotonic, so it preserves the ordering of
+    players while expressing strengths in the familiar ELO idiom: an average
+    player sits near 1500, and a 400-point gap corresponds to roughly a
+    tenfold odds advantage (since a unit of $\alpha$ is one log-odds unit, and
+    $400/\ln(10)$ converts natural-log odds to base-10 ELO points). The
+    underlying quantity is still the log-odds strength $\alpha_k$ from the
+    Bradley-Terry likelihood; the ELO mapping is purely a presentational
+    rescaling applied to the posterior.
+  </p>
+  <p>
+    Because the mapping is applied to each posterior draw, the full posterior
+    uncertainty is carried through to the ELO scale. Alongside the median, the
+    tables and charts show interval bands from the
+    <strong>5th and 95th percentiles</strong> of the per-draw ELO values, so a
+    wide band signals an uncertain rating and overlapping bands between two
+    players signal an uncertain ranking.
+  </p>
+
+  <h3>Uncertainty Propagation</h3>
+  <p>
+    Because the ELO mapping is applied within each posterior draw, uncertainty
+    is properly propagated:
+  </p>
+  <ul>
+    <li>
+      If there's high certainty about a player's strength, that player's ELO
+      distribution will be tightly concentrated and the interval band narrow
+    </li>
+    <li>
+      If two players are close in skill, their ELO bands will overlap
+      substantially, reflecting uncertainty about who is actually stronger
+    </li>
+  </ul>
+  <p>
+    The reported score intervals (5th and 95th percentiles) capture this
+    uncertainty. Overlapping intervals indicate that the ranking between those
+    players is uncertain.
+  </p>
+
+  <h2>Identifiability</h2>
+  <p>
+    The Bradley-Terry model has a location non-identifiability: we can add any
+    constant to all $\alpha_k$ without changing the likelihood. We handle this
+    by:
+  </p>
+  <ol>
+    <li>Constraining $\alpha_0$ (initial strengths) to sum to zero</li>
+    <li>
+      Re-centering $\alpha_t$ after each time step to maintain the constraint
+    </li>
+  </ol>
+  <p>
+    This ensures the mean player strength is always zero on the log-odds
+    scale. The ELO transformation then maps this zero-centred log-odds scale
+    onto an interpretable scale where the population mean sits at 1500 and
+    relative position is clear.
+  </p>
+
+  <h2>Inference</h2>
+  <p>
+    The model is fit using Hamiltonian Monte Carlo (HMC) via Stan, called from
+    R using <code>cmdstanr</code>. Default settings:
+  </p>
+  <ul>
+    <li>4 chains</li>
+    <li>1,500 warmup iterations</li>
+    <li>3,000 sampling iterations</li>
+    <li><code>adapt_delta = 0.9</code> to reduce divergent transitions</li>
+  </ul>
+  <p>
+    The high dimensionality (player strengths at each time point plus cube
+    effects) requires careful tuning, but the non-centered parameterization of
+    the OU process helps with sampling efficiency.
+  </p>
+
+  <h2>Model Comparison</h2>
+  <p>
+    The model includes generated quantities for leave-one-out cross-validation
+    (LOO-CV) via the <code>loo</code> package. This allows comparison against
+    simpler alternatives:
+  </p>
+  <ol>
+    <li><strong>Static Bradley-Terry</strong> — No temporal dynamics</li>
+    <li>
+      <strong>OU without attendance effects</strong> — Single $\phi$ for
+      everyone
+    </li>
+    <li><strong>No cube effects</strong> — Only time-varying $\alpha$</li>
+  </ol>
+
+  <h2>Limitations and Future Directions</h2>
+  <p><strong>Current limitations:</strong></p>
+  <ul>
+    <li>Cube effects are static (don't evolve over time)</li>
+    <li>
+      No player-vs-player specific effects (some players might consistently
+      beat others)
+    </li>
+    <li>Limited data per player can lead to high uncertainty</li>
+    <li>
+      The model doesn't distinguish between "hasn't played recently" and "new
+      player"
+    </li>
+  </ul>
+  <p><strong>Potential extensions:</strong></p>
+  <ul>
+    <li>
+      Glicko-style uncertainty inflation for inactive players (increase
+      variance rather than shift mean)
+    </li>
+    <li>Separate ranking tables for different cube categories</li>
+    <li>Time-varying cube effects</li>
+    <li>Hierarchical priors on player-specific volatility</li>
+  </ul>
+{% endraw %}
+</article>
+{% endblock %}
