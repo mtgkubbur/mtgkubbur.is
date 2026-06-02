@@ -42,11 +42,19 @@ def test_methods_has_all_ten_section_headings():
 
 def test_methods_loads_mathjax_and_has_latex():
     html = client.get("/methods").text
-    assert "tex-mml-chtml" in html  # MathJax 3 bundle
+    assert "tex-chtml" in html  # MathJax 3 CHTML bundle (TeX in, CHTML out)
     assert "MathJax" in html
     # display + inline LaTeX present (raw, MathJax renders client-side)
     assert "\\text{logit}^{-1}" in html
     assert "\\phi_{\\text{present}}" in html
+
+
+def test_methods_mathjax_is_vendored_not_cdn():
+    # Convention: all runtime assets are vendored under /static, no CDN.
+    html = client.get("/methods").text
+    assert "/static/js/vendor/mathjax-3.2.2/es5/tex-chtml.js" in html
+    assert "jsdelivr" not in html
+    assert "cdn." not in html
 
 
 def test_methods_has_both_tables():
