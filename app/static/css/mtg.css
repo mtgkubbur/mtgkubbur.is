@@ -126,26 +126,26 @@
 }
 
 .page-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1a1008;
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: var(--h1-size);
+  font-weight: 600;
+  color: #2a2013;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0;
+  line-height: 1.1;
 }
 
 .page-header .subtitle {
-  color: #5c4f42;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  color: #6f6354;
   font-size: 1.1rem;
   margin: 0;
-  font-weight: 400;
+  letter-spacing: 0;
 }
 
-.page-header .page-desc {
-  color: #7a7068;
-  font-size: 0.95rem;
-  margin: 0.25rem 0 0;
-  font-weight: 400;
-}
+.page-header .page-desc { color: #837663; font-size: 0.95rem; margin: 0.35rem 0 0; font-weight: 400; }
 
 .date-badge {
   display: inline-flex;
@@ -1092,14 +1092,9 @@
   opacity: 1;
 }
 
-[data-theme="dark"] .page-header h1 {
-  color: #e8e4dc;
-}
-
-[data-theme="dark"] .page-header .subtitle,
-[data-theme="dark"] .page-header .page-desc {
-  color: #7a7670;
-}
+[data-theme="dark"] .page-header h1 { color: #ede4d2; }
+[data-theme="dark"] .page-header .subtitle { color: #b6a684; }
+[data-theme="dark"] .page-header .page-desc { color: #8c8378; }
 
 [data-theme="dark"] .date-badge {
   background: rgba(212, 168, 67, 0.15);
