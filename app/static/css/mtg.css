@@ -74,20 +74,24 @@
 .page-header .page-desc { color: #837663; font-size: 0.95rem; margin: 0.35rem 0 0; font-weight: 400; }
 
 .date-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(201, 168, 76, 0.12);
-  color: #8b6914;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 14px;
-  margin-top: 1rem;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  box-shadow: 0 1px 2px rgba(139, 105, 20, 0.08);
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--gold-soft);
+  color: #7c6428; font-size: 11px; font-weight: 600; padding: 5px 13px; border-radius: 6px;
+  letter-spacing: 0.06em; text-transform: uppercase; margin-top: 1.1rem;
+  border: 1px solid rgba(201,168,76,0.26);
 }
+[data-theme="dark"] .date-badge { background: rgba(212,168,67,0.12); color: #cdb273; border-color: rgba(212,168,67,0.26); }
+
+/* ─── Generic card ─── */
+.mtg-card {
+  position: relative; background: var(--surface-card); border: 1px solid var(--border-default);
+  border-radius: var(--radius-md); padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.mtg-card:hover { box-shadow: var(--shadow-hover); border-color: #d8d2c4; }
+[data-theme="dark"] .mtg-card { background: rgba(255,255,255,0.04); }
+@media (min-width: 900px) { [data-theme="dark"] .mtg-card { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); } }
 
 /* ─── Shared card elevation ─── */
 .score-table,
@@ -156,6 +160,20 @@
   outline: none;
 }
 
+/* ─── Form controls: select + search ─── */
+.mtg-select {
+  border: 1px solid var(--border-default); border-radius: var(--radius-sm);
+  padding: 7px 12px; font-size: 14px; color: var(--text-primary); font-weight: 500;
+  background: var(--surface-card); transition: box-shadow 0.15s ease, border-color 0.15s ease; font-family: var(--font-body);
+  box-shadow: inset 0 1px 2px rgba(60,40,10,0.04);
+}
+.mtg-select:hover { border-color: #cdbf9f; }
+.mtg-select:focus { box-shadow: 0 0 0 3px rgba(14,104,171,0.16); outline: none; border-color: var(--mtg-blue); }
+.mtg-select--event { font-weight: 700; border: 2px solid var(--mtg-gold); padding: 8px 16px; font-size: 15px; box-shadow: 0 0 0 3px var(--gold-soft); }
+.selector-label { font-weight: 600; color: var(--text-primary); }
+[data-theme="dark"] .mtg-select { border-color: rgba(255,255,255,0.10); color: #d8d4cc; background-color: rgba(255,255,255,0.05); }
+[data-theme="dark"] .mtg-select:focus { box-shadow: 0 0 0 3px rgba(59,158,221,0.22); border-color: #3b9edd; }
+
 /* ─── Dashboard grid layout ─── */
 .dashboard-grid {
   display: grid;
@@ -215,14 +233,18 @@
 }
 
 .cube-affinity-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #5c4f42;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
-  text-align: center;
+  font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: 0.09em; margin-bottom: 0.9rem; text-align: center;
+  padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-default);
 }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th { text-align: center; font-weight: 700; font-size: 11px; color: var(--text-muted); padding: 5px 8px; border-bottom: 1px solid var(--border-default); text-transform: uppercase; letter-spacing: 0.04em; }
+.data-table th:first-child { text-align: left; }
+.data-table td { text-align: center; padding: 9px 8px; vertical-align: middle; font-variant-numeric: tabular-nums; }
+.data-table td:first-child { text-align: left; font-weight: 500; }
+.data-table tbody tr { transition: background .15s ease; }
+.data-table tr:hover td { background: var(--surface-soft); }
+[data-theme="dark"] .data-table tr:hover td { background: rgba(255,255,255,0.03); }
 
 .cube-combined-table {
   width: 100%;
@@ -258,14 +280,7 @@
   font-weight: 500;
 }
 
-.cube-record-pip {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 6px;
-  vertical-align: middle;
-}
+.cube-record-pip { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: middle; box-shadow: 0 0 0 1px rgba(0,0,0,0.12) inset; }
 
 /* Inline gamma bar inside table cell */
 .gamma-cell {
@@ -400,48 +415,22 @@
 
 /* ─── Player summary card ─── */
 .player-summary {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  background: var(--surface-soft);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
+  display: flex; justify-content: center; gap: 0; padding: 1rem 1rem; margin-bottom: 1.5rem;
+  background: var(--surface-card);
+  border: 1px solid var(--border-default); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
 }
-
-.player-summary .stat {
-  text-align: center;
+.player-summary .stat { text-align: center; padding: 0 2rem; position: relative; }
+.player-summary .stat + .stat::before {
+  content: ""; position: absolute; left: 0; top: 16%; height: 68%; width: 1px;
+  background: var(--border-default);
 }
-
-.player-summary .stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #2a1f14;
-  line-height: 1.2;
-}
-
-.player-summary .stat-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: #5c4f42;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+.player-summary .stat-value { font-size: 1.6rem; font-weight: 700; color: var(--text-primary); line-height: 1.15; font-variant-numeric: tabular-nums; }
+.player-summary .stat-label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 3px; }
 
 /* Empty state for charts */
-.empty-state {
-  text-align: center;
-  padding: 3rem 1rem;
-  color: #5c4f42;
-  font-size: 1rem;
-}
-
-.empty-state .empty-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  opacity: 0.4;
-}
+.empty-state { text-align: center; padding: 3.5rem 1rem; color: var(--text-muted); font-size: 1.05rem; }
+.empty-state .empty-icon { font-size: 2.75rem; margin-bottom: 0.75rem; opacity: 0.5; color: var(--gold-line); }
 
 @media (max-width: 768px) {
   .player-summary {
@@ -491,80 +480,21 @@
 }
 
 .h2h-card {
-  max-width: none;
-  margin: 0;
-  background: var(--surface-card);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-card);
+  position: relative; background: var(--surface-card); border: 1px solid var(--border-default);
+  border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-card);
 }
-
-.h2h-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.h2h-player {
-  text-align: center;
-  flex: 1;
-}
-
-.h2h-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2a1f14;
-}
-
-.h2h-wins {
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.h2h-wins-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
+.h2h-header { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 1.25rem; }
+.h2h-player { text-align: center; flex: 1; }
+.h2h-name { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0; }
+.h2h-wins { font-size: 1.9rem; font-weight: 700; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.h2h-wins-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
 .h2h-vs {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #5c4f42;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.08em; flex: none;
 }
-
-.h2h-bar-container {
-  display: flex;
-  border-radius: 6px;
-  overflow: hidden;
-  height: 28px;
-  margin-bottom: 0.5rem;
-}
-
-.h2h-bar-fill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  min-width: 32px;
-  transition: width 0.3s ease;
-}
-
-.h2h-total {
-  text-align: center;
-  font-size: 13px;
-  color: #5c4f42;
-  margin-bottom: 1rem;
-}
+.h2h-bar-container { display: flex; border-radius: 6px; overflow: hidden; height: 28px; margin-bottom: 0.6rem; }
+.h2h-bar-fill { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 700; min-width: 36px; transition: width 0.4s ease; }
+.h2h-total { text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 1rem; }
 
 .h2h-cube-breakdown {
   border-top: 1px solid #d4cfc9;
@@ -824,13 +754,8 @@
   border-color: #c4bfb9;
 }
 
-.calendar-next-event td {
-  font-weight: 700;
-}
-
-.calendar-next-event td:first-child {
-  border-left: 3px solid var(--mtg-gold);
-}
+.calendar-next-event td { font-weight: 700; }
+.calendar-next-event td:first-child { box-shadow: inset 4px 0 0 -1px var(--mtg-gold); }
 
 .calendar-past-toggle {
   border: none;
@@ -942,12 +867,7 @@
 [data-theme="dark"] .page-header .subtitle { color: #b6a684; }
 [data-theme="dark"] .page-header .page-desc { color: #8c8378; }
 
-[data-theme="dark"] .date-badge {
-  background: rgba(212, 168, 67, 0.15);
-  color: #d4a843;
-  border-color: rgba(212, 168, 67, 0.2);
-  box-shadow: none;
-}
+/* [data-theme="dark"] .date-badge — consolidated at top of file */
 
 /* ─── Dark: Score table ─── */
 [data-theme="dark"] .score-table {
@@ -1162,9 +1082,7 @@
   box-shadow: var(--shadow-hover);
 }
 
-[data-theme="dark"] .calendar-next-event td:first-child {
-  border-left-color: var(--mtg-gold);
-}
+/* [data-theme="dark"] .calendar-next-event td:first-child — box-shadow already uses var(--mtg-gold) which adapts to dark */
 
 [data-theme="dark"] .calendar-past-toggle summary {
   color: #7a7670;
@@ -1242,19 +1160,24 @@
 .winrate-label { font-size: 12px; color: var(--text-muted); min-width: 30px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
 
 /* delta pills */
-.delta-pill { display: inline-flex; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; padding: 2px 6px; border-radius: 10px; line-height: 1; }
-.delta-pill .arrow { font-size: 9px; }
-.delta-up { color: #2ecc71; background: rgba(46,204,113,0.10); }
-.delta-down { color: #e74c3c; background: rgba(231,76,60,0.10); }
-.delta-zero { color: #4a4640; font-size: 12px; }
-.delta-na { color: #4a4640; }
+.delta-pill { display: inline-flex; align-items: center; gap: 2px; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 999px; line-height: 1; }
+.delta-pill .arrow { font-size: 8px; }
+.delta-up { color: #1c9d57; background: rgba(46,204,113,0.14); }
+.delta-down { color: #d23f30; background: rgba(231,76,60,0.13); }
+.delta-zero { color: var(--text-muted); font-size: 13px; }
+.delta-na { color: var(--text-muted); opacity: 0.6; }
+[data-theme="dark"] .delta-up { color: #4cd98a; }
+[data-theme="dark"] .delta-down { color: #f0685a; }
 /* search + sortable header */
-.score-table-search { margin-bottom: 16px; display: flex; }
-.score-table-search input { border-radius: 8px; border: 1px solid var(--border-default); padding: 6px 10px 6px 32px;
-  background: var(--surface-card); color: var(--text-body); width: 100%; max-width: 280px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235c4f42' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: 10px center; background-size: 14px; }
-.score-table-search input:focus { border-color: var(--mtg-blue); box-shadow: 0 0 0 3px rgba(14,104,171,0.12); outline: none; }
+.score-table-search { display: flex; }
+.score-table-search input {
+  border-radius: 999px; border: 1px solid var(--border-default); padding: 8px 14px 8px 36px;
+  background: var(--surface-card); color: var(--text-body); width: 100%; max-width: 300px; font-family: var(--font-body); font-size: 14px;
+  box-shadow: inset 0 1px 2px rgba(60,40,10,0.05);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b5c4c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 13px center; background-size: 14px;
+}
+.score-table-search input:focus { border-color: var(--mtg-blue); box-shadow: 0 0 0 3px rgba(14,104,171,0.14); outline: none; }
 @media (max-width: 768px) { .score-table { font-size: 14px; overflow-x: auto; } .score-table table { min-width: 640px; } }
 /* cube category panels */
 .cube-table-panel { display: none; }
