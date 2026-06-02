@@ -34,3 +34,26 @@ export const TIER_LABEL = { High: "High", Medium: "Medium", Low: "Low", Other: "
 export function isMonth(d) {
   return d.toLocaleDateString("is-IS", { month: "short" });
 }
+
+// Shared Plot.plot() top-level options (tighter margins, transparent bg, token text).
+export function basePlot(t, container, height = 380) {
+  return {
+    width: container.clientWidth || 700,
+    height,
+    marginLeft: 54,
+    marginRight: 18,
+    marginBottom: 36,
+    marginTop: 12,
+    style: {
+      fontFamily: "'Inter', system-ui, sans-serif",
+      fontSize: "12px",
+      background: "transparent",
+      color: t.text,
+    },
+  };
+}
+
+// Lighter, finer gridlines than the old 0.6 / "3,4" dash.
+export function baseGridStyle(t) {
+  return { stroke: t.grid, strokeOpacity: 0.45, strokeDasharray: "2,5" };
+}

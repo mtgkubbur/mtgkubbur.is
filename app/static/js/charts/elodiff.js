@@ -1,6 +1,6 @@
 // Chart 6 — ELO-munur yfir tíma (head-to-head ELO difference over time).
 import * as Plot from "/static/js/vendor/plot-0.6.17.min.js";
-import { chartTheme, isMonth } from "/static/js/theme.js";
+import { chartTheme, isMonth, basePlot, baseGridStyle } from "/static/js/theme.js";
 
 // history1 / history2: arrays of {date: string|Date, score_median: number} (player files, oldest-first).
 export function render(container, p1Name, p2Name, history1, history2) {
@@ -36,26 +36,12 @@ export function render(container, p1Name, p2Name, history1, history2) {
   const latestColour = latest.diff >= 0 ? t.green : t.red;
 
   const chart = Plot.plot({
+    ...basePlot(t, container, 280),
     width: container.clientWidth || 580,
-    height: 280,
-    marginLeft: 55,
-    marginRight: 20,
-    marginBottom: 40,
-    marginTop: 12,
-    style: {
-      fontFamily: "'Inter', system-ui, sans-serif",
-      fontSize: "12px",
-      background: "transparent",
-      color: t.text,
-    },
     x: { type: "time", label: null, axis: null },
     y: { label: null, axis: null },
     marks: [
-      Plot.gridY({
-        stroke: t.grid,
-        strokeOpacity: 0.6,
-        strokeDasharray: "3,4",
-      }),
+      Plot.gridY(baseGridStyle(t)),
       Plot.axisX({
         tickSize: 4,
         tickPadding: 6,

@@ -2,6 +2,8 @@ import * as Plot from "/static/js/vendor/plot-0.6.17.min.js";
 import {
   chartTheme,
   isMonth,
+  basePlot,
+  baseGridStyle,
   TIER_LABEL,
   TIER_ORDER,
   tierColours,
@@ -45,27 +47,12 @@ export function render(container, history) {
   }
 
   const chart = Plot.plot({
-    width: container.clientWidth || 700,
-    height: 340,
-    marginLeft: 50,
-    marginRight: 20,
-    marginBottom: 40,
-    marginTop: 12,
-    style: {
-      fontFamily: "'Inter', system-ui, sans-serif",
-      fontSize: "12px",
-      background: "transparent",
-      color: t.text,
-    },
+    ...basePlot(t, container, 340),
     x: { type: "time", label: null, axis: null },
     y: { label: null, axis: null },
     color: { domain: labels, range: range, legend: true },
     marks: [
-      Plot.gridY({
-        stroke: t.grid,
-        strokeOpacity: 0.6,
-        strokeDasharray: "3,4",
-      }),
+      Plot.gridY(baseGridStyle(t)),
       Plot.axisX({
         ticks: Plot.utcMonth,
         tickFormat: isMonth,
