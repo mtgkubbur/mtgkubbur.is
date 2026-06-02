@@ -61,7 +61,7 @@
         <tbody>
           {% for r in p.rows %}
           <tr{% if r.podium %} class="podium-{{ r.podium }}"{% endif %} data-player="{{ r.player }}">
-            <td class="player-cell" data-sort="{{ r.nr }}">{{ r.nr }}. {{ r.player }}</td>
+            <td class="player-cell" data-sort="{{ r.nr }}"><span class="rank-medallion{% if r.podium %} rank-{{ r.podium }}{% endif %}">{{ r.nr }}</span>{{ r.player }}</td>
             <td class="wins-col" data-sort="{{ r.wins if r.wins is not none else -1 }}">{{ r.wins if r.wins is not none else "–" }}</td>
             <td class="losses-col" data-sort="{{ r.losses if r.losses is not none else -1 }}">{{ r.losses if r.losses is not none else "–" }}</td>
             <td data-sort="{{ r.pct if r.pct is not none else -1 }}">

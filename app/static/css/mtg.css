@@ -108,49 +108,6 @@
   border-color: #c4bfb9;
 }
 
-/* ─── Score table card shell ─── */
-.score-table {
-  font-size: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
-  background: var(--surface-card);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
-  padding: 16px 20px 8px;
-  box-shadow:
-    var(--shadow-card),
-    0 0 0 1px rgba(201, 168, 76, 0.06);
-}
-
-/* Score-table colour accent classes (plain <td> targets — kept) */
-.score-table .score-elo-cell {
-  color: #2c1e10;
-}
-
-.score-table .score-prev-cell {
-  color: #7a6e60;
-}
-
-.score-table .wins-col {
-  color: #00733e;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.score-table .losses-col {
-  color: #d3202a;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.score-table .winrate-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  min-width: 30px;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
 /* ─── Cube filter panel toggle ─── */
 .cube-table-panel {
   display: none;
@@ -1226,53 +1183,64 @@
 
 /* ===== Score table (Stigatafla) — plain-table rebuild of the reactable look ===== */
 .score-table { font-size: 16px; max-width: 1100px; margin: 0 auto; background: var(--surface-card);
-  border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: 16px 20px 12px;
-  box-shadow: var(--shadow-card), 0 0 0 1px rgba(201, 168, 76, 0.06); }
+  border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: 18px 22px 14px;
+  box-shadow: var(--shadow-card); transition: box-shadow .2s ease, border-color .2s ease; }
+.score-table:hover { box-shadow: var(--shadow-hover); border-color: #d8d2c4; }
 .score-table table { width: 100%; border-collapse: collapse; }
-.score-table thead th { color: var(--text-muted); font-size: 12px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.03em; text-align: center; padding: 8px 8px 10px; border-bottom: 2px solid var(--mtg-blue); }
+.score-table thead th { color: var(--text-muted); font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; text-align: center; padding: 8px 8px 11px; position: relative; }
+.score-table thead tr:last-child th { border-bottom: 2px solid var(--mtg-blue); }
 .score-table thead th:first-child { text-align: left; }
-.score-table thead tr.group-row th { font-size: 11px; letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--border-default); padding-bottom: 4px; font-weight: 600; }
-.score-table tbody td { color: var(--text-body); text-align: center; padding: 10px 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06); font-variant-numeric: tabular-nums; }
-[data-theme="dark"] .score-table tbody td { border-color: rgba(255, 255, 255, 0.06); }
-.score-table tbody td.player-cell { text-align: left; font-weight: 500; position: relative; }
-.score-table tbody tr:nth-child(odd) { background: rgba(0, 0, 0, 0.02); }
-[data-theme="dark"] .score-table tbody tr:nth-child(odd) { background: rgba(255, 255, 255, 0.015); }
+.score-table thead tr.group-row th { font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted);
+  border-bottom: 1px solid var(--border-default); padding-bottom: 4px; font-weight: 700; }
+.score-table tbody td { color: var(--text-body); text-align: center; padding: 11px 8px;
+  border-bottom: 1px solid rgba(60,40,10,0.06); font-variant-numeric: tabular-nums; }
+[data-theme="dark"] .score-table tbody td { border-color: rgba(255,255,255,0.06); }
+.score-table tbody td.player-cell { text-align: left; font-weight: 600; position: relative; }
+.score-table tbody tr:nth-child(odd) { background: rgba(120,92,40,0.025); }
+[data-theme="dark"] .score-table tbody tr:nth-child(odd) { background: rgba(255,255,255,0.015); }
+.score-table tbody tr { transition: background .15s ease; }
 .score-table tbody tr:hover td { background: var(--blue-light); }
-[data-theme="dark"] .score-table tbody tr:hover td { background: rgba(59, 158, 221, 0.08); }
-.score-table .wins-col { color: var(--mtg-green); font-weight: 600; }
-.score-table .losses-col { color: var(--mtg-red); font-weight: 600; }
-.score-table .score-elo-cell { font-weight: 700; font-size: 18px; }
+[data-theme="dark"] .score-table tbody tr:hover td { background: rgba(59,158,221,0.08); }
+.score-table .wins-col { color: var(--mtg-green); font-weight: 700; }
+.score-table .losses-col { color: var(--mtg-red); font-weight: 700; }
+.score-table .score-elo-cell { font-weight: 700; font-size: 18px; color: var(--text-primary); }
 .score-table .score-prev-cell { font-size: 13px; color: var(--text-muted); }
-/* podium */
-.score-table tr.podium-1 td.player-cell, .score-table tr.podium-2 td.player-cell,
-.score-table tr.podium-3 td.player-cell { padding-left: 28px; }
-.score-table tr.podium-1 td.player-cell::before, .score-table tr.podium-2 td.player-cell::before,
-.score-table tr.podium-3 td.player-cell::before { content: ""; position: absolute; left: 10px; top: 50%;
-  transform: translateY(-50%); width: 10px; height: 10px; border-radius: 50%; }
-.score-table tr.podium-1 td.player-cell { border-left: 4px solid #c9a84c; }
-.score-table tr.podium-1 td.player-cell::before { background: linear-gradient(135deg, #e8c84a, #b8941c); }
-.score-table tr.podium-2 td.player-cell { border-left: 4px solid #a8a8a8; }
-.score-table tr.podium-2 td.player-cell::before { background: linear-gradient(135deg, #c8c8c8, #909090); }
-.score-table tr.podium-3 td.player-cell { border-left: 4px solid #b87333; }
-.score-table tr.podium-3 td.player-cell::before { background: linear-gradient(135deg, #d4944a, #9a5e22); }
-.score-table tbody tr:not(.podium-1):not(.podium-2):not(.podium-3) td.player-cell { border-left: 4px solid transparent; }
-.score-table tr.podium-1 { background: linear-gradient(90deg, rgba(201,169,38,0.10), rgba(201,169,38,0.02)); }
-.score-table tr.podium-2 { background: linear-gradient(90deg, rgba(138,138,138,0.08), rgba(138,138,138,0.02)); }
-.score-table tr.podium-3 { background: linear-gradient(90deg, rgba(160,101,42,0.08), rgba(160,101,42,0.02)); }
-[data-theme="dark"] .score-table tr.podium-1 td.player-cell { border-left-color: #d4a843; }
-[data-theme="dark"] .score-table tr.podium-1 td.player-cell::before { background: linear-gradient(135deg,#f0d060,#c49630); }
-[data-theme="dark"] .score-table tr.podium-1 { background: linear-gradient(90deg, rgba(212,168,67,0.12), rgba(212,168,67,0.02)); }
-[data-theme="dark"] .score-table tr.podium-2 { background: linear-gradient(90deg, rgba(160,160,160,0.08), rgba(160,160,160,0.01)); }
-[data-theme="dark"] .score-table tr.podium-3 { background: linear-gradient(90deg, rgba(184,115,51,0.08), rgba(184,115,51,0.01)); }
+/* a11y/behaviour — sortable headers (production-only, not in design system) */
+.score-table thead th.sortable { cursor: pointer; user-select: none; transition: color .15s; }
+.score-table thead th.sortable:hover { color: var(--mtg-blue); }
+
+/* Rank medallions — quiet tinted discs */
+.rank-medallion {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; margin-right: 11px; vertical-align: middle;
+  font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; flex: none;
+  background: var(--surface-soft); color: var(--text-muted);
+  border: 1px solid var(--border-default);
+}
+[data-theme="dark"] .rank-medallion { background: rgba(255,255,255,0.05); }
+.rank-medallion.rank-1 { background: rgba(201,168,76,0.16); color: #8a6d1e; border-color: rgba(201,168,76,0.45); }
+.rank-medallion.rank-2 { background: rgba(150,150,150,0.18); color: #5f5f5f; border-color: rgba(150,150,150,0.5); }
+.rank-medallion.rank-3 { background: rgba(176,115,51,0.16); color: #8a5320; border-color: rgba(176,115,51,0.45); }
+[data-theme="dark"] .rank-medallion.rank-1 { color: #d8be78; }
+[data-theme="dark"] .rank-medallion.rank-2 { color: #c0c0c0; }
+[data-theme="dark"] .rank-medallion.rank-3 { color: #d09a64; }
+/* podium row: subtle metal left edge, very light tint */
+.score-table tr.podium-1 td:first-child { box-shadow: inset 3px 0 0 -1px #c9a84c; }
+.score-table tr.podium-2 td:first-child { box-shadow: inset 3px 0 0 -1px #b0b0b0; }
+.score-table tr.podium-3 td:first-child { box-shadow: inset 3px 0 0 -1px #b87333; }
+.score-table tr.podium-1 { background: rgba(201,169,38,0.05) !important; }
+.score-table tr.podium-2 { background: rgba(150,150,150,0.05) !important; }
+.score-table tr.podium-3 { background: rgba(176,115,51,0.05) !important; }
+.score-table tr.podium-1:hover td, .score-table tr.podium-2:hover td, .score-table tr.podium-3:hover td { background: transparent; }
+
 /* win-rate bar cell */
-.winrate-cell { min-width: 84px; display: flex; align-items: center; gap: 6px; justify-content: center; }
-.winrate-bar-track { width: 48px; flex: none; height: 6px; border-radius: 3px; background: rgba(0,0,0,0.06); overflow: hidden; }
-[data-theme="dark"] .winrate-bar-track { background: rgba(255,255,255,0.06); }
-.winrate-bar-fill { height: 100%; border-radius: 3px; }
-.winrate-label { font-size: 12px; color: var(--text-muted); min-width: 30px; text-align: right; font-variant-numeric: tabular-nums; }
+.winrate-cell { min-width: 92px; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
+.winrate-bar-track { width: 52px; flex: none; height: 8px; border-radius: 999px; background: rgba(60,40,10,0.08); overflow: hidden; box-shadow: inset 0 1px 2px rgba(60,40,10,0.12); }
+[data-theme="dark"] .winrate-bar-track { background: rgba(255,255,255,0.07); box-shadow: inset 0 1px 2px rgba(0,0,0,0.3); }
+.winrate-bar-fill { display: block; height: 100%; border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.35); }
+.winrate-label { font-size: 12px; color: var(--text-muted); min-width: 30px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+
 /* delta pills */
 .delta-pill { display: inline-flex; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; padding: 2px 6px; border-radius: 10px; line-height: 1; }
 .delta-pill .arrow { font-size: 9px; }
@@ -1287,8 +1255,6 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235c4f42' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: 10px center; background-size: 14px; }
 .score-table-search input:focus { border-color: var(--mtg-blue); box-shadow: 0 0 0 3px rgba(14,104,171,0.12); outline: none; }
-.score-table thead th.sortable { cursor: pointer; user-select: none; }
-.score-table thead th.sortable:hover { color: var(--text-primary); }
 @media (max-width: 768px) { .score-table { font-size: 14px; overflow-x: auto; } .score-table table { min-width: 640px; } }
 /* cube category panels */
 .cube-table-panel { display: none; }
