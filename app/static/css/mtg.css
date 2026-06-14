@@ -1226,13 +1226,6 @@
   width: 4px; height: 4px; border-radius: 50%; background: #c9a84c;
 }
 .nav-right { margin-left: auto; display: flex; align-items: center; gap: 0.9rem; }
-.nav-skra {
-  color: rgba(247,233,196,0.85); text-decoration: none; font-weight: 600;
-  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 0.3rem 0.7rem; border: 1px solid rgba(201,168,76,0.3); border-radius: 999px;
-  transition: border-color .2s, color .2s, background .2s;
-}
-.nav-skra:hover { color: #fff; border-color: rgba(201,168,76,0.6); background: rgba(201,168,76,0.1); }
 .theme-toggle {
   width: 36px; height: 36px; border-radius: 999px; border: 1px solid rgba(201,168,76,0.3);
   background: rgba(255,255,255,0.04); color: #f9faf4; cursor: pointer; font-size: 15px;
@@ -1267,5 +1260,14 @@
 .footer-mana-sep { font-size: 0.6rem; opacity: 0.4; vertical-align: middle; }
 /* production-only: softer opacity for dark mana separator */
 [data-theme="dark"] .footer-mana-sep { opacity: 0.25; }
+/* Companion-app pills (standings + skrá) — external links, gold-accent like the old nav pill */
+.footer-apps { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 0.9rem; flex-wrap: wrap; justify-content: center; }
+.footer-apps a {
+  color: var(--text-muted); text-decoration: none; font-weight: 600;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.28rem 0.75rem; border: 1px solid var(--gold-line); border-radius: 999px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.footer-apps a:hover { color: var(--text-primary); border-color: var(--mtg-gold); background: var(--gold-soft); }
 .site-main { min-height: 60vh; padding: 1.5rem 1rem 3rem; }
 [x-cloak] { display: none !important; }

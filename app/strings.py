@@ -13,6 +13,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "nav_kubbar": "Kubbar",
         "nav_dagatal": "Dagatal",
         "nav_skra": "skrá",
+        "nav_standings": "Staðan",
+        "footer_apps_label": "Tengd forrit",
         "footer_copyright": "© 2026 MtG Kubbur",
         "loading": "Hleð gögnum…",
         "error": "Villa við að hlaða gögnum",

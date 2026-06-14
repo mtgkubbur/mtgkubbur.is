@@ -29,3 +29,16 @@ def test_nav_landmarks_have_distinct_aria_labels():
     assert r.status_code == 200
     assert 'aria-label="Aðalvalmynd"' in r.text  # primary navbar (base.html)
     assert 'aria-label="Síðufótur"' in r.text  # footer nav (footer.html)
+    assert 'aria-label="Tengd forrit"' in r.text  # footer companion-apps nav
+
+
+def test_footer_links_companion_apps_and_nav_pill_removed():
+    # The two external companion apps live in the footer, not the top nav.
+    r = client.get("/")
+    assert r.status_code == 200
+    assert 'href="https://standings.mtgkubbur.is"' in r.text  # public live standings
+    assert 'href="https://skra.mtgkubbur.is"' in r.text  # gated host app
+    # External links open in a new tab safely.
+    assert 'rel="noopener"' in r.text
+    # The old top-nav skrá pill has been removed in favour of the footer group.
+    assert 'class="nav-skra"' not in r.text
