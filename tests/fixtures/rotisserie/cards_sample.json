@@ -75,5 +75,28 @@
         }
       }
     ]
+  },
+  "Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun": {
+    "name": "Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun",
+    "mana_cost": "{2}{G}",
+    "cmc": 3.0,
+    "type_line": "Enchantment — Shrine // Legendary Land",
+    "colors": [
+      "G"
+    ],
+    "color_identity": [
+      "G"
+    ],
+    "rarity": "rare",
+    "layout": "transform",
+    "scryfall_uri": "https://scryfall.com/card/xln/187/growing-rites-of-itlimoc-itlimoc-cradle-of-the-sun",
+    "card_faces": [
+      {
+        "name": "Growing Rites of Itlimoc"
+      },
+      {
+        "name": "Itlimoc, Cradle of the Sun"
+      }
+    ]
   }
 }

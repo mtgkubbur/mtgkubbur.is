@@ -142,6 +142,9 @@ def build_cache(names: Sequence[str]) -> dict[str, dict]:
     cache, unresolved = resolve(names)
     if unresolved:
         raise ValueError(f"Scryfall could not resolve {len(unresolved)} card name(s): {unresolved[:10]}")
+    imageless = sorted(n for n, c in cache.items() if not c["img_small"] or not c["img_normal"])
+    if imageless:
+        raise ValueError(f"{len(imageless)} card(s) resolved with no usable image: {imageless[:10]}")
     return cache
 
 
