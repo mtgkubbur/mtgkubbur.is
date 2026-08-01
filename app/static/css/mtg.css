@@ -1271,3 +1271,75 @@
 .footer-apps a:hover { color: var(--text-primary); border-color: var(--mtg-gold); background: var(--gold-soft); }
 .site-main { min-height: 60vh; padding: 1.5rem 1rem 3rem; }
 [x-cloak] { display: none !important; }
+
+/* ── Rotisserie draft page ─────────────────────────────────────────── */
+.rot-content { display: flex; flex-direction: column; gap: 2rem; }
+.rot-section-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0 0 0.25rem;
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: 0.35rem;
+}
+.rot-status .player-summary { margin: 0; }
+.rot-next { font-weight: 700; }
+
+.rot-pool { margin-bottom: 2rem; }
+.rot-pool-name {
+  display: flex; align-items: baseline; gap: 0.6rem;
+  font-family: var(--font-display); font-size: 1.1rem; margin: 0 0 0.6rem;
+}
+.rot-pool-count { font-size: 0.85rem; font-weight: 400; opacity: 0.7; }
+
+.rot-cols { display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.rot-col { flex: 0 0 auto; width: 146px; }
+.rot-col-head {
+  display: flex; justify-content: space-between;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em;
+  opacity: 0.75; margin-bottom: 0.35rem;
+}
+/* Cube Cobra idiom: cards overlap so only the title bar of each shows. */
+.rot-stack { position: relative; }
+.rot-stack .rot-card { display: block; width: 146px; border-radius: 7px; }
+.rot-stack .rot-card + .rot-card { margin-top: -164px; }
+.rot-stack .rot-card:hover,
+.rot-stack .rot-card:focus-visible { position: relative; z-index: 2; }
+.rot-card { cursor: zoom-in; background: var(--surface-soft); }
+.rot-card-missing {
+  width: 146px; height: 204px; display: grid; place-items: center;
+  padding: 0.5rem; text-align: center; font-size: 0.75rem;
+  border: 1px dashed var(--border-default); border-radius: 7px;
+}
+
+.rot-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem; }
+.rot-filters input[type="search"] { flex: 1 1 14rem; min-width: 0; }
+.rot-colour-filters { display: flex; gap: 0.25rem; }
+.rot-colour-btn {
+  border: 1px solid var(--border-default); background: var(--surface-soft);
+  border-radius: 999px; padding: 0.2rem 0.55rem; cursor: pointer; font-size: 0.9rem;
+}
+.rot-colour-btn[aria-pressed="true"] { background: var(--mtg-gold); color: var(--mtg-black); border-color: var(--mtg-gold); }
+
+.rot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.5rem; }
+.rot-grid .rot-card { width: 100%; height: auto; border-radius: 7px; }
+
+.rot-log-list { list-style: none; margin: 0; padding: 0; }
+.rot-log-list li {
+  display: grid; grid-template-columns: 3.5rem 8rem 1fr;
+  gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px solid var(--border-default); font-size: 0.92rem;
+}
+.rot-log-round { opacity: 0.6; }
+.rot-log-player { font-weight: 600; }
+
+.rot-lightbox {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  background: rgb(0 0 0 / 0.72); cursor: zoom-out; padding: 1rem;
+}
+.rot-lightbox img { max-width: min(94vw, 488px); max-height: 92vh; border-radius: 12px; }
+
+@media (max-width: 640px) {
+  .rot-col, .rot-stack .rot-card { width: 120px; }
+  .rot-stack .rot-card + .rot-card { margin-top: -135px; }
+  .rot-log-list li { grid-template-columns: 2.5rem 1fr; }
+  .rot-log-list li .rot-log-card { grid-column: 1 / -1; }
+}
