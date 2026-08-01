@@ -194,6 +194,7 @@ def main(argv: list[str] | None = None) -> int:
     STATE_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     CARDS_PATH.write_text(json.dumps(cards, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    card_count = sum(1 for name in cards if name != scryfall.CACHE_META_KEY)
     logger.info(
         "picks %d/%d, round %d, next %s, %d remaining, %d cards cached",
         payload["picks_made"],
@@ -201,7 +202,7 @@ def main(argv: list[str] | None = None) -> int:
         payload["current_round"],
         payload["next_player"],
         len(payload["remaining"]),
-        len(cards),
+        card_count,
     )
     return 0
 

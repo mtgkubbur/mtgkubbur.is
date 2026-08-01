@@ -11,6 +11,11 @@ FIXTURES = Path(__file__).parent / "fixtures" / "rotisserie"
 SAMPLE = json.loads((FIXTURES / "cards_sample.json").read_text(encoding="utf-8"))
 
 
+def _fresh(cards: dict[str, dict]) -> dict[str, dict]:
+    """A cache dict stamped with the current version marker, as merge_cache leaves it."""
+    return {**cards, scryfall.CACHE_META_KEY: {"version": scryfall.CACHE_VERSION}}
+
+
 def test_flatten_plain_card():
     out = scryfall.flatten_card(SAMPLE["Lightning Bolt"])
     assert out["name"] == "Lightning Bolt"
@@ -40,6 +45,25 @@ def test_flatten_returns_empty_strings_when_no_image_is_available():
 def test_flatten_drops_scryfall_api_tracking_params():
     card = dict(SAMPLE["Lightning Bolt"], scryfall_uri="https://scryfall.com/card/x?utm_source=api")
     assert scryfall.flatten_card(card)["scryfall_uri"] == "https://scryfall.com/card/x"
+
+
+def test_flatten_falls_back_to_front_face_colours_and_cost_when_top_level_is_omitted():
+    """Scryfall omits colors/mana_cost entirely (not just empty) for transform
+    cards -- the values live per-face. Front face only: Fable of the
+    Mirror-Breaker is a red card, not red-red, and its front face is what a
+    player sees when identifying it in a pool."""
+    out = scryfall.flatten_card(SAMPLE["Fable of the Mirror-Breaker // Reflection of Kiki-Jiki"])
+    assert out["colors"] == ["R"]
+    assert out["mana_cost"] == "{1}{R}"
+
+
+def test_flatten_keeps_a_genuinely_colourless_card_colourless():
+    """card.get('colors') or [] would conflate 'key omitted' with 'genuinely
+    colourless'. Bomat Courier has colors: [] present at the top level and
+    must stay empty, not be mistaken for a card needing the face fallback."""
+    out = scryfall.flatten_card(SAMPLE["Bomat Courier"])
+    assert out["colors"] == []
+    assert out["mana_cost"] == "{1}"
 
 
 def test_build_alias_index_maps_front_faces_and_split_halves():
@@ -158,10 +182,12 @@ def test_merge_cache_makes_zero_fetches_when_every_name_is_already_cached(monkey
         raise AssertionError(f"build_cache must not be called when every name is cached, got {names!r}")
 
     monkeypatch.setattr(scryfall, "build_cache", fake_build_cache)
-    existing = {
-        "Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"]),
-        "Brazen Borrower": scryfall.flatten_card(SAMPLE["Brazen Borrower // Petty Theft"]),
-    }
+    existing = _fresh(
+        {
+            "Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"]),
+            "Brazen Borrower": scryfall.flatten_card(SAMPLE["Brazen Borrower // Petty Theft"]),
+        }
+    )
     result = scryfall.merge_cache(existing, ["Lightning Bolt", "Brazen Borrower"])
     assert result == existing
 
@@ -174,19 +200,75 @@ def test_merge_cache_fetches_only_the_uncached_names(monkeypatch):
         return {"Thing in the Ice": scryfall.flatten_card(SAMPLE["Thing in the Ice // Awoken Horror"])}
 
     monkeypatch.setattr(scryfall, "build_cache", fake_build_cache)
-    existing = {"Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"])}
+    existing = _fresh({"Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"])})
     result = scryfall.merge_cache(existing, ["Lightning Bolt", "Thing in the Ice"])
     assert calls == [["Thing in the Ice"]]
-    assert set(result) == {"Lightning Bolt", "Thing in the Ice"}
+    assert set(result) == {"Lightning Bolt", "Thing in the Ice", scryfall.CACHE_META_KEY}
     assert result["Lightning Bolt"] == existing["Lightning Bolt"]
     assert result["Thing in the Ice"]["name"] == "Thing in the Ice // Awoken Horror"
 
 
 def test_merge_cache_drops_names_no_longer_requested(monkeypatch):
-    existing = {
-        "Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"]),
-        "Brazen Borrower": scryfall.flatten_card(SAMPLE["Brazen Borrower // Petty Theft"]),
-    }
+    existing = _fresh(
+        {
+            "Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"]),
+            "Brazen Borrower": scryfall.flatten_card(SAMPLE["Brazen Borrower // Petty Theft"]),
+        }
+    )
     monkeypatch.setattr(scryfall, "build_cache", lambda names: {})
     result = scryfall.merge_cache(existing, ["Lightning Bolt"])
-    assert set(result) == {"Lightning Bolt"}
+    assert set(result) == {"Lightning Bolt", scryfall.CACHE_META_KEY}
+
+
+def test_merge_cache_stamps_the_current_version_on_its_output(monkeypatch):
+    monkeypatch.setattr(scryfall, "build_cache", lambda names: {})
+    result = scryfall.merge_cache(_fresh({}), [])
+    assert result[scryfall.CACHE_META_KEY] == {"version": scryfall.CACHE_VERSION}
+
+
+def test_merge_cache_rebuilds_everything_when_no_version_marker_is_present(monkeypatch):
+    """A cache file written before this cache-format-version sentinel existed
+    has no meta key at all. It must be treated as fully stale so a shape
+    change (e.g. Fix 1's colour/cost handling) actually propagates, rather
+    than requiring someone to remember to delete the file by hand."""
+    calls: list[list[str]] = []
+
+    def fake_build_cache(names):
+        calls.append(sorted(names))
+        return {n: scryfall.flatten_card(SAMPLE["Lightning Bolt"]) for n in names}
+
+    monkeypatch.setattr(scryfall, "build_cache", fake_build_cache)
+    old_format_cache = {"Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"])}
+    scryfall.merge_cache(old_format_cache, ["Lightning Bolt", "Brazen Borrower"])
+    assert calls == [["Brazen Borrower", "Lightning Bolt"]]
+
+
+def test_merge_cache_rebuilds_everything_when_the_version_marker_is_stale(monkeypatch):
+    calls: list[list[str]] = []
+
+    def fake_build_cache(names):
+        calls.append(sorted(names))
+        return {n: scryfall.flatten_card(SAMPLE["Lightning Bolt"]) for n in names}
+
+    monkeypatch.setattr(scryfall, "build_cache", fake_build_cache)
+    stale_cache = {
+        "Lightning Bolt": scryfall.flatten_card(SAMPLE["Lightning Bolt"]),
+        scryfall.CACHE_META_KEY: {"version": scryfall.CACHE_VERSION - 1},
+    }
+    scryfall.merge_cache(stale_cache, ["Lightning Bolt"])
+    assert calls == [["Lightning Bolt"]]
+
+
+def test_merge_cache_meta_key_is_not_mistaken_for_a_falsy_cached_entry(monkeypatch):
+    """Regression for the bare-KeyError nit: `existing.get(n) or fresh[n]`
+    would raise a bare KeyError for any falsy-but-present cached value. Use
+    an explicit membership check so this is not just avoided but legible if
+    the underlying build_cache contract is ever violated."""
+
+    def fake_build_cache(names):
+        raise AssertionError("must not be called: the only requested name is already cached")
+
+    monkeypatch.setattr(scryfall, "build_cache", fake_build_cache)
+    existing = _fresh({"Falsy Card": {}})
+    result = scryfall.merge_cache(existing, ["Falsy Card"])
+    assert result["Falsy Card"] == {}

@@ -3,6 +3,13 @@
   "title": "Rotisserie card cache",
   "type": "object",
   "minProperties": 1,
+  "properties": {
+    "__cache_meta__": {
+      "type": "object",
+      "properties": { "version": { "type": "integer", "minimum": 1 } },
+      "required": ["version"]
+    }
+  },
   "additionalProperties": {
     "type": "object",
     "required": ["name", "cmc", "type_line", "colors", "img_small", "img_normal"],

@@ -188,10 +188,12 @@
   },
   "Ajani, Nacatl Pariah": {
     "name": "Ajani, Nacatl Pariah // Ajani, Nacatl Avenger",
-    "mana_cost": "",
+    "mana_cost": "{1}{W}",
     "cmc": 2,
     "type_line": "Legendary Creature — Cat Warrior // Legendary Planeswalker — Ajani",
-    "colors": [],
+    "colors": [
+      "W"
+    ],
     "color_identity": [
       "R",
       "W"
@@ -595,10 +597,12 @@
   },
   "Archangel Avacyn": {
     "name": "Archangel Avacyn // Avacyn, the Purifier",
-    "mana_cost": "",
+    "mana_cost": "{3}{W}{W}",
     "cmc": 5,
     "type_line": "Legendary Creature — Angel // Legendary Creature — Angel",
-    "colors": [],
+    "colors": [
+      "W"
+    ],
     "color_identity": [
       "R",
       "W"
@@ -1054,10 +1058,12 @@
   },
   "Legion's Landing": {
     "name": "Legion's Landing // Adanto, the First Fort",
-    "mana_cost": "",
+    "mana_cost": "{W}",
     "cmc": 1,
     "type_line": "Legendary Enchantment // Legendary Land",
-    "colors": [],
+    "colors": [
+      "W"
+    ],
     "color_identity": [
       "W"
     ],
@@ -1086,10 +1092,12 @@
   },
   "Wedding Announcement": {
     "name": "Wedding Announcement // Wedding Festivity",
-    "mana_cost": "",
+    "mana_cost": "{2}{W}",
     "cmc": 3,
     "type_line": "Enchantment // Enchantment",
-    "colors": [],
+    "colors": [
+      "W"
+    ],
     "color_identity": [
       "W"
     ],
@@ -1152,10 +1160,12 @@
   },
   "Invasion of Gobakhan": {
     "name": "Invasion of Gobakhan // Lightshield Array",
-    "mana_cost": "",
+    "mana_cost": "{1}{W}",
     "cmc": 2,
     "type_line": "Battle — Siege // Enchantment",
-    "colors": [],
+    "colors": [
+      "W"
+    ],
     "color_identity": [
       "W"
     ],
@@ -1233,10 +1243,12 @@
   },
   "Tamiyo, Inquisitive Student": {
     "name": "Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar",
-    "mana_cost": "",
+    "mana_cost": "{U}",
     "cmc": 1,
     "type_line": "Legendary Creature — Moonfolk Wizard // Legendary Planeswalker — Tamiyo",
-    "colors": [],
+    "colors": [
+      "U"
+    ],
     "color_identity": [
       "G",
       "U"
@@ -1266,10 +1278,12 @@
   },
   "Jace, Vryn's Prodigy": {
     "name": "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
-    "mana_cost": "",
+    "mana_cost": "{1}{U}",
     "cmc": 2,
     "type_line": "Legendary Creature — Human Wizard // Legendary Planeswalker — Jace",
-    "colors": [],
+    "colors": [
+      "U"
+    ],
     "color_identity": [
       "U"
     ],
@@ -1366,10 +1380,12 @@
   },
   "Thing in the Ice": {
     "name": "Thing in the Ice // Awoken Horror",
-    "mana_cost": "",
+    "mana_cost": "{1}{U}",
     "cmc": 2,
     "type_line": "Creature — Horror // Creature — Kraken Horror",
-    "colors": [],
+    "colors": [
+      "U"
+    ],
     "color_identity": [
       "U"
     ],
@@ -2312,10 +2328,12 @@
   },
   "Search for Azcanta": {
     "name": "Search for Azcanta // Azcanta, the Sunken Ruin",
-    "mana_cost": "",
+    "mana_cost": "{1}{U}",
     "cmc": 2,
     "type_line": "Legendary Enchantment // Legendary Land",
-    "colors": [],
+    "colors": [
+      "U"
+    ],
     "color_identity": [
       "U"
     ],
@@ -2359,10 +2377,12 @@
   },
   "Cecil, Dark Knight": {
     "name": "Cecil, Dark Knight // Cecil, Redeemed Paladin",
-    "mana_cost": "",
+    "mana_cost": "{B}",
     "cmc": 1,
     "type_line": "Legendary Creature — Human Knight // Legendary Creature — Human Knight",
-    "colors": [],
+    "colors": [
+      "B"
+    ],
     "color_identity": [
       "B",
       "W"
@@ -2681,10 +2701,12 @@
   },
   "Valki, God of Lies": {
     "name": "Valki, God of Lies // Tibalt, Cosmic Impostor",
-    "mana_cost": "",
+    "mana_cost": "{1}{B}",
     "cmc": 2,
     "type_line": "Legendary Creature — God // Legendary Planeswalker — Tibalt",
-    "colors": [],
+    "colors": [
+      "B"
+    ],
     "color_identity": [
       "B",
       "R"
@@ -3107,10 +3129,12 @@
   },
   "Malakir Rebirth": {
     "name": "Malakir Rebirth // Malakir Mire",
-    "mana_cost": "",
+    "mana_cost": "{B}",
     "cmc": 1,
     "type_line": "Instant // Land",
-    "colors": [],
+    "colors": [
+      "B"
+    ],
     "color_identity": [
       "B"
     ],
@@ -4664,10 +4688,12 @@
   },
   "Fable of the Mirror-Breaker": {
     "name": "Fable of the Mirror-Breaker // Reflection of Kiki-Jiki",
-    "mana_cost": "",
+    "mana_cost": "{2}{R}",
     "cmc": 3,
     "type_line": "Enchantment — Saga // Enchantment Creature — Goblin Shaman",
-    "colors": [],
+    "colors": [
+      "R"
+    ],
     "color_identity": [
       "R"
     ],
@@ -4696,10 +4722,12 @@
   },
   "The Legend of Roku": {
     "name": "The Legend of Roku // Avatar Roku",
-    "mana_cost": "",
+    "mana_cost": "{2}{R}{R}",
     "cmc": 4,
     "type_line": "Enchantment — Saga // Legendary Creature — Avatar",
-    "colors": [],
+    "colors": [
+      "R"
+    ],
     "color_identity": [
       "R"
     ],
@@ -5290,10 +5318,12 @@
   },
   "Ulvenwald Oddity": {
     "name": "Ulvenwald Oddity // Ulvenwald Behemoth",
-    "mana_cost": "",
+    "mana_cost": "{2}{G}{G}",
     "cmc": 4,
     "type_line": "Creature — Beast // Creature — Beast Horror",
-    "colors": [],
+    "colors": [
+      "G"
+    ],
     "color_identity": [
       "G"
     ],
@@ -5867,10 +5897,12 @@
   },
   "Invasion of Ikoria": {
     "name": "Invasion of Ikoria // Zilortha, Apex of Ikoria",
-    "mana_cost": "",
+    "mana_cost": "{X}{G}{G}",
     "cmc": 2,
     "type_line": "Battle — Siege // Legendary Creature — Dinosaur",
-    "colors": [],
+    "colors": [
+      "G"
+    ],
     "color_identity": [
       "G"
     ],
@@ -7067,10 +7099,13 @@
   },
   "Huntmaster of the Fells": {
     "name": "Huntmaster of the Fells // Ravager of the Fells",
-    "mana_cost": "",
+    "mana_cost": "{2}{R}{G}",
     "cmc": 4,
     "type_line": "Creature — Human Werewolf // Creature — Werewolf",
-    "colors": [],
+    "colors": [
+      "G",
+      "R"
+    ],
     "color_identity": [
       "G",
       "R"
@@ -8947,5 +8982,8 @@
     "img_small": "https://cards.scryfall.io/small/front/e/3/e37da81e-be12-45a2-9128-376f1ad7b3e8.jpg?1783933066",
     "img_normal": "https://cards.scryfall.io/normal/front/e/3/e37da81e-be12-45a2-9128-376f1ad7b3e8.jpg?1783933066",
     "scryfall_uri": "https://scryfall.com/card/mh1/244/prismatic-vista"
+  },
+  "__cache_meta__": {
+    "version": 2
   }
 }

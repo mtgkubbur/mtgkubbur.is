@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 
 from app import data
 from app.main import app
+from scripts.rotisserie import scryfall
 
 client = TestClient(app)
 
@@ -44,5 +45,9 @@ def test_data_endpoint_returns_draft_and_cards():
 
 def test_every_cached_card_has_images():
     cards = data.load_rotisserie_cards()
-    broken = [n for n, c in cards.items() if not c.get("img_small") or not c.get("img_normal")]
+    broken = [
+        n
+        for n, c in cards.items()
+        if n != scryfall.CACHE_META_KEY and (not c.get("img_small") or not c.get("img_normal"))
+    ]
     assert broken == []

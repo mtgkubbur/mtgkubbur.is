@@ -98,5 +98,57 @@
         "name": "Itlimoc, Cradle of the Sun"
       }
     ]
+  },
+  "Fable of the Mirror-Breaker // Reflection of Kiki-Jiki": {
+    "name": "Fable of the Mirror-Breaker // Reflection of Kiki-Jiki",
+    "cmc": 2.0,
+    "type_line": "Enchantment — Saga // Legendary Creature — Goblin Shaman",
+    "color_identity": [
+      "R"
+    ],
+    "rarity": "rare",
+    "layout": "transform",
+    "scryfall_uri": "https://scryfall.com/card/mid/141/fable-of-the-mirror-breaker-reflection-of-kiki-jiki",
+    "card_faces": [
+      {
+        "name": "Fable of the Mirror-Breaker",
+        "mana_cost": "{1}{R}",
+        "colors": [
+          "R"
+        ],
+        "type_line": "Enchantment — Saga",
+        "image_uris": {
+          "small": "https://cards.scryfall.io/small/fable.jpg",
+          "normal": "https://cards.scryfall.io/normal/fable.jpg"
+        }
+      },
+      {
+        "name": "Reflection of Kiki-Jiki",
+        "mana_cost": "",
+        "colors": [
+          "R"
+        ],
+        "type_line": "Legendary Creature — Goblin Shaman",
+        "image_uris": {
+          "small": "https://cards.scryfall.io/small/reflection.jpg",
+          "normal": "https://cards.scryfall.io/normal/reflection.jpg"
+        }
+      }
+    ]
+  },
+  "Bomat Courier": {
+    "name": "Bomat Courier",
+    "mana_cost": "{1}",
+    "cmc": 1.0,
+    "type_line": "Artifact Creature — Vehicle",
+    "colors": [],
+    "color_identity": [],
+    "rarity": "rare",
+    "layout": "normal",
+    "scryfall_uri": "https://scryfall.com/card/kld/210/bomat-courier",
+    "image_uris": {
+      "small": "https://cards.scryfall.io/small/bomat.jpg",
+      "normal": "https://cards.scryfall.io/normal/bomat.jpg"
+    }
   }
 }

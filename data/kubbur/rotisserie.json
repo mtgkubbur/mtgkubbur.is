@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-01T17:57:22Z",
-  "source_digest": "sha256:481a4213f3a8da6329d2d94614aca3d56cd7510efbd880fbcbb88c3238d895c1",
+  "generated_at": "2026-08-01T20:13:55Z",
+  "source_digest": "sha256:9f48e84ed6600e9ee6c30e32e6041a95cfc854554fe6e95a4ec10b5d0980583e",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 9,
-  "current_round": 2,
-  "next_player": "Aron Ívars.",
+  "picks_made": 21,
+  "current_round": 3,
+  "next_player": "Óli",
   "players": [
     "Binni",
     "Örvar",
@@ -20,25 +20,37 @@
   ],
   "pools": {
     "Binni": [
-      "Ragavan, Nimble Pilferer"
+      "Ragavan, Nimble Pilferer",
+      "Birds of Paradise",
+      "Ignoble Hierarch"
     ],
     "Örvar": [
-      "Psychic Frog"
+      "Psychic Frog",
+      "Lurrus of the Dream-Den",
+      "Mishra's Bauble"
     ],
     "Tommi": [
-      "Urza's Saga"
+      "Urza's Saga",
+      "Urza, Lord High Artificer",
+      "Agatha's Soul Cauldron"
     ],
     "Diddi": [
-      "Fury"
+      "Fury",
+      "Arid Mesa",
+      "Flooded Strand"
     ],
     "Atli": [
-      "Dismember"
+      "Dismember",
+      "Cori-Steel Cutter",
+      "Scalding Tarn"
     ],
     "Óli": [
-      "Lightning Bolt"
+      "Lightning Bolt",
+      "Tamiyo, Inquisitive Student"
     ],
     "Aron Ívars.": [
-      "Ajani, Nacatl Pariah"
+      "Ajani, Nacatl Pariah",
+      "Orcish Bowmasters"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -117,7 +129,6 @@
     "Flitterwing Nuisance",
     "Pteramander",
     "Spectral Sailor",
-    "Tamiyo, Inquisitive Student",
     "Faerie Mastermind",
     "Jace, Vryn's Prodigy",
     "Kitsa, Otterball Elite",
@@ -137,7 +148,6 @@
     "Dungeon Geists",
     "Sower of Temptation",
     "Subtlety",
-    "Urza, Lord High Artificer",
     "Venser, Shaper Savant",
     "Body Double",
     "Quantum Riddler",
@@ -197,7 +207,6 @@
     "Dauthi Voidwalker",
     "Deep-Cavern Bat",
     "Emperor of Bones",
-    "Orcish Bowmasters",
     "Overlord of the Balemurk",
     "Pack Rat",
     "Priest of Forgotten Gods",
@@ -311,7 +320,6 @@
     "Light Up the Stage",
     "Sweltering Suns",
     "Pyrite Spellbomb",
-    "Cori-Steel Cutter",
     "Legion Extruder",
     "Embercleave",
     "Seal of Fire",
@@ -322,11 +330,9 @@
     "Den of the Bugbear",
     "Arbor Elf",
     "Avacyn's Pilgrim",
-    "Birds of Paradise",
     "Elvish Reclaimer",
     "Haywire Mite",
     "Hexdrinker",
-    "Ignoble Hierarch",
     "Llanowar Elves",
     "Noble Hierarch",
     "Sazh's Chocobo",
@@ -424,7 +430,6 @@
     "Act of Aggression",
     "Gitaxian Probe",
     "Engineered Explosives",
-    "Mishra's Bauble",
     "Mox Opal",
     "Welding Jar",
     "Bonesplitter",
@@ -433,7 +438,6 @@
     "Ghost Vacuum",
     "Shadowspear",
     "Springleaf Drum",
-    "Agatha's Soul Cauldron",
     "Cranial Plating",
     "Heart of Kiran",
     "Mind Stone",
@@ -475,7 +479,6 @@
     "Priest of Fell Rites",
     "Tidehollow Sculler",
     "Anguished Unmaking",
-    "Lurrus of the Dream-Den",
     "Expressive Iteration",
     "Third Path Iconoclast",
     "Flame of Anor",
@@ -503,7 +506,6 @@
     "Omnath, Locus of Creation",
     "Atraxa, Grand Unifier",
     "Celestial Colonnade",
-    "Flooded Strand",
     "Floodfarm Verge",
     "Hallowed Fountain",
     "Meticulous Archive",
@@ -540,7 +542,6 @@
     "Silent Clearing",
     "Fiery Islet",
     "Riverpyre Verge",
-    "Scalding Tarn",
     "Spirebluff Canal",
     "Steam Vents",
     "Thundering Falls",
@@ -550,7 +551,6 @@
     "Underground Mortuary",
     "Verdant Catacombs",
     "Wastewood Verge",
-    "Arid Mesa",
     "Elegant Parlor",
     "Inspiring Vantage",
     "Sacred Foundry",
@@ -579,6 +579,90 @@
     "Prismatic Vista"
   ],
   "log": [
+    {
+      "round": 3,
+      "seq": 21,
+      "player": "Atli",
+      "card": "Scalding Tarn",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 3,
+      "seq": 20,
+      "player": "Diddi",
+      "card": "Flooded Strand",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 3,
+      "seq": 19,
+      "player": "Tommi",
+      "card": "Agatha's Soul Cauldron",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 3,
+      "seq": 18,
+      "player": "Örvar",
+      "card": "Mishra's Bauble",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 3,
+      "seq": 17,
+      "player": "Binni",
+      "card": "Ignoble Hierarch",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 2,
+      "seq": 16,
+      "player": "Binni",
+      "card": "Birds of Paradise",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 2,
+      "seq": 15,
+      "player": "Örvar",
+      "card": "Lurrus of the Dream-Den",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 2,
+      "seq": 14,
+      "player": "Tommi",
+      "card": "Urza, Lord High Artificer",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 2,
+      "seq": 13,
+      "player": "Diddi",
+      "card": "Arid Mesa",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 2,
+      "seq": 12,
+      "player": "Atli",
+      "card": "Cori-Steel Cutter",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 2,
+      "seq": 11,
+      "player": "Óli",
+      "card": "Tamiyo, Inquisitive Student",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
+    {
+      "round": 2,
+      "seq": 10,
+      "player": "Aron Ívars.",
+      "card": "Orcish Bowmasters",
+      "first_seen": "2026-08-01T20:13:55Z"
+    },
     {
       "round": 2,
       "seq": 9,
