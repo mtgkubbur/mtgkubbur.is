@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-01T20:13:55Z",
-  "source_digest": "sha256:9f48e84ed6600e9ee6c30e32e6041a95cfc854554fe6e95a4ec10b5d0980583e",
+  "generated_at": "2026-08-01T23:09:34Z",
+  "source_digest": "sha256:acd504df1da9c17598887fa55b68352eb0643db4cdf8aa49f0b53b43ccd0a333",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 21,
-  "current_round": 3,
+  "picks_made": 37,
+  "current_round": 5,
   "next_player": "Óli",
   "players": [
     "Binni",
@@ -22,39 +22,55 @@
     "Binni": [
       "Ragavan, Nimble Pilferer",
       "Birds of Paradise",
-      "Ignoble Hierarch"
+      "Ignoble Hierarch",
+      "Llanowar Elves",
+      "Hexdrinker"
     ],
     "Örvar": [
       "Psychic Frog",
       "Lurrus of the Dream-Den",
-      "Mishra's Bauble"
+      "Mishra's Bauble",
+      "Marsh Flats",
+      "Verdant Catacombs"
     ],
     "Tommi": [
       "Urza's Saga",
       "Urza, Lord High Artificer",
-      "Agatha's Soul Cauldron"
+      "Agatha's Soul Cauldron",
+      "Walking Ballista",
+      "Steam Vents"
     ],
     "Diddi": [
       "Fury",
       "Arid Mesa",
-      "Flooded Strand"
+      "Flooded Strand",
+      "Icetill Explorer",
+      "Stock Up"
     ],
     "Atli": [
       "Dismember",
       "Cori-Steel Cutter",
-      "Scalding Tarn"
+      "Scalding Tarn",
+      "Unholy Heat",
+      "Stormchaser's Talent"
     ],
     "Óli": [
       "Lightning Bolt",
-      "Tamiyo, Inquisitive Student"
+      "Tamiyo, Inquisitive Student",
+      "Polluted Delta",
+      "Misty Rainforest"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
-      "Orcish Bowmasters"
+      "Orcish Bowmasters",
+      "Ocelot Pride",
+      "Bloodstained Mire"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
-      "Fable of the Mirror-Breaker"
+      "Fable of the Mirror-Breaker",
+      "Guide of Souls",
+      "Solitude"
     ]
   },
   "remaining": [
@@ -62,9 +78,7 @@
     "Esper Sentinel",
     "Giant Killer",
     "Giver of Runes",
-    "Guide of Souls",
     "Novice Inspector",
-    "Ocelot Pride",
     "Recruitment Officer",
     "Skrelv, Defector Mite",
     "Thraben Inspector",
@@ -95,7 +109,6 @@
     "Archangel of Thune",
     "Knight-Errant of Eos",
     "Reveillark",
-    "Solitude",
     "Venerated Loxodon",
     "Eagles of the North",
     "Sun Titan",
@@ -185,12 +198,10 @@
     "Serum Visions",
     "Chart a Course",
     "Flow State",
-    "Stock Up",
     "Lórien Revealed",
     "Time Warp",
     "Aether Spellbomb",
     "Cryptic Coat",
-    "Stormchaser's Talent",
     "Search for Azcanta",
     "Shark Typhoon",
     "Otawara, Soaring City",
@@ -304,7 +315,6 @@
     "Burst Lightning",
     "Galvanic Blast",
     "Lightning Axe",
-    "Unholy Heat",
     "Abrade",
     "Manamorphose",
     "Sear",
@@ -332,8 +342,6 @@
     "Avacyn's Pilgrim",
     "Elvish Reclaimer",
     "Haywire Mite",
-    "Hexdrinker",
-    "Llanowar Elves",
     "Noble Hierarch",
     "Sazh's Chocobo",
     "Aftermath Analyst",
@@ -355,7 +363,6 @@
     "Sentinel of the Nameless City",
     "Six",
     "Tireless Tracker",
-    "Icetill Explorer",
     "Mightform Harmonizer",
     "Ouroboroid",
     "Questing Beast",
@@ -400,7 +407,6 @@
     "Marketback Walker",
     "Memnite",
     "Stonecoil Serpent",
-    "Walking Ballista",
     "Gingerbrute",
     "Signal Pest",
     "Vault Skirge",
@@ -513,13 +519,11 @@
     "Creeping Tar Pit",
     "Darkslick Shores",
     "Gloomlake Verge",
-    "Polluted Delta",
     "Undercity Sewers",
     "Watery Grave",
     "Blackcleave Cliffs",
     "Blazemire Verge",
     "Blood Crypt",
-    "Bloodstained Mire",
     "Haunted Ridge",
     "Raucous Theater",
     "Commercial District",
@@ -537,19 +541,16 @@
     "Bleachbone Verge",
     "Concealed Courtyard",
     "Godless Shrine",
-    "Marsh Flats",
     "Shadowy Backstreet",
     "Silent Clearing",
     "Fiery Islet",
     "Riverpyre Verge",
     "Spirebluff Canal",
-    "Steam Vents",
     "Thundering Falls",
     "Golgari Rot Farm",
     "Nurturing Peatland",
     "Overgrown Tomb",
     "Underground Mortuary",
-    "Verdant Catacombs",
     "Wastewood Verge",
     "Elegant Parlor",
     "Inspiring Vantage",
@@ -558,7 +559,6 @@
     "Sunbillow Verge",
     "Breeding Pool",
     "Hedge Maze",
-    "Misty Rainforest",
     "Simic Growth Chamber",
     "Waterlogged Grove",
     "Willowrush Verge",
@@ -579,6 +579,118 @@
     "Prismatic Vista"
   ],
   "log": [
+    {
+      "round": 5,
+      "seq": 37,
+      "player": "Atli",
+      "card": "Stormchaser's Talent",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 5,
+      "seq": 36,
+      "player": "Diddi",
+      "card": "Stock Up",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 5,
+      "seq": 35,
+      "player": "Tommi",
+      "card": "Steam Vents",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 5,
+      "seq": 34,
+      "player": "Örvar",
+      "card": "Verdant Catacombs",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 5,
+      "seq": 33,
+      "player": "Binni",
+      "card": "Hexdrinker",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 32,
+      "player": "Binni",
+      "card": "Llanowar Elves",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 31,
+      "player": "Örvar",
+      "card": "Marsh Flats",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 30,
+      "player": "Tommi",
+      "card": "Walking Ballista",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 29,
+      "player": "Diddi",
+      "card": "Icetill Explorer",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 28,
+      "player": "Atli",
+      "card": "Unholy Heat",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 27,
+      "player": "Óli",
+      "card": "Misty Rainforest",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 26,
+      "player": "Aron Ívars.",
+      "card": "Bloodstained Mire",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 4,
+      "seq": 25,
+      "player": "Aron Freyr",
+      "card": "Solitude",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 3,
+      "seq": 24,
+      "player": "Aron Freyr",
+      "card": "Guide of Souls",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 3,
+      "seq": 23,
+      "player": "Aron Ívars.",
+      "card": "Ocelot Pride",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
+    {
+      "round": 3,
+      "seq": 22,
+      "player": "Óli",
+      "card": "Polluted Delta",
+      "first_seen": "2026-08-01T23:09:34Z"
+    },
     {
       "round": 3,
       "seq": 21,
