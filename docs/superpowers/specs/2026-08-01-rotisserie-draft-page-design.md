@@ -3,7 +3,8 @@
 **Date:** 2026-08-01
 **Status:** Approved, ready for implementation plan
 **Scope:** An unlisted page on mtgkubbur.is showing the live state of the Meta Memories
-rotisserie draft: whose turn it is, what each player has picked, and the pick history.
+rotisserie draft: whose turn it is, what each player has picked, what is still available,
+and the pick history.
 
 ## Problem
 
@@ -12,8 +13,8 @@ Sheet. A rotisserie draft picks from the entire cube one player at a time, so it
 weeks. The sheet is functional but hostile to reading: card names only, no images, no
 per-player view, and a status block that is currently full of `#REF!` errors.
 
-We want a page that answers two questions at a glance: *where is the draft* and *what does
-each player have*.
+We want a page that answers three questions at a glance: *where is the draft*, *what does
+each player have*, and *what is still on the table*.
 
 ## Source data
 
@@ -63,22 +64,55 @@ rankings. The one runtime third-party dependency is the visitor's browser loadin
 from `cards.scryfall.io`; see *Layout* for why that exception is acceptable.
 
 ```
-Google Sheet ──hourly Action──> fetch_rotisserie.py ──> data/kubbur/rotisserie.json
-                                        │                          │
-Scryfall API ──on cache miss only──> build_card_cache.py ──> data/kubbur/rotisserie_cards.json
-                                                                   │
-                                        commit if changed ──> deploy.yml ──> Fly
+two-hourly cron
+      │
+      v
+┌─ job 1: check ──────────────────────────────────────────────┐
+│  Google Sheet ──> parse.py  (stdlib only, ~15s)             │
+│  digest(pick state) == rotisserie.json:source_digest ?      │
+└─────────────────────────┬───────────────────────────────────┘
+                          │ differs  ->  changed=true
+┌─ job 2: publish ────────v───────────────────────────────────┐
+│  fetch_rotisserie.py  ──────────>  rotisserie.json          │
+│  build_card_cache.py  ──────────>  rotisserie_cards.json    │
+│      ^ Scryfall API, only on an unresolved card name        │
+│  commit  ──>  deploy.yml  ──>  Fly                          │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ### Pipeline — `.github/workflows/rotisserie.yml`
 
-Hourly `schedule:` cron plus `workflow_dispatch:` for an on-demand refresh. Runs
-`scripts/fetch_rotisserie.py`, then commits `data/kubbur/rotisserie*.json` **only if the
-content changed**. The resulting push to `master` triggers the existing `deploy.yml`
-(pytest → ruff → `validate_publish.py` → Fly).
+Two-hourly `schedule:` cron plus `workflow_dispatch:` for an on-demand refresh. Split into
+two jobs so the common case — nobody has picked — costs almost nothing.
 
-An hourly commit cadence is in keeping with this repo, which already receives an automated
-`data: sync published JSON from cube_rankings` commit every night.
+**Job 1, `check` (gate).** Checkout, then `python3 scripts/rotisserie_changed.py`. Fetches
+both CSVs, parses them, and compares a digest of the *normalised pick state* against
+`source_digest` in the committed `rotisserie.json`. Emits `changed=true|false` as a job
+output. Runs in roughly fifteen seconds.
+
+The gate parses rather than hashing raw bytes, and imports the same
+`scripts/rotisserie/parse.py` module the publish job uses, so there is one parser, not two.
+That module is deliberately **stdlib-only** (`csv`, `hashlib`, `urllib`) — the gate therefore
+needs no `setup-uv`, no `uv sync`, and no dependency resolution at all.
+
+**Job 2, `publish`.** `needs: check`, guarded by
+`if: needs.check.outputs.changed == 'true'`. Runs the full `scripts/fetch_rotisserie.py`,
+refreshes the card cache if any name is unresolved, writes both JSON files, and commits. The
+push to `master` triggers the existing `deploy.yml` (pytest → ruff → `validate_publish.py` →
+Fly).
+
+Why hash the parsed state rather than the response bytes: the CSV was verified byte-stable
+across repeated requests for unchanged data, so raw hashing would *work* — but it is brittle
+against Google altering CSV quoting, and against the sheet's `#REF!` cells flickering as
+Diddi repairs the status block. Neither changes who picked what. Digesting the normalised
+pick state means the gate fires on real picks and stays quiet for cosmetic churn.
+
+Conditional requests are not an option: the endpoint returns no `ETag` and no
+`Last-Modified`, and sets `cache-control: no-cache, no-store, must-revalidate`. The gate must
+download to compare — but at roughly 4 KB for the draft grid, that is free.
+
+Net effect: on a two-hourly cron, the overwhelming majority of runs end at job 1 with no
+commit, no CI run, and no Fly deploy. Only a genuine pick costs a deploy.
 
 Accepted trade-offs, both benign at this cadence:
 
@@ -111,8 +145,9 @@ never has to branch: every cached card gets a flat `img_small` / `img_normal`.
 Requests send a descriptive `User-Agent` and `Accept: application/json`, and sleep between
 batches, per Scryfall's API guidelines.
 
-The cache is regenerated **only when an unresolved card name appears**. In steady state the
-hourly job makes zero Scryfall calls.
+The cache is regenerated **only when an unresolved card name appears**. Combined with the
+gate job, steady state means zero Scryfall calls and zero commits — a run that finds no new
+pick never reaches this script at all.
 
 ### Data contract
 
@@ -141,6 +176,7 @@ hourly job makes zero Scryfall calls.
 ```json
 {
   "generated_at": "2026-08-01T09:00:00Z",
+  "source_digest": "sha256:0c4b80d8452633ef...",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
@@ -150,6 +186,7 @@ hourly job makes zero Scryfall calls.
   "next_player": "Örvar",
   "players": ["Binni", "Örvar", "Tommi", "Diddi", "Atli", "Óli", "Aron Ívars.", "Aron Freyr"],
   "pools": { "Binni": ["Ragavan, Nimble Pilferer"] },
+  "remaining": ["Champion of the Parish", "Esper Sentinel", "..."],
   "log": [
     { "round": 1, "seq": 1, "player": "Binni",
       "card": "Ragavan, Nimble Pilferer", "first_seen": "2026-08-01T09:00:00Z" }
@@ -160,6 +197,11 @@ hourly job makes zero Scryfall calls.
 `pools` is keyed by every player, including those with no picks yet (empty array) — the
 example above is elided. It holds card names only; the frontend joins against the card
 cache. This keeps the two files independently regenerable and the payload small.
+
+`remaining` is the cube list minus every pooled card, written out explicitly rather than
+left for the frontend to diff. It costs about 12 KB uncompressed at draft start (538 names,
+far less after gzip, which the app already applies) and means the pool browser needs no
+set arithmetic in the browser. `source_digest` is what the gate job compares against.
 
 ### Route and page
 
@@ -183,6 +225,20 @@ grid, never from the sheet's broken status cells.
 vertical columns grouped White / Blue / Black / Red / Green / Multicolour / Colourless /
 Land, sorted by CMC then name. `img_small` (~10 KB) with `loading="lazy"`; click or tap
 opens `img_normal` in a lightbox. Each section carries a mana-curve and colour summary.
+
+**Remaining pool.** A collapsed section, headed with the live count, expanding to a
+filterable grid of every undrafted card. Filters: colour, card type, CMC, and a name search,
+combined with AND. Alpine is already vendored, so filtering is client-side over the
+`remaining` array with no additional fetch.
+
+Collapsed by default because the section holds 538 cards on day one and only shrinks to
+about 180 by the end — an expanded wall of images would dominate the page precisely when it
+is least informative. Same `img_small` + `loading="lazy"` treatment as the pools, so an
+unexpanded section costs nothing.
+
+This was originally cut from v1 and added back because the data turned out to be free: the
+parser already holds both the cube list and every pool, and the card cache already covers
+the whole cube rather than just picked cards. The remaining work is UI only.
 
 **Pick log.** Reverse-chronological: round, player, card.
 
@@ -230,14 +286,17 @@ rotisserie page is not core.
   `#REF!` prefixes.
 - **Cache resolution test**, offline against a fixture, asserting front-face aliasing and the
   face-image fallback for the 18 imageless cards.
+- **Gate tests:** identical source yields `changed=false`; a new pick yields `changed=true`;
+  and `#REF!` churn in the status cells with no pick change yields `changed=false` — the
+  specific brittleness that motivated digesting parsed state instead of raw bytes.
+- **Remaining-pool test:** `remaining` plus every pool exactly reconstitutes the cube list,
+  with no card in both.
 - **Route test:** 200, `noindex` present, `/rotisserie` absent from the rendered nav.
 - **Fail-loud tests:** malformed CSV and an unresolvable card name each exit non-zero.
 - Existing `validate_publish.py` gate extended to cover the two new JSON files.
 
 ## Out of scope
 
-- **Remaining-pool browser** (searching the ~180 undrafted cards). Considered and explicitly
-  dropped from v1.
 - Deck/sideboard splitting within a pool — rotisserie pools are not yet decks.
 - Linking drafters to their mtgkubbur.is player pages; the sheet's names
   (`Aron Ívars.`, `Binni`) do not reliably match the rankings identities.
