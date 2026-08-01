@@ -72,11 +72,12 @@ two-hourly cron
 │  digest(pick state) == rotisserie.json:source_digest ?      │
 └─────────────────────────┬───────────────────────────────────┘
                           │ differs  ->  changed=true
-┌─ job 2: publish ────────v───────────────────────────────────┐
+┌─ job 2: sync ───────────v───────────────────────────────────┐
 │  fetch_rotisserie.py  ──────────>  rotisserie.json          │
 │  build_card_cache.py  ──────────>  rotisserie_cards.json    │
 │      ^ Scryfall API, only on an unresolved card name        │
-│  commit  ──>  deploy.yml  ──>  Fly                          │
+│  validate  ──>  commit + push  ──>  flyctl deploy  ──>  Fly │
+│      ^ own deploy: a GITHUB_TOKEN push cannot fire deploy.yml│
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -95,11 +96,25 @@ The gate parses rather than hashing raw bytes, and imports the same
 That module is deliberately **stdlib-only** (`csv`, `hashlib`, `urllib`) — the gate therefore
 needs no `setup-uv`, no `uv sync`, and no dependency resolution at all.
 
-**Job 2, `publish`.** `needs: check`, guarded by
+**Job 2, `sync`.** `needs: check`, guarded by
 `if: needs.check.outputs.changed == 'true'`. Runs the full `scripts/fetch_rotisserie.py`,
-refreshes the card cache if any name is unresolved, writes both JSON files, and commits. The
-push to `master` triggers the existing `deploy.yml` (pytest → ruff → `validate_publish.py` →
-Fly).
+refreshes the card cache if any name is unresolved, writes both JSON files, validates them,
+then commits, pushes, and deploys — in that order, so a validation failure produces a red
+build and no commit.
+
+**This job must run its own deploy; it cannot rely on `deploy.yml`.** GitHub does not trigger
+workflows from pushes made with the default `GITHUB_TOKEN`, a deliberate guard against
+recursive runs. Relying on the push to fire `deploy.yml` would produce green builds that
+never reach Fly — a silent staleness bug. The existing nightly sync escapes this only because
+it is *cross-repo*: `cube_rankings/.github/workflows/fit.yml` pushes into this repo with
+`secrets.MTGKUBBUR_PUSH_TOKEN`, a PAT, which does trigger workflows. That does not transfer to
+a workflow pushing to its own repo.
+
+The job therefore runs the same gates `deploy.yml` runs (pytest → ruff → `validate_publish.py`
+→ `flyctl deploy --remote-only`) using the `FLY_API_TOKEN` secret already present in this
+repo. No new secret is required. Making `deploy.yml` a reusable `workflow_call` was considered
+and rejected: a called workflow inherits the caller's `github.sha`, so its `actions/checkout`
+would retrieve the tree from before the data commit and deploy stale JSON.
 
 Why hash the parsed state rather than the response bytes: the CSV was verified byte-stable
 across repeated requests for unchanged data, so raw hashing would *work* — but it is brittle
@@ -270,10 +285,17 @@ derived ordering, and this assumption gets an explicit test.
 risk. `fetch_rotisserie.py` validates and exits non-zero — turning the Action red rather than
 publishing a broken page — when: no player columns parse; a player name is empty after prefix
 stripping; the player set changes unexpectedly; a picked card name resolves neither directly
-nor through the alias index; the same card appears in two players' pools; or a previously
-observed pick has changed or disappeared. Picks are append-only in a rotisserie, so any
-retraction signals either a sheet accident or a parser bug — both warrant a red build rather
-than a silent overwrite of good data.
+nor through the alias index; a card is drafted more times than the cube contains copies of it;
+or a previously observed pick has changed or disappeared. Picks are append-only in a
+rotisserie, so any retraction signals either a sheet accident or a parser bug — both warrant a
+red build rather than a silent overwrite of good data.
+
+The copy-count check is deliberately a multiset comparison rather than "no card appears in two
+pools", because the cube list genuinely contains 540 rows for 539 distinct names: `Explore`
+is listed twice. That is most likely a duplicated row in the sheet rather than two legitimate
+copies, but either way the correct invariant is *drafted count ≤ cube count per name*, and
+`remaining` is a multiset difference. The builder logs a warning listing any duplicated names
+so the ambiguity stays visible instead of being silently absorbed.
 
 **Site stays fail-soft.** Per the existing `app/data.py` convention, a missing or malformed
 `rotisserie.json` renders an empty state, never a 500. `/healthz` is unaffected — the
