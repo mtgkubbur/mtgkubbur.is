@@ -14,6 +14,39 @@ S = STRINGS["is"]
 # Path to the rotisserie template
 TEMPLATE_PATH = Path(__file__).parent.parent / "app" / "templates" / "rotisserie.html"
 
+# Jinja syntax to strip when isolating the literal text a template author
+# actually typed by hand: {{ expr }}, {% tag %}, {# comment #}.
+_JINJA_SYNTAX = re.compile(r"\{\{.*?\}\}|\{%.*?%\}|\{#.*?#\}", re.DOTALL)
+
+# Keys this template is known to render server-side via {{ S.<key> }}. This is
+# the only hard-coded key list in this file, and it exists purely for the
+# "did a reference silently vanish" check in test_rotisserie_strings_not_hard_coded
+# -- it is deliberately not reused as that test's "must not be hard-coded" key
+# list, because a list scanned/fixed from the template under audit is exactly
+# what made the previous version of this test circular.
+RENDERED_KEYS = {
+    "rotisserie_title",
+    "rotisserie_pools",
+    "rotisserie_remaining",
+    "rotisserie_search",
+    "rotisserie_type_all",
+    "rotisserie_log",
+}
+
+# Below this length a string value (e.g. rotisserie_of == "af") is likely to
+# occur as a substring of an unrelated word, class name, or attribute rather
+# than as the copy itself appearing hard-coded. Checked and false-positive-free
+# against the current template; kept as a documented, principled cut-off
+# rather than an ad hoc per-key exclusion so it still holds as the template
+# grows and picks up more short connector words.
+MIN_LITERAL_CHECK_LENGTH = 4
+
+
+def _stripped_template_text() -> str:
+    """Template source with Jinja syntax removed, leaving only the literal
+    markup/text the template author wrote by hand."""
+    return _JINJA_SYNTAX.sub("", TEMPLATE_PATH.read_text(encoding="utf-8"))
+
 
 def test_page_renders():
     r = client.get("/rotisserie")
@@ -58,25 +91,44 @@ def test_page_loads_its_module():
 
 def test_rotisserie_strings_not_hard_coded():
     """
-    Every user-visible string must be referenced via {{ S.<key> }} in the template source.
-    Asserts that: (1) each rotisserie_* key is used via S.<key> in the template, and
-    (2) the literal string value does not appear anywhere in the template source.
+    Every user-visible string on the rotisserie page must come from app/strings.py
+    via {{ S.<key> }}, never hard-coded literally in the template.
+
+    The key list for the "not hard-coded" half is derived from STRINGS itself --
+    never from scanning the template -- because scanning the template for
+    {{ S.key }} usages and then only checking those keys is circular: the
+    regression this test exists to catch (swapping a reference for its literal
+    value) also removes that key from the scanned list, so the check silently
+    stops covering the exact string it should be watching. STRINGS is the
+    ground truth of what copy exists; the template is only ever the thing
+    under audit, never the source of what to check.
     """
-    template_source = TEMPLATE_PATH.read_text(encoding="utf-8")
+    stripped = _stripped_template_text()
 
-    # Extract all {{ S.rotisserie_* }} patterns from the template
-    pattern = r"\{\{\s*S\.rotisserie_(\w+)\s*\}\}"
-    used_keys = set(re.findall(pattern, template_source))
+    # rotisserie_ / colour_ / type_ keys are the user-visible copy this page
+    # (server template plus its client JS, both fed from the same STRINGS
+    # table) is built from. Filtering by prefix rather than naming individual
+    # keys means new copy added under these prefixes is automatically
+    # covered, so the check can't drift out of date as the template grows.
+    candidate_keys = [
+        key
+        for key in S
+        if key.startswith(("rotisserie_", "colour_", "type_")) and len(S[key]) >= MIN_LITERAL_CHECK_LENGTH
+    ]
+    assert candidate_keys, "No rotisserie_*/colour_*/type_* strings found in STRINGS"
 
-    assert used_keys, "No rotisserie_* strings found in template"
-
-    for key in used_keys:
-        full_key = f"rotisserie_{key}"
-        assert full_key in S, f"Key {full_key} not found in strings.py"
-
-        # The literal value should NOT appear in the template source
-        string_value = S[full_key]
-        assert string_value not in template_source, (
-            f"String value '{string_value}' for key '{full_key}' appears literally in template; "
-            f"must use {{{{ S.{full_key} }}}}"
+    for key in candidate_keys:
+        value = S[key]
+        assert value not in stripped, (
+            f"String value '{value}' for key '{key}' appears literally in rotisserie.html; "
+            f"must use {{{{ S.{key} }}}} instead"
         )
+
+    # Positive half: a reference can also disappear without being replaced by
+    # a literal (the surrounding markup is simply deleted), which the check
+    # above cannot detect. Assert the keys the page is known to render are
+    # still referenced as S.<key> in the raw (unstripped) source.
+    raw_source = TEMPLATE_PATH.read_text(encoding="utf-8")
+    for key in RENDERED_KEYS:
+        assert key in S, f"Key {key} not found in strings.py"
+        assert f"S.{key}" in raw_source, f"Expected {{{{ S.{key} }}}} reference not found in rotisserie.html"
