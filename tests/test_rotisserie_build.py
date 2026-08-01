@@ -82,6 +82,45 @@ def test_first_seen_is_preserved_for_known_picks_and_stamped_for_new_ones():
     assert by_card["Wrath of God"] == NOW
 
 
+def test_first_seen_is_stamped_fresh_for_a_second_same_named_pick():
+    """The cube lists Explore twice. If Binni drafts both copies across two
+    runs, the second pick's identity is its cell (round 2), not its card
+    name - it must get its own timestamp, not inherit round 1's."""
+    cube = ["Explore", "Explore"]
+    grid1 = parse.parse_grid('"","","Binni","",""\n"1","→","Explore","",""\n"2","↪","","",""\n')
+    earlier = build.build_payload(grid1, cube, previous=None, now="2026-07-01T00:00:00Z")
+
+    grid2 = parse.parse_grid('"","","Binni","",""\n"1","→","Explore","",""\n"2","↪","Explore","",""\n')
+    later = build.build_payload(grid2, cube, previous=earlier, now=NOW)
+
+    by_round = {e["round"]: e["first_seen"] for e in later["log"]}
+    assert by_round[1] == "2026-07-01T00:00:00Z"
+    assert by_round[2] == NOW
+
+
+def test_first_seen_is_preserved_when_a_cells_card_is_unchanged():
+    cube = ["Explore", "Explore"]
+    grid = parse.parse_grid('"","","Binni","",""\n"1","→","Explore","",""\n')
+    earlier = build.build_payload(grid, cube, previous=None, now="2026-07-01T00:00:00Z")
+    later = build.build_payload(grid, cube, previous=earlier, now=NOW)
+    [entry] = later["log"]
+    assert entry["first_seen"] == "2026-07-01T00:00:00Z"
+
+
+def test_first_seen_is_refreshed_when_a_cells_card_changes():
+    """A cell whose card was edited is a different pick and gets a fresh
+    first_seen, even though it is the same (round, player) cell."""
+    cube = ["Ragavan, Nimble Pilferer", "Wrath of God"]
+    grid1 = parse.parse_grid('"","","Binni","",""\n"1","→","Ragavan, Nimble Pilferer","",""\n')
+    earlier = build.build_payload(grid1, cube, previous=None, now="2026-07-01T00:00:00Z")
+
+    grid2 = parse.parse_grid('"","","Binni","",""\n"1","→","Wrath of God","",""\n')
+    later = build.build_payload(grid2, cube, previous=earlier, now=NOW)
+    [entry] = later["log"]
+    assert entry["card"] == "Wrath of God"
+    assert entry["first_seen"] == NOW
+
+
 def test_next_player_follows_the_snake():
     p = build.build_payload(_grid(), _cube(), previous=None, now=NOW)
     # 6 picks in: round 2 has Diddi and Tommi done, so Örvar is next (reversed round)
@@ -131,6 +170,34 @@ def test_validate_rejects_a_retracted_pick():
         build.validate(p, cube, previous=previous)
 
 
+def test_validate_rejects_a_retraction_hidden_behind_a_duplicate_card_name():
+    """Two picks share a card name (Explore x2 in the cube). Deleting one of
+    them must not be masked by the other still being present in the set of
+    (player, card) pairs."""
+    cube = ["Explore", "Explore"]
+    grid_both = parse.parse_grid('"","","Binni","",""\n"1","→","Explore","",""\n"2","↪","Explore","",""\n')
+    previous = build.build_payload(grid_both, cube, previous=None, now=NOW)
+
+    grid_one = parse.parse_grid('"","","Binni","",""\n"1","→","Explore","",""\n"2","↪","","",""\n')
+    p = build.build_payload(grid_one, cube, previous=previous, now=NOW)
+    with pytest.raises(ValueError, match="disappeared"):
+        build.validate(p, cube, previous=previous)
+
+
+def test_validate_rejects_a_mutated_pick_with_a_message_distinct_from_retraction():
+    """A cell whose card changed (not disappeared) is a different anomaly
+    from a retraction and must be reported as such."""
+    cube = ["Ragavan, Nimble Pilferer", "Wrath of God"]
+    grid1 = parse.parse_grid('"","","Binni","",""\n"1","→","Ragavan, Nimble Pilferer","",""\n')
+    previous = build.build_payload(grid1, cube, previous=None, now=NOW)
+
+    grid2 = parse.parse_grid('"","","Binni","",""\n"1","→","Wrath of God","",""\n')
+    p = build.build_payload(grid2, cube, previous=previous, now=NOW)
+    with pytest.raises(ValueError, match="mutat") as excinfo:
+        build.validate(p, cube, previous=previous)
+    assert "disappeared" not in str(excinfo.value)
+
+
 def test_validate_rejects_a_shrinking_player_list():
     cube = _cube()
     previous = build.build_payload(_grid(), cube, previous=None, now=NOW)
@@ -139,3 +206,17 @@ def test_validate_rejects_a_shrinking_player_list():
     p["pools"] = {"Binni": p["pools"]["Binni"], "Örvar": p["pools"]["Örvar"]}
     with pytest.raises(ValueError, match="player set changed"):
         build.validate(p, cube, previous=previous)
+
+
+def test_load_returns_none_for_an_absent_file(tmp_path):
+    missing = tmp_path / "rotisserie.json"
+    assert build._load(missing) is None
+
+
+def test_load_raises_for_a_present_but_malformed_file(tmp_path):
+    """A corrupt-but-present file must abort the build, not be treated like a
+    legitimate first run - it is the only safety baseline validate() has."""
+    corrupt = tmp_path / "rotisserie.json"
+    corrupt.write_text("{not valid json", encoding="utf-8")
+    with pytest.raises(ValueError):
+        build._load(corrupt)

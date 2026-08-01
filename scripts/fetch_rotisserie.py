@@ -33,12 +33,27 @@ def _now() -> str:
 
 
 def _load(path: Path) -> dict | None:
+    """Load a committed JSON state file.
+
+    Returns None only when the file is absent - the legitimate first-run case.
+    A file that exists but cannot be read or parsed raises instead of
+    returning None: this builder's only safety baseline is the previous
+    state, and validate()'s retraction/mutation/player-set checks all become
+    no-ops when previous is None, so a corrupt file must abort the build
+    rather than silently disable them.
+
+    This deliberately differs from scripts/rotisserie_changed.py's
+    committed_digest(), which treats "corrupt" the same as "absent". That
+    gate's question is "does this need rebuilding?", where corrupt means
+    yes; this builder's question is "is it safe to overwrite the published
+    state?", where corrupt means no. Do not "harmonise" the two.
+    """
     if not path.exists():
         return None
     try:
         return json.loads(path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
-        return None
+    except (json.JSONDecodeError, OSError) as exc:
+        raise ValueError(f"{path}: exists but is unreadable/unparseable: {exc}") from exc
 
 
 def build_payload(
@@ -53,22 +68,30 @@ def build_payload(
     for pick in picks:
         pools[pick.player].append(pick.card)
 
-    seen: dict[str, str] = {}
+    # A pick's identity is its grid cell (round, player), not (player, card):
+    # the cube lists "Explore" twice, so keying on card would collide a
+    # player's two same-named picks and let the second silently inherit the
+    # first's first_seen.
+    seen: dict[tuple[int, str], tuple[str, str]] = {}
     for entry in (previous or {}).get("log", []):
-        key = f"{entry.get('player')}\x00{entry.get('card')}"
         if entry.get("first_seen"):
-            seen[key] = entry["first_seen"]
+            seen[(entry.get("round"), entry.get("player"))] = (entry.get("card"), entry["first_seen"])
 
-    log = [
-        {
-            "round": pick.round,
-            "seq": pick.seq,
-            "player": pick.player,
-            "card": pick.card,
-            "first_seen": seen.get(f"{pick.player}\x00{pick.card}", now),
-        }
-        for pick in picks
-    ]
+    log = []
+    for pick in picks:
+        prior = seen.get((pick.round, pick.player))
+        # Preserve first_seen only if that cell's card is unchanged; a cell
+        # whose card changed is a different pick and gets a fresh timestamp.
+        first_seen = prior[1] if prior is not None and prior[0] == pick.card else now
+        log.append(
+            {
+                "round": pick.round,
+                "seq": pick.seq,
+                "player": pick.player,
+                "card": pick.card,
+                "first_seen": first_seen,
+            }
+        )
     log.reverse()  # newest first
 
     remaining_counter = Counter(cube_names) - Counter(c for pool in pools.values() for c in pool)
@@ -131,11 +154,23 @@ def validate(payload: dict, cube_names: list[str], previous: dict | None) -> Non
         if old_players and old_players != set(payload["players"]):
             raise ValueError(f"player set changed: {sorted(old_players)} -> {sorted(payload['players'])}")
 
-        old_pairs = {(e["player"], e["card"]) for e in previous.get("log", [])}
-        new_pairs = {(e["player"], e["card"]) for e in payload["log"]}
-        gone = sorted(old_pairs - new_pairs)
-        if gone:
-            raise ValueError(f"previously observed pick(s) disappeared: {gone[:10]}")
+        # Identity is the grid cell (round, player), not (player, card): two
+        # cells can share a card name (the cube lists "Explore" twice), which
+        # would hide a retraction - or a mutation - behind an unrelated pick.
+        old_cells = {(e["round"], e["player"]): e["card"] for e in previous.get("log", [])}
+        new_cells = {(e["round"], e["player"]): e["card"] for e in payload["log"]}
+
+        retracted = sorted(old_cells.keys() - new_cells.keys())
+        if retracted:
+            raise ValueError(f"previously observed pick(s) disappeared (retracted): {retracted[:10]}")
+
+        mutated = sorted(cell for cell in old_cells.keys() & new_cells.keys() if old_cells[cell] != new_cells[cell])
+        if mutated:
+            changes = [f"{cell}: {old_cells[cell]!r} -> {new_cells[cell]!r}" for cell in mutated[:10]]
+            raise ValueError(
+                "previously observed pick(s) were mutated, not retracted "
+                f"(card changed at the same cell): {changes}"
+            )
 
 
 def main(argv: list[str] | None = None) -> int:
