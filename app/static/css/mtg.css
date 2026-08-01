@@ -1298,9 +1298,12 @@
   font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em;
   opacity: 0.75; margin-bottom: 0.35rem;
 }
-/* Cube Cobra idiom: cards overlap so only the title bar of each shows. */
+/* Cube Cobra idiom: cards overlap so only the title bar of each shows.
+   aspect-ratio reserves the box at the Scryfall "small" crop's 146:204
+   proportions, so a broken/slow-loading image keeps the card's footprint
+   (and the -164px overlap below) instead of collapsing the stack. */
 .rot-stack { position: relative; }
-.rot-stack .rot-card { display: block; width: 146px; border-radius: 7px; }
+.rot-stack .rot-card { display: block; width: 146px; aspect-ratio: 146 / 204; border-radius: 7px; }
 .rot-stack .rot-card + .rot-card { margin-top: -164px; }
 .rot-stack .rot-card:hover,
 .rot-stack .rot-card:focus-visible { position: relative; z-index: 2; }
@@ -1338,6 +1341,9 @@
 .rot-lightbox img { max-width: min(94vw, 488px); max-height: 92vh; border-radius: 12px; }
 
 @media (max-width: 640px) {
+  /* Height stays derived from the inherited aspect-ratio (146:204), so the
+     narrower 120px card is still ~168px tall and the -135px overlap below
+     is calibrated the same way as the desktop -164px above. */
   .rot-col, .rot-stack .rot-card { width: 120px; }
   .rot-stack .rot-card + .rot-card { margin-top: -135px; }
   .rot-log-list li { grid-template-columns: 2.5rem 1fr; }

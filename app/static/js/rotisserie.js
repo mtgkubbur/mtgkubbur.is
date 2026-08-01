@@ -65,7 +65,8 @@ function cardTile({ name, card }, index) {
     return `<div class="rot-card rot-card-missing" style="--i:${index}">${esc(label)}</div>`;
   }
   return `<img class="rot-card" style="--i:${index}" loading="lazy" decoding="async"
-     src="${esc(src)}" data-full="${esc(full)}" alt="${esc(label)}" title="${esc(label)}" />`;
+     src="${esc(src)}" data-full="${esc(full)}" alt="${esc(label)}" title="${esc(label)}"
+     tabindex="0" role="button" />`;
 }
 
 // ── 1. Status header ──
@@ -137,42 +138,74 @@ function renderPools() {
 }
 
 // ── Lightbox ──
+// Delegated listeners (not per-tile handlers) so this keeps scaling once
+// Task 9 adds hundreds more tiles to the page.
 function initLightbox() {
+  let opener = null;
+
+  function openLightbox(img) {
+    opener = img;
+    const lbImg = els.lightbox.querySelector("img");
+    lbImg.src = img.dataset.full;
+    lbImg.alt = img.alt;
+    els.lightbox.hidden = false;
+  }
+
+  function closeLightbox() {
+    if (els.lightbox.hidden) return;
+    els.lightbox.hidden = true;
+    // Return keyboard focus to whichever tile opened the lightbox, rather
+    // than dropping the user back at the top of the document.
+    if (opener) opener.focus();
+    opener = null;
+  }
+
   document.addEventListener("click", (ev) => {
     const img = ev.target.closest?.("img.rot-card");
     if (img && img.dataset.full) {
-      els.lightbox.querySelector("img").src = img.dataset.full;
-      els.lightbox.querySelector("img").alt = img.alt;
-      els.lightbox.hidden = false;
+      openLightbox(img);
       return;
     }
-    if (!els.lightbox.hidden) els.lightbox.hidden = true;
+    closeLightbox();
   });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") els.lightbox.hidden = true;
+    if (ev.key === "Escape") {
+      closeLightbox();
+      return;
+    }
+    const img = ev.target.closest?.("img.rot-card");
+    if (!img) return;
+    if (ev.key === "Enter" || ev.key === " ") {
+      // Space would otherwise scroll the page for a focused, non-native
+      // "button" element.
+      ev.preventDefault();
+      if (img.dataset.full) openLightbox(img);
+    }
   });
 }
 
 // ── Boot ──
 async function init() {
   els.status.innerHTML = `<p class="empty-state">${esc(S.loading)}</p>`;
+  // Render calls live inside this try/catch too: a payload that parses but
+  // doesn't match the shape the renderers need (e.g. players present but
+  // pools missing) must surface the same error state, not throw past it.
   try {
     const resp = await fetch("/data/rotisserie");
     if (!resp.ok) throw new Error(String(resp.status));
     const payload = await resp.json();
     draft = payload.draft;
     cards = payload.cards || {};
-  } catch {
+    if (!draft || !draft.players || !draft.pools) {
+      throw new Error("malformed rotisserie payload");
+    }
+    renderStatus();
+    renderPools();
+    initLightbox();
+  } catch (err) {
+    console.error(err);
     els.status.innerHTML = `<p class="empty-state">${esc(S.error)}</p>`;
-    return;
   }
-  if (!draft || !draft.players) {
-    els.status.innerHTML = `<p class="empty-state">${esc(S.error)}</p>`;
-    return;
-  }
-  renderStatus();
-  renderPools();
-  initLightbox();
 }
 
 init();
