@@ -17,6 +17,8 @@ SINGLE = {
     "head_to_head.schema.json": "head_to_head.json",
     "calendar.schema.json": "calendar.json",
     "cubes.schema.json": "cubes.json",
+    "rotisserie.schema.json": "rotisserie.json",
+    "rotisserie_cards.schema.json": "rotisserie_cards.json",
 }
 MULTI = {
     "player.schema.json": "players/*.json",
