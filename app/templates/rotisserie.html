@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}{{ S.rotisserie_title }} — {{ S.brand }}{% endblock %}
+
+{% block head %}
+<meta name="robots" content="noindex, nofollow" />
+{% endblock %}
+
+{% block content %} {% include "components/page_header.html" %}
+
+<div class="rot-content">
+  <div id="rot-status" class="rot-status"></div>
+
+  <h2 class="rot-section-title">{{ S.rotisserie_pools }}</h2>
+  <div id="rot-pools"></div>
+
+  <h2 class="rot-section-title">{{ S.rotisserie_remaining }}</h2>
+  <div class="rot-filters">
+    <input id="rot-search" type="search" placeholder="{{ S.rotisserie_search }}" aria-label="{{ S.rotisserie_search }}" />
+    <div id="rot-colour-filters" class="rot-colour-filters"></div>
+    <select id="rot-type-filter" aria-label="{{ S.rotisserie_type_all }}">
+      <option value="">{{ S.rotisserie_type_all }}</option>
+    </select>
+  </div>
+  <div id="rot-remaining"></div>
+
+  <h2 class="rot-section-title">{{ S.rotisserie_log }}</h2>
+  <div id="rot-log"></div>
+</div>
+
+<div id="rot-lightbox" class="rot-lightbox" hidden>
+  <img alt="" />
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/static/js/rotisserie.js"></script>
+{% endblock %}
