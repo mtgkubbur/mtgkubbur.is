@@ -38,3 +38,9 @@ async def cube_data(slug: str):
 @router.get("/head_to_head")
 async def head_to_head_data():
     return data.load_head_to_head()
+
+
+@router.get("/rotisserie")
+async def rotisserie_data():
+    """Draft state plus the card cache in one payload, so the page fetches once."""
+    return {"draft": data.load_rotisserie(), "cards": data.load_rotisserie_cards()}

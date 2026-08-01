@@ -81,6 +81,14 @@ def load_head_to_head() -> list[dict]:
     return _cached("h2h", lambda: load_json(KUBBUR_DIR / "head_to_head.json") or [])
 
 
+def load_rotisserie() -> dict:
+    return _cached("rotisserie", lambda: load_json(KUBBUR_DIR / "rotisserie.json") or {})
+
+
+def load_rotisserie_cards() -> dict:
+    return _cached("rotisserie_cards", lambda: load_json(KUBBUR_DIR / "rotisserie_cards.json") or {})
+
+
 # --- Per-entity files -------------------------------------------------------
 def load_player(slug: str) -> dict | None:
     return load_json(KUBBUR_DIR / "players" / f"{slug}.json")
@@ -127,6 +135,8 @@ def prewarm() -> None:
         load_calendar,
         load_cubes_index,
         load_head_to_head,
+        load_rotisserie,
+        load_rotisserie_cards,
         player_index,
         cube_index,
     ):
