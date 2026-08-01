@@ -184,6 +184,111 @@ function initLightbox() {
   });
 }
 
+// ── 3. Remaining pool browser ──
+// Ordered: the first match wins, so "Artifact Creature" files under Creature
+// and "Land" only catches cards with no other permanent type.
+const TYPES = [
+  { key: "Creature", label: () => S.type_creature },
+  { key: "Planeswalker", label: () => S.type_planeswalker },
+  { key: "Instant", label: () => S.type_instant },
+  { key: "Sorcery", label: () => S.type_sorcery },
+  { key: "Enchantment", label: () => S.type_enchantment },
+  { key: "Artifact", label: () => S.type_artifact },
+  { key: "Land", label: () => S.type_land },
+];
+
+const filters = { text: "", colours: new Set(), type: "" };
+
+function primaryType(card) {
+  const line = card?.type_line || "";
+  return TYPES.find((t) => line.includes(t.key))?.key || "";
+}
+
+function matchesFilters({ name, card }) {
+  if (filters.text) {
+    const haystack = `${name} ${card?.name || ""}`.toLowerCase();
+    if (!haystack.includes(filters.text)) return false;
+  }
+  if (filters.colours.size > 0 && !filters.colours.has(colourGroup(card))) return false;
+  if (filters.type && primaryType(card) !== filters.type) return false;
+  return true;
+}
+
+function buildFilterControls() {
+  els.colourFilters.innerHTML = COLOUR_GROUPS.map(
+    (g) =>
+      `<button type="button" class="rot-colour-btn" data-colour="${g.key}"
+         aria-pressed="false" title="${esc(g.label())}">${esc(g.label().slice(0, 1))}</button>`,
+  ).join("");
+
+  els.typeFilter.innerHTML =
+    `<option value="">${esc(S.rotisserie_type_all)}</option>` +
+    TYPES.map((t) => `<option value="${t.key}">${esc(t.label())}</option>`).join("");
+
+  els.colourFilters.addEventListener("click", (ev) => {
+    const btn = ev.target.closest("button[data-colour]");
+    if (!btn) return;
+    const key = btn.dataset.colour;
+    const on = filters.colours.has(key);
+    if (on) filters.colours.delete(key);
+    else filters.colours.add(key);
+    btn.setAttribute("aria-pressed", String(!on));
+    renderRemaining();
+  });
+
+  els.typeFilter.addEventListener("change", () => {
+    filters.type = els.typeFilter.value;
+    renderRemaining();
+  });
+
+  let debounce;
+  els.search.addEventListener("input", () => {
+    clearTimeout(debounce);
+    debounce = setTimeout(() => {
+      filters.text = els.search.value.trim().toLowerCase();
+      renderRemaining();
+    }, 120);
+  });
+}
+
+function renderRemaining() {
+  const entries = draft.remaining.map((name) => ({ name, card: cards[name] }));
+  const shown = entries.filter(matchesFilters);
+  shown.sort((a, b) => {
+    const dc = (a.card?.cmc ?? 0) - (b.card?.cmc ?? 0);
+    return dc !== 0 ? dc : String(a.name).localeCompare(String(b.name), "is");
+  });
+
+  const summary = `${shown.length} / ${entries.length} ${esc(S.rotisserie_cards_count)}`;
+  const body =
+    shown.length === 0
+      ? `<p class="empty-state">${esc(S.rotisserie_no_matches)}</p>`
+      : `<div class="rot-grid">${shown.map(cardTile).join("")}</div>`;
+
+  // <details> keeps 531 images collapsed on day one without any JS state.
+  const open = els.remaining.querySelector("details")?.open ? " open" : "";
+  els.remaining.innerHTML = `<details class="rot-remaining"${open}>
+      <summary>${summary}</summary>${body}
+    </details>`;
+}
+
+// ── 4. Pick log ──
+function renderLog() {
+  if (!draft.log || draft.log.length === 0) {
+    els.log.innerHTML = `<p class="empty-state">${esc(S.rotisserie_no_cards)}</p>`;
+    return;
+  }
+  els.log.innerHTML = `<ul class="rot-log-list">${draft.log
+    .map(
+      (e) => `<li>
+        <span class="rot-log-round">${esc(S.rotisserie_round)} ${e.round}</span>
+        <span class="rot-log-player">${esc(e.player)}</span>
+        <span class="rot-log-card">${esc(cards[e.card]?.name || e.card)}</span>
+      </li>`,
+    )
+    .join("")}</ul>`;
+}
+
 // ── Boot ──
 async function init() {
   els.status.innerHTML = `<p class="empty-state">${esc(S.loading)}</p>`;
@@ -201,6 +306,9 @@ async function init() {
     }
     renderStatus();
     renderPools();
+    buildFilterControls();
+    renderRemaining();
+    renderLog();
     initLightbox();
   } catch (err) {
     console.error(err);
