@@ -12,11 +12,11 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 from scripts.rotisserie import parse  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
 STATE_PATH = ROOT / "data" / "kubbur" / "rotisserie.json"
 
 
@@ -25,7 +25,7 @@ def committed_digest(path: Path) -> str | None:
         return None
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError):
         return None
     digest = payload.get("source_digest") if isinstance(payload, dict) else None
     return digest if isinstance(digest, str) else None

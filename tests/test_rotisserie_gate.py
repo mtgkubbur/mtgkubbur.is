@@ -22,6 +22,12 @@ def test_committed_digest_malformed_file_is_none(tmp_path: Path):
     assert gate.committed_digest(p) is None
 
 
+def test_committed_digest_invalid_utf8_is_none(tmp_path: Path):
+    p = tmp_path / "rotisserie.json"
+    p.write_bytes(b"\xff\xfe{")
+    assert gate.committed_digest(p) is None
+
+
 def test_decide():
     assert gate.decide("sha256:a", "sha256:b") is True
     assert gate.decide("sha256:a", None) is True  # first ever run must publish
