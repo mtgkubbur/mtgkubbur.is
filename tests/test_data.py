@@ -41,6 +41,16 @@ def test_load_json_missing_returns_none(tmp_path):
     assert data.load_json(tmp_path / "nope.json") is None
 
 
+def test_load_json_invalid_utf8_fails_soft_instead_of_raising(tmp_path):
+    """UnicodeDecodeError is a ValueError subclass, not an OSError, so it slips
+    past `except (json.JSONDecodeError, OSError)` and would otherwise bubble
+    up through prewarm -> _cached -> /data/rotisserie as a 500, inverting the
+    module's fail-soft contract."""
+    bad = tmp_path / "bad.json"
+    bad.write_bytes(b"\xff\xfe\x00invalid-utf8")
+    assert data.load_json(bad) is None
+
+
 def test_tier_maps():
     assert data.TIER_LABEL["Other"] == "Annað"
     assert data.TIER_COLOUR_VAR["High"] == "--mtg-red"

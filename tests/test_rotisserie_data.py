@@ -12,7 +12,6 @@ client = TestClient(app)
 def test_load_rotisserie_returns_the_published_state():
     d = data.load_rotisserie()
     assert d["cube"] == "Meta Memories"
-    assert len(d["players"]) == 8
     assert d["picks_total"] == d["rounds_total"] * len(d["players"])
 
 

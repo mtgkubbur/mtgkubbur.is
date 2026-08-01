@@ -22,7 +22,8 @@ uv run --extra data python scripts/validate_publish.py
 - `app/routes/*` — one module per page + `data_api.py` (shared `/data/*` endpoints).
 - `app/templates/*` — `base.html` + one template per page; `{% block %}`s only in base.
 - `app/static/js/` — `theme.js` (token palette reader + shared Plot options `basePlot`/`baseGridStyle`), per-page loaders, `charts/*` (Observable Plot ESM); `vendor/` is committed (no CDN).
-- `app/static/css/` — `input.css` (tokens + @tailwind) → `tailwind.css`; `mtg.css` (components/chrome, not Tailwind-processed). Spectral display serif (page `<h1>` + subtitles, `--font-display`) is vendored at `app/static/fonts/spectral/`. Bump the `?v=N` query on the CSS `<link>`s in `base.html` when shipping a visual change so returning browsers refetch.
+- `app/static/css/` — `input.css` (tokens + @tailwind) → `tailwind.css`; `mtg.css` (components/chrome, not Tailwind-processed). Spectral display serif (page `<h1>` + subtitles, `--font-display`) is vendored at `app/static/fonts/spectral/`. Bump the `?v=N` query on any versioned asset tag (the CSS `<link>`s in `base.html`, and `rotisserie.js` in `rotisserie.html`) when shipping a change to that asset so returning browsers refetch — this is a hand-maintained convention, not automatic, and a missed bump on `rotisserie.js` was the one production regression on the rotisserie branch (stale JS served after a code deploy).
+- `/rotisserie` (unlisted, noindex) — live status page for the Meta Memories rotisserie draft. `scripts/rotisserie/` (`parse.py`, `scryfall.py`) builds `data/kubbur/rotisserie.json` + `rotisserie_cards.json` from the draft-grid Google Sheet and the Scryfall card cache; `.github/workflows/rotisserie.yml` polls the sheet every two hours and only rebuilds/republishes when the parsed pick state actually changed. `app/static/js/rotisserie.js` renders player pools, the remaining-pool browser, and the pick log from one fetch of `/data/rotisserie`.
 
 ## Conventions
 

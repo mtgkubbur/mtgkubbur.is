@@ -20,7 +20,6 @@ const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 // ── Colour grouping ──
-// Order matters: lands first so a mana-producing dual is not filed under Gold.
 const COLOUR_GROUPS = [
   { key: "W", label: () => S.colour_w },
   { key: "U", label: () => S.colour_u },
@@ -32,9 +31,18 @@ const COLOUR_GROUPS = [
   { key: "LAND", label: () => S.colour_land },
 ];
 
+// Only the front face decides whether a double-faced card is a land: a
+// player identifies the card by its front (Legion's Landing is a white
+// enchantment that happens to flip into a land, not a land itself), and this
+// must agree with primaryType()'s front-face reading below.
+function frontFaceTypeLine(card) {
+  return (card?.type_line || "").split(" // ")[0];
+}
+
+// Order matters: lands first so a mana-producing dual is not filed under Gold.
 function colourGroup(card) {
   if (!card) return "C";
-  if ((card.type_line || "").includes("Land")) return "LAND";
+  if (frontFaceTypeLine(card).includes("Land")) return "LAND";
   const colours = card.colors || [];
   if (colours.length === 0) return "C";
   if (colours.length > 1) return "GOLD";
@@ -57,14 +65,14 @@ function groupPool(names, lookup) {
 }
 
 // ── Card tile ──
-function cardTile({ name, card }, index) {
+function cardTile({ name, card }) {
   const src = card?.img_small || "";
   const full = card?.img_normal || "";
   const label = card?.name || name;
   if (!src) {
-    return `<div class="rot-card rot-card-missing" style="--i:${index}">${esc(label)}</div>`;
+    return `<div class="rot-card rot-card-missing">${esc(label)}</div>`;
   }
-  return `<img class="rot-card" style="--i:${index}" loading="lazy" decoding="async"
+  return `<img class="rot-card" loading="lazy" decoding="async"
      src="${esc(src)}" data-full="${esc(full)}" alt="${esc(label)}" title="${esc(label)}"
      tabindex="0" role="button" />`;
 }
@@ -200,7 +208,7 @@ const TYPES = [
 const filters = { text: "", colours: new Set(), type: "" };
 
 function primaryType(card) {
-  const line = card?.type_line || "";
+  const line = frontFaceTypeLine(card);
   return TYPES.find((t) => line.includes(t.key))?.key || "";
 }
 

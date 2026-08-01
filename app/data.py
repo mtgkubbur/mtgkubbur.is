@@ -41,7 +41,7 @@ def load_json(path: Path) -> dict | list | None:
         return None
     try:
         return json.loads(path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError) as exc:
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError) as exc:
         logger.error("Failed to load %s: %s", path, exc)
         return None
 

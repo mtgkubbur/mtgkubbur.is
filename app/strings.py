@@ -126,8 +126,6 @@ STRINGS: dict[str, dict[str, str]] = {
         "rotisserie_no_cards": "Engin spil valin enn",
         "rotisserie_no_matches": "Ekkert spil passar við síuna",
         "rotisserie_cards_count": "spil",
-        "rotisserie_expand": "Sýna",
-        "rotisserie_collapse": "Fela",
         "colour_w": "Hvítur",
         "colour_u": "Blár",
         "colour_b": "Svartur",
