@@ -55,18 +55,44 @@ def fetch_csv(url: str, timeout: int = 30) -> str:
         return resp.read().decode("utf-8")
 
 
+def _collapse_repeated_suffix(text: str) -> str:
+    """Collapse a doubled trailing name back to a single copy.
+
+    The header cell is formula output, and its shape has already changed twice
+    under us: broken formulas produced '#REF! Name', and repairing them made
+    the lookup double up instead ('Name Name', with any leading boilerplate
+    such as the merged sheet title left in front, undoubled). This is a
+    defence against a moving target, not gratuitous cleverness: it finds the
+    longest trailing word-sequence that repeats immediately before itself and
+    keeps only the trailing copy, discarding everything before it - the same
+    "discard everything before the real name" policy as the '#REF!' strip
+    above. Longer sequences are checked before shorter ones so a two-word
+    name collapses to itself rather than being chopped mid-name.
+    """
+    words = text.split()
+    total = len(words)
+    for k in range(total // 2, 0, -1):
+        if words[total - 2 * k : total - k] == words[total - k :]:
+            return " ".join(words[total - k :])
+    return text
+
+
 def clean_player_name(raw: str) -> str:
     """Strip the broken-formula and merged-title prefixes off a header cell.
 
-    The live sheet yields '#REF! Örvar', and for the first column the merged
-    sheet title bleeds in too: 'Rotisserie Draft - Meta memories #REF! Binni'.
-    A repaired sheet yields a bare name, which must pass through untouched.
+    The live sheet has yielded this in two shapes so far. Broken formulas:
+    '#REF! Örvar', with the first column also carrying a merged sheet title
+    that bleeds in: 'Rotisserie Draft - Meta memories #REF! Binni'. Repaired
+    formulas: the name doubled instead of erroring, e.g. 'Örvar Örvar', or
+    'Rotisserie Draft - Meta memories Binni Binni' for the first column. A
+    fully repaired, undoubled sheet yields a bare name, which must pass
+    through untouched.
     """
     text = raw.strip()
     marker = "#REF!"
     if marker in text:
-        text = text.rsplit(marker, 1)[1]
-    return text.strip()
+        text = text.rsplit(marker, 1)[1].strip()
+    return _collapse_repeated_suffix(text)
 
 
 def _rows(csv_text: str) -> list[list[str]]:
@@ -88,10 +114,18 @@ def parse_grid(csv_text: str) -> DraftGrid:
         raise ValueError("draft grid: no player columns found in header row")
 
     players: list[str] = []
+    raw_by_name: dict[str, str] = {}
     for raw in raw_names:
         name = clean_player_name(raw)
         if not name or len(name) > _MAX_PLAYER_NAME:
             raise ValueError(f"draft grid: unparsable player name {raw!r}")
+        if name in raw_by_name:
+            raise ValueError(
+                f"draft grid: duplicate player name {name!r} from header cells "
+                f"{raw_by_name[name]!r} and {raw!r} - the cleaning logic has failed "
+                "against a new header shape"
+            )
+        raw_by_name[name] = raw
         players.append(name)
 
     cells: list[tuple[str, ...]] = []

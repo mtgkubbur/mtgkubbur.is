@@ -20,15 +20,28 @@ def _cube_text() -> str:
 @pytest.mark.parametrize(
     ("raw", "expected"),
     [
+        # Shape A: broken formulas ('#REF!'), the shape the parser was built against.
         ("Rotisserie Draft - Meta memories #REF! Binni", "Binni"),
         ("#REF! Örvar", "Örvar"),
         ("#REF! Aron Ívars.", "Aron Ívars."),
+        # Shape B: repaired formulas, the name doubled instead of erroring.
+        ("Örvar Örvar", "Örvar"),
+        ("Aron Ívars. Aron Ívars.", "Aron Ívars."),
+        ("Rotisserie Draft - Meta memories Binni Binni", "Binni"),
+        # Unchanged behaviour: clean cells pass straight through.
         ("Binni", "Binni"),
         ("  Tommi  ", "Tommi"),
     ],
 )
 def test_clean_player_name(raw, expected):
     assert parse.clean_player_name(raw) == expected
+
+
+def test_clean_player_name_does_not_over_collapse_a_doubled_two_word_name():
+    """A two-word name doubled must collapse to itself, not to its last word."""
+    result = parse.clean_player_name("Aron Ívars. Aron Ívars.")
+    assert result == "Aron Ívars."
+    assert result != "Ívars."
 
 
 def test_parse_grid_players_and_shape():
@@ -100,6 +113,39 @@ def test_parse_grid_rejects_a_header_with_no_players():
 def test_parse_grid_rejects_an_uncleanable_header():
     with pytest.raises(ValueError, match="unparsable player name"):
         parse.parse_grid('"","","#REF!","",""\n"1","→","","",""\n')
+
+
+def test_parse_grid_rejects_duplicate_player_names():
+    """Two columns cleaning to the same name means the cleaning logic has failed again."""
+    csv_text = '"","","Örvar Örvar","Örvar Örvar","",""\n"1","→","","",""\n'
+    with pytest.raises(ValueError, match="duplicate player name") as excinfo:
+        parse.parse_grid(csv_text)
+    assert "Örvar Örvar" in str(excinfo.value)
+
+
+def test_parse_grid_reads_the_live_doubled_name_header():
+    """Shape B fixture: the sheet's formulas were repaired and now double the name."""
+    grid = parse.parse_grid(_grid_text("draft_grid_doubled.csv"))
+    assert grid.players == ("Binni", "Örvar", "Tommi", "Diddi", "Atli", "Óli", "Aron Ívars.", "Aron Freyr")
+
+
+def test_digest_matches_between_shape_a_and_shape_b_headers():
+    """Shape A (#REF!-broken) and shape B (doubled-name) headers must digest identically.
+
+    state_digest only encodes the cleaned, normalised state, so a header-shape
+    change alone (with identical picks) must not look like a change in the draft.
+    """
+    cube = parse.parse_cube_list(_cube_text())
+    shape_a_digest = parse.state_digest(parse.parse_grid(_grid_text()), cube)
+
+    shape_b_csv = _grid_text().replace(
+        '"","","Rotisserie Draft - Meta memories #REF! Binni","#REF! Örvar","#REF! Tommi","#REF! Diddi",',
+        '"","","Rotisserie Draft - Meta memories Binni Binni","Örvar Örvar","Tommi Tommi","Diddi Diddi",',
+    )
+    assert shape_b_csv != _grid_text()  # sanity: the replace actually matched
+    shape_b_digest = parse.state_digest(parse.parse_grid(shape_b_csv), cube)
+
+    assert shape_a_digest == shape_b_digest
 
 
 def test_csv_url_shape():
