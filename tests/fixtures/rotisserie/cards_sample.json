@@ -1,0 +1,79 @@
+{
+  "Lightning Bolt": {
+    "name": "Lightning Bolt",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "type_line": "Instant",
+    "colors": [
+      "R"
+    ],
+    "color_identity": [
+      "R"
+    ],
+    "rarity": "uncommon",
+    "layout": "normal",
+    "scryfall_uri": "https://scryfall.com/card/lea/161/lightning-bolt",
+    "image_uris": {
+      "small": "https://cards.scryfall.io/small/bolt.jpg",
+      "normal": "https://cards.scryfall.io/normal/bolt.jpg"
+    }
+  },
+  "Brazen Borrower // Petty Theft": {
+    "name": "Brazen Borrower // Petty Theft",
+    "mana_cost": "{1}{U}{U} // {1}{U}",
+    "cmc": 3.0,
+    "type_line": "Creature — Faerie Rogue // Instant — Adventure",
+    "colors": [
+      "U"
+    ],
+    "color_identity": [
+      "U"
+    ],
+    "rarity": "mythic",
+    "layout": "adventure",
+    "scryfall_uri": "https://scryfall.com/card/eld/39/brazen-borrower-petty-theft",
+    "image_uris": {
+      "small": "https://cards.scryfall.io/small/borrower.jpg",
+      "normal": "https://cards.scryfall.io/normal/borrower.jpg"
+    },
+    "card_faces": [
+      {
+        "name": "Brazen Borrower"
+      },
+      {
+        "name": "Petty Theft"
+      }
+    ]
+  },
+  "Thing in the Ice // Awoken Horror": {
+    "name": "Thing in the Ice // Awoken Horror",
+    "mana_cost": "{1}{U}",
+    "cmc": 2.0,
+    "type_line": "Creature — Horror // Creature — Kraken Horror",
+    "colors": [
+      "U"
+    ],
+    "color_identity": [
+      "U"
+    ],
+    "rarity": "rare",
+    "layout": "transform",
+    "scryfall_uri": "https://scryfall.com/card/soi/58/thing-in-the-ice-awoken-horror",
+    "card_faces": [
+      {
+        "name": "Thing in the Ice",
+        "image_uris": {
+          "small": "https://cards.scryfall.io/small/thing.jpg",
+          "normal": "https://cards.scryfall.io/normal/thing.jpg"
+        }
+      },
+      {
+        "name": "Awoken Horror",
+        "image_uris": {
+          "small": "https://cards.scryfall.io/small/awoken.jpg",
+          "normal": "https://cards.scryfall.io/normal/awoken.jpg"
+        }
+      }
+    ]
+  }
+}
