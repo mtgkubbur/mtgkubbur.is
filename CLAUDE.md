@@ -3,6 +3,12 @@
 FastAPI frontend for MtG Kubbur, replacing the Quarto site. Reads JSON published by
 `cube_rankings` (committed under `data/kubbur/`).
 
+**Data-directory ownership:** `cube_rankings` mirror-syncs `data/kubbur/` and
+`data/kubbur-schemas/` with `rsync --delete` (its `fit.yml` and `republish.yml`).
+Any file this repo commits into those directories (currently `rotisserie*`) must be
+in the exclude list of both cube_rankings workflows, or the next nightly sync
+deletes it (happened 2026-08-02; fixed in cube_rankings `b1f4293`).
+
 ## Commands
 
 ```bash
