@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-02T17:13:18Z",
-  "source_digest": "sha256:9554cdd91c0bbd7213a75d92288aff8c1c7a2c55c802cf384f2c24360b882829",
+  "generated_at": "2026-08-02T21:09:25Z",
+  "source_digest": "sha256:59f6f23e0d5733e2fbfc04b989364148349d0969fdbe7ba037d59c4dee2e5c00",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 53,
-  "current_round": 7,
-  "next_player": "Óli",
+  "picks_made": 59,
+  "current_round": 8,
+  "next_player": "Atli",
   "players": [
     "Binni",
     "Örvar",
@@ -70,7 +70,9 @@
       "Polluted Delta",
       "Misty Rainforest",
       "Snapcaster Mage",
-      "Flame Slash"
+      "Flame Slash",
+      "Sear",
+      "Xander's Lounge"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -78,7 +80,9 @@
       "Ocelot Pride",
       "Bloodstained Mire",
       "Phlage, Titan of Fire's Fury",
-      "Voice of Victory"
+      "Voice of Victory",
+      "Sacred Foundry",
+      "Godless Shrine"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -86,7 +90,9 @@
       "Guide of Souls",
       "Solitude",
       "Windswept Heath",
-      "Quantum Riddler"
+      "Quantum Riddler",
+      "Prismatic Vista",
+      "Breeding Pool"
     ]
   },
   "remaining": [
@@ -326,7 +332,6 @@
     "Lightning Axe",
     "Abrade",
     "Manamorphose",
-    "Sear",
     "Thrill of Possibility",
     "Fiery Temper",
     "Big Score",
@@ -540,7 +545,6 @@
     "Temple Garden",
     "Bleachbone Verge",
     "Concealed Courtyard",
-    "Godless Shrine",
     "Shadowy Backstreet",
     "Silent Clearing",
     "Fiery Islet",
@@ -554,17 +558,14 @@
     "Wastewood Verge",
     "Elegant Parlor",
     "Inspiring Vantage",
-    "Sacred Foundry",
     "Sunbaked Canyon",
     "Sunbillow Verge",
-    "Breeding Pool",
     "Hedge Maze",
     "Simic Growth Chamber",
     "Waterlogged Grove",
     "Willowrush Verge",
     "Spara's Headquarters",
     "Raffine's Tower",
-    "Xander's Lounge",
     "Ziatora's Proving Ground",
     "Jetmir's Garden",
     "Savai Triome",
@@ -575,10 +576,51 @@
     "Fabled Passage",
     "Lotus Field",
     "Mana Confluence",
-    "Multiversal Passage",
-    "Prismatic Vista"
+    "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 8,
+      "seq": 59,
+      "player": "Óli",
+      "card": "Xander's Lounge",
+      "first_seen": "2026-08-02T21:09:25Z"
+    },
+    {
+      "round": 8,
+      "seq": 58,
+      "player": "Aron Ívars.",
+      "card": "Godless Shrine",
+      "first_seen": "2026-08-02T21:09:25Z"
+    },
+    {
+      "round": 8,
+      "seq": 57,
+      "player": "Aron Freyr",
+      "card": "Breeding Pool",
+      "first_seen": "2026-08-02T21:09:25Z"
+    },
+    {
+      "round": 7,
+      "seq": 56,
+      "player": "Aron Freyr",
+      "card": "Prismatic Vista",
+      "first_seen": "2026-08-02T21:09:25Z"
+    },
+    {
+      "round": 7,
+      "seq": 55,
+      "player": "Aron Ívars.",
+      "card": "Sacred Foundry",
+      "first_seen": "2026-08-02T21:09:25Z"
+    },
+    {
+      "round": 7,
+      "seq": 54,
+      "player": "Óli",
+      "card": "Sear",
+      "first_seen": "2026-08-02T21:09:25Z"
+    },
     {
       "round": 7,
       "seq": 53,
