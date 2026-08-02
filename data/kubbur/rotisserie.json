@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-02T11:33:51Z",
-  "source_digest": "sha256:111e10230301f970732894f766851f5545d76716fb524315cc94911f0894f397",
+  "generated_at": "2026-08-02T13:52:03Z",
+  "source_digest": "sha256:16fa0b780e4668bcfdb23c3433ab5c80f0947833e9b349dad63a610a002c8690",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 42,
+  "picks_made": 46,
   "current_round": 6,
-  "next_player": "Óli",
+  "next_player": "Örvar",
   "players": [
     "Binni",
     "Örvar",
@@ -38,28 +38,32 @@
       "Urza, Lord High Artificer",
       "Agatha's Soul Cauldron",
       "Walking Ballista",
-      "Steam Vents"
+      "Steam Vents",
+      "Hallowed Fountain"
     ],
     "Diddi": [
       "Fury",
       "Arid Mesa",
       "Flooded Strand",
       "Icetill Explorer",
-      "Stock Up"
+      "Stock Up",
+      "Malevolent Rumble"
     ],
     "Atli": [
       "Dismember",
       "Cori-Steel Cutter",
       "Scalding Tarn",
       "Unholy Heat",
-      "Stormchaser's Talent"
+      "Stormchaser's Talent",
+      "Wooded Foothills"
     ],
     "Óli": [
       "Lightning Bolt",
       "Tamiyo, Inquisitive Student",
       "Polluted Delta",
       "Misty Rainforest",
-      "Snapcaster Mage"
+      "Snapcaster Mage",
+      "Flame Slash"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -326,7 +330,6 @@
     "Witchstalker Frenzy",
     "Through the Breach",
     "Faithless Looting",
-    "Flame Slash",
     "Pyroclasm",
     "Tribal Flames",
     "Light Up the Stage",
@@ -394,7 +397,6 @@
     "Traverse the Ulvenwald",
     "Explore",
     "Explore",
-    "Malevolent Rumble",
     "Eldritch Evolution",
     "Search for Tomorrow",
     "Scapeshift",
@@ -514,7 +516,6 @@
     "Atraxa, Grand Unifier",
     "Celestial Colonnade",
     "Floodfarm Verge",
-    "Hallowed Fountain",
     "Meticulous Archive",
     "Seachrome Coast",
     "Creeping Tar Pit",
@@ -532,7 +533,6 @@
     "Raging Ravine",
     "Stomping Ground",
     "Thornspire Verge",
-    "Wooded Foothills",
     "Horizon Canopy",
     "Hushwood Verge",
     "Lush Portico",
@@ -579,6 +579,34 @@
     "Prismatic Vista"
   ],
   "log": [
+    {
+      "round": 6,
+      "seq": 46,
+      "player": "Tommi",
+      "card": "Hallowed Fountain",
+      "first_seen": "2026-08-02T13:52:03Z"
+    },
+    {
+      "round": 6,
+      "seq": 45,
+      "player": "Diddi",
+      "card": "Malevolent Rumble",
+      "first_seen": "2026-08-02T13:52:03Z"
+    },
+    {
+      "round": 6,
+      "seq": 44,
+      "player": "Atli",
+      "card": "Wooded Foothills",
+      "first_seen": "2026-08-02T13:52:03Z"
+    },
+    {
+      "round": 6,
+      "seq": 43,
+      "player": "Óli",
+      "card": "Flame Slash",
+      "first_seen": "2026-08-02T13:52:03Z"
+    },
     {
       "round": 6,
       "seq": 42,
