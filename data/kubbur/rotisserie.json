@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-02T15:17:44Z",
-  "source_digest": "sha256:3d24052c7fef0a140ebd1a1c99189e9c6e26a452348219414ca68d04de9d3713",
+  "generated_at": "2026-08-02T17:13:18Z",
+  "source_digest": "sha256:9554cdd91c0bbd7213a75d92288aff8c1c7a2c55c802cf384f2c24360b882829",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 50,
+  "picks_made": 53,
   "current_round": 7,
-  "next_player": "Tommi",
+  "next_player": "Óli",
   "players": [
     "Binni",
     "Örvar",
@@ -43,7 +43,8 @@
       "Agatha's Soul Cauldron",
       "Walking Ballista",
       "Steam Vents",
-      "Hallowed Fountain"
+      "Hallowed Fountain",
+      "Stoneforge Mystic"
     ],
     "Diddi": [
       "Fury",
@@ -51,7 +52,8 @@
       "Flooded Strand",
       "Icetill Explorer",
       "Stock Up",
-      "Malevolent Rumble"
+      "Malevolent Rumble",
+      "Vibrance"
     ],
     "Atli": [
       "Dismember",
@@ -59,7 +61,8 @@
       "Scalding Tarn",
       "Unholy Heat",
       "Stormchaser's Talent",
-      "Wooded Foothills"
+      "Wooded Foothills",
+      "Blood Crypt"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -101,7 +104,6 @@
     "Luminarch Aspirant",
     "Regal Bunnicorn",
     "Selfless Spirit",
-    "Stoneforge Mystic",
     "Thalia, Guardian of Thraben",
     "Thalia's Lieutenant",
     "Wall of Omens",
@@ -481,7 +483,6 @@
     "Wrenn and Six",
     "Bloodbraid Elf",
     "Huntmaster of the Fells",
-    "Vibrance",
     "Dragonlord Atarka",
     "Voice of Resurgence",
     "Kitchen Finks",
@@ -525,7 +526,6 @@
     "Undercity Sewers",
     "Blackcleave Cliffs",
     "Blazemire Verge",
-    "Blood Crypt",
     "Haunted Ridge",
     "Raucous Theater",
     "Commercial District",
@@ -579,6 +579,27 @@
     "Prismatic Vista"
   ],
   "log": [
+    {
+      "round": 7,
+      "seq": 53,
+      "player": "Atli",
+      "card": "Blood Crypt",
+      "first_seen": "2026-08-02T17:13:18Z"
+    },
+    {
+      "round": 7,
+      "seq": 52,
+      "player": "Diddi",
+      "card": "Vibrance",
+      "first_seen": "2026-08-02T17:13:18Z"
+    },
+    {
+      "round": 7,
+      "seq": 51,
+      "player": "Tommi",
+      "card": "Stoneforge Mystic",
+      "first_seen": "2026-08-02T17:13:18Z"
+    },
     {
       "round": 7,
       "seq": 50,
