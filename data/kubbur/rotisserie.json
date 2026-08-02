@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-01T23:09:34Z",
-  "source_digest": "sha256:acd504df1da9c17598887fa55b68352eb0643db4cdf8aa49f0b53b43ccd0a333",
+  "generated_at": "2026-08-02T03:52:16Z",
+  "source_digest": "sha256:c656f1442ccba23507262c8d6c33a01afa6da778837af93300937f59323e8bca",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 37,
-  "current_round": 5,
-  "next_player": "Óli",
+  "picks_made": 41,
+  "current_round": 6,
+  "next_player": "Aron Ívars.",
   "players": [
     "Binni",
     "Örvar",
@@ -58,19 +58,23 @@
       "Lightning Bolt",
       "Tamiyo, Inquisitive Student",
       "Polluted Delta",
-      "Misty Rainforest"
+      "Misty Rainforest",
+      "Snapcaster Mage"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
       "Orcish Bowmasters",
       "Ocelot Pride",
-      "Bloodstained Mire"
+      "Bloodstained Mire",
+      "Phlage, Titan of Fire's Fury"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
       "Fable of the Mirror-Breaker",
       "Guide of Souls",
-      "Solitude"
+      "Solitude",
+      "Windswept Heath",
+      "Quantum Riddler"
     ]
   },
   "remaining": [
@@ -148,7 +152,6 @@
     "Ledger Shredder",
     "Malcolm, Alluring Scoundrel",
     "Picklock Prankster",
-    "Snapcaster Mage",
     "Thing in the Ice",
     "Wan Shi Tong, Librarian",
     "Abhorrent Oculus",
@@ -163,7 +166,6 @@
     "Subtlety",
     "Venser, Shaper Savant",
     "Body Double",
-    "Quantum Riddler",
     "Kappa Cannoneer",
     "Marang River Regent",
     "Torrential Gearhulk",
@@ -497,7 +499,6 @@
     "Vraska, Golgari Queen",
     "Hogaak, Arisen Necropolis",
     "Lightning Helix",
-    "Phlage, Titan of Fire's Fury",
     "Warleader's Call",
     "Nahiri, the Harbinger",
     "Growth Spiral",
@@ -537,7 +538,6 @@
     "Lush Portico",
     "Stirring Wildwood",
     "Temple Garden",
-    "Windswept Heath",
     "Bleachbone Verge",
     "Concealed Courtyard",
     "Godless Shrine",
@@ -579,6 +579,34 @@
     "Prismatic Vista"
   ],
   "log": [
+    {
+      "round": 6,
+      "seq": 41,
+      "player": "Aron Freyr",
+      "card": "Quantum Riddler",
+      "first_seen": "2026-08-02T03:52:16Z"
+    },
+    {
+      "round": 5,
+      "seq": 40,
+      "player": "Aron Freyr",
+      "card": "Windswept Heath",
+      "first_seen": "2026-08-02T03:52:16Z"
+    },
+    {
+      "round": 5,
+      "seq": 39,
+      "player": "Aron Ívars.",
+      "card": "Phlage, Titan of Fire's Fury",
+      "first_seen": "2026-08-02T03:52:16Z"
+    },
+    {
+      "round": 5,
+      "seq": 38,
+      "player": "Óli",
+      "card": "Snapcaster Mage",
+      "first_seen": "2026-08-02T03:52:16Z"
+    },
     {
       "round": 5,
       "seq": 37,
