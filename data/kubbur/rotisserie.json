@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-02T13:52:03Z",
-  "source_digest": "sha256:16fa0b780e4668bcfdb23c3433ab5c80f0947833e9b349dad63a610a002c8690",
+  "generated_at": "2026-08-02T15:17:44Z",
+  "source_digest": "sha256:3d24052c7fef0a140ebd1a1c99189e9c6e26a452348219414ca68d04de9d3713",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 46,
-  "current_round": 6,
-  "next_player": "Örvar",
+  "picks_made": 50,
+  "current_round": 7,
+  "next_player": "Tommi",
   "players": [
     "Binni",
     "Örvar",
@@ -24,14 +24,18 @@
       "Birds of Paradise",
       "Ignoble Hierarch",
       "Llanowar Elves",
-      "Hexdrinker"
+      "Hexdrinker",
+      "Screaming Nemesis",
+      "Glorybringer"
     ],
     "Örvar": [
       "Psychic Frog",
       "Lurrus of the Dream-Den",
       "Mishra's Bauble",
       "Marsh Flats",
-      "Verdant Catacombs"
+      "Verdant Catacombs",
+      "Thoughtseize",
+      "Watery Grave"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -267,7 +271,6 @@
     "Bone Shards",
     "Inquisition of Kozilek",
     "Intimidation Tactics",
-    "Thoughtseize",
     "Unearth",
     "Collective Brutality",
     "Night's Whisper",
@@ -302,14 +305,12 @@
     "Detective's Phoenix",
     "Goblin Rabblemaster",
     "Guttersnipe",
-    "Screaming Nemesis",
     "Seasoned Pyromancer",
     "Squee, Goblin Nabob",
     "Tersa Lightshatter",
     "Hazoret the Fervent",
     "Hellrider",
     "Rekindling Phoenix",
-    "Glorybringer",
     "Goblin Dark-Dwellers",
     "Kiki-Jiki, Mirror Breaker",
     "Ox of Agonas",
@@ -522,7 +523,6 @@
     "Darkslick Shores",
     "Gloomlake Verge",
     "Undercity Sewers",
-    "Watery Grave",
     "Blackcleave Cliffs",
     "Blazemire Verge",
     "Blood Crypt",
@@ -579,6 +579,34 @@
     "Prismatic Vista"
   ],
   "log": [
+    {
+      "round": 7,
+      "seq": 50,
+      "player": "Örvar",
+      "card": "Watery Grave",
+      "first_seen": "2026-08-02T15:17:44Z"
+    },
+    {
+      "round": 7,
+      "seq": 49,
+      "player": "Binni",
+      "card": "Glorybringer",
+      "first_seen": "2026-08-02T15:17:44Z"
+    },
+    {
+      "round": 6,
+      "seq": 48,
+      "player": "Binni",
+      "card": "Screaming Nemesis",
+      "first_seen": "2026-08-02T15:17:44Z"
+    },
+    {
+      "round": 6,
+      "seq": 47,
+      "player": "Örvar",
+      "card": "Thoughtseize",
+      "first_seen": "2026-08-02T15:17:44Z"
+    },
     {
       "round": 6,
       "seq": 46,
