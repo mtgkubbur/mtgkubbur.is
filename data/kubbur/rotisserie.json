@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-02T03:52:16Z",
-  "source_digest": "sha256:c656f1442ccba23507262c8d6c33a01afa6da778837af93300937f59323e8bca",
+  "generated_at": "2026-08-02T11:33:51Z",
+  "source_digest": "sha256:111e10230301f970732894f766851f5545d76716fb524315cc94911f0894f397",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 41,
+  "picks_made": 42,
   "current_round": 6,
-  "next_player": "Aron Ívars.",
+  "next_player": "Óli",
   "players": [
     "Binni",
     "Örvar",
@@ -66,7 +66,8 @@
       "Orcish Bowmasters",
       "Ocelot Pride",
       "Bloodstained Mire",
-      "Phlage, Titan of Fire's Fury"
+      "Phlage, Titan of Fire's Fury",
+      "Voice of Victory"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -95,7 +96,6 @@
     "Stoneforge Mystic",
     "Thalia, Guardian of Thraben",
     "Thalia's Lieutenant",
-    "Voice of Victory",
     "Wall of Omens",
     "Adeline, Resplendent Cathar",
     "Brimaz, King of Oreskos",
@@ -579,6 +579,13 @@
     "Prismatic Vista"
   ],
   "log": [
+    {
+      "round": 6,
+      "seq": 42,
+      "player": "Aron Ívars.",
+      "card": "Voice of Victory",
+      "first_seen": "2026-08-02T11:33:51Z"
+    },
     {
       "round": 6,
       "seq": 41,
