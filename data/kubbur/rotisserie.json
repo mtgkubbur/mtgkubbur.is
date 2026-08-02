@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-02T21:09:25Z",
-  "source_digest": "sha256:59f6f23e0d5733e2fbfc04b989364148349d0969fdbe7ba037d59c4dee2e5c00",
+  "generated_at": "2026-08-02T23:09:09Z",
+  "source_digest": "sha256:ec23ed11d514dff6458be387a6c6dcd54357f502851ceb10f7ee94f4889050f2",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 59,
+  "picks_made": 62,
   "current_round": 8,
-  "next_player": "Atli",
+  "next_player": "Örvar",
   "players": [
     "Binni",
     "Örvar",
@@ -44,7 +44,8 @@
       "Walking Ballista",
       "Steam Vents",
       "Hallowed Fountain",
-      "Stoneforge Mystic"
+      "Stoneforge Mystic",
+      "Cryptic Coat"
     ],
     "Diddi": [
       "Fury",
@@ -53,7 +54,8 @@
       "Icetill Explorer",
       "Stock Up",
       "Malevolent Rumble",
-      "Vibrance"
+      "Vibrance",
+      "Stomping Ground"
     ],
     "Atli": [
       "Dismember",
@@ -62,7 +64,8 @@
       "Unholy Heat",
       "Stormchaser's Talent",
       "Wooded Foothills",
-      "Blood Crypt"
+      "Blood Crypt",
+      "Dragon's Rage Channeler"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -219,7 +222,6 @@
     "Lórien Revealed",
     "Time Warp",
     "Aether Spellbomb",
-    "Cryptic Coat",
     "Search for Azcanta",
     "Shark Typhoon",
     "Otawara, Soaring City",
@@ -292,7 +294,6 @@
     "Unholy Annex // Ritual Chamber",
     "Takenuma, Abandoned Mire",
     "Bomat Courier",
-    "Dragon's Rage Channeler",
     "Grim Lavamancer",
     "Marauding Mako",
     "Monastery Swiftspear",
@@ -536,7 +537,6 @@
     "Commercial District",
     "Gruul Turf",
     "Raging Ravine",
-    "Stomping Ground",
     "Thornspire Verge",
     "Horizon Canopy",
     "Hushwood Verge",
@@ -579,6 +579,27 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 8,
+      "seq": 62,
+      "player": "Tommi",
+      "card": "Cryptic Coat",
+      "first_seen": "2026-08-02T23:09:09Z"
+    },
+    {
+      "round": 8,
+      "seq": 61,
+      "player": "Diddi",
+      "card": "Stomping Ground",
+      "first_seen": "2026-08-02T23:09:09Z"
+    },
+    {
+      "round": 8,
+      "seq": 60,
+      "player": "Atli",
+      "card": "Dragon's Rage Channeler",
+      "first_seen": "2026-08-02T23:09:09Z"
+    },
     {
       "round": 8,
       "seq": 59,
