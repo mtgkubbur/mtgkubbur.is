@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-03T15:13:46Z",
-  "source_digest": "sha256:b862f3da99cc5872783be4788e224ffce2e494d0a67633056ffd8779ba3061db",
+  "generated_at": "2026-08-03T18:26:45Z",
+  "source_digest": "sha256:4a01ee23f4fa8fe548bb9d75d5782d1dd3cce7ddf9955246b47b2116a792c8e6",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 94,
-  "current_round": 12,
-  "next_player": "Örvar",
+  "picks_made": 115,
+  "current_round": 15,
+  "next_player": "Diddi",
   "players": [
     "Binni",
     "Örvar",
@@ -30,7 +30,11 @@
       "Nissa, Who Shakes the World",
       "Esika's Chariot",
       "Sylvan Caryatid",
-      "Ziatora's Proving Ground"
+      "Ziatora's Proving Ground",
+      "Overgrown Tomb",
+      "Up the Beanstalk",
+      "Overlord of the Hauntwoods",
+      "Overlord of the Balemurk"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -43,7 +47,11 @@
       "Aether Spellbomb",
       "Raffine's Tower",
       "Mana Leak",
-      "Dark Confidant"
+      "Dark Confidant",
+      "Remand",
+      "Malcolm, Alluring Scoundrel",
+      "Pyrite Spellbomb",
+      "Raucous Theater"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -57,7 +65,10 @@
       "Esper Sentinel",
       "Chromatic Star",
       "Erode",
-      "Otawara, Soaring City"
+      "Otawara, Soaring City",
+      "Lion Sash",
+      "Lórien Revealed",
+      "Emry, Lurker of the Loch"
     ],
     "Diddi": [
       "Fury",
@@ -71,7 +82,9 @@
       "Uro, Titan of Nature's Wrath",
       "Raugrin Triome",
       "Leyline Binding",
-      "Temple Garden"
+      "Temple Garden",
+      "Ketria Triome",
+      "Meticulous Archive"
     ],
     "Atli": [
       "Dismember",
@@ -85,7 +98,9 @@
       "Burst Lightning",
       "Flow State",
       "Expressive Iteration",
-      "Zagoth Triome"
+      "Zagoth Triome",
+      "Preordain",
+      "Spirebluff Canal"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -99,7 +114,9 @@
       "Thundering Falls",
       "Abrade",
       "Chart a Course",
-      "Vapor Snag"
+      "Vapor Snag",
+      "Three Steps Ahead",
+      "Consider"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -113,7 +130,9 @@
       "Inti, Seneschal of the Sun",
       "Smuggler's Copter",
       "Warleader's Call",
-      "Goblin Rabblemaster"
+      "Goblin Rabblemaster",
+      "Kolaghan's Command",
+      "Savai Triome"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -127,7 +146,9 @@
       "Ephemerate",
       "Subtlety",
       "No More Lies",
-      "Eternal Witness"
+      "Eternal Witness",
+      "Path to Exile",
+      "Spara's Headquarters"
     ]
   },
   "remaining": [
@@ -140,7 +161,6 @@
     "Thraben Inspector",
     "Warden of the Inner Sky",
     "Kinscaer Sentry",
-    "Lion Sash",
     "Luminarch Aspirant",
     "Regal Bunnicorn",
     "Selfless Spirit",
@@ -171,7 +191,6 @@
     "The Wandering Emperor",
     "Elspeth, Sun's Champion",
     "March of Otherworldly Light",
-    "Path to Exile",
     "Secure the Wastes",
     "Get Lost",
     "Rally the Monastery",
@@ -197,7 +216,6 @@
     "Jace, Vryn's Prodigy",
     "Kitsa, Otterball Elite",
     "Ledger Shredder",
-    "Malcolm, Alluring Scoundrel",
     "Picklock Prankster",
     "Thing in the Ice",
     "Wan Shi Tong, Librarian",
@@ -205,7 +223,6 @@
     "Aether Channeler",
     "Brazen Borrower",
     "Champion of Wits",
-    "Emry, Lurker of the Loch",
     "Pestermite",
     "Vendilion Clique",
     "Dungeon Geists",
@@ -223,7 +240,6 @@
     "Jace, the Mind Sculptor",
     "Tamiyo, the Moon Sage",
     "Condescend",
-    "Consider",
     "Opt",
     "Spell Pierce",
     "Stern Scolding",
@@ -231,18 +247,14 @@
     "Consult the Star Charts",
     "Counterspell",
     "Lose Focus",
-    "Remand",
     "Archmage's Charm",
     "Disallow",
     "Force of Negation",
-    "Three Steps Ahead",
     "Cryptic Command",
     "Gifts Ungiven",
     "This Town Ain't Big Enough",
     "Dig Through Time",
-    "Preordain",
     "Serum Visions",
-    "Lórien Revealed",
     "Time Warp",
     "Search for Azcanta",
     "Shark Typhoon",
@@ -258,7 +270,6 @@
     "Dauthi Voidwalker",
     "Deep-Cavern Bat",
     "Emperor of Bones",
-    "Overlord of the Balemurk",
     "Pack Rat",
     "Priest of Forgotten Gods",
     "Shriekmaw",
@@ -359,7 +370,6 @@
     "Tribal Flames",
     "Light Up the Stage",
     "Sweltering Suns",
-    "Pyrite Spellbomb",
     "Legion Extruder",
     "Embercleave",
     "Seal of Fire",
@@ -399,7 +409,6 @@
     "Agonasaur Rex",
     "Cavalier of Thorns",
     "Elder Gargaroth",
-    "Overlord of the Hauntwoods",
     "Thragtusk",
     "Generous Ent",
     "Primeval Titan",
@@ -424,7 +433,6 @@
     "Scapeshift",
     "Herd Migration",
     "Innkeeper's Talent",
-    "Up the Beanstalk",
     "Earthbender Ascension",
     "Invasion of Ikoria",
     "Boseiju, Who Endures",
@@ -492,7 +500,6 @@
     "Bloodtithe Harvester",
     "Dreadbore",
     "Kroxa, Titan of Death's Hunger",
-    "Kolaghan's Command",
     "Mayhem Devil",
     "Territorial Kavu",
     "Wrenn and Six",
@@ -530,7 +537,6 @@
     "Atraxa, Grand Unifier",
     "Celestial Colonnade",
     "Floodfarm Verge",
-    "Meticulous Archive",
     "Seachrome Coast",
     "Creeping Tar Pit",
     "Darkslick Shores",
@@ -539,7 +545,6 @@
     "Blackcleave Cliffs",
     "Blazemire Verge",
     "Haunted Ridge",
-    "Raucous Theater",
     "Commercial District",
     "Gruul Turf",
     "Raging Ravine",
@@ -554,10 +559,8 @@
     "Silent Clearing",
     "Fiery Islet",
     "Riverpyre Verge",
-    "Spirebluff Canal",
     "Golgari Rot Farm",
     "Nurturing Peatland",
-    "Overgrown Tomb",
     "Underground Mortuary",
     "Wastewood Verge",
     "Elegant Parlor",
@@ -568,10 +571,7 @@
     "Simic Growth Chamber",
     "Waterlogged Grove",
     "Willowrush Verge",
-    "Spara's Headquarters",
     "Jetmir's Garden",
-    "Savai Triome",
-    "Ketria Triome",
     "Indatha Triome",
     "Fabled Passage",
     "Lotus Field",
@@ -579,6 +579,153 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 15,
+      "seq": 115,
+      "player": "Tommi",
+      "card": "Emry, Lurker of the Loch",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 15,
+      "seq": 114,
+      "player": "Örvar",
+      "card": "Raucous Theater",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 15,
+      "seq": 113,
+      "player": "Binni",
+      "card": "Overlord of the Balemurk",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 112,
+      "player": "Binni",
+      "card": "Overlord of the Hauntwoods",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 111,
+      "player": "Örvar",
+      "card": "Pyrite Spellbomb",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 110,
+      "player": "Tommi",
+      "card": "Lórien Revealed",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 109,
+      "player": "Diddi",
+      "card": "Meticulous Archive",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 108,
+      "player": "Atli",
+      "card": "Spirebluff Canal",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 107,
+      "player": "Óli",
+      "card": "Consider",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 106,
+      "player": "Aron Ívars.",
+      "card": "Savai Triome",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 14,
+      "seq": 105,
+      "player": "Aron Freyr",
+      "card": "Spara's Headquarters",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 104,
+      "player": "Aron Freyr",
+      "card": "Path to Exile",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 103,
+      "player": "Aron Ívars.",
+      "card": "Kolaghan's Command",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 102,
+      "player": "Óli",
+      "card": "Three Steps Ahead",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 101,
+      "player": "Atli",
+      "card": "Preordain",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 100,
+      "player": "Diddi",
+      "card": "Ketria Triome",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 99,
+      "player": "Tommi",
+      "card": "Lion Sash",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 98,
+      "player": "Örvar",
+      "card": "Malcolm, Alluring Scoundrel",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 13,
+      "seq": 97,
+      "player": "Binni",
+      "card": "Up the Beanstalk",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 12,
+      "seq": 96,
+      "player": "Binni",
+      "card": "Overgrown Tomb",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
+    {
+      "round": 12,
+      "seq": 95,
+      "player": "Örvar",
+      "card": "Remand",
+      "first_seen": "2026-08-03T18:26:45Z"
+    },
     {
       "round": 12,
       "seq": 94,
