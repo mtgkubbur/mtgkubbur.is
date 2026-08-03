@@ -2,8 +2,10 @@ name: Rotisserie sync
 
 on:
   schedule:
-    # Two-hourly, offset off the hour to dodge the top-of-hour scheduling crush.
-    - cron: "17 */2 * * *"
+    # Half-hourly, offset off the hour to dodge the top-of-hour scheduling crush.
+    # The check job stays cheap (stdlib-only, seconds) so this cadence is fine;
+    # the full sync only runs when the parsed pick state actually changed.
+    - cron: "17,47 * * * *"
   workflow_dispatch: {}
 
 permissions:

@@ -13,9 +13,9 @@ def test_workflow_exists():
     assert WF.exists()
 
 
-def test_runs_two_hourly_and_on_demand():
+def test_runs_half_hourly_and_on_demand():
     text = WF.read_text(encoding="utf-8")
-    assert "*/2 * * *" in text
+    assert "17,47 * * * *" in text
     assert "workflow_dispatch" in text
 
 
