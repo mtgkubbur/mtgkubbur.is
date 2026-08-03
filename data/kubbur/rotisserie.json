@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-03T21:49:03Z",
-  "source_digest": "sha256:53ed9a3040395cad435c2249b8ee7b850e034c05f9265e093c85d488f292be09",
+  "generated_at": "2026-08-03T23:19:12Z",
+  "source_digest": "sha256:178a1d82fe46e47165ec0ce3c1682172420698f44ab38b13f4b888ff61da732c",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 140,
-  "current_round": 18,
-  "next_player": "Diddi",
+  "picks_made": 146,
+  "current_round": 19,
+  "next_player": "Tommi",
   "players": [
     "Binni",
     "Örvar",
@@ -36,7 +36,9 @@
       "Overlord of the Hauntwoods",
       "Overlord of the Balemurk",
       "Emperor of Bones",
-      "Shriekmaw"
+      "Shriekmaw",
+      "Scavenging Ooze",
+      "Murderous Cut"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -55,7 +57,9 @@
       "Pyrite Spellbomb",
       "Raucous Theater",
       "Undercity Sewers",
-      "Deathrite Shaman"
+      "Deathrite Shaman",
+      "Bone Shards",
+      "Shadowy Backstreet"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -74,7 +78,8 @@
       "Lórien Revealed",
       "Emry, Lurker of the Loch",
       "Cryptic Command",
-      "Floodfarm Verge"
+      "Floodfarm Verge",
+      "Porcelain Legionnaire"
     ],
     "Diddi": [
       "Fury",
@@ -93,7 +98,8 @@
       "Meticulous Archive",
       "Six",
       "Once Upon a Time",
-      "Condescend"
+      "Condescend",
+      "Wrenn and Six"
     ],
     "Atli": [
       "Dismember",
@@ -321,9 +327,7 @@
     "Sheoldred's Edict",
     "Makeshift Mannequin",
     "Pile On",
-    "Murderous Cut",
     "Bloodchief's Thirst",
-    "Bone Shards",
     "Inquisition of Kozilek",
     "Intimidation Tactics",
     "Unearth",
@@ -400,7 +404,6 @@
     "Lotus Cobra",
     "Nishoba Brawler",
     "Satyr Wayfinder",
-    "Scavenging Ooze",
     "Springheart Nantuko",
     "Tarmogoyf",
     "Courser of Kruphix",
@@ -454,7 +457,6 @@
     "Metallic Mimic",
     "Patchwork Automaton",
     "Phyrexian Revoker",
-    "Porcelain Legionnaire",
     "Spellskite",
     "Steel Overseer",
     "Syr Ginger, the Meal Ender",
@@ -507,7 +509,6 @@
     "Kroxa, Titan of Death's Hunger",
     "Mayhem Devil",
     "Territorial Kavu",
-    "Wrenn and Six",
     "Bloodbraid Elf",
     "Huntmaster of the Fells",
     "Dragonlord Atarka",
@@ -557,7 +558,6 @@
     "Stirring Wildwood",
     "Bleachbone Verge",
     "Concealed Courtyard",
-    "Shadowy Backstreet",
     "Silent Clearing",
     "Fiery Islet",
     "Golgari Rot Farm",
@@ -579,6 +579,48 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 19,
+      "seq": 146,
+      "player": "Örvar",
+      "card": "Shadowy Backstreet",
+      "first_seen": "2026-08-03T23:19:12Z"
+    },
+    {
+      "round": 19,
+      "seq": 145,
+      "player": "Binni",
+      "card": "Murderous Cut",
+      "first_seen": "2026-08-03T23:19:12Z"
+    },
+    {
+      "round": 18,
+      "seq": 144,
+      "player": "Binni",
+      "card": "Scavenging Ooze",
+      "first_seen": "2026-08-03T23:19:12Z"
+    },
+    {
+      "round": 18,
+      "seq": 143,
+      "player": "Örvar",
+      "card": "Bone Shards",
+      "first_seen": "2026-08-03T23:19:12Z"
+    },
+    {
+      "round": 18,
+      "seq": 142,
+      "player": "Tommi",
+      "card": "Porcelain Legionnaire",
+      "first_seen": "2026-08-03T23:19:12Z"
+    },
+    {
+      "round": 18,
+      "seq": 141,
+      "player": "Diddi",
+      "card": "Wrenn and Six",
+      "first_seen": "2026-08-03T23:19:12Z"
+    },
     {
       "round": 18,
       "seq": 140,
