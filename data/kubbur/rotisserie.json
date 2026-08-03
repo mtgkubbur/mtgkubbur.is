@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-03T18:26:45Z",
-  "source_digest": "sha256:4a01ee23f4fa8fe548bb9d75d5782d1dd3cce7ddf9955246b47b2116a792c8e6",
+  "generated_at": "2026-08-03T20:18:21Z",
+  "source_digest": "sha256:8f7f155be4c9f9119b972d403a7cee766406c56e347e1235bcab644c46b30553",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 115,
-  "current_round": 15,
-  "next_player": "Diddi",
+  "picks_made": 125,
+  "current_round": 16,
+  "next_player": "Tommi",
   "players": [
     "Binni",
     "Örvar",
@@ -84,7 +84,9 @@
       "Leyline Binding",
       "Temple Garden",
       "Ketria Triome",
-      "Meticulous Archive"
+      "Meticulous Archive",
+      "Six",
+      "Once Upon a Time"
     ],
     "Atli": [
       "Dismember",
@@ -100,7 +102,9 @@
       "Expressive Iteration",
       "Zagoth Triome",
       "Preordain",
-      "Spirebluff Canal"
+      "Spirebluff Canal",
+      "Slickshot Show-Off",
+      "Opt"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -116,7 +120,9 @@
       "Chart a Course",
       "Vapor Snag",
       "Three Steps Ahead",
-      "Consider"
+      "Consider",
+      "Counterspell",
+      "Thrill of Possibility"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -132,7 +138,9 @@
       "Warleader's Call",
       "Goblin Rabblemaster",
       "Kolaghan's Command",
-      "Savai Triome"
+      "Savai Triome",
+      "Tersa Lightshatter",
+      "Faithless Looting"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -148,7 +156,9 @@
       "No More Lies",
       "Eternal Witness",
       "Path to Exile",
-      "Spara's Headquarters"
+      "Spara's Headquarters",
+      "Prismatic Ending",
+      "Gitaxian Probe"
     ]
   },
   "remaining": [
@@ -195,7 +205,6 @@
     "Get Lost",
     "Rally the Monastery",
     "Settle the Wreckage",
-    "Prismatic Ending",
     "Recommission",
     "Collective Effort",
     "Lingering Souls",
@@ -240,12 +249,10 @@
     "Jace, the Mind Sculptor",
     "Tamiyo, the Moon Sage",
     "Condescend",
-    "Opt",
     "Spell Pierce",
     "Stern Scolding",
     "Thought Scour",
     "Consult the Star Charts",
-    "Counterspell",
     "Lose Focus",
     "Archmage's Charm",
     "Disallow",
@@ -337,7 +344,6 @@
     "Robber of the Rich",
     "Scrapwork Mutt",
     "Searslicer Goblin",
-    "Slickshot Show-Off",
     "Young Pyromancer",
     "Bonecrusher Giant",
     "Breya's Apprentice",
@@ -345,7 +351,6 @@
     "Guttersnipe",
     "Seasoned Pyromancer",
     "Squee, Goblin Nabob",
-    "Tersa Lightshatter",
     "Hazoret the Fervent",
     "Hellrider",
     "Rekindling Phoenix",
@@ -360,12 +365,10 @@
     "Galvanic Blast",
     "Lightning Axe",
     "Manamorphose",
-    "Thrill of Possibility",
     "Fiery Temper",
     "Big Score",
     "Witchstalker Frenzy",
     "Through the Breach",
-    "Faithless Looting",
     "Pyroclasm",
     "Tribal Flames",
     "Light Up the Stage",
@@ -399,7 +402,6 @@
     "Endurance",
     "Formidable Speaker",
     "Sentinel of the Nameless City",
-    "Six",
     "Tireless Tracker",
     "Mightform Harmonizer",
     "Ouroboroid",
@@ -420,7 +422,6 @@
     "Smuggler's Surprise",
     "Tail Swipe",
     "Master's Rebuke",
-    "Once Upon a Time",
     "Tear Asunder",
     "Beast Within",
     "Chord of Calling",
@@ -467,7 +468,6 @@
     "Gut Shot",
     "Noxious Revival",
     "Act of Aggression",
-    "Gitaxian Probe",
     "Engineered Explosives",
     "Mox Opal",
     "Welding Jar",
@@ -579,6 +579,76 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 16,
+      "seq": 125,
+      "player": "Diddi",
+      "card": "Once Upon a Time",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 16,
+      "seq": 124,
+      "player": "Atli",
+      "card": "Opt",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 16,
+      "seq": 123,
+      "player": "Óli",
+      "card": "Thrill of Possibility",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 16,
+      "seq": 122,
+      "player": "Aron Ívars.",
+      "card": "Faithless Looting",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 16,
+      "seq": 121,
+      "player": "Aron Freyr",
+      "card": "Gitaxian Probe",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 15,
+      "seq": 120,
+      "player": "Aron Freyr",
+      "card": "Prismatic Ending",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 15,
+      "seq": 119,
+      "player": "Aron Ívars.",
+      "card": "Tersa Lightshatter",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 15,
+      "seq": 118,
+      "player": "Óli",
+      "card": "Counterspell",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 15,
+      "seq": 117,
+      "player": "Atli",
+      "card": "Slickshot Show-Off",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
+    {
+      "round": 15,
+      "seq": 116,
+      "player": "Diddi",
+      "card": "Six",
+      "first_seen": "2026-08-03T20:18:21Z"
+    },
     {
       "round": 15,
       "seq": 115,
