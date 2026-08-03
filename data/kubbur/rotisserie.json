@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-03T11:41:56Z",
-  "source_digest": "sha256:f2dce551e020fb328efbe34643939630fa065aa67a16112fb488373d7972cc40",
+  "generated_at": "2026-08-03T15:13:46Z",
+  "source_digest": "sha256:b862f3da99cc5872783be4788e224ffce2e494d0a67633056ffd8779ba3061db",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 79,
-  "current_round": 10,
-  "next_player": "Binni",
+  "picks_made": 94,
+  "current_round": 12,
+  "next_player": "Örvar",
   "players": [
     "Binni",
     "Örvar",
@@ -28,7 +28,9 @@
       "Screaming Nemesis",
       "Glorybringer",
       "Nissa, Who Shakes the World",
-      "Esika's Chariot"
+      "Esika's Chariot",
+      "Sylvan Caryatid",
+      "Ziatora's Proving Ground"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -40,7 +42,8 @@
       "Watery Grave",
       "Aether Spellbomb",
       "Raffine's Tower",
-      "Mana Leak"
+      "Mana Leak",
+      "Dark Confidant"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -52,7 +55,9 @@
       "Stoneforge Mystic",
       "Cryptic Coat",
       "Esper Sentinel",
-      "Chromatic Star"
+      "Chromatic Star",
+      "Erode",
+      "Otawara, Soaring City"
     ],
     "Diddi": [
       "Fury",
@@ -64,7 +69,9 @@
       "Vibrance",
       "Stomping Ground",
       "Uro, Titan of Nature's Wrath",
-      "Raugrin Triome"
+      "Raugrin Triome",
+      "Leyline Binding",
+      "Temple Garden"
     ],
     "Atli": [
       "Dismember",
@@ -76,7 +83,9 @@
       "Blood Crypt",
       "Dragon's Rage Channeler",
       "Burst Lightning",
-      "Flow State"
+      "Flow State",
+      "Expressive Iteration",
+      "Zagoth Triome"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -88,7 +97,9 @@
       "Sear",
       "Xander's Lounge",
       "Thundering Falls",
-      "Abrade"
+      "Abrade",
+      "Chart a Course",
+      "Vapor Snag"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -100,7 +111,9 @@
       "Sacred Foundry",
       "Godless Shrine",
       "Inti, Seneschal of the Sun",
-      "Smuggler's Copter"
+      "Smuggler's Copter",
+      "Warleader's Call",
+      "Goblin Rabblemaster"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -112,7 +125,9 @@
       "Prismatic Vista",
       "Breeding Pool",
       "Ephemerate",
-      "Subtlety"
+      "Subtlety",
+      "No More Lies",
+      "Eternal Witness"
     ]
   },
   "remaining": [
@@ -155,7 +170,6 @@
     "Gideon, Ally of Zendikar",
     "The Wandering Emperor",
     "Elspeth, Sun's Champion",
-    "Erode",
     "March of Otherworldly Light",
     "Path to Exile",
     "Secure the Wastes",
@@ -174,7 +188,6 @@
     "Wedding Announcement",
     "Elspeth Conquers Death",
     "Virtue of Loyalty",
-    "Leyline Binding",
     "Invasion of Gobakhan",
     "Eiganjo, Seat of the Empire",
     "Flitterwing Nuisance",
@@ -215,7 +228,6 @@
     "Spell Pierce",
     "Stern Scolding",
     "Thought Scour",
-    "Vapor Snag",
     "Consult the Star Charts",
     "Counterspell",
     "Lose Focus",
@@ -230,12 +242,10 @@
     "Dig Through Time",
     "Preordain",
     "Serum Visions",
-    "Chart a Course",
     "Lórien Revealed",
     "Time Warp",
     "Search for Azcanta",
     "Shark Typhoon",
-    "Otawara, Soaring City",
     "Cecil, Dark Knight",
     "Cryptbreaker",
     "Gravecrawler",
@@ -245,7 +255,6 @@
     "Accursed Marauder",
     "Bloodghast",
     "Caustic Bronco",
-    "Dark Confidant",
     "Dauthi Voidwalker",
     "Deep-Cavern Bat",
     "Emperor of Bones",
@@ -322,7 +331,6 @@
     "Bonecrusher Giant",
     "Breya's Apprentice",
     "Detective's Phoenix",
-    "Goblin Rabblemaster",
     "Guttersnipe",
     "Seasoned Pyromancer",
     "Squee, Goblin Nabob",
@@ -375,12 +383,10 @@
     "Satyr Wayfinder",
     "Scavenging Ooze",
     "Springheart Nantuko",
-    "Sylvan Caryatid",
     "Tarmogoyf",
     "Courser of Kruphix",
     "Dryad of the Ilysian Grove",
     "Endurance",
-    "Eternal Witness",
     "Formidable Speaker",
     "Sentinel of the Nameless City",
     "Six",
@@ -475,7 +481,6 @@
     "Field of the Dead",
     "Thespian's Stage",
     "Westvale Abbey",
-    "No More Lies",
     "Spell Queller",
     "Sphinx's Revelation",
     "Supreme Verdict",
@@ -501,7 +506,6 @@
     "Priest of Fell Rites",
     "Tidehollow Sculler",
     "Anguished Unmaking",
-    "Expressive Iteration",
     "Third Path Iconoclast",
     "Flame of Anor",
     "Pinnacle Emissary",
@@ -513,7 +517,6 @@
     "Vraska, Golgari Queen",
     "Hogaak, Arisen Necropolis",
     "Lightning Helix",
-    "Warleader's Call",
     "Nahiri, the Harbinger",
     "Growth Spiral",
     "Hydroid Krasis",
@@ -545,7 +548,6 @@
     "Hushwood Verge",
     "Lush Portico",
     "Stirring Wildwood",
-    "Temple Garden",
     "Bleachbone Verge",
     "Concealed Courtyard",
     "Shadowy Backstreet",
@@ -567,18 +569,121 @@
     "Waterlogged Grove",
     "Willowrush Verge",
     "Spara's Headquarters",
-    "Ziatora's Proving Ground",
     "Jetmir's Garden",
     "Savai Triome",
     "Ketria Triome",
     "Indatha Triome",
-    "Zagoth Triome",
     "Fabled Passage",
     "Lotus Field",
     "Mana Confluence",
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 12,
+      "seq": 94,
+      "player": "Tommi",
+      "card": "Otawara, Soaring City",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 12,
+      "seq": 93,
+      "player": "Diddi",
+      "card": "Temple Garden",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 12,
+      "seq": 92,
+      "player": "Atli",
+      "card": "Zagoth Triome",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 12,
+      "seq": 91,
+      "player": "Óli",
+      "card": "Vapor Snag",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 12,
+      "seq": 90,
+      "player": "Aron Ívars.",
+      "card": "Goblin Rabblemaster",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 12,
+      "seq": 89,
+      "player": "Aron Freyr",
+      "card": "Eternal Witness",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 88,
+      "player": "Aron Freyr",
+      "card": "No More Lies",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 87,
+      "player": "Aron Ívars.",
+      "card": "Warleader's Call",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 86,
+      "player": "Óli",
+      "card": "Chart a Course",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 85,
+      "player": "Atli",
+      "card": "Expressive Iteration",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 84,
+      "player": "Diddi",
+      "card": "Leyline Binding",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 83,
+      "player": "Tommi",
+      "card": "Erode",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 82,
+      "player": "Örvar",
+      "card": "Dark Confidant",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 11,
+      "seq": 81,
+      "player": "Binni",
+      "card": "Ziatora's Proving Ground",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
+    {
+      "round": 10,
+      "seq": 80,
+      "player": "Binni",
+      "card": "Sylvan Caryatid",
+      "first_seen": "2026-08-03T15:13:46Z"
+    },
     {
       "round": 10,
       "seq": 79,
