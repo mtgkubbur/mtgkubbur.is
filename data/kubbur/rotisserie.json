@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-03T03:51:54Z",
-  "source_digest": "sha256:c684a86cfa41786c8742f7c46c8b77a9d50e6eda68ed52a2c46949df21514af7",
+  "generated_at": "2026-08-03T11:41:56Z",
+  "source_digest": "sha256:f2dce551e020fb328efbe34643939630fa065aa67a16112fb488373d7972cc40",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 74,
+  "picks_made": 79,
   "current_round": 10,
-  "next_player": "Óli",
+  "next_player": "Binni",
   "players": [
     "Binni",
     "Örvar",
@@ -39,7 +39,8 @@
       "Thoughtseize",
       "Watery Grave",
       "Aether Spellbomb",
-      "Raffine's Tower"
+      "Raffine's Tower",
+      "Mana Leak"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -50,7 +51,8 @@
       "Hallowed Fountain",
       "Stoneforge Mystic",
       "Cryptic Coat",
-      "Esper Sentinel"
+      "Esper Sentinel",
+      "Chromatic Star"
     ],
     "Diddi": [
       "Fury",
@@ -61,7 +63,8 @@
       "Malevolent Rumble",
       "Vibrance",
       "Stomping Ground",
-      "Uro, Titan of Nature's Wrath"
+      "Uro, Titan of Nature's Wrath",
+      "Raugrin Triome"
     ],
     "Atli": [
       "Dismember",
@@ -72,7 +75,8 @@
       "Wooded Foothills",
       "Blood Crypt",
       "Dragon's Rage Channeler",
-      "Burst Lightning"
+      "Burst Lightning",
+      "Flow State"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -83,7 +87,8 @@
       "Flame Slash",
       "Sear",
       "Xander's Lounge",
-      "Thundering Falls"
+      "Thundering Falls",
+      "Abrade"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -214,7 +219,6 @@
     "Consult the Star Charts",
     "Counterspell",
     "Lose Focus",
-    "Mana Leak",
     "Remand",
     "Archmage's Charm",
     "Disallow",
@@ -227,7 +231,6 @@
     "Preordain",
     "Serum Visions",
     "Chart a Course",
-    "Flow State",
     "Lórien Revealed",
     "Time Warp",
     "Search for Azcanta",
@@ -337,7 +340,6 @@
     "Chandra, Torch of Defiance",
     "Galvanic Blast",
     "Lightning Axe",
-    "Abrade",
     "Manamorphose",
     "Thrill of Possibility",
     "Fiery Temper",
@@ -456,7 +458,6 @@
     "Mox Opal",
     "Welding Jar",
     "Bonesplitter",
-    "Chromatic Star",
     "Expedition Map",
     "Ghost Vacuum",
     "Shadowspear",
@@ -571,7 +572,6 @@
     "Savai Triome",
     "Ketria Triome",
     "Indatha Triome",
-    "Raugrin Triome",
     "Zagoth Triome",
     "Fabled Passage",
     "Lotus Field",
@@ -579,6 +579,41 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 10,
+      "seq": 79,
+      "player": "Örvar",
+      "card": "Mana Leak",
+      "first_seen": "2026-08-03T11:41:56Z"
+    },
+    {
+      "round": 10,
+      "seq": 78,
+      "player": "Tommi",
+      "card": "Chromatic Star",
+      "first_seen": "2026-08-03T11:41:56Z"
+    },
+    {
+      "round": 10,
+      "seq": 77,
+      "player": "Diddi",
+      "card": "Raugrin Triome",
+      "first_seen": "2026-08-03T11:41:56Z"
+    },
+    {
+      "round": 10,
+      "seq": 76,
+      "player": "Atli",
+      "card": "Flow State",
+      "first_seen": "2026-08-03T11:41:56Z"
+    },
+    {
+      "round": 10,
+      "seq": 75,
+      "player": "Óli",
+      "card": "Abrade",
+      "first_seen": "2026-08-03T11:41:56Z"
+    },
     {
       "round": 10,
       "seq": 74,
