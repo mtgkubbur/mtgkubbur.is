@@ -1314,14 +1314,27 @@
   border: 1px dashed var(--border-default); border-radius: 7px;
 }
 
+.rot-toolbar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; font-size: 0.9rem; }
+.rot-toolbar label { opacity: 0.75; }
+
 .rot-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem; }
 .rot-filters input[type="search"] { flex: 1 1 14rem; min-width: 0; }
-.rot-colour-filters { display: flex; gap: 0.25rem; }
-.rot-colour-btn {
+.rot-colour-filters, .rot-cmc-filters { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.rot-colour-btn, .rot-cmc-btn, .rot-clear-btn {
   border: 1px solid var(--border-default); background: var(--surface-soft);
   border-radius: 999px; padding: 0.2rem 0.55rem; cursor: pointer; font-size: 0.9rem;
+  color: var(--text-primary); line-height: 1.4;
 }
-.rot-colour-btn[aria-pressed="true"] { background: var(--mtg-gold); color: var(--mtg-black); border-color: var(--mtg-gold); }
+.rot-colour-btn .ms { font-size: 0.95rem; vertical-align: -0.05em; }
+.rot-pip-gold { color: var(--mtg-gold); }
+.rot-cmc-btn { min-width: 2.1rem; text-align: center; font-variant-numeric: tabular-nums; }
+.rot-colour-btn[aria-pressed="true"], .rot-cmc-btn[aria-pressed="true"] {
+  background: var(--gold-soft, rgba(201, 168, 76, 0.25));
+  border-color: var(--mtg-gold);
+  box-shadow: inset 0 0 0 1px var(--mtg-gold);
+}
+.rot-clear-btn { opacity: 0.85; }
+.rot-clear-btn:hover { opacity: 1; border-color: var(--mtg-gold); }
 
 .rot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.5rem; }
 .rot-grid .rot-card { width: 100%; height: auto; border-radius: 7px; }

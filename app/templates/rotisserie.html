@@ -10,15 +10,22 @@
   <div id="rot-status" class="rot-status"></div>
 
   <h2 class="rot-section-title">{{ S.rotisserie_pools }}</h2>
+  <div class="rot-toolbar">
+    <label for="rot-pool-order">{{ S.rotisserie_order_label }}:</label>
+    <select id="rot-pool-order" class="mtg-select"></select>
+  </div>
   <div id="rot-pools"></div>
 
   <h2 class="rot-section-title">{{ S.rotisserie_remaining }}</h2>
   <div class="rot-filters">
     <input id="rot-search" type="search" placeholder="{{ S.rotisserie_search }}" aria-label="{{ S.rotisserie_search }}" />
     <div id="rot-colour-filters" class="rot-colour-filters"></div>
-    <select id="rot-type-filter" aria-label="{{ S.rotisserie_type_all }}">
+    <div id="rot-cmc-filters" class="rot-cmc-filters" role="group" aria-label="{{ S.rotisserie_cmc_label }}"></div>
+    <select id="rot-type-filter" class="mtg-select" aria-label="{{ S.rotisserie_type_all }}">
       <option value="">{{ S.rotisserie_type_all }}</option>
     </select>
+    <select id="rot-sort" class="mtg-select" aria-label="{{ S.rotisserie_order_label }}"></select>
+    <button type="button" id="rot-clear" class="rot-clear-btn" hidden>{{ S.rotisserie_clear }}</button>
   </div>
   <div id="rot-remaining"></div>
 
@@ -32,5 +39,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script type="module" src="/static/js/rotisserie.js?v=2"></script>
+<script type="module" src="/static/js/rotisserie.js?v=3"></script>
 {% endblock %}

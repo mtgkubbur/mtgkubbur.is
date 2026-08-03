@@ -31,6 +31,9 @@ RENDERED_KEYS = {
     "rotisserie_search",
     "rotisserie_type_all",
     "rotisserie_log",
+    "rotisserie_order_label",
+    "rotisserie_cmc_label",
+    "rotisserie_clear",
 }
 
 # Below this length a string value (e.g. rotisserie_of == "af") is likely to
@@ -75,11 +78,15 @@ def test_page_has_the_mount_points_the_js_targets():
     for token in (
         'id="rot-status"',
         'id="rot-pools"',
+        'id="rot-pool-order"',
         'id="rot-remaining"',
         'id="rot-log"',
         'id="rot-search"',
         'id="rot-colour-filters"',
+        'id="rot-cmc-filters"',
         'id="rot-type-filter"',
+        'id="rot-sort"',
+        'id="rot-clear"',
         'id="rot-lightbox"',
     ):
         assert token in body, token
