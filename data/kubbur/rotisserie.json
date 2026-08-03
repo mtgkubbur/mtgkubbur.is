@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-02T23:09:09Z",
-  "source_digest": "sha256:ec23ed11d514dff6458be387a6c6dcd54357f502851ceb10f7ee94f4889050f2",
+  "generated_at": "2026-08-03T03:51:54Z",
+  "source_digest": "sha256:c684a86cfa41786c8742f7c46c8b77a9d50e6eda68ed52a2c46949df21514af7",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 62,
-  "current_round": 8,
-  "next_player": "Örvar",
+  "picks_made": 74,
+  "current_round": 10,
+  "next_player": "Óli",
   "players": [
     "Binni",
     "Örvar",
@@ -26,7 +26,9 @@
       "Llanowar Elves",
       "Hexdrinker",
       "Screaming Nemesis",
-      "Glorybringer"
+      "Glorybringer",
+      "Nissa, Who Shakes the World",
+      "Esika's Chariot"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -35,7 +37,9 @@
       "Marsh Flats",
       "Verdant Catacombs",
       "Thoughtseize",
-      "Watery Grave"
+      "Watery Grave",
+      "Aether Spellbomb",
+      "Raffine's Tower"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -45,7 +49,8 @@
       "Steam Vents",
       "Hallowed Fountain",
       "Stoneforge Mystic",
-      "Cryptic Coat"
+      "Cryptic Coat",
+      "Esper Sentinel"
     ],
     "Diddi": [
       "Fury",
@@ -55,7 +60,8 @@
       "Stock Up",
       "Malevolent Rumble",
       "Vibrance",
-      "Stomping Ground"
+      "Stomping Ground",
+      "Uro, Titan of Nature's Wrath"
     ],
     "Atli": [
       "Dismember",
@@ -65,7 +71,8 @@
       "Stormchaser's Talent",
       "Wooded Foothills",
       "Blood Crypt",
-      "Dragon's Rage Channeler"
+      "Dragon's Rage Channeler",
+      "Burst Lightning"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -75,7 +82,8 @@
       "Snapcaster Mage",
       "Flame Slash",
       "Sear",
-      "Xander's Lounge"
+      "Xander's Lounge",
+      "Thundering Falls"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -85,7 +93,9 @@
       "Phlage, Titan of Fire's Fury",
       "Voice of Victory",
       "Sacred Foundry",
-      "Godless Shrine"
+      "Godless Shrine",
+      "Inti, Seneschal of the Sun",
+      "Smuggler's Copter"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -95,12 +105,13 @@
       "Windswept Heath",
       "Quantum Riddler",
       "Prismatic Vista",
-      "Breeding Pool"
+      "Breeding Pool",
+      "Ephemerate",
+      "Subtlety"
     ]
   },
   "remaining": [
     "Champion of the Parish",
-    "Esper Sentinel",
     "Giant Killer",
     "Giver of Runes",
     "Novice Inspector",
@@ -139,7 +150,6 @@
     "Gideon, Ally of Zendikar",
     "The Wandering Emperor",
     "Elspeth, Sun's Champion",
-    "Ephemerate",
     "Erode",
     "March of Otherworldly Light",
     "Path to Exile",
@@ -182,7 +192,6 @@
     "Vendilion Clique",
     "Dungeon Geists",
     "Sower of Temptation",
-    "Subtlety",
     "Venser, Shaper Savant",
     "Body Double",
     "Kappa Cannoneer",
@@ -221,7 +230,6 @@
     "Flow State",
     "Lórien Revealed",
     "Time Warp",
-    "Aether Spellbomb",
     "Search for Azcanta",
     "Shark Typhoon",
     "Otawara, Soaring City",
@@ -303,7 +311,6 @@
     "Eidolon of the Great Revel",
     "Fear of Missing Out",
     "Harmonic Prodigy",
-    "Inti, Seneschal of the Sun",
     "Robber of the Rich",
     "Scrapwork Mutt",
     "Searslicer Goblin",
@@ -328,7 +335,6 @@
     "Trumpeting Carnosaur",
     "Bedlam Reveler",
     "Chandra, Torch of Defiance",
-    "Burst Lightning",
     "Galvanic Blast",
     "Lightning Axe",
     "Abrade",
@@ -393,7 +399,6 @@
     "Craterhoof Behemoth",
     "Diamond Weapon",
     "Garruk Wildspeaker",
-    "Nissa, Who Shakes the World",
     "Vivien Reid",
     "Smuggler's Surprise",
     "Tail Swipe",
@@ -410,7 +415,6 @@
     "Search for Tomorrow",
     "Scapeshift",
     "Herd Migration",
-    "Esika's Chariot",
     "Innkeeper's Talent",
     "Up the Beanstalk",
     "Earthbender Ascension",
@@ -460,7 +464,6 @@
     "Cranial Plating",
     "Heart of Kiran",
     "Mind Stone",
-    "Smuggler's Copter",
     "Birthing Pod",
     "Grafted Wargear",
     "Monument to Endurance",
@@ -513,7 +516,6 @@
     "Nahiri, the Harbinger",
     "Growth Spiral",
     "Hydroid Krasis",
-    "Uro, Titan of Nature's Wrath",
     "Bonny Pall, Clearcutter",
     "Raffine, Scheming Seer",
     "Korvold, Fae-Cursed King",
@@ -550,7 +552,6 @@
     "Fiery Islet",
     "Riverpyre Verge",
     "Spirebluff Canal",
-    "Thundering Falls",
     "Golgari Rot Farm",
     "Nurturing Peatland",
     "Overgrown Tomb",
@@ -565,7 +566,6 @@
     "Waterlogged Grove",
     "Willowrush Verge",
     "Spara's Headquarters",
-    "Raffine's Tower",
     "Ziatora's Proving Ground",
     "Jetmir's Garden",
     "Savai Triome",
@@ -579,6 +579,90 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 10,
+      "seq": 74,
+      "player": "Aron Ívars.",
+      "card": "Smuggler's Copter",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 10,
+      "seq": 73,
+      "player": "Aron Freyr",
+      "card": "Subtlety",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 72,
+      "player": "Aron Freyr",
+      "card": "Ephemerate",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 71,
+      "player": "Aron Ívars.",
+      "card": "Inti, Seneschal of the Sun",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 70,
+      "player": "Óli",
+      "card": "Thundering Falls",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 69,
+      "player": "Atli",
+      "card": "Burst Lightning",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 68,
+      "player": "Diddi",
+      "card": "Uro, Titan of Nature's Wrath",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 67,
+      "player": "Tommi",
+      "card": "Esper Sentinel",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 66,
+      "player": "Örvar",
+      "card": "Raffine's Tower",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 9,
+      "seq": 65,
+      "player": "Binni",
+      "card": "Esika's Chariot",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 8,
+      "seq": 64,
+      "player": "Binni",
+      "card": "Nissa, Who Shakes the World",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
+    {
+      "round": 8,
+      "seq": 63,
+      "player": "Örvar",
+      "card": "Aether Spellbomb",
+      "first_seen": "2026-08-03T03:51:54Z"
+    },
     {
       "round": 8,
       "seq": 62,
