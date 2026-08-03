@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-03T20:18:21Z",
-  "source_digest": "sha256:8f7f155be4c9f9119b972d403a7cee766406c56e347e1235bcab644c46b30553",
+  "generated_at": "2026-08-03T21:49:03Z",
+  "source_digest": "sha256:53ed9a3040395cad435c2249b8ee7b850e034c05f9265e093c85d488f292be09",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 125,
-  "current_round": 16,
-  "next_player": "Tommi",
+  "picks_made": 140,
+  "current_round": 18,
+  "next_player": "Diddi",
   "players": [
     "Binni",
     "Örvar",
@@ -34,7 +34,9 @@
       "Overgrown Tomb",
       "Up the Beanstalk",
       "Overlord of the Hauntwoods",
-      "Overlord of the Balemurk"
+      "Overlord of the Balemurk",
+      "Emperor of Bones",
+      "Shriekmaw"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -51,7 +53,9 @@
       "Remand",
       "Malcolm, Alluring Scoundrel",
       "Pyrite Spellbomb",
-      "Raucous Theater"
+      "Raucous Theater",
+      "Undercity Sewers",
+      "Deathrite Shaman"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -68,7 +72,9 @@
       "Otawara, Soaring City",
       "Lion Sash",
       "Lórien Revealed",
-      "Emry, Lurker of the Loch"
+      "Emry, Lurker of the Loch",
+      "Cryptic Command",
+      "Floodfarm Verge"
     ],
     "Diddi": [
       "Fury",
@@ -86,7 +92,8 @@
       "Ketria Triome",
       "Meticulous Archive",
       "Six",
-      "Once Upon a Time"
+      "Once Upon a Time",
+      "Condescend"
     ],
     "Atli": [
       "Dismember",
@@ -104,7 +111,9 @@
       "Preordain",
       "Spirebluff Canal",
       "Slickshot Show-Off",
-      "Opt"
+      "Opt",
+      "Galvanic Blast",
+      "Riverpyre Verge"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -122,7 +131,9 @@
       "Three Steps Ahead",
       "Consider",
       "Counterspell",
-      "Thrill of Possibility"
+      "Thrill of Possibility",
+      "Spell Pierce",
+      "Ledger Shredder"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -140,7 +151,9 @@
       "Kolaghan's Command",
       "Savai Triome",
       "Tersa Lightshatter",
-      "Faithless Looting"
+      "Faithless Looting",
+      "Bitter Triumph",
+      "Hangarback Walker"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -158,7 +171,9 @@
       "Path to Exile",
       "Spara's Headquarters",
       "Prismatic Ending",
-      "Gitaxian Probe"
+      "Gitaxian Probe",
+      "Sunbillow Verge",
+      "Lose Focus"
     ]
   },
   "remaining": [
@@ -224,7 +239,6 @@
     "Faerie Mastermind",
     "Jace, Vryn's Prodigy",
     "Kitsa, Otterball Elite",
-    "Ledger Shredder",
     "Picklock Prankster",
     "Thing in the Ice",
     "Wan Shi Tong, Librarian",
@@ -248,16 +262,12 @@
     "Elder Deep-Fiend",
     "Jace, the Mind Sculptor",
     "Tamiyo, the Moon Sage",
-    "Condescend",
-    "Spell Pierce",
     "Stern Scolding",
     "Thought Scour",
     "Consult the Star Charts",
-    "Lose Focus",
     "Archmage's Charm",
     "Disallow",
     "Force of Negation",
-    "Cryptic Command",
     "Gifts Ungiven",
     "This Town Ain't Big Enough",
     "Dig Through Time",
@@ -276,10 +286,8 @@
     "Caustic Bronco",
     "Dauthi Voidwalker",
     "Deep-Cavern Bat",
-    "Emperor of Bones",
     "Pack Rat",
     "Priest of Forgotten Gods",
-    "Shriekmaw",
     "Tenacious Underdog",
     "Valki, God of Lies",
     "Vampire Hexmage",
@@ -307,7 +315,6 @@
     "Cut Down",
     "Fatal Push",
     "Malakir Rebirth",
-    "Bitter Triumph",
     "Deadly Dispute",
     "Doom Blade",
     "Goryo's Vengeance",
@@ -362,7 +369,6 @@
     "Trumpeting Carnosaur",
     "Bedlam Reveler",
     "Chandra, Torch of Defiance",
-    "Galvanic Blast",
     "Lightning Axe",
     "Manamorphose",
     "Fiery Temper",
@@ -437,7 +443,6 @@
     "Earthbender Ascension",
     "Invasion of Ikoria",
     "Boseiju, Who Endures",
-    "Hangarback Walker",
     "Marketback Walker",
     "Memnite",
     "Stonecoil Serpent",
@@ -517,7 +522,6 @@
     "Flame of Anor",
     "Pinnacle Emissary",
     "Saheeli, Sublime Artificer",
-    "Deathrite Shaman",
     "Assassin's Trophy",
     "Fiend Artisan",
     "Grist, the Hunger Tide",
@@ -536,12 +540,10 @@
     "Omnath, Locus of Creation",
     "Atraxa, Grand Unifier",
     "Celestial Colonnade",
-    "Floodfarm Verge",
     "Seachrome Coast",
     "Creeping Tar Pit",
     "Darkslick Shores",
     "Gloomlake Verge",
-    "Undercity Sewers",
     "Blackcleave Cliffs",
     "Blazemire Verge",
     "Haunted Ridge",
@@ -558,7 +560,6 @@
     "Shadowy Backstreet",
     "Silent Clearing",
     "Fiery Islet",
-    "Riverpyre Verge",
     "Golgari Rot Farm",
     "Nurturing Peatland",
     "Underground Mortuary",
@@ -566,7 +567,6 @@
     "Elegant Parlor",
     "Inspiring Vantage",
     "Sunbaked Canyon",
-    "Sunbillow Verge",
     "Hedge Maze",
     "Simic Growth Chamber",
     "Waterlogged Grove",
@@ -579,6 +579,111 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 18,
+      "seq": 140,
+      "player": "Atli",
+      "card": "Riverpyre Verge",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 18,
+      "seq": 139,
+      "player": "Óli",
+      "card": "Ledger Shredder",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 18,
+      "seq": 138,
+      "player": "Aron Ívars.",
+      "card": "Hangarback Walker",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 18,
+      "seq": 137,
+      "player": "Aron Freyr",
+      "card": "Lose Focus",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 136,
+      "player": "Aron Freyr",
+      "card": "Sunbillow Verge",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 135,
+      "player": "Aron Ívars.",
+      "card": "Bitter Triumph",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 134,
+      "player": "Óli",
+      "card": "Spell Pierce",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 133,
+      "player": "Atli",
+      "card": "Galvanic Blast",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 132,
+      "player": "Diddi",
+      "card": "Condescend",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 131,
+      "player": "Tommi",
+      "card": "Floodfarm Verge",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 130,
+      "player": "Örvar",
+      "card": "Deathrite Shaman",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 17,
+      "seq": 129,
+      "player": "Binni",
+      "card": "Shriekmaw",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 16,
+      "seq": 128,
+      "player": "Binni",
+      "card": "Emperor of Bones",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 16,
+      "seq": 127,
+      "player": "Örvar",
+      "card": "Undercity Sewers",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
+    {
+      "round": 16,
+      "seq": 126,
+      "player": "Tommi",
+      "card": "Cryptic Command",
+      "first_seen": "2026-08-03T21:49:03Z"
+    },
     {
       "round": 16,
       "seq": 125,
