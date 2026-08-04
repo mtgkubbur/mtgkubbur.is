@@ -1361,4 +1361,103 @@
   .rot-stack .rot-card + .rot-card { margin-top: -135px; }
   .rot-log-list li { grid-template-columns: 2.5rem 1fr; }
   .rot-log-list li .rot-log-card { grid-column: 1 / -1; }
+}\n
+/* ── Rotisserie deckbuilder (/rotisserie/deck) ─────────────────────────── */
+.rd-back, .rd-link { margin: 0; font-size: 0.9rem; }
+.rd-topbar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
+  padding: 0.6rem 0.8rem; border: 1px solid var(--border-default);
+  border-radius: 10px; background: var(--surface-soft);
+}
+.rd-topbar label { opacity: 0.75; font-size: 0.9rem; }
+.rd-counts { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.9rem; margin-inline: auto; }
+.rd-counts strong { font-variant-numeric: tabular-nums; }
+
+.rd-columns { display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.rd-col { flex: 0 0 auto; width: 146px; display: flex; flex-direction: column; gap: 0.5rem; }
+.rd-col-head {
+  display: flex; justify-content: space-between;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+.rd-pile { border-radius: 8px; padding: 0.25rem; }
+.rd-pile-label {
+  display: flex; justify-content: space-between; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.6;
+  margin-bottom: 0.3rem;
+}
+.rd-pile-empty {
+  display: grid; place-items: center; min-height: 3.4rem; font-size: 0.75rem;
+  opacity: 0.45; border: 1px dashed var(--border-default); border-radius: 7px;
+}
+
+.rd-stack { position: relative; }
+.rd-card {
+  position: relative; display: block; width: 146px; aspect-ratio: 146 / 204;
+  border-radius: 7px; background: var(--surface-soft); cursor: grab;
+}
+.rd-card img { display: block; width: 100%; height: 100%; border-radius: 7px; pointer-events: none; }
+.rd-stack .rd-card + .rd-card { margin-top: -164px; }
+.rd-stack .rd-card:hover, .rd-stack .rd-card:focus-visible { z-index: 2; }
+.rd-card .rot-card-missing { width: 100%; height: 100%; }
+
+.rd-spec { outline: 2px dashed var(--mtg-gold); outline-offset: -2px; }
+.rd-badge {
+  position: absolute; top: 4px; right: 4px; z-index: 1;
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  padding: 0.05rem 0.35rem; border-radius: 999px;
+  background: var(--mtg-gold); color: #221a06;
+}
+
+.rd-drop-over { box-shadow: inset 0 0 0 2px var(--mtg-gold); border-radius: 8px; }
+
+.rd-lands .rd-stack { min-height: 3.4rem; }
+.rd-basics { display: flex; flex-direction: column; gap: 0.4rem; }
+.rd-basic { display: flex; align-items: center; gap: 0.5rem; }
+.rd-basic img { width: 44px; border-radius: 4px; }
+.rd-stepper { display: flex; align-items: center; gap: 0.4rem; }
+.rd-step {
+  border: 1px solid var(--border-default); background: var(--surface-soft);
+  color: var(--text-primary); border-radius: 999px; width: 1.6rem; height: 1.6rem;
+  cursor: pointer; line-height: 1;
+}
+.rd-step:hover { border-color: var(--mtg-gold); }
+.rd-basic-count { min-width: 1.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+
+.rd-side { border: 1px dashed var(--border-default); border-radius: 10px; padding: 0.6rem; }
+.rd-side-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.rd-side-stack .rd-card { width: 110px; }
+.rd-side-empty { margin: 0.4rem; }
+
+.rd-lost-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.6rem; }
+.rd-lost {
+  display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem;
+  padding: 0.15rem 0.3rem 0.15rem 0.6rem; border-radius: 999px;
+  border: 1px solid rgb(190 60 60 / 0.55); background: rgb(190 60 60 / 0.12);
+}
+.rd-dismiss {
+  border: 0; background: transparent; color: inherit; cursor: pointer;
+  font-size: 0.95rem; line-height: 1; padding: 0 0.2rem;
+}
+
+.rot-grid .rd-card { width: 100%; }
+
+.rd-popover {
+  position: fixed; z-index: 60; display: flex; flex-direction: column;
+  min-width: 11rem; padding: 0.3rem; border-radius: 10px;
+  border: 1px solid var(--border-default); background: var(--surface-raised, var(--surface-soft));
+  box-shadow: 0 8px 28px rgb(0 0 0 / 0.25);
+}
+.rd-popover button {
+  border: 0; background: transparent; color: var(--text-primary);
+  text-align: left; padding: 0.45rem 0.6rem; border-radius: 7px;
+  cursor: pointer; font-size: 0.9rem;
+}
+.rd-popover button:hover { background: var(--surface-soft); }
+
+@media (max-width: 640px) {
+  .rd-col, .rd-card { width: 120px; }
+  .rd-stack .rd-card + .rd-card { margin-top: -135px; }
+  .rd-side-stack .rd-card { width: 96px; }
 }
