@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-03T23:19:12Z",
-  "source_digest": "sha256:178a1d82fe46e47165ec0ce3c1682172420698f44ab38b13f4b888ff61da732c",
+  "generated_at": "2026-08-04T01:06:34Z",
+  "source_digest": "sha256:2cc9e73e4858cba024146abc7cefa405883f5c4b429d8317ccc17a2b97289f33",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 146,
+  "picks_made": 150,
   "current_round": 19,
-  "next_player": "Tommi",
+  "next_player": "Aron Ívars.",
   "players": [
     "Binni",
     "Örvar",
@@ -79,7 +79,8 @@
       "Emry, Lurker of the Loch",
       "Cryptic Command",
       "Floodfarm Verge",
-      "Porcelain Legionnaire"
+      "Porcelain Legionnaire",
+      "Batterskull"
     ],
     "Diddi": [
       "Fury",
@@ -99,7 +100,8 @@
       "Six",
       "Once Upon a Time",
       "Condescend",
-      "Wrenn and Six"
+      "Wrenn and Six",
+      "Pyroclasm"
     ],
     "Atli": [
       "Dismember",
@@ -119,7 +121,8 @@
       "Slickshot Show-Off",
       "Opt",
       "Galvanic Blast",
-      "Riverpyre Verge"
+      "Riverpyre Verge",
+      "Light Up the Stage"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -139,7 +142,8 @@
       "Counterspell",
       "Thrill of Possibility",
       "Spell Pierce",
-      "Ledger Shredder"
+      "Ledger Shredder",
+      "Brazen Borrower"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -250,7 +254,6 @@
     "Wan Shi Tong, Librarian",
     "Abhorrent Oculus",
     "Aether Channeler",
-    "Brazen Borrower",
     "Champion of Wits",
     "Pestermite",
     "Vendilion Clique",
@@ -379,9 +382,7 @@
     "Big Score",
     "Witchstalker Frenzy",
     "Through the Breach",
-    "Pyroclasm",
     "Tribal Flames",
-    "Light Up the Stage",
     "Sweltering Suns",
     "Legion Extruder",
     "Embercleave",
@@ -491,7 +492,6 @@
     "Monument to Endurance",
     "Nettlecyst",
     "Bonehoard",
-    "Batterskull",
     "Dark Depths",
     "Field of the Dead",
     "Thespian's Stage",
@@ -579,6 +579,34 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 19,
+      "seq": 150,
+      "player": "Óli",
+      "card": "Brazen Borrower",
+      "first_seen": "2026-08-04T01:06:34Z"
+    },
+    {
+      "round": 19,
+      "seq": 149,
+      "player": "Atli",
+      "card": "Light Up the Stage",
+      "first_seen": "2026-08-04T01:06:34Z"
+    },
+    {
+      "round": 19,
+      "seq": 148,
+      "player": "Diddi",
+      "card": "Pyroclasm",
+      "first_seen": "2026-08-04T01:06:34Z"
+    },
+    {
+      "round": 19,
+      "seq": 147,
+      "player": "Tommi",
+      "card": "Batterskull",
+      "first_seen": "2026-08-04T01:06:34Z"
+    },
     {
       "round": 19,
       "seq": 146,
