@@ -12,7 +12,7 @@ import hashlib
 import io
 import json
 import urllib.request
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 
 SHEET_ID = "1UlGvtJ1Lqzm6XodeSNr5vkvicIsqJAPwwjyRXAqR4XQ"
@@ -151,6 +151,26 @@ def parse_cube_list(csv_text: str) -> list[str]:
     if not names:
         raise ValueError("cube list: no card names found")
     return names
+
+
+def normalise_card(card: str, cube_counts: Mapping[str, int]) -> str:
+    """Collapse a numbered duplicate pick ('Explore 1') to its cube name.
+
+    The cube lists Explore twice, and when both copies were drafted the grid
+    disambiguated them as 'Explore 1' and 'Explore 2' - names exact-match
+    validation rejects (live incident 2026-08-04). Only that narrow shape is
+    collapsed: the full name must not itself be a cube card, the stripped
+    base must be one listed more than once (numbering a unique card is an
+    anomaly, not a convention), and the copy number must be within the listed
+    count. Everything else passes through untouched for validate() to reject
+    loudly.
+    """
+    if card in cube_counts:
+        return card
+    base, sep, num = card.rpartition(" ")
+    if sep and num.isdigit() and cube_counts.get(base, 0) >= 2 and 1 <= int(num) <= cube_counts[base]:
+        return base
+    return card
 
 
 def pick_sequence(grid: DraftGrid) -> list[Pick]:

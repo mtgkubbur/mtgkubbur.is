@@ -98,6 +98,30 @@ def test_first_seen_is_stamped_fresh_for_a_second_same_named_pick():
     assert by_round[2] == NOW
 
 
+def test_numbered_duplicate_picks_normalise_and_validate():
+    """Live incident 2026-08-04: Diddi drafted both Explores as 'Explore 1'
+    and 'Explore 2'. The build must fold them onto the cube's name so the
+    pools, remaining pool, and validation all see 'Explore'."""
+    cube = ["Explore", "Explore"]
+    grid = parse.parse_grid('"","","Binni","",""\n"1","→","Explore 1","",""\n"2","↪","Explore 2","",""\n')
+    p = build.build_payload(grid, cube, previous=None, now=NOW)
+    assert p["pools"]["Binni"] == ["Explore", "Explore"]
+    assert p["remaining"] == []
+    build.validate(p, cube, previous=None)
+
+
+def test_numbered_duplicate_pick_first_seen_is_stable_across_runs():
+    """The raw cell keeps saying 'Explore 1'; the committed log says
+    'Explore'. Re-running must treat them as the same pick."""
+    cube = ["Explore", "Explore"]
+    grid = parse.parse_grid('"","","Binni","",""\n"1","→","Explore 1","",""\n')
+    earlier = build.build_payload(grid, cube, previous=None, now="2026-07-01T00:00:00Z")
+    later = build.build_payload(grid, cube, previous=earlier, now=NOW)
+    [entry] = later["log"]
+    assert entry["card"] == "Explore"
+    assert entry["first_seen"] == "2026-07-01T00:00:00Z"
+
+
 def test_first_seen_is_preserved_when_a_cells_card_is_unchanged():
     cube = ["Explore", "Explore"]
     grid = parse.parse_grid('"","","Binni","",""\n"1","→","Explore","",""\n')

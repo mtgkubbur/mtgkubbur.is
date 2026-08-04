@@ -11,6 +11,7 @@ import json
 import logging
 import sys
 from collections import Counter
+from dataclasses import replace
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -62,7 +63,11 @@ def build_payload(
     previous: dict | None,
     now: str,
 ) -> dict:
-    picks = parse.pick_sequence(grid)
+    # Fold 'Explore 1'/'Explore 2'-style duplicate disambiguation onto the
+    # cube's names before anything downstream sees the picks; the digest
+    # stays raw-cell-based, so renaming a cell still triggers a rebuild.
+    cube_counts = Counter(cube_names)
+    picks = [replace(p, card=parse.normalise_card(p.card, cube_counts)) for p in parse.pick_sequence(grid)]
 
     pools: dict[str, list[str]] = {p: [] for p in grid.players}
     for pick in picks:

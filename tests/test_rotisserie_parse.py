@@ -67,6 +67,36 @@ def test_pick_sequence_follows_the_snake():
     ]
 
 
+@pytest.mark.parametrize(
+    ("card", "expected"),
+    [
+        # Live incident 2026-08-04: both Explore copies drafted as 'Explore 1'
+        # and 'Explore 2' - names that exact-match validation rejects.
+        ("Explore 1", "Explore"),
+        ("Explore 2", "Explore"),
+        # Exact cube names always pass through untouched.
+        ("Explore", "Explore"),
+        ("Lightning Bolt", "Lightning Bolt"),
+        # A copy number beyond the listed count is an anomaly, not a pick.
+        ("Explore 3", "Explore 3"),
+        ("Explore 0", "Explore 0"),
+        # A base name absent from the cube stays as-is for validate() to reject.
+        ("Duress 1", "Duress 1"),
+        # Numbering a card the cube lists once is anomalous - do not guess.
+        ("Opt 1", "Opt 1"),
+    ],
+)
+def test_normalise_card(card, expected):
+    counts = {"Explore": 2, "Opt": 1, "Lightning Bolt": 1}
+    assert parse.normalise_card(card, counts) == expected
+
+
+def test_normalise_card_prefers_an_exact_cube_match():
+    """A cube card whose real name ends in a number must never be stripped."""
+    counts = {"Explore": 2, "Explore 1": 1}
+    assert parse.normalise_card("Explore 1", counts) == "Explore 1"
+
+
 def test_parse_cube_list_keeps_duplicates_in_order():
     names = parse.parse_cube_list(_cube_text())
     assert len(names) == 9
