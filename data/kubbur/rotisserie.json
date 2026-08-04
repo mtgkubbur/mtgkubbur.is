@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T10:19:23Z",
-  "source_digest": "sha256:58409196233b53a1a453345d401f3080d7b89f04ec0ab7f24d3312c15ab2d1e5",
+  "generated_at": "2026-08-04T12:29:50Z",
+  "source_digest": "sha256:58f32bd947365f9d0a3bc6a1189da037e135a1e272b36c95de7c00b828ee1c88",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 162,
-  "current_round": 21,
-  "next_player": "Tommi",
+  "picks_made": 174,
+  "current_round": 22,
+  "next_player": "Örvar",
   "players": [
     "Binni",
     "Örvar",
@@ -85,7 +85,9 @@
       "Floodfarm Verge",
       "Porcelain Legionnaire",
       "Batterskull",
-      "Phyrexian Metamorph"
+      "Phyrexian Metamorph",
+      "Eiganjo, Seat of the Empire",
+      "Giver of Runes"
     ],
     "Diddi": [
       "Fury",
@@ -107,7 +109,9 @@
       "Condescend",
       "Wrenn and Six",
       "Pyroclasm",
-      "Primeval Titan"
+      "Primeval Titan",
+      "Endurance",
+      "Dark Depths"
     ],
     "Atli": [
       "Dismember",
@@ -129,7 +133,9 @@
       "Galvanic Blast",
       "Riverpyre Verge",
       "Light Up the Stage",
-      "Monastery Swiftspear"
+      "Monastery Swiftspear",
+      "Soul-Scar Mage",
+      "Murktide Regent"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -151,7 +157,9 @@
       "Spell Pierce",
       "Ledger Shredder",
       "Brazen Borrower",
-      "Young Pyromancer"
+      "Young Pyromancer",
+      "Stern Scolding",
+      "Disallow"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -173,7 +181,9 @@
       "Bitter Triumph",
       "Hangarback Walker",
       "Seasoned Pyromancer",
-      "Cosmogrand Zenith"
+      "Cosmogrand Zenith",
+      "Inspiring Vantage",
+      "Cryptbreaker"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -195,13 +205,14 @@
       "Sunbillow Verge",
       "Lose Focus",
       "Seachrome Coast",
-      "Time Warp"
+      "Time Warp",
+      "Force of Negation",
+      "Multiversal Passage"
     ]
   },
   "remaining": [
     "Champion of the Parish",
     "Giant Killer",
-    "Giver of Runes",
     "Novice Inspector",
     "Recruitment Officer",
     "Skrelv, Defector Mite",
@@ -253,7 +264,6 @@
     "Elspeth Conquers Death",
     "Virtue of Loyalty",
     "Invasion of Gobakhan",
-    "Eiganjo, Seat of the Empire",
     "Flitterwing Nuisance",
     "Pteramander",
     "Spectral Sailor",
@@ -277,17 +287,13 @@
     "Torrential Gearhulk",
     "Eddymurk Crab",
     "Hullbreaker Horror",
-    "Murktide Regent",
     "Thought Monitor",
     "Elder Deep-Fiend",
     "Jace, the Mind Sculptor",
     "Tamiyo, the Moon Sage",
-    "Stern Scolding",
     "Thought Scour",
     "Consult the Star Charts",
     "Archmage's Charm",
-    "Disallow",
-    "Force of Negation",
     "Gifts Ungiven",
     "This Town Ain't Big Enough",
     "Dig Through Time",
@@ -295,7 +301,6 @@
     "Search for Azcanta",
     "Shark Typhoon",
     "Cecil, Dark Knight",
-    "Cryptbreaker",
     "Gravecrawler",
     "Moonshadow",
     "Nethergoyf",
@@ -355,7 +360,6 @@
     "Bomat Courier",
     "Grim Lavamancer",
     "Marauding Mako",
-    "Soul-Scar Mage",
     "Voldaren Epicure",
     "Dreadhorde Arcanist",
     "Eidolon of the Great Revel",
@@ -413,7 +417,6 @@
     "Tarmogoyf",
     "Courser of Kruphix",
     "Dryad of the Ilysian Grove",
-    "Endurance",
     "Formidable Speaker",
     "Sentinel of the Nameless City",
     "Tireless Tracker",
@@ -494,7 +497,6 @@
     "Monument to Endurance",
     "Nettlecyst",
     "Bonehoard",
-    "Dark Depths",
     "Field of the Dead",
     "Thespian's Stage",
     "Westvale Abbey",
@@ -565,7 +567,6 @@
     "Underground Mortuary",
     "Wastewood Verge",
     "Elegant Parlor",
-    "Inspiring Vantage",
     "Sunbaked Canyon",
     "Hedge Maze",
     "Simic Growth Chamber",
@@ -575,10 +576,93 @@
     "Indatha Triome",
     "Fabled Passage",
     "Lotus Field",
-    "Mana Confluence",
-    "Multiversal Passage"
+    "Mana Confluence"
   ],
   "log": [
+    {
+      "round": 22,
+      "seq": 174,
+      "player": "Tommi",
+      "card": "Giver of Runes",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 22,
+      "seq": 173,
+      "player": "Diddi",
+      "card": "Dark Depths",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 22,
+      "seq": 172,
+      "player": "Atli",
+      "card": "Murktide Regent",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 22,
+      "seq": 171,
+      "player": "Óli",
+      "card": "Disallow",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 22,
+      "seq": 170,
+      "player": "Aron Ívars.",
+      "card": "Cryptbreaker",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 22,
+      "seq": 169,
+      "player": "Aron Freyr",
+      "card": "Multiversal Passage",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 21,
+      "seq": 168,
+      "player": "Aron Freyr",
+      "card": "Force of Negation",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 21,
+      "seq": 167,
+      "player": "Aron Ívars.",
+      "card": "Inspiring Vantage",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 21,
+      "seq": 166,
+      "player": "Óli",
+      "card": "Stern Scolding",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 21,
+      "seq": 165,
+      "player": "Atli",
+      "card": "Soul-Scar Mage",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 21,
+      "seq": 164,
+      "player": "Diddi",
+      "card": "Endurance",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
+    {
+      "round": 21,
+      "seq": 163,
+      "player": "Tommi",
+      "card": "Eiganjo, Seat of the Empire",
+      "first_seen": "2026-08-04T12:29:50Z"
+    },
     {
       "round": 21,
       "seq": 162,
