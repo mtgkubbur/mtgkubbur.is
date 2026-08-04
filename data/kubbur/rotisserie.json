@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T01:06:34Z",
-  "source_digest": "sha256:2cc9e73e4858cba024146abc7cefa405883f5c4b429d8317ccc17a2b97289f33",
+  "generated_at": "2026-08-04T10:19:23Z",
+  "source_digest": "sha256:58409196233b53a1a453345d401f3080d7b89f04ec0ab7f24d3312c15ab2d1e5",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 150,
-  "current_round": 19,
-  "next_player": "Aron Ívars.",
+  "picks_made": 162,
+  "current_round": 21,
+  "next_player": "Tommi",
   "players": [
     "Binni",
     "Örvar",
@@ -38,7 +38,9 @@
       "Emperor of Bones",
       "Shriekmaw",
       "Scavenging Ooze",
-      "Murderous Cut"
+      "Murderous Cut",
+      "Blackcleave Cliffs",
+      "Cut Down"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -59,7 +61,9 @@
       "Undercity Sewers",
       "Deathrite Shaman",
       "Bone Shards",
-      "Shadowy Backstreet"
+      "Shadowy Backstreet",
+      "Unearth",
+      "Damnation"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -80,7 +84,8 @@
       "Cryptic Command",
       "Floodfarm Verge",
       "Porcelain Legionnaire",
-      "Batterskull"
+      "Batterskull",
+      "Phyrexian Metamorph"
     ],
     "Diddi": [
       "Fury",
@@ -101,7 +106,8 @@
       "Once Upon a Time",
       "Condescend",
       "Wrenn and Six",
-      "Pyroclasm"
+      "Pyroclasm",
+      "Primeval Titan"
     ],
     "Atli": [
       "Dismember",
@@ -122,7 +128,8 @@
       "Opt",
       "Galvanic Blast",
       "Riverpyre Verge",
-      "Light Up the Stage"
+      "Light Up the Stage",
+      "Monastery Swiftspear"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -143,7 +150,8 @@
       "Thrill of Possibility",
       "Spell Pierce",
       "Ledger Shredder",
-      "Brazen Borrower"
+      "Brazen Borrower",
+      "Young Pyromancer"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -163,7 +171,9 @@
       "Tersa Lightshatter",
       "Faithless Looting",
       "Bitter Triumph",
-      "Hangarback Walker"
+      "Hangarback Walker",
+      "Seasoned Pyromancer",
+      "Cosmogrand Zenith"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -183,7 +193,9 @@
       "Prismatic Ending",
       "Gitaxian Probe",
       "Sunbillow Verge",
-      "Lose Focus"
+      "Lose Focus",
+      "Seachrome Coast",
+      "Time Warp"
     ]
   },
   "remaining": [
@@ -204,7 +216,6 @@
     "Wall of Omens",
     "Adeline, Resplendent Cathar",
     "Brimaz, King of Oreskos",
-    "Cosmogrand Zenith",
     "Elite Spellbinder",
     "Fiend Hunter",
     "Flickerwisp",
@@ -281,7 +292,6 @@
     "This Town Ain't Big Enough",
     "Dig Through Time",
     "Serum Visions",
-    "Time Warp",
     "Search for Azcanta",
     "Shark Typhoon",
     "Cecil, Dark Knight",
@@ -321,7 +331,6 @@
     "Liliana, the Last Hope",
     "Liliana, Dreadhorde General",
     "Slaughter Pact",
-    "Cut Down",
     "Fatal Push",
     "Malakir Rebirth",
     "Deadly Dispute",
@@ -333,11 +342,9 @@
     "Bloodchief's Thirst",
     "Inquisition of Kozilek",
     "Intimidation Tactics",
-    "Unearth",
     "Collective Brutality",
     "Night's Whisper",
     "Persist",
-    "Damnation",
     "Dread Return",
     "Unburial Rites",
     "Dead Weight",
@@ -348,7 +355,6 @@
     "Bomat Courier",
     "Grim Lavamancer",
     "Marauding Mako",
-    "Monastery Swiftspear",
     "Soul-Scar Mage",
     "Voldaren Epicure",
     "Dreadhorde Arcanist",
@@ -358,12 +364,10 @@
     "Robber of the Rich",
     "Scrapwork Mutt",
     "Searslicer Goblin",
-    "Young Pyromancer",
     "Bonecrusher Giant",
     "Breya's Apprentice",
     "Detective's Phoenix",
     "Guttersnipe",
-    "Seasoned Pyromancer",
     "Squee, Goblin Nabob",
     "Hazoret the Fervent",
     "Hellrider",
@@ -423,7 +427,6 @@
     "Elder Gargaroth",
     "Thragtusk",
     "Generous Ent",
-    "Primeval Titan",
     "Titan of Industry",
     "Craterhoof Behemoth",
     "Diamond Weapon",
@@ -462,7 +465,6 @@
     "Steel Overseer",
     "Syr Ginger, the Meal Ender",
     "Etched Champion",
-    "Phyrexian Metamorph",
     "Solemn Simulacrum",
     "Golos, Tireless Pilgrim",
     "Wurmcoil Engine",
@@ -541,11 +543,9 @@
     "Omnath, Locus of Creation",
     "Atraxa, Grand Unifier",
     "Celestial Colonnade",
-    "Seachrome Coast",
     "Creeping Tar Pit",
     "Darkslick Shores",
     "Gloomlake Verge",
-    "Blackcleave Cliffs",
     "Blazemire Verge",
     "Haunted Ridge",
     "Commercial District",
@@ -579,6 +579,90 @@
     "Multiversal Passage"
   ],
   "log": [
+    {
+      "round": 21,
+      "seq": 162,
+      "player": "Örvar",
+      "card": "Damnation",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 21,
+      "seq": 161,
+      "player": "Binni",
+      "card": "Cut Down",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 160,
+      "player": "Binni",
+      "card": "Blackcleave Cliffs",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 159,
+      "player": "Örvar",
+      "card": "Unearth",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 158,
+      "player": "Tommi",
+      "card": "Phyrexian Metamorph",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 157,
+      "player": "Diddi",
+      "card": "Primeval Titan",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 156,
+      "player": "Atli",
+      "card": "Monastery Swiftspear",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 155,
+      "player": "Óli",
+      "card": "Young Pyromancer",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 154,
+      "player": "Aron Ívars.",
+      "card": "Cosmogrand Zenith",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 20,
+      "seq": 153,
+      "player": "Aron Freyr",
+      "card": "Time Warp",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 19,
+      "seq": 152,
+      "player": "Aron Freyr",
+      "card": "Seachrome Coast",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
+    {
+      "round": 19,
+      "seq": 151,
+      "player": "Aron Ívars.",
+      "card": "Seasoned Pyromancer",
+      "first_seen": "2026-08-04T10:19:23Z"
+    },
     {
       "round": 19,
       "seq": 150,
