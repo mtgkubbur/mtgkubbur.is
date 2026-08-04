@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-04T20:43:22Z",
-  "source_digest": "sha256:189cdd50daf25cf9caa370f327700ae16b996ecb5f6e8374452b7cfd0888c18e",
+  "generated_at": "2026-08-04T21:56:34Z",
+  "source_digest": "sha256:686eeeb0a1094ba1917d93bca714538a9a54844f7e8dba523e991cf90228d823",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 274,
-  "current_round": 35,
+  "picks_made": 290,
+  "current_round": 37,
   "next_player": "Tommi",
   "players": [
     "Binni",
@@ -52,7 +52,11 @@
       "Deep-Cavern Bat",
       "Grief",
       "Nurturing Peatland",
-      "Ouroboroid"
+      "Ouroboroid",
+      "Assassin's Trophy",
+      "Wastewood Verge",
+      "Kalitas, Traitor of Ghet",
+      "Grist, the Hunger Tide"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -87,7 +91,11 @@
       "Malakir Rebirth",
       "Field of the Dead",
       "Jace, Vryn's Prodigy",
-      "Jeskai Revelation"
+      "Jeskai Revelation",
+      "Bleachbone Verge",
+      "Elegant Parlor",
+      "Valki, God of Lies",
+      "Intimidation Tactics"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -122,7 +130,11 @@
       "Invasion of Gobakhan",
       "Gideon, Ally of Zendikar",
       "Shadowspear",
-      "Oblivion Ring"
+      "Oblivion Ring",
+      "Syr Ginger, the Meal Ender",
+      "Celestial Armor",
+      "Etched Champion",
+      "Collective Effort"
     ],
     "Diddi": [
       "Fury",
@@ -159,7 +171,9 @@
       "Thornspire Verge",
       "Waterlogged Grove",
       "Spellskite",
-      "Herd Migration"
+      "Herd Migration",
+      "Bonny Pall, Clearcutter",
+      "Haywire Mite"
     ],
     "Atli": [
       "Dismember",
@@ -196,7 +210,9 @@
       "Gut Shot",
       "Blazemire Verge",
       "This Town Ain't Big Enough",
-      "Kaito, Bane of Nightmares"
+      "Kaito, Bane of Nightmares",
+      "Serum Visions",
+      "Seal of Fire"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -342,10 +358,8 @@
     "Rally the Monastery",
     "Settle the Wreckage",
     "Recommission",
-    "Collective Effort",
     "Wrath of God",
     "Spectral Procession",
-    "Celestial Armor",
     "Legion's Landing",
     "Wedding Announcement",
     "Elspeth Conquers Death",
@@ -373,7 +387,6 @@
     "Consult the Star Charts",
     "Gifts Ungiven",
     "Dig Through Time",
-    "Serum Visions",
     "Search for Azcanta",
     "Shark Typhoon",
     "Cecil, Dark Knight",
@@ -387,7 +400,6 @@
     "Pack Rat",
     "Priest of Forgotten Gods",
     "Tenacious Underdog",
-    "Valki, God of Lies",
     "Vampire Hexmage",
     "Zulaport Cutthroat",
     "Midnight Reaper",
@@ -396,7 +408,6 @@
     "Rotting Regisaur",
     "Stinkweed Imp",
     "Warren Soultrader",
-    "Kalitas, Traitor of Ghet",
     "Ravenous Chupacabra",
     "Yawgmoth, Thran Physician",
     "Tasigur, the Golden Fang",
@@ -410,7 +421,6 @@
     "Goryo's Vengeance",
     "Makeshift Mannequin",
     "Bloodchief's Thirst",
-    "Intimidation Tactics",
     "Collective Brutality",
     "Night's Whisper",
     "Persist",
@@ -448,7 +458,6 @@
     "Tribal Flames",
     "Legion Extruder",
     "Embercleave",
-    "Seal of Fire",
     "Cool but Rude",
     "Splinter Twin",
     "The Legend of Roku",
@@ -456,7 +465,6 @@
     "Arbor Elf",
     "Avacyn's Pilgrim",
     "Elvish Reclaimer",
-    "Haywire Mite",
     "Sazh's Chocobo",
     "Aftermath Analyst",
     "Badgermole Cub",
@@ -502,8 +510,6 @@
     "Metallic Mimic",
     "Patchwork Automaton",
     "Phyrexian Revoker",
-    "Syr Ginger, the Meal Ender",
-    "Etched Champion",
     "Solemn Simulacrum",
     "Golos, Tireless Pilgrim",
     "Wurmcoil Engine",
@@ -545,14 +551,11 @@
     "Tidehollow Sculler",
     "Pinnacle Emissary",
     "Saheeli, Sublime Artificer",
-    "Assassin's Trophy",
     "Fiend Artisan",
-    "Grist, the Hunger Tide",
     "Vraska, Golgari Queen",
     "Hogaak, Arisen Necropolis",
     "Nahiri, the Harbinger",
     "Hydroid Krasis",
-    "Bonny Pall, Clearcutter",
     "Raffine, Scheming Seer",
     "Korvold, Fae-Cursed King",
     "Siege Rhino",
@@ -566,12 +569,9 @@
     "Horizon Canopy",
     "Lush Portico",
     "Stirring Wildwood",
-    "Bleachbone Verge",
     "Concealed Courtyard",
     "Golgari Rot Farm",
     "Underground Mortuary",
-    "Wastewood Verge",
-    "Elegant Parlor",
     "Hedge Maze",
     "Simic Growth Chamber",
     "Jetmir's Garden",
@@ -580,39 +580,151 @@
   ],
   "log": [
     {
+      "round": 37,
+      "seq": 290,
+      "player": "Atli",
+      "card": "Seal of Fire",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 37,
+      "seq": 289,
+      "player": "Diddi",
+      "card": "Haywire Mite",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 37,
+      "seq": 288,
+      "player": "Tommi",
+      "card": "Collective Effort",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 37,
+      "seq": 287,
+      "player": "Örvar",
+      "card": "Intimidation Tactics",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 37,
+      "seq": 286,
+      "player": "Binni",
+      "card": "Grist, the Hunger Tide",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 36,
+      "seq": 285,
+      "player": "Binni",
+      "card": "Kalitas, Traitor of Ghet",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 36,
+      "seq": 284,
+      "player": "Örvar",
+      "card": "Valki, God of Lies",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 36,
+      "seq": 283,
+      "player": "Tommi",
+      "card": "Etched Champion",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 36,
+      "seq": 282,
+      "player": "Diddi",
+      "card": "Bonny Pall, Clearcutter",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 36,
+      "seq": 281,
+      "player": "Atli",
+      "card": "Serum Visions",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
       "round": 35,
-      "seq": 274,
+      "seq": 280,
       "player": "Aron Freyr",
       "card": "Birthing Pod",
       "first_seen": "2026-08-04T20:43:22Z"
     },
     {
       "round": 35,
-      "seq": 273,
+      "seq": 279,
       "player": "Aron Ívars.",
       "card": "Sheoldred, the Apocalypse",
       "first_seen": "2026-08-04T20:43:22Z"
     },
     {
       "round": 35,
-      "seq": 272,
+      "seq": 278,
       "player": "Óli",
       "card": "Big Score",
       "first_seen": "2026-08-04T20:43:22Z"
     },
     {
       "round": 35,
-      "seq": 271,
+      "seq": 277,
       "player": "Atli",
       "card": "Kaito, Bane of Nightmares",
       "first_seen": "2026-08-04T20:43:22Z"
     },
     {
       "round": 35,
-      "seq": 270,
+      "seq": 276,
       "player": "Diddi",
       "card": "Herd Migration",
       "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 35,
+      "seq": 275,
+      "player": "Tommi",
+      "card": "Celestial Armor",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 35,
+      "seq": 274,
+      "player": "Örvar",
+      "card": "Elegant Parlor",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 35,
+      "seq": 273,
+      "player": "Binni",
+      "card": "Wastewood Verge",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 34,
+      "seq": 272,
+      "player": "Binni",
+      "card": "Assassin's Trophy",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 34,
+      "seq": 271,
+      "player": "Örvar",
+      "card": "Bleachbone Verge",
+      "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 34,
+      "seq": 270,
+      "player": "Tommi",
+      "card": "Syr Ginger, the Meal Ender",
+      "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 34,
