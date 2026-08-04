@@ -8983,6 +8983,81 @@
     "img_normal": "https://cards.scryfall.io/normal/front/e/3/e37da81e-be12-45a2-9128-376f1ad7b3e8.jpg?1783933066",
     "scryfall_uri": "https://scryfall.com/card/mh1/244/prismatic-vista"
   },
+  "Plains": {
+    "name": "Plains",
+    "mana_cost": "",
+    "cmc": 0,
+    "type_line": "Basic Land — Plains",
+    "colors": [],
+    "color_identity": [
+      "W"
+    ],
+    "rarity": "common",
+    "layout": "normal",
+    "img_small": "https://cards.scryfall.io/small/front/7/b/7b7c408b-8660-4db5-9a16-5003c11b4ac1.jpg?1785323349",
+    "img_normal": "https://cards.scryfall.io/normal/front/7/b/7b7c408b-8660-4db5-9a16-5003c11b4ac1.jpg?1785323349",
+    "scryfall_uri": "https://scryfall.com/card/hob/189/plains"
+  },
+  "Island": {
+    "name": "Island",
+    "mana_cost": "",
+    "cmc": 0,
+    "type_line": "Basic Land — Island",
+    "colors": [],
+    "color_identity": [
+      "U"
+    ],
+    "rarity": "common",
+    "layout": "normal",
+    "img_small": "https://cards.scryfall.io/small/front/c/6/c6aa89a8-3584-4906-b9a9-41ef2f021f8e.jpg?1785323353",
+    "img_normal": "https://cards.scryfall.io/normal/front/c/6/c6aa89a8-3584-4906-b9a9-41ef2f021f8e.jpg?1785323353",
+    "scryfall_uri": "https://scryfall.com/card/hob/190/island"
+  },
+  "Swamp": {
+    "name": "Swamp",
+    "mana_cost": "",
+    "cmc": 0,
+    "type_line": "Basic Land — Swamp",
+    "colors": [],
+    "color_identity": [
+      "B"
+    ],
+    "rarity": "common",
+    "layout": "normal",
+    "img_small": "https://cards.scryfall.io/small/front/4/0/4031e5e4-e573-4130-8d20-4a606edef0a0.jpg?1785323357",
+    "img_normal": "https://cards.scryfall.io/normal/front/4/0/4031e5e4-e573-4130-8d20-4a606edef0a0.jpg?1785323357",
+    "scryfall_uri": "https://scryfall.com/card/hob/191/swamp"
+  },
+  "Mountain": {
+    "name": "Mountain",
+    "mana_cost": "",
+    "cmc": 0,
+    "type_line": "Basic Land — Mountain",
+    "colors": [],
+    "color_identity": [
+      "R"
+    ],
+    "rarity": "common",
+    "layout": "normal",
+    "img_small": "https://cards.scryfall.io/small/front/c/4/c49d378e-9549-4320-b3c6-1aeb216d1e98.jpg?1785323363",
+    "img_normal": "https://cards.scryfall.io/normal/front/c/4/c49d378e-9549-4320-b3c6-1aeb216d1e98.jpg?1785323363",
+    "scryfall_uri": "https://scryfall.com/card/hob/192/mountain"
+  },
+  "Forest": {
+    "name": "Forest",
+    "mana_cost": "",
+    "cmc": 0,
+    "type_line": "Basic Land — Forest",
+    "colors": [],
+    "color_identity": [
+      "G"
+    ],
+    "rarity": "common",
+    "layout": "normal",
+    "img_small": "https://cards.scryfall.io/small/front/c/3/c3e84b42-5423-4d4d-b8fc-cfbb2c53a4ca.jpg?1785323365",
+    "img_normal": "https://cards.scryfall.io/normal/front/c/3/c3e84b42-5423-4d4d-b8fc-cfbb2c53a4ca.jpg?1785323365",
+    "scryfall_uri": "https://scryfall.com/card/hob/193/forest"
+  },
   "__cache_meta__": {
     "version": 2
   }

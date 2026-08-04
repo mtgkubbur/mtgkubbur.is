@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T19:21:51Z",
-  "source_digest": "sha256:7613bcca42778dc0f75143e278404324b0159694fa437d576874fbf0141b727f",
+  "generated_at": "2026-08-04T19:46:47Z",
+  "source_digest": "sha256:4b0c93ce9209c13c5aaacaba44d48257956e2fe905334a5a5d173138bf8678ae",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 246,
-  "current_round": 31,
-  "next_player": "Aron Ívars.",
+  "picks_made": 256,
+  "current_round": 33,
+  "next_player": "Binni",
   "players": [
     "Binni",
     "Örvar",
@@ -48,7 +48,11 @@
       "Boseiju, Who Endures",
       "Slaughter Pact",
       "Green Sun's Zenith",
-      "Craterhoof Behemoth"
+      "Craterhoof Behemoth",
+      "Deep-Cavern Bat",
+      "Grief",
+      "Nurturing Peatland",
+      "Ouroboroid"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -81,7 +85,9 @@
       "Supreme Verdict",
       "Selfless Spirit",
       "Malakir Rebirth",
-      "Field of the Dead"
+      "Field of the Dead",
+      "Jace, Vryn's Prodigy",
+      "Jeskai Revelation"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -114,7 +120,9 @@
       "Mana Confluence",
       "Karn, Scion of Urza",
       "Invasion of Gobakhan",
-      "Gideon, Ally of Zendikar"
+      "Gideon, Ally of Zendikar",
+      "Shadowspear",
+      "Oblivion Ring"
     ],
     "Diddi": [
       "Fury",
@@ -147,7 +155,9 @@
       "Explore",
       "Explore",
       "Emrakul, the Promised End",
-      "Smuggler's Surprise"
+      "Smuggler's Surprise",
+      "Thornspire Verge",
+      "Waterlogged Grove"
     ],
     "Atli": [
       "Dismember",
@@ -320,7 +330,6 @@
     "Spectral Procession",
     "Celestial Armor",
     "Legion's Landing",
-    "Oblivion Ring",
     "Wedding Announcement",
     "Elspeth Conquers Death",
     "Virtue of Loyalty",
@@ -328,7 +337,6 @@
     "Pteramander",
     "Spectral Sailor",
     "Faerie Mastermind",
-    "Jace, Vryn's Prodigy",
     "Picklock Prankster",
     "Thing in the Ice",
     "Wan Shi Tong, Librarian",
@@ -363,7 +371,6 @@
     "Accursed Marauder",
     "Bloodghast",
     "Dauthi Voidwalker",
-    "Deep-Cavern Bat",
     "Pack Rat",
     "Priest of Forgotten Gods",
     "Tenacious Underdog",
@@ -377,7 +384,6 @@
     "Rotting Regisaur",
     "Stinkweed Imp",
     "Warren Soultrader",
-    "Grief",
     "Kalitas, Traitor of Ghet",
     "Ravenous Chupacabra",
     "Sheoldred, the Apocalypse",
@@ -454,7 +460,6 @@
     "Courser of Kruphix",
     "Dryad of the Ilysian Grove",
     "Mightform Harmonizer",
-    "Ouroboroid",
     "Questing Beast",
     "Ulvenwald Oddity",
     "Vengevine",
@@ -508,7 +513,6 @@
     "Welding Jar",
     "Bonesplitter",
     "Expedition Map",
-    "Shadowspear",
     "Springleaf Drum",
     "Cranial Plating",
     "Heart of Kiran",
@@ -550,7 +554,6 @@
     "Korvold, Fae-Cursed King",
     "Siege Rhino",
     "Shiko, Paragon of the Way",
-    "Jeskai Revelation",
     "Atraxa, Grand Unifier",
     "Creeping Tar Pit",
     "Blazemire Verge",
@@ -558,7 +561,6 @@
     "Commercial District",
     "Gruul Turf",
     "Raging Ravine",
-    "Thornspire Verge",
     "Horizon Canopy",
     "Lush Portico",
     "Stirring Wildwood",
@@ -566,67 +568,135 @@
     "Concealed Courtyard",
     "Silent Clearing",
     "Golgari Rot Farm",
-    "Nurturing Peatland",
     "Underground Mortuary",
     "Wastewood Verge",
     "Elegant Parlor",
     "Sunbaked Canyon",
     "Hedge Maze",
     "Simic Growth Chamber",
-    "Waterlogged Grove",
     "Jetmir's Garden",
     "Indatha Triome",
     "Lotus Field"
   ],
   "log": [
     {
+      "round": 33,
+      "seq": 256,
+      "player": "Diddi",
+      "card": "Waterlogged Grove",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 33,
+      "seq": 255,
+      "player": "Tommi",
+      "card": "Oblivion Ring",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 33,
+      "seq": 254,
+      "player": "Örvar",
+      "card": "Jeskai Revelation",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 33,
+      "seq": 253,
+      "player": "Binni",
+      "card": "Ouroboroid",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 32,
+      "seq": 252,
+      "player": "Binni",
+      "card": "Nurturing Peatland",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 32,
+      "seq": 251,
+      "player": "Örvar",
+      "card": "Jace, Vryn's Prodigy",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 32,
+      "seq": 250,
+      "player": "Tommi",
+      "card": "Shadowspear",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 32,
+      "seq": 249,
+      "player": "Diddi",
+      "card": "Thornspire Verge",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
       "round": 31,
-      "seq": 246,
+      "seq": 248,
       "player": "Aron Freyr",
       "card": "Willowrush Verge",
       "first_seen": "2026-08-04T19:21:51Z"
     },
     {
       "round": 31,
-      "seq": 245,
+      "seq": 247,
       "player": "Aron Ívars.",
       "card": "Lightning Helix",
       "first_seen": "2026-08-04T19:21:51Z"
     },
     {
       "round": 31,
-      "seq": 244,
+      "seq": 246,
       "player": "Óli",
       "card": "Jace, the Mind Sculptor",
       "first_seen": "2026-08-04T19:21:51Z"
     },
     {
       "round": 31,
-      "seq": 243,
+      "seq": 245,
       "player": "Atli",
       "card": "Darkslick Shores",
       "first_seen": "2026-08-04T19:21:51Z"
     },
     {
       "round": 31,
-      "seq": 242,
+      "seq": 244,
       "player": "Diddi",
       "card": "Smuggler's Surprise",
       "first_seen": "2026-08-04T19:21:51Z"
     },
     {
       "round": 31,
-      "seq": 241,
+      "seq": 243,
       "player": "Tommi",
       "card": "Gideon, Ally of Zendikar",
       "first_seen": "2026-08-04T19:21:51Z"
     },
     {
       "round": 31,
-      "seq": 240,
+      "seq": 242,
       "player": "Örvar",
       "card": "Field of the Dead",
       "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 31,
+      "seq": 241,
+      "player": "Binni",
+      "card": "Grief",
+      "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 30,
+      "seq": 240,
+      "player": "Binni",
+      "card": "Deep-Cavern Bat",
+      "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 30,

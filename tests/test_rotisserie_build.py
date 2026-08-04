@@ -232,6 +232,19 @@ def test_validate_rejects_a_shrinking_player_list():
         build.validate(p, cube, previous=previous)
 
 
+def test_cache_names_appends_basics_once():
+    """The deckbuilder needs basic-land images, so the cache always carries the
+    five basics; a basic already in the cube list must not double up."""
+    assert build.cache_names(["Explore", "Plains"]) == [
+        "Explore",
+        "Plains",
+        "Island",
+        "Swamp",
+        "Mountain",
+        "Forest",
+    ]
+
+
 def test_load_returns_none_for_an_absent_file(tmp_path):
     missing = tmp_path / "rotisserie.json"
     assert build._load(missing) is None

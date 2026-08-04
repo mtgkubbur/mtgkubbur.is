@@ -28,6 +28,15 @@ CARDS_PATH = KUBBUR / "rotisserie_cards.json"
 
 CUBE_NAME = "Meta Memories"
 
+# The deckbuilder (/rotisserie/deck) lets players add basic lands, so the card
+# cache always carries the five basics even though the cube lists none.
+BASIC_LANDS = ("Plains", "Island", "Swamp", "Mountain", "Forest")
+
+
+def cache_names(cube_names: list[str]) -> list[str]:
+    """Cube names plus the five basics, deduped in cube order."""
+    return list(dict.fromkeys([*cube_names, *BASIC_LANDS]))
+
 
 def _now() -> str:
     return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -193,7 +202,7 @@ def main(argv: list[str] | None = None) -> int:
     payload = build_payload(grid, cube_names, previous, _now())
     validate(payload, cube_names, previous)
 
-    cards = scryfall.merge_cache(_load(CARDS_PATH) or {}, cube_names)
+    cards = scryfall.merge_cache(_load(CARDS_PATH) or {}, cache_names(cube_names))
 
     KUBBUR.mkdir(parents=True, exist_ok=True)
     STATE_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

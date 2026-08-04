@@ -28,6 +28,14 @@ def test_schemas_are_registered_in_validate_publish():
         assert SINGLE[schema_name] == data_name
 
 
+def test_published_cards_include_basic_lands():
+    """The deckbuilder renders basics from the same cache as every other card."""
+    payload = json.loads((DATA / "rotisserie_cards.json").read_text(encoding="utf-8"))
+    for name in ("Plains", "Island", "Swamp", "Mountain", "Forest"):
+        assert name in payload, name
+        assert payload[name]["img_small"], name
+
+
 # Negative-path tests: verify schemas reject bad payloads
 
 
