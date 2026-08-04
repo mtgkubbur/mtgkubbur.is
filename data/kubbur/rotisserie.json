@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T15:10:13Z",
-  "source_digest": "sha256:bfcfb3ec5f062a6e52a112e25c6afc537d1f1adc6dc5668839e48962cfb56ea3",
+  "generated_at": "2026-08-04T19:21:51Z",
+  "source_digest": "sha256:7613bcca42778dc0f75143e278404324b0159694fa437d576874fbf0141b727f",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 210,
-  "current_round": 27,
-  "next_player": "Tommi",
+  "picks_made": 246,
+  "current_round": 31,
+  "next_player": "Aron Ívars.",
   "players": [
     "Binni",
     "Örvar",
@@ -44,7 +44,11 @@
       "Sheoldred's Edict",
       "Fanatic of Rhonas",
       "Huntmaster of the Fells",
-      "Tireless Tracker"
+      "Tireless Tracker",
+      "Boseiju, Who Endures",
+      "Slaughter Pact",
+      "Green Sun's Zenith",
+      "Craterhoof Behemoth"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -71,7 +75,13 @@
       "Thraben Inspector",
       "Novice Inspector",
       "Pile On",
-      "Caustic Bronco"
+      "Caustic Bronco",
+      "Celestial Colonnade",
+      "Gloomlake Verge",
+      "Supreme Verdict",
+      "Selfless Spirit",
+      "Malakir Rebirth",
+      "Field of the Dead"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -98,7 +108,13 @@
       "Giver of Runes",
       "Skrelv, Defector Mite",
       "Mox Opal",
-      "Kappa Cannoneer"
+      "Kappa Cannoneer",
+      "Arcbound Ravager",
+      "Steel Overseer",
+      "Mana Confluence",
+      "Karn, Scion of Urza",
+      "Invasion of Gobakhan",
+      "Gideon, Ally of Zendikar"
     ],
     "Diddi": [
       "Fury",
@@ -127,7 +143,11 @@
       "Sentinel of the Nameless City",
       "Growth Spiral",
       "Formidable Speaker",
-      "Trumpeting Carnosaur"
+      "Trumpeting Carnosaur",
+      "Explore",
+      "Explore",
+      "Emrakul, the Promised End",
+      "Smuggler's Surprise"
     ],
     "Atli": [
       "Dismember",
@@ -156,7 +176,11 @@
       "Guttersnipe",
       "Ghost Vacuum",
       "Dreadbore",
-      "Fatal Push"
+      "Fatal Push",
+      "Flame of Anor",
+      "Kitsa, Otterball Elite",
+      "Inquisition of Kozilek",
+      "Darkslick Shores"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -185,7 +209,11 @@
       "Bonecrusher Giant",
       "Manamorphose",
       "Fiery Islet",
-      "Sweltering Suns"
+      "Sweltering Suns",
+      "Third Path Iconoclast",
+      "Chandra, Torch of Defiance",
+      "Vendilion Clique",
+      "Jace, the Mind Sculptor"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -214,7 +242,11 @@
       "Mayhem Devil",
       "Lingering Souls",
       "Eagles of the North",
-      "Troll of Khazad-dûm"
+      "Troll of Khazad-dûm",
+      "Adeline, Resplendent Cathar",
+      "Hellrider",
+      "Anguished Unmaking",
+      "Lightning Helix"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -243,7 +275,11 @@
       "March of Otherworldly Light",
       "Wall of Omens",
       "Spell Queller",
-      "Fabled Passage"
+      "Fabled Passage",
+      "Restoration Angel",
+      "Venser, Shaper Savant",
+      "Hushwood Verge",
+      "Willowrush Verge"
     ]
   },
   "remaining": [
@@ -254,10 +290,8 @@
     "Kinscaer Sentry",
     "Luminarch Aspirant",
     "Regal Bunnicorn",
-    "Selfless Spirit",
     "Thalia, Guardian of Thraben",
     "Thalia's Lieutenant",
-    "Adeline, Resplendent Cathar",
     "Brimaz, King of Oreskos",
     "Elite Spellbinder",
     "Fiend Hunter",
@@ -267,7 +301,6 @@
     "Thalia, Heretic Cathar",
     "Welcoming Vampire",
     "Hero of Bladehold",
-    "Restoration Angel",
     "Archangel Avacyn",
     "Archangel of Thune",
     "Knight-Errant of Eos",
@@ -275,7 +308,6 @@
     "Venerated Loxodon",
     "Sun Titan",
     "Overlord of the Mistmoors",
-    "Gideon, Ally of Zendikar",
     "The Wandering Emperor",
     "Elspeth, Sun's Champion",
     "Secure the Wastes",
@@ -292,13 +324,11 @@
     "Wedding Announcement",
     "Elspeth Conquers Death",
     "Virtue of Loyalty",
-    "Invasion of Gobakhan",
     "Flitterwing Nuisance",
     "Pteramander",
     "Spectral Sailor",
     "Faerie Mastermind",
     "Jace, Vryn's Prodigy",
-    "Kitsa, Otterball Elite",
     "Picklock Prankster",
     "Thing in the Ice",
     "Wan Shi Tong, Librarian",
@@ -306,10 +336,8 @@
     "Aether Channeler",
     "Champion of Wits",
     "Pestermite",
-    "Vendilion Clique",
     "Dungeon Geists",
     "Sower of Temptation",
-    "Venser, Shaper Savant",
     "Body Double",
     "Marang River Regent",
     "Torrential Gearhulk",
@@ -317,7 +345,6 @@
     "Hullbreaker Horror",
     "Thought Monitor",
     "Elder Deep-Fiend",
-    "Jace, the Mind Sculptor",
     "Tamiyo, the Moon Sage",
     "Thought Scour",
     "Consult the Star Charts",
@@ -361,14 +388,11 @@
     "Liliana of the Veil",
     "Liliana, the Last Hope",
     "Liliana, Dreadhorde General",
-    "Slaughter Pact",
-    "Malakir Rebirth",
     "Deadly Dispute",
     "Doom Blade",
     "Goryo's Vengeance",
     "Makeshift Mannequin",
     "Bloodchief's Thirst",
-    "Inquisition of Kozilek",
     "Intimidation Tactics",
     "Collective Brutality",
     "Night's Whisper",
@@ -394,14 +418,12 @@
     "Detective's Phoenix",
     "Squee, Goblin Nabob",
     "Hazoret the Fervent",
-    "Hellrider",
     "Rekindling Phoenix",
     "Goblin Dark-Dwellers",
     "Kiki-Jiki, Mirror Breaker",
     "Ox of Agonas",
     "Zealous Conscripts",
     "Inferno Titan",
-    "Chandra, Torch of Defiance",
     "Lightning Axe",
     "Fiery Temper",
     "Big Score",
@@ -442,20 +464,15 @@
     "Thragtusk",
     "Generous Ent",
     "Titan of Industry",
-    "Craterhoof Behemoth",
     "Diamond Weapon",
     "Garruk Wildspeaker",
     "Vivien Reid",
-    "Smuggler's Surprise",
     "Tail Swipe",
     "Master's Rebuke",
     "Tear Asunder",
     "Beast Within",
     "Chord of Calling",
-    "Green Sun's Zenith",
     "Traverse the Ulvenwald",
-    "Explore",
-    "Explore",
     "Eldritch Evolution",
     "Search for Tomorrow",
     "Scapeshift",
@@ -463,30 +480,25 @@
     "Innkeeper's Talent",
     "Earthbender Ascension",
     "Invasion of Ikoria",
-    "Boseiju, Who Endures",
     "Marketback Walker",
     "Memnite",
     "Stonecoil Serpent",
     "Gingerbrute",
     "Signal Pest",
     "Vault Skirge",
-    "Arcbound Ravager",
     "Containment Construct",
     "Metallic Mimic",
     "Patchwork Automaton",
     "Phyrexian Revoker",
     "Spellskite",
-    "Steel Overseer",
     "Syr Ginger, the Meal Ender",
     "Etched Champion",
     "Solemn Simulacrum",
     "Golos, Tireless Pilgrim",
     "Wurmcoil Engine",
     "Emrakul, the Aeons Torn",
-    "Emrakul, the Promised End",
     "Scion of Draco",
     "Ulamog, the Ceaseless Hunger",
-    "Karn, Scion of Urza",
     "Karn Liberated",
     "Ugin, the Spirit Dragon",
     "Gut Shot",
@@ -506,10 +518,8 @@
     "Monument to Endurance",
     "Nettlecyst",
     "Bonehoard",
-    "Field of the Dead",
     "Westvale Abbey",
     "Sphinx's Revelation",
-    "Supreme Verdict",
     "Teferi, Hero of Dominaria",
     "Drown in the Loch",
     "Kaito, Bane of Nightmares",
@@ -526,9 +536,6 @@
     "Knight of the Reliquary",
     "Priest of Fell Rites",
     "Tidehollow Sculler",
-    "Anguished Unmaking",
-    "Third Path Iconoclast",
-    "Flame of Anor",
     "Pinnacle Emissary",
     "Saheeli, Sublime Artificer",
     "Assassin's Trophy",
@@ -536,7 +543,6 @@
     "Grist, the Hunger Tide",
     "Vraska, Golgari Queen",
     "Hogaak, Arisen Necropolis",
-    "Lightning Helix",
     "Nahiri, the Harbinger",
     "Hydroid Krasis",
     "Bonny Pall, Clearcutter",
@@ -546,10 +552,7 @@
     "Shiko, Paragon of the Way",
     "Jeskai Revelation",
     "Atraxa, Grand Unifier",
-    "Celestial Colonnade",
     "Creeping Tar Pit",
-    "Darkslick Shores",
-    "Gloomlake Verge",
     "Blazemire Verge",
     "Haunted Ridge",
     "Commercial District",
@@ -557,7 +560,6 @@
     "Raging Ravine",
     "Thornspire Verge",
     "Horizon Canopy",
-    "Hushwood Verge",
     "Lush Portico",
     "Stirring Wildwood",
     "Bleachbone Verge",
@@ -572,47 +574,297 @@
     "Hedge Maze",
     "Simic Growth Chamber",
     "Waterlogged Grove",
-    "Willowrush Verge",
     "Jetmir's Garden",
     "Indatha Triome",
-    "Lotus Field",
-    "Mana Confluence"
+    "Lotus Field"
   ],
   "log": [
     {
+      "round": 31,
+      "seq": 246,
+      "player": "Aron Freyr",
+      "card": "Willowrush Verge",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 31,
+      "seq": 245,
+      "player": "Aron Ívars.",
+      "card": "Lightning Helix",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 31,
+      "seq": 244,
+      "player": "Óli",
+      "card": "Jace, the Mind Sculptor",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 31,
+      "seq": 243,
+      "player": "Atli",
+      "card": "Darkslick Shores",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 31,
+      "seq": 242,
+      "player": "Diddi",
+      "card": "Smuggler's Surprise",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 31,
+      "seq": 241,
+      "player": "Tommi",
+      "card": "Gideon, Ally of Zendikar",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 31,
+      "seq": 240,
+      "player": "Örvar",
+      "card": "Field of the Dead",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 30,
+      "seq": 239,
+      "player": "Örvar",
+      "card": "Malakir Rebirth",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 30,
+      "seq": 238,
+      "player": "Tommi",
+      "card": "Invasion of Gobakhan",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 30,
+      "seq": 237,
+      "player": "Diddi",
+      "card": "Emrakul, the Promised End",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 30,
+      "seq": 236,
+      "player": "Atli",
+      "card": "Inquisition of Kozilek",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 30,
+      "seq": 235,
+      "player": "Óli",
+      "card": "Vendilion Clique",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 30,
+      "seq": 234,
+      "player": "Aron Ívars.",
+      "card": "Anguished Unmaking",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 30,
+      "seq": 233,
+      "player": "Aron Freyr",
+      "card": "Hushwood Verge",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 232,
+      "player": "Aron Freyr",
+      "card": "Venser, Shaper Savant",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 231,
+      "player": "Aron Ívars.",
+      "card": "Hellrider",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 230,
+      "player": "Óli",
+      "card": "Chandra, Torch of Defiance",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 229,
+      "player": "Atli",
+      "card": "Kitsa, Otterball Elite",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 228,
+      "player": "Diddi",
+      "card": "Explore",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 227,
+      "player": "Tommi",
+      "card": "Karn, Scion of Urza",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 226,
+      "player": "Örvar",
+      "card": "Selfless Spirit",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 29,
+      "seq": 225,
+      "player": "Binni",
+      "card": "Craterhoof Behemoth",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 224,
+      "player": "Binni",
+      "card": "Green Sun's Zenith",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 223,
+      "player": "Örvar",
+      "card": "Supreme Verdict",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 222,
+      "player": "Tommi",
+      "card": "Mana Confluence",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 221,
+      "player": "Diddi",
+      "card": "Explore",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 220,
+      "player": "Atli",
+      "card": "Flame of Anor",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 219,
+      "player": "Óli",
+      "card": "Third Path Iconoclast",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 218,
+      "player": "Aron Ívars.",
+      "card": "Adeline, Resplendent Cathar",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 28,
+      "seq": 217,
+      "player": "Aron Freyr",
+      "card": "Restoration Angel",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
       "round": 27,
-      "seq": 210,
+      "seq": 216,
       "player": "Aron Freyr",
       "card": "Fabled Passage",
       "first_seen": "2026-08-04T15:10:13Z"
     },
     {
       "round": 27,
-      "seq": 209,
+      "seq": 215,
       "player": "Aron Ívars.",
       "card": "Troll of Khazad-dûm",
       "first_seen": "2026-08-04T15:10:13Z"
     },
     {
       "round": 27,
-      "seq": 208,
+      "seq": 214,
       "player": "Óli",
       "card": "Sweltering Suns",
       "first_seen": "2026-08-04T15:10:13Z"
     },
     {
       "round": 27,
-      "seq": 207,
+      "seq": 213,
       "player": "Atli",
       "card": "Fatal Push",
       "first_seen": "2026-08-04T15:10:13Z"
     },
     {
       "round": 27,
-      "seq": 206,
+      "seq": 212,
       "player": "Diddi",
       "card": "Trumpeting Carnosaur",
       "first_seen": "2026-08-04T15:10:13Z"
+    },
+    {
+      "round": 27,
+      "seq": 211,
+      "player": "Tommi",
+      "card": "Steel Overseer",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 27,
+      "seq": 210,
+      "player": "Örvar",
+      "card": "Gloomlake Verge",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 27,
+      "seq": 209,
+      "player": "Binni",
+      "card": "Slaughter Pact",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 26,
+      "seq": 208,
+      "player": "Binni",
+      "card": "Boseiju, Who Endures",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 26,
+      "seq": 207,
+      "player": "Örvar",
+      "card": "Celestial Colonnade",
+      "first_seen": "2026-08-04T19:21:51Z"
+    },
+    {
+      "round": 26,
+      "seq": 206,
+      "player": "Tommi",
+      "card": "Arcbound Ravager",
+      "first_seen": "2026-08-04T19:21:51Z"
     },
     {
       "round": 26,
