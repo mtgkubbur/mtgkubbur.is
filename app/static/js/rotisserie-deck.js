@@ -97,6 +97,10 @@ function freshState() {
     basics: { Plains: 0, Island: 0, Swamp: 0, Mountain: 0, Forest: 0 },
     speculative: [],
     lost: [],
+    // Pool counts as of the last reconcile, so pool GROWTH (a new pick) can
+    // absorb a speculative copy without eating deliberate "one real + one
+    // spec" holdings of a duplicated name. null = never reconciled.
+    pool_counts: null,
     updated_at: "",
   };
 }
@@ -117,6 +121,7 @@ function loadState(who) {
       basics: { ...base.basics, ...parsed.basics },
       speculative: [...(parsed.speculative || [])],
       lost: [...(parsed.lost || [])],
+      pool_counts: parsed.pool_counts ?? null,
     };
   } catch {
     return freshState();
@@ -138,26 +143,46 @@ function countBy(names) {
   return out;
 }
 
-// Speculation lifecycle + storage hygiene. Runs once per load/refresh:
-// a speculative card that entered the player's own pool became real; one
-// that vanished from the remaining pool was drafted by someone else and is
-// marked lost (sticky until dismissed). Sideboard counts and pile overrides
-// are clamped to what the player actually holds.
-function reconcile() {
-  const poolCounts = countBy(draft.pools[player] || []);
-  const remainingCounts = countBy(draft.remaining || []);
+// Speculation lifecycle + storage hygiene. Runs on every commit. Everything
+// here is COUNT-based, never presence-based: the cube can list the same name
+// twice (Explore), so a player can legitimately hold one real and one
+// speculative copy at once. Per speculative copy, in order:
+//   1. pool GROWTH since the last reconcile absorbs it (it became real) —
+//      growth, not raw pool count, so an owned copy never eats a deliberate
+//      extra speculation;
+//   2. a copy still in the remaining pool justifies keeping it;
+//   3. otherwise someone else drafted it — marked lost, sticky until
+//      dismissed.
+// Exported pure (all inputs explicit) so it can be exercised with synthetic
+// draft states from the browser console / preview harness.
+export function reconcileState(state, poolNames, remainingNames) {
+  const poolCounts = countBy(poolNames);
+  const remainingCounts = countBy(remainingNames);
+  const prevPool = state.pool_counts; // null = never reconciled: no growth
 
   const stillSpec = [];
+  const budget = new Map(); // name -> { absorb, keep } remaining allowances
   for (const name of state.speculative) {
-    if (poolCounts.has(name)) continue; // became real
-    if (!remainingCounts.has(name)) {
-      if (!state.lost.includes(name)) state.lost.push(name);
-      continue;
+    if (!budget.has(name)) {
+      const growth =
+        prevPool === null
+          ? 0
+          : Math.max(0, (poolCounts.get(name) || 0) - (prevPool[name] || 0));
+      budget.set(name, { absorb: growth, keep: remainingCounts.get(name) || 0 });
     }
-    if (!stillSpec.includes(name)) stillSpec.push(name);
+    const b = budget.get(name);
+    if (b.absorb > 0) {
+      b.absorb -= 1; // became real
+    } else if (b.keep > 0) {
+      b.keep -= 1;
+      stillSpec.push(name);
+    } else if (!state.lost.includes(name)) {
+      state.lost.push(name);
+    }
   }
   state.speculative = stillSpec;
   state.lost = state.lost.filter((n) => !poolCounts.has(n));
+  state.pool_counts = Object.fromEntries(poolCounts);
 
   const owned = new Map(poolCounts);
   for (const name of state.speculative) owned.set(name, (owned.get(name) || 0) + 1);
@@ -175,6 +200,10 @@ function reconcile() {
     if (!BASICS.includes(name)) delete state.basics[name];
     else state.basics[name] = Math.max(0, Math.floor(state.basics[name]) || 0);
   }
+}
+
+function reconcile() {
+  reconcileState(state, draft.pools[player] || [], draft.remaining || []);
 }
 
 function naturalPile(card) {
@@ -591,6 +620,14 @@ function initDragAndDrop() {
     }
   });
 
+  // A cancelled drag (Escape, or released outside every zone) fires no drop,
+  // so the highlight must also be cleared on dragend or it sticks to the
+  // persistent containers (#rd-side, #rd-available) across re-renders.
+  document.addEventListener("dragend", () => {
+    if (highlighted) highlighted.classList.remove("rd-drop-over");
+    highlighted = null;
+  });
+
   document.addEventListener("drop", (ev) => {
     if (highlighted) highlighted.classList.remove("rd-drop-over");
     highlighted = null;
@@ -685,6 +722,9 @@ function initInteractions() {
   });
 
   els.player.addEventListener("change", () => {
+    // A popover opened on the previous player's card must not act on the
+    // new player's state (change can fire without a click, e.g. keyboard).
+    closePopover();
     player = els.player.value;
     try {
       localStorage.setItem(LAST_PLAYER_KEY, player);
@@ -699,10 +739,13 @@ function initInteractions() {
     const text = exportText();
     try {
       await navigator.clipboard.writeText(text);
-      const old = els.exportBtn.textContent;
+      // Restore from the constant, not a captured textContent: a second
+      // click during the feedback window would capture "Afritað!" as the
+      // label to restore and stick the button there forever.
       els.exportBtn.textContent = S.rotisserie_deck_exported;
-      setTimeout(() => {
-        els.exportBtn.textContent = old;
+      clearTimeout(els.exportBtn._restore);
+      els.exportBtn._restore = setTimeout(() => {
+        els.exportBtn.textContent = S.rotisserie_deck_export;
       }, 1500);
     } catch {
       window.prompt(S.rotisserie_deck_export, text);
@@ -739,8 +782,11 @@ function exportText() {
     for (const [name, n] of sideGrouped) lines.push(`${n} ${cards[name]?.name || name}`);
   }
   if (state.speculative.length) {
-    lines.push("", `${S.rotisserie_deck_spec_badge}:`);
-    for (const name of state.speculative) lines.push(`1 ${cards[name]?.name || name}`);
+    // Annotation, not extra cards: speculative copies are already counted in
+    // the deck/sideboard lines above, so listing them as "1 Name" again
+    // would read as a longer list than the counts claim.
+    const names = state.speculative.map((n) => cards[n]?.name || n);
+    lines.push("", `${S.rotisserie_deck_spec_badge}: ${names.join(", ")}`);
   }
   return lines.join("\n");
 }

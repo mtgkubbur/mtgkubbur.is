@@ -66,23 +66,33 @@ localStorage key `rot-deck:<player>`, JSON:
   "basics": {"Plains": 0, "Island": 0, "Swamp": 0, "Mountain": 0, "Forest": 0},
   "speculative": ["Card Name"],
   "lost": ["Card Name"],
+  "pool_counts": {"Card Name": 1},
   "updated_at": "ISO"
 }
 ```
 
 - The deck is **derived**: live pool + speculative − sideboard. New picks
   appear automatically in the deck on reload.
-- Same-name duplicates (a pool can hold two Explores) are handled as counts.
-- Reconciliation on load: a speculative card that entered the player's own
-  pool becomes real (dropped from `speculative`); one drafted by someone else
-  moves to `lost` and stays visible, marked, until dismissed.
+- Same-name duplicates (a pool can hold two Explores) are handled as counts
+  everywhere — including reconciliation, which is count-based per copy, never
+  name-presence-based (post-review fix: a presence check silently ate
+  speculation on the second copy of a duplicated name).
+- Reconciliation per speculative copy, in order: pool **growth** since the
+  last reconcile (`pool_counts` snapshot) absorbs it (became real — growth,
+  not raw pool count, so an owned copy never eats a deliberate "one real +
+  one spec" holding); a copy still in the remaining pool justifies keeping
+  it; otherwise it moves to `lost` and stays visible, marked, until
+  dismissed. `pool_counts: null` (pre-upgrade state) means no growth.
 - Corrupt/unknown-version state is discarded wholesale (fresh build), never
   partially applied.
 
 ## Export
 
 Copy-to-clipboard plain text: deck lines (`4 Plains`, `1 Lightning Bolt`, …),
-blank line, `Hliðarborð:` section. Doubles as the cross-device escape hatch.
+blank line, `Sideboard:` section, then a one-line `Spec:` annotation naming
+the speculative cards (they are already counted in the deck/sideboard lines,
+so they are not listed as extra `1 Name` rows). Doubles as the cross-device
+escape hatch.
 
 ## Testing & i18n
 
