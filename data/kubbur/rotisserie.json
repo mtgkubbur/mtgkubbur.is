@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T19:46:47Z",
-  "source_digest": "sha256:4b0c93ce9209c13c5aaacaba44d48257956e2fe905334a5a5d173138bf8678ae",
+  "generated_at": "2026-08-04T20:43:22Z",
+  "source_digest": "sha256:189cdd50daf25cf9caa370f327700ae16b996ecb5f6e8374452b7cfd0888c18e",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 256,
-  "current_round": 33,
-  "next_player": "Binni",
+  "picks_made": 274,
+  "current_round": 35,
+  "next_player": "Tommi",
   "players": [
     "Binni",
     "Örvar",
@@ -157,7 +157,9 @@
       "Emrakul, the Promised End",
       "Smuggler's Surprise",
       "Thornspire Verge",
-      "Waterlogged Grove"
+      "Waterlogged Grove",
+      "Spellskite",
+      "Herd Migration"
     ],
     "Atli": [
       "Dismember",
@@ -190,7 +192,11 @@
       "Flame of Anor",
       "Kitsa, Otterball Elite",
       "Inquisition of Kozilek",
-      "Darkslick Shores"
+      "Darkslick Shores",
+      "Gut Shot",
+      "Blazemire Verge",
+      "This Town Ain't Big Enough",
+      "Kaito, Bane of Nightmares"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -223,7 +229,11 @@
       "Third Path Iconoclast",
       "Chandra, Torch of Defiance",
       "Vendilion Clique",
-      "Jace, the Mind Sculptor"
+      "Jace, the Mind Sculptor",
+      "Wan Shi Tong, Librarian",
+      "Archmage's Charm",
+      "Eddymurk Crab",
+      "Big Score"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -256,7 +266,11 @@
       "Adeline, Resplendent Cathar",
       "Hellrider",
       "Anguished Unmaking",
-      "Lightning Helix"
+      "Lightning Helix",
+      "Silent Clearing",
+      "Sunbaked Canyon",
+      "Preacher of the Schism",
+      "Sheoldred, the Apocalypse"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -289,7 +303,11 @@
       "Restoration Angel",
       "Venser, Shaper Savant",
       "Hushwood Verge",
-      "Willowrush Verge"
+      "Willowrush Verge",
+      "Noble Hierarch",
+      "Flickerwisp",
+      "Thragtusk",
+      "Birthing Pod"
     ]
   },
   "remaining": [
@@ -305,7 +323,6 @@
     "Brimaz, King of Oreskos",
     "Elite Spellbinder",
     "Fiend Hunter",
-    "Flickerwisp",
     "Monastery Mentor",
     "Skyclave Apparition",
     "Thalia, Heretic Cathar",
@@ -339,7 +356,6 @@
     "Faerie Mastermind",
     "Picklock Prankster",
     "Thing in the Ice",
-    "Wan Shi Tong, Librarian",
     "Abhorrent Oculus",
     "Aether Channeler",
     "Champion of Wits",
@@ -349,16 +365,13 @@
     "Body Double",
     "Marang River Regent",
     "Torrential Gearhulk",
-    "Eddymurk Crab",
     "Hullbreaker Horror",
     "Thought Monitor",
     "Elder Deep-Fiend",
     "Tamiyo, the Moon Sage",
     "Thought Scour",
     "Consult the Star Charts",
-    "Archmage's Charm",
     "Gifts Ungiven",
-    "This Town Ain't Big Enough",
     "Dig Through Time",
     "Serum Visions",
     "Search for Azcanta",
@@ -380,13 +393,11 @@
     "Midnight Reaper",
     "Murderous Rider",
     "Plaguecrafter",
-    "Preacher of the Schism",
     "Rotting Regisaur",
     "Stinkweed Imp",
     "Warren Soultrader",
     "Kalitas, Traitor of Ghet",
     "Ravenous Chupacabra",
-    "Sheoldred, the Apocalypse",
     "Yawgmoth, Thran Physician",
     "Tasigur, the Golden Fang",
     "Archon of Cruelty",
@@ -432,7 +443,6 @@
     "Inferno Titan",
     "Lightning Axe",
     "Fiery Temper",
-    "Big Score",
     "Witchstalker Frenzy",
     "Through the Breach",
     "Tribal Flames",
@@ -447,7 +457,6 @@
     "Avacyn's Pilgrim",
     "Elvish Reclaimer",
     "Haywire Mite",
-    "Noble Hierarch",
     "Sazh's Chocobo",
     "Aftermath Analyst",
     "Badgermole Cub",
@@ -466,7 +475,6 @@
     "Agonasaur Rex",
     "Cavalier of Thorns",
     "Elder Gargaroth",
-    "Thragtusk",
     "Generous Ent",
     "Titan of Industry",
     "Diamond Weapon",
@@ -481,7 +489,6 @@
     "Eldritch Evolution",
     "Search for Tomorrow",
     "Scapeshift",
-    "Herd Migration",
     "Innkeeper's Talent",
     "Earthbender Ascension",
     "Invasion of Ikoria",
@@ -495,7 +502,6 @@
     "Metallic Mimic",
     "Patchwork Automaton",
     "Phyrexian Revoker",
-    "Spellskite",
     "Syr Ginger, the Meal Ender",
     "Etched Champion",
     "Solemn Simulacrum",
@@ -506,7 +512,6 @@
     "Ulamog, the Ceaseless Hunger",
     "Karn Liberated",
     "Ugin, the Spirit Dragon",
-    "Gut Shot",
     "Noxious Revival",
     "Act of Aggression",
     "Engineered Explosives",
@@ -517,7 +522,6 @@
     "Cranial Plating",
     "Heart of Kiran",
     "Mind Stone",
-    "Birthing Pod",
     "Grafted Wargear",
     "Monument to Endurance",
     "Nettlecyst",
@@ -526,7 +530,6 @@
     "Sphinx's Revelation",
     "Teferi, Hero of Dominaria",
     "Drown in the Loch",
-    "Kaito, Bane of Nightmares",
     "Fallen Shinobi",
     "The Scarab God",
     "Bloodtithe Harvester",
@@ -556,7 +559,6 @@
     "Shiko, Paragon of the Way",
     "Atraxa, Grand Unifier",
     "Creeping Tar Pit",
-    "Blazemire Verge",
     "Haunted Ridge",
     "Commercial District",
     "Gruul Turf",
@@ -566,12 +568,10 @@
     "Stirring Wildwood",
     "Bleachbone Verge",
     "Concealed Courtyard",
-    "Silent Clearing",
     "Golgari Rot Farm",
     "Underground Mortuary",
     "Wastewood Verge",
     "Elegant Parlor",
-    "Sunbaked Canyon",
     "Hedge Maze",
     "Simic Growth Chamber",
     "Jetmir's Garden",
@@ -580,60 +580,186 @@
   ],
   "log": [
     {
+      "round": 35,
+      "seq": 274,
+      "player": "Aron Freyr",
+      "card": "Birthing Pod",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 35,
+      "seq": 273,
+      "player": "Aron Ívars.",
+      "card": "Sheoldred, the Apocalypse",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 35,
+      "seq": 272,
+      "player": "Óli",
+      "card": "Big Score",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 35,
+      "seq": 271,
+      "player": "Atli",
+      "card": "Kaito, Bane of Nightmares",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 35,
+      "seq": 270,
+      "player": "Diddi",
+      "card": "Herd Migration",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 34,
+      "seq": 269,
+      "player": "Diddi",
+      "card": "Spellskite",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 34,
+      "seq": 268,
+      "player": "Atli",
+      "card": "This Town Ain't Big Enough",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 34,
+      "seq": 267,
+      "player": "Óli",
+      "card": "Eddymurk Crab",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 34,
+      "seq": 266,
+      "player": "Aron Ívars.",
+      "card": "Preacher of the Schism",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 34,
+      "seq": 265,
+      "player": "Aron Freyr",
+      "card": "Thragtusk",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
       "round": 33,
-      "seq": 256,
+      "seq": 264,
+      "player": "Aron Freyr",
+      "card": "Flickerwisp",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 33,
+      "seq": 263,
+      "player": "Aron Ívars.",
+      "card": "Sunbaked Canyon",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 33,
+      "seq": 262,
+      "player": "Óli",
+      "card": "Archmage's Charm",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 33,
+      "seq": 261,
+      "player": "Atli",
+      "card": "Blazemire Verge",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 33,
+      "seq": 260,
       "player": "Diddi",
       "card": "Waterlogged Grove",
       "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 33,
-      "seq": 255,
+      "seq": 259,
       "player": "Tommi",
       "card": "Oblivion Ring",
       "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 33,
-      "seq": 254,
+      "seq": 258,
       "player": "Örvar",
       "card": "Jeskai Revelation",
       "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 33,
-      "seq": 253,
+      "seq": 257,
       "player": "Binni",
       "card": "Ouroboroid",
       "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 32,
-      "seq": 252,
+      "seq": 256,
       "player": "Binni",
       "card": "Nurturing Peatland",
       "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 32,
-      "seq": 251,
+      "seq": 255,
       "player": "Örvar",
       "card": "Jace, Vryn's Prodigy",
       "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 32,
-      "seq": 250,
+      "seq": 254,
       "player": "Tommi",
       "card": "Shadowspear",
       "first_seen": "2026-08-04T19:46:47Z"
     },
     {
       "round": 32,
-      "seq": 249,
+      "seq": 253,
       "player": "Diddi",
       "card": "Thornspire Verge",
       "first_seen": "2026-08-04T19:46:47Z"
+    },
+    {
+      "round": 32,
+      "seq": 252,
+      "player": "Atli",
+      "card": "Gut Shot",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 32,
+      "seq": 251,
+      "player": "Óli",
+      "card": "Wan Shi Tong, Librarian",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 32,
+      "seq": 250,
+      "player": "Aron Ívars.",
+      "card": "Silent Clearing",
+      "first_seen": "2026-08-04T20:43:22Z"
+    },
+    {
+      "round": 32,
+      "seq": 249,
+      "player": "Aron Freyr",
+      "card": "Noble Hierarch",
+      "first_seen": "2026-08-04T20:43:22Z"
     },
     {
       "round": 31,
