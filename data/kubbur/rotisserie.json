@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T21:56:34Z",
-  "source_digest": "sha256:686eeeb0a1094ba1917d93bca714538a9a54844f7e8dba523e991cf90228d823",
+  "generated_at": "2026-08-04T23:18:38Z",
+  "source_digest": "sha256:e12917b838ede7428116890d2c0cf6a5107054e859d7f93e45a5e441cf80db76",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 290,
-  "current_round": 37,
-  "next_player": "Tommi",
+  "picks_made": 308,
+  "current_round": 39,
+  "next_player": "Atli",
   "players": [
     "Binni",
     "Örvar",
@@ -134,7 +134,9 @@
       "Syr Ginger, the Meal Ender",
       "Celestial Armor",
       "Etched Champion",
-      "Collective Effort"
+      "Collective Effort",
+      "Vault Skirge",
+      "Springleaf Drum"
     ],
     "Diddi": [
       "Fury",
@@ -173,7 +175,9 @@
       "Spellskite",
       "Herd Migration",
       "Bonny Pall, Clearcutter",
-      "Haywire Mite"
+      "Haywire Mite",
+      "Emrakul, the Aeons Torn",
+      "Through the Breach"
     ],
     "Atli": [
       "Dismember",
@@ -212,7 +216,9 @@
       "This Town Ain't Big Enough",
       "Kaito, Bane of Nightmares",
       "Serum Visions",
-      "Seal of Fire"
+      "Seal of Fire",
+      "Dreadhorde Arcanist",
+      "Witchstalker Frenzy"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -249,7 +255,11 @@
       "Wan Shi Tong, Librarian",
       "Archmage's Charm",
       "Eddymurk Crab",
-      "Big Score"
+      "Big Score",
+      "Lightning Axe",
+      "Fiery Temper",
+      "Thing in the Ice",
+      "Shark Typhoon"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -286,7 +296,11 @@
       "Silent Clearing",
       "Sunbaked Canyon",
       "Preacher of the Schism",
-      "Sheoldred, the Apocalypse"
+      "Sheoldred, the Apocalypse",
+      "Hero of Bladehold",
+      "Bitterblossom",
+      "Bomat Courier",
+      "Yawgmoth, Thran Physician"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -323,7 +337,11 @@
       "Noble Hierarch",
       "Flickerwisp",
       "Thragtusk",
-      "Birthing Pod"
+      "Birthing Pod",
+      "Overlord of the Mistmoors",
+      "Sun Titan",
+      "Pestermite",
+      "Kiki-Jiki, Mirror Breaker"
     ]
   },
   "remaining": [
@@ -343,14 +361,11 @@
     "Skyclave Apparition",
     "Thalia, Heretic Cathar",
     "Welcoming Vampire",
-    "Hero of Bladehold",
     "Archangel Avacyn",
     "Archangel of Thune",
     "Knight-Errant of Eos",
     "Reveillark",
     "Venerated Loxodon",
-    "Sun Titan",
-    "Overlord of the Mistmoors",
     "The Wandering Emperor",
     "Elspeth, Sun's Champion",
     "Secure the Wastes",
@@ -369,11 +384,9 @@
     "Spectral Sailor",
     "Faerie Mastermind",
     "Picklock Prankster",
-    "Thing in the Ice",
     "Abhorrent Oculus",
     "Aether Channeler",
     "Champion of Wits",
-    "Pestermite",
     "Dungeon Geists",
     "Sower of Temptation",
     "Body Double",
@@ -388,7 +401,6 @@
     "Gifts Ungiven",
     "Dig Through Time",
     "Search for Azcanta",
-    "Shark Typhoon",
     "Cecil, Dark Knight",
     "Gravecrawler",
     "Moonshadow",
@@ -409,7 +421,6 @@
     "Stinkweed Imp",
     "Warren Soultrader",
     "Ravenous Chupacabra",
-    "Yawgmoth, Thran Physician",
     "Tasigur, the Golden Fang",
     "Archon of Cruelty",
     "Griselbrand",
@@ -427,15 +438,12 @@
     "Dread Return",
     "Unburial Rites",
     "Dead Weight",
-    "Bitterblossom",
     "Virtue of Persistence",
     "Unholy Annex // Ritual Chamber",
     "Takenuma, Abandoned Mire",
-    "Bomat Courier",
     "Grim Lavamancer",
     "Marauding Mako",
     "Voldaren Epicure",
-    "Dreadhorde Arcanist",
     "Eidolon of the Great Revel",
     "Fear of Missing Out",
     "Robber of the Rich",
@@ -447,14 +455,9 @@
     "Hazoret the Fervent",
     "Rekindling Phoenix",
     "Goblin Dark-Dwellers",
-    "Kiki-Jiki, Mirror Breaker",
     "Ox of Agonas",
     "Zealous Conscripts",
     "Inferno Titan",
-    "Lightning Axe",
-    "Fiery Temper",
-    "Witchstalker Frenzy",
-    "Through the Breach",
     "Tribal Flames",
     "Legion Extruder",
     "Embercleave",
@@ -505,7 +508,6 @@
     "Stonecoil Serpent",
     "Gingerbrute",
     "Signal Pest",
-    "Vault Skirge",
     "Containment Construct",
     "Metallic Mimic",
     "Patchwork Automaton",
@@ -513,7 +515,6 @@
     "Solemn Simulacrum",
     "Golos, Tireless Pilgrim",
     "Wurmcoil Engine",
-    "Emrakul, the Aeons Torn",
     "Scion of Draco",
     "Ulamog, the Ceaseless Hunger",
     "Karn Liberated",
@@ -524,7 +525,6 @@
     "Welding Jar",
     "Bonesplitter",
     "Expedition Map",
-    "Springleaf Drum",
     "Cranial Plating",
     "Heart of Kiran",
     "Mind Stone",
@@ -580,74 +580,200 @@
   ],
   "log": [
     {
+      "round": 39,
+      "seq": 308,
+      "player": "Aron Freyr",
+      "card": "Kiki-Jiki, Mirror Breaker",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 39,
+      "seq": 307,
+      "player": "Aron Ívars.",
+      "card": "Yawgmoth, Thran Physician",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 39,
+      "seq": 306,
+      "player": "Óli",
+      "card": "Shark Typhoon",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 39,
+      "seq": 305,
+      "player": "Atli",
+      "card": "Witchstalker Frenzy",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 39,
+      "seq": 304,
+      "player": "Diddi",
+      "card": "Through the Breach",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 39,
+      "seq": 303,
+      "player": "Tommi",
+      "card": "Springleaf Drum",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 38,
+      "seq": 302,
+      "player": "Tommi",
+      "card": "Vault Skirge",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 38,
+      "seq": 301,
+      "player": "Diddi",
+      "card": "Emrakul, the Aeons Torn",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 38,
+      "seq": 300,
+      "player": "Atli",
+      "card": "Dreadhorde Arcanist",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 38,
+      "seq": 299,
+      "player": "Óli",
+      "card": "Thing in the Ice",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 38,
+      "seq": 298,
+      "player": "Aron Ívars.",
+      "card": "Bomat Courier",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 38,
+      "seq": 297,
+      "player": "Aron Freyr",
+      "card": "Pestermite",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
       "round": 37,
-      "seq": 290,
+      "seq": 296,
+      "player": "Aron Freyr",
+      "card": "Sun Titan",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 37,
+      "seq": 295,
+      "player": "Aron Ívars.",
+      "card": "Bitterblossom",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 37,
+      "seq": 294,
+      "player": "Óli",
+      "card": "Fiery Temper",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 37,
+      "seq": 293,
       "player": "Atli",
       "card": "Seal of Fire",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 37,
-      "seq": 289,
+      "seq": 292,
       "player": "Diddi",
       "card": "Haywire Mite",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 37,
-      "seq": 288,
+      "seq": 291,
       "player": "Tommi",
       "card": "Collective Effort",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 37,
-      "seq": 287,
+      "seq": 290,
       "player": "Örvar",
       "card": "Intimidation Tactics",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 37,
-      "seq": 286,
+      "seq": 289,
       "player": "Binni",
       "card": "Grist, the Hunger Tide",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 36,
-      "seq": 285,
+      "seq": 288,
       "player": "Binni",
       "card": "Kalitas, Traitor of Ghet",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 36,
-      "seq": 284,
+      "seq": 287,
       "player": "Örvar",
       "card": "Valki, God of Lies",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 36,
-      "seq": 283,
+      "seq": 286,
       "player": "Tommi",
       "card": "Etched Champion",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 36,
-      "seq": 282,
+      "seq": 285,
       "player": "Diddi",
       "card": "Bonny Pall, Clearcutter",
       "first_seen": "2026-08-04T21:56:34Z"
     },
     {
       "round": 36,
-      "seq": 281,
+      "seq": 284,
       "player": "Atli",
       "card": "Serum Visions",
       "first_seen": "2026-08-04T21:56:34Z"
+    },
+    {
+      "round": 36,
+      "seq": 283,
+      "player": "Óli",
+      "card": "Lightning Axe",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 36,
+      "seq": 282,
+      "player": "Aron Ívars.",
+      "card": "Hero of Bladehold",
+      "first_seen": "2026-08-04T23:18:38Z"
+    },
+    {
+      "round": 36,
+      "seq": 281,
+      "player": "Aron Freyr",
+      "card": "Overlord of the Mistmoors",
+      "first_seen": "2026-08-04T23:18:38Z"
     },
     {
       "round": 35,
