@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}{{ S.rotisserie_deck_title }} — {{ S.brand }}{% endblock %}
+
+{% block head %}
+<meta name="robots" content="noindex, nofollow" />
+{% endblock %}
+
+{% block content %} {% include "components/page_header.html" %}
+
+<div class="rot-content rd-content">
+  <p class="rd-back"><a href="/rotisserie">{{ S.rotisserie_deck_back }}</a></p>
+
+  <div id="rd-topbar" class="rd-topbar">
+    <label for="rd-player">{{ S.rotisserie_deck_player }}:</label>
+    <select id="rd-player" class="mtg-select"></select>
+    <div id="rd-counts" class="rd-counts"></div>
+    <button type="button" id="rd-export" class="rot-clear-btn">{{ S.rotisserie_deck_export }}</button>
+    <button type="button" id="rd-reset" class="rot-clear-btn">{{ S.rotisserie_deck_reset }}</button>
+  </div>
+
+  <h2 class="rot-section-title">{{ S.rotisserie_deck_deck }}</h2>
+  <div id="rd-columns" class="rd-columns"></div>
+
+  <h2 class="rot-section-title">{{ S.rotisserie_deck_sideboard }}</h2>
+  <div id="rd-side" class="rd-side"></div>
+
+  <h2 class="rot-section-title">{{ S.rotisserie_deck_available }}</h2>
+  <div class="rot-filters">
+    <input id="rd-search" type="search" placeholder="{{ S.rotisserie_search }}" aria-label="{{ S.rotisserie_search }}" />
+    <div id="rd-colour-filters" class="rot-colour-filters"></div>
+    <div id="rd-cmc-filters" class="rot-cmc-filters" role="group" aria-label="{{ S.rotisserie_cmc_label }}"></div>
+    <select id="rd-type-filter" class="mtg-select" aria-label="{{ S.rotisserie_type_all }}"></select>
+    <button type="button" id="rd-clear" class="rot-clear-btn" hidden>{{ S.rotisserie_clear }}</button>
+  </div>
+  <div id="rd-available"></div>
+</div>
+
+<div id="rd-popover" class="rd-popover" hidden></div>
+<div id="rot-lightbox" class="rot-lightbox" hidden>
+  <img alt="" />
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/static/js/rotisserie-deck.js?v=1"></script>
+{% endblock %}

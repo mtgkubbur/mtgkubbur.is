@@ -23,3 +23,13 @@ async def rotisserie(request: Request):
         "header_desc": _S["rotisserie_desc"],
     }
     return templates.TemplateResponse(request, "rotisserie.html", ctx)
+
+
+@router.get("/rotisserie/deck", response_class=HTMLResponse)
+async def rotisserie_deck(request: Request):
+    ctx = {
+        "page": "rotisserie_deck",
+        "header_h1": _S["rotisserie_deck_title"],
+        "header_desc": _S["rotisserie_deck_desc"],
+    }
+    return templates.TemplateResponse(request, "rotisserie_deck.html", ctx)
