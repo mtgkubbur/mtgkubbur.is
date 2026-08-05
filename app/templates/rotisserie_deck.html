@@ -9,12 +9,17 @@
 <div class="rot-content rd-content">
   <p class="rd-back"><a href="/rotisserie">{{ S.rotisserie_deck_back }}</a></p>
 
+  <div id="rd-banner" class="rd-banner" hidden></div>
+
   <div id="rd-topbar" class="rd-topbar">
     <label for="rd-player">{{ S.rotisserie_deck_player }}:</label>
     <select id="rd-player" class="mtg-select"></select>
     <div id="rd-counts" class="rd-counts"></div>
+    <button type="button" id="rd-undo" class="rot-clear-btn rd-hide-ro" disabled>{{ S.rotisserie_deck_undo }}</button>
+    <button type="button" id="rd-hand-btn" class="rot-clear-btn">{{ S.rotisserie_deck_hand_title }}</button>
     <button type="button" id="rd-export" class="rot-clear-btn">{{ S.rotisserie_deck_export }}</button>
-    <button type="button" id="rd-reset" class="rot-clear-btn">{{ S.rotisserie_deck_reset }}</button>
+    <button type="button" id="rd-share" class="rot-clear-btn rd-hide-ro">{{ S.rotisserie_deck_share }}</button>
+    <button type="button" id="rd-reset" class="rot-clear-btn rd-hide-ro">{{ S.rotisserie_deck_reset }}</button>
   </div>
 
   <div id="rd-mana" class="rd-mana" hidden></div>
@@ -36,12 +41,29 @@
   <div id="rd-available"></div>
 </div>
 
-<div id="rd-popover" class="rd-popover" hidden></div>
+<div id="rd-popover" class="rd-popover" role="menu" hidden></div>
+<div id="rd-hover" class="rd-hover" aria-hidden="true" hidden>
+  <img alt="" />
+</div>
+<div id="rd-hand" class="rd-hand" hidden>
+  <div class="rd-hand-dialog" role="dialog" aria-label="{{ S.rotisserie_deck_hand_title }}">
+    <div class="rd-hand-top">
+      <span class="rd-hand-title"></span>
+      <button type="button" data-hand="close" class="rot-clear-btn">{{ S.rotisserie_deck_hand_close }}</button>
+    </div>
+    <div class="rd-hand-grid"></div>
+    <div class="rd-hand-actions">
+      <button type="button" data-hand="new" class="rot-clear-btn">{{ S.rotisserie_deck_hand_new }}</button>
+      <button type="button" data-hand="mulligan" class="rot-clear-btn">{{ S.rotisserie_deck_hand_mulligan }}</button>
+      <button type="button" data-hand="draw" class="rot-clear-btn">{{ S.rotisserie_deck_hand_draw }}</button>
+    </div>
+  </div>
+</div>
 <div id="rot-lightbox" class="rot-lightbox" hidden>
   <img alt="" />
 </div>
 {% endblock %}
 
 {% block scripts %}
-<script type="module" src="/static/js/rotisserie-deck.js?v=3"></script>
+<script type="module" src="/static/js/rotisserie-deck.js?v=4"></script>
 {% endblock %}

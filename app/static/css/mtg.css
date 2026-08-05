@@ -1382,11 +1382,15 @@
   justify-content: start; overflow-x: auto; padding-bottom: 0.5rem;
 }
 .rd-col { grid-row: 1 / 4; display: grid; grid-template-rows: subgrid; row-gap: 0.5rem; }
+/* Label and count sit together on the left: with space-between, one
+   column's right-aligned count landed next to its neighbour's label and
+   read as a single number ("9 3"). */
 .rd-col-head {
-  display: flex; justify-content: space-between;
+  display: flex; justify-content: flex-start; align-items: baseline; gap: 0.3rem;
   font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em;
   opacity: 0.75;
 }
+.rd-col-count { opacity: 0.6; }
 
 .rd-pile { border-radius: 8px; padding: 0.25rem; }
 .rd-pile-label {
@@ -1405,7 +1409,11 @@
   border-radius: 7px; background: var(--surface-soft); cursor: grab;
 }
 .rd-card img { display: block; width: 100%; height: 100%; border-radius: 7px; pointer-events: none; }
-.rd-stack .rd-card + .rd-card { margin-top: -164px; }
+/* Overlap is for the vertical column piles ONLY. The sideboard strip also
+   carries .rd-stack, and a negative top margin on a stretch-aligned flex
+   item GROWS its height — from the 2nd card on, every sideboard card
+   rendered 164px too tall. */
+.rd-col .rd-stack .rd-card + .rd-card { margin-top: -164px; }
 .rd-stack .rd-card:hover, .rd-stack .rd-card:focus-visible { z-index: 2; }
 .rd-card .rot-card-missing { width: 100%; height: 100%; }
 
@@ -1431,9 +1439,17 @@
 }
 .rd-step:hover { border-color: var(--mtg-gold); }
 .rd-basic-count { min-width: 1.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+input.rd-basic-count {
+  width: 2.6rem; border: 1px solid var(--border-default); border-radius: 6px;
+  background: var(--surface-soft); color: var(--text-primary);
+  padding: 0.1rem 0.15rem; font: inherit;
+  -moz-appearance: textfield; appearance: textfield;
+}
+input.rd-basic-count::-webkit-outer-spin-button,
+input.rd-basic-count::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
 .rd-side { border: 1px dashed var(--border-default); border-radius: 10px; padding: 0.6rem; }
-.rd-side-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.rd-side-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: flex-start; }
 .rd-side-stack .rd-card { width: 110px; }
 .rd-side-empty { margin: 0.4rem; }
 
@@ -1464,9 +1480,13 @@
 .rd-popover button:hover { background: var(--surface-soft); }
 
 @media (max-width: 640px) {
-  .rd-columns { grid-auto-columns: 120px; }
+  .rd-columns { grid-auto-columns: 120px; grid-template-rows: auto; }
+  /* No subgrid levelling on phones: sharing the tallest column's row
+     heights turns short columns into screens of blank space. Each column
+     flows on its own; horizontal scroll already isolates them. */
+  .rd-col { display: flex; flex-direction: column; gap: 0.5rem; }
   .rd-card { width: 120px; }
-  .rd-stack .rd-card + .rd-card { margin-top: -135px; }
+  .rd-col .rd-stack .rd-card + .rd-card { margin-top: -135px; }
   .rd-side-stack .rd-card { width: 96px; }
 }
 
@@ -1475,9 +1495,15 @@
   padding: 0.6rem 0.8rem; border: 1px solid var(--border-default);
   border-radius: 10px; background: var(--surface-soft);
 }
-.rd-mana-head { display: flex; align-items: baseline; gap: 0.6rem; }
+.rd-mana-details summary {
+  display: flex; align-items: baseline; gap: 0.6rem; cursor: pointer;
+  list-style: none;
+}
+.rd-mana-details summary::-webkit-details-marker { display: none; }
+.rd-mana-details summary::before { content: "▸"; font-size: 0.7rem; opacity: 0.55; }
+.rd-mana-details[open] summary::before { content: "▾"; }
 .rd-mana-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.75; }
-.rd-mana-note { font-size: 0.75rem; opacity: 0.55; }
+.rd-mana-note, .rd-mana-joint-note { font-size: 0.75rem; opacity: 0.55; }
 .rd-mana table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .rd-mana th, .rd-mana td { padding: 0.15rem 0.7rem 0.15rem 0; text-align: right; font-size: 0.85rem; }
 .rd-mana th { font-weight: 400; opacity: 0.6; }
@@ -1487,3 +1513,58 @@
 .rd-mana .rd-mana-ok .rd-mana-badge { color: var(--win); }
 .rd-mana .rd-mana-short .rd-mana-badge { color: var(--loss); }
 .rd-mana td .ms { font-size: 0.7rem; margin-right: 0.1rem; }
+
+/* Deck-size / land-count targets (informational only) */
+.rd-target { opacity: 0.55; font-size: 0.85em; }
+.rd-target-ok { color: var(--win); }
+.rd-target-over { color: var(--loss); }
+
+/* Read-only shared view */
+.rd-banner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
+  padding: 0.5rem 0.8rem; margin-bottom: 0.6rem; border-radius: 10px;
+  border: 1px solid var(--mtg-gold); background: color-mix(in srgb, var(--mtg-gold) 12%, transparent);
+  font-size: 0.9rem;
+}
+body.rd-readonly .rd-hide-ro { display: none; }
+
+/* Popover column picker */
+.rd-popover-cols { padding: 0.35rem 0.6rem 0.45rem; border-top: 1px solid var(--border-default); }
+.rd-popover-cols-label { display: block; font-size: 0.7rem; opacity: 0.6; margin-bottom: 0.3rem; }
+.rd-popover-cols-row { display: flex; gap: 0.25rem; }
+.rd-popover-cols-row button {
+  border: 1px solid var(--border-default); background: var(--surface-soft);
+  color: var(--text-primary); border-radius: 6px; min-width: 1.7rem; height: 1.7rem;
+  padding: 0; cursor: pointer; font-size: 0.8rem; text-align: center;
+}
+.rd-popover-cols-row button:hover { border-color: var(--mtg-gold); }
+.rd-popover-cols-row button.rd-col-pick-on {
+  border-color: var(--mtg-gold); background: color-mix(in srgb, var(--mtg-gold) 22%, transparent);
+  font-weight: 700;
+}
+
+/* Hover card preview (desktop) */
+.rd-hover { position: fixed; z-index: 55; pointer-events: none; }
+.rd-hover img {
+  display: block; width: min(320px, 38vw); aspect-ratio: 488 / 680;
+  border-radius: 14px; box-shadow: 0 10px 32px rgb(0 0 0 / 0.35);
+}
+
+/* Sample hand */
+.rd-hand {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  background: rgb(0 0 0 / 0.6); padding: 1rem;
+}
+.rd-hand-dialog {
+  max-width: min(94vw, 880px); max-height: 92vh; overflow-y: auto;
+  border: 1px solid var(--border-default); border-radius: 12px;
+  background: var(--surface-raised, var(--surface-soft)); padding: 0.9rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.rd-hand-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.rd-hand-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.75; }
+.rd-hand-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.5rem;
+}
+.rd-hand-grid .rd-hand-card { width: 100%; border-radius: 7px; display: block; }
+.rd-hand-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }

@@ -52,9 +52,15 @@ def test_page_has_the_mount_points_the_js_targets():
     body = client.get("/rotisserie/deck").text
     for token in (
         'id="rd-player"',
+        'id="rd-banner"',
         'id="rd-counts"',
         'id="rd-mana"',
         'id="rd-export"',
+        'id="rd-share"',
+        'id="rd-undo"',
+        'id="rd-hand-btn"',
+        'id="rd-hand"',
+        'id="rd-hover"',
         'id="rd-reset"',
         'id="rd-columns"',
         'id="rd-side"',
