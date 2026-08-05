@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-05T00:38:05Z",
-  "source_digest": "sha256:59c5a8dfdc01f62a2569445a4f17b868dabe2a0f0e78afc4a95a51de0c5f5521",
+  "generated_at": "2026-08-05T07:25:03Z",
+  "source_digest": "sha256:f2f6598444735a4dfbad8eeb5c77ca3d95face532782cef1679e2342281ba530",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 318,
-  "current_round": 40,
-  "next_player": "Örvar",
+  "picks_made": 320,
+  "current_round": 41,
+  "next_player": "Binni",
   "players": [
     "Binni",
     "Örvar",
@@ -187,7 +187,9 @@
       "Bonny Pall, Clearcutter",
       "Haywire Mite",
       "Emrakul, the Aeons Torn",
-      "Through the Breach"
+      "Through the Breach",
+      "Nahiri, the Harbinger",
+      "Tribal Flames"
     ],
     "Atli": [
       "Dismember",
@@ -462,7 +464,6 @@
     "Ox of Agonas",
     "Zealous Conscripts",
     "Inferno Titan",
-    "Tribal Flames",
     "Legion Extruder",
     "Embercleave",
     "Cool but Rude",
@@ -555,7 +556,6 @@
     "Fiend Artisan",
     "Vraska, Golgari Queen",
     "Hogaak, Arisen Necropolis",
-    "Nahiri, the Harbinger",
     "Hydroid Krasis",
     "Raffine, Scheming Seer",
     "Korvold, Fae-Cursed King",
@@ -581,45 +581,59 @@
   "log": [
     {
       "round": 41,
-      "seq": 318,
+      "seq": 320,
+      "player": "Diddi",
+      "card": "Tribal Flames",
+      "first_seen": "2026-08-05T07:25:03Z"
+    },
+    {
+      "round": 41,
+      "seq": 319,
       "player": "Tommi",
       "card": "Welcoming Vampire",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 41,
-      "seq": 317,
+      "seq": 318,
       "player": "Örvar",
       "card": "Picklock Prankster",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 41,
-      "seq": 316,
+      "seq": 317,
       "player": "Binni",
       "card": "Bloodbraid Elf",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 40,
-      "seq": 315,
+      "seq": 316,
       "player": "Binni",
       "card": "Liliana of the Veil",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 40,
-      "seq": 314,
+      "seq": 315,
       "player": "Örvar",
       "card": "Faerie Mastermind",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 40,
-      "seq": 313,
+      "seq": 314,
       "player": "Tommi",
       "card": "Nettlecyst",
       "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 40,
+      "seq": 313,
+      "player": "Diddi",
+      "card": "Nahiri, the Harbinger",
+      "first_seen": "2026-08-05T07:25:03Z"
     },
     {
       "round": 39,
