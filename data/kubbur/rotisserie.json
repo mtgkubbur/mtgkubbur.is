@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-05T11:35:48Z",
-  "source_digest": "sha256:eb4b9279010d31dbbc58b84777ef1d044b99fea4093c8f0f4e04e8cf09a34615",
+  "generated_at": "2026-08-05T12:19:43Z",
+  "source_digest": "sha256:ee43e40b9d0551c6e848f4ccebd42a5c09d33dc8a71b3be90739961d7979c78a",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 330,
-  "current_round": 42,
-  "next_player": "Óli",
+  "picks_made": 338,
+  "current_round": 43,
+  "next_player": "Tommi",
   "players": [
     "Binni",
     "Örvar",
@@ -189,7 +189,9 @@
       "Emrakul, the Aeons Torn",
       "Through the Breach",
       "Nahiri, the Harbinger",
-      "Tribal Flames"
+      "Tribal Flames",
+      "Tarmogoyf",
+      "Abhorrent Oculus"
     ],
     "Atli": [
       "Dismember",
@@ -232,7 +234,9 @@
       "Dreadhorde Arcanist",
       "Witchstalker Frenzy",
       "Dig Through Time",
-      "Thought Scour"
+      "Thought Scour",
+      "Grim Lavamancer",
+      "Eidolon of the Great Revel"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -275,7 +279,9 @@
       "Thing in the Ice",
       "Shark Typhoon",
       "Champion of Wits",
-      "Search for Azcanta"
+      "Search for Azcanta",
+      "Torrential Gearhulk",
+      "Sower of Temptation"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -318,7 +324,9 @@
       "Bomat Courier",
       "Yawgmoth, Thran Physician",
       "Zulaport Cutthroat",
-      "Priest of Forgotten Gods"
+      "Priest of Forgotten Gods",
+      "Concealed Courtyard",
+      "Regal Bunnicorn"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -373,7 +381,6 @@
     "Warden of the Inner Sky",
     "Kinscaer Sentry",
     "Luminarch Aspirant",
-    "Regal Bunnicorn",
     "Thalia, Guardian of Thraben",
     "Thalia's Lieutenant",
     "Brimaz, King of Oreskos",
@@ -403,13 +410,10 @@
     "Flitterwing Nuisance",
     "Pteramander",
     "Spectral Sailor",
-    "Abhorrent Oculus",
     "Aether Channeler",
     "Dungeon Geists",
-    "Sower of Temptation",
     "Body Double",
     "Marang River Regent",
-    "Torrential Gearhulk",
     "Hullbreaker Horror",
     "Thought Monitor",
     "Elder Deep-Fiend",
@@ -451,10 +455,8 @@
     "Dead Weight",
     "Virtue of Persistence",
     "Unholy Annex // Ritual Chamber",
-    "Grim Lavamancer",
     "Marauding Mako",
     "Voldaren Epicure",
-    "Eidolon of the Great Revel",
     "Fear of Missing Out",
     "Robber of the Rich",
     "Scrapwork Mutt",
@@ -483,7 +485,6 @@
     "Nishoba Brawler",
     "Satyr Wayfinder",
     "Springheart Nantuko",
-    "Tarmogoyf",
     "Courser of Kruphix",
     "Dryad of the Ilysian Grove",
     "Mightform Harmonizer",
@@ -569,7 +570,6 @@
     "Horizon Canopy",
     "Lush Portico",
     "Stirring Wildwood",
-    "Concealed Courtyard",
     "Golgari Rot Farm",
     "Underground Mortuary",
     "Hedge Maze",
@@ -581,10 +581,66 @@
   "log": [
     {
       "round": 43,
-      "seq": 330,
+      "seq": 338,
       "player": "Aron Freyr",
       "card": "Knight of Autumn",
       "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 43,
+      "seq": 337,
+      "player": "Aron Ívars.",
+      "card": "Regal Bunnicorn",
+      "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 43,
+      "seq": 336,
+      "player": "Óli",
+      "card": "Sower of Temptation",
+      "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 43,
+      "seq": 335,
+      "player": "Atli",
+      "card": "Eidolon of the Great Revel",
+      "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 43,
+      "seq": 334,
+      "player": "Diddi",
+      "card": "Abhorrent Oculus",
+      "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 42,
+      "seq": 333,
+      "player": "Diddi",
+      "card": "Tarmogoyf",
+      "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 42,
+      "seq": 332,
+      "player": "Atli",
+      "card": "Grim Lavamancer",
+      "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 42,
+      "seq": 331,
+      "player": "Óli",
+      "card": "Torrential Gearhulk",
+      "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 42,
+      "seq": 330,
+      "player": "Aron Ívars.",
+      "card": "Concealed Courtyard",
+      "first_seen": "2026-08-05T12:19:43Z"
     },
     {
       "round": 42,
