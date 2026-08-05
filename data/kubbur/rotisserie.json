@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T23:18:38Z",
-  "source_digest": "sha256:e12917b838ede7428116890d2c0cf6a5107054e859d7f93e45a5e441cf80db76",
+  "generated_at": "2026-08-05T00:38:05Z",
+  "source_digest": "sha256:59c5a8dfdc01f62a2569445a4f17b868dabe2a0f0e78afc4a95a51de0c5f5521",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 308,
-  "current_round": 39,
-  "next_player": "Atli",
+  "picks_made": 318,
+  "current_round": 40,
+  "next_player": "Örvar",
   "players": [
     "Binni",
     "Örvar",
@@ -56,7 +56,11 @@
       "Assassin's Trophy",
       "Wastewood Verge",
       "Kalitas, Traitor of Ghet",
-      "Grist, the Hunger Tide"
+      "Grist, the Hunger Tide",
+      "Dauthi Voidwalker",
+      "Haunted Ridge",
+      "Liliana of the Veil",
+      "Bloodbraid Elf"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -95,7 +99,11 @@
       "Bleachbone Verge",
       "Elegant Parlor",
       "Valki, God of Lies",
-      "Intimidation Tactics"
+      "Intimidation Tactics",
+      "Takenuma, Abandoned Mire",
+      "Badgermole Cub",
+      "Faerie Mastermind",
+      "Picklock Prankster"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -136,7 +144,9 @@
       "Etched Champion",
       "Collective Effort",
       "Vault Skirge",
-      "Springleaf Drum"
+      "Springleaf Drum",
+      "Nettlecyst",
+      "Welcoming Vampire"
     ],
     "Diddi": [
       "Fury",
@@ -360,7 +370,6 @@
     "Monastery Mentor",
     "Skyclave Apparition",
     "Thalia, Heretic Cathar",
-    "Welcoming Vampire",
     "Archangel Avacyn",
     "Archangel of Thune",
     "Knight-Errant of Eos",
@@ -382,8 +391,6 @@
     "Flitterwing Nuisance",
     "Pteramander",
     "Spectral Sailor",
-    "Faerie Mastermind",
-    "Picklock Prankster",
     "Abhorrent Oculus",
     "Aether Channeler",
     "Champion of Wits",
@@ -408,7 +415,6 @@
     "Stitcher's Supplier",
     "Accursed Marauder",
     "Bloodghast",
-    "Dauthi Voidwalker",
     "Pack Rat",
     "Priest of Forgotten Gods",
     "Tenacious Underdog",
@@ -424,7 +430,6 @@
     "Tasigur, the Golden Fang",
     "Archon of Cruelty",
     "Griselbrand",
-    "Liliana of the Veil",
     "Liliana, the Last Hope",
     "Liliana, Dreadhorde General",
     "Deadly Dispute",
@@ -440,7 +445,6 @@
     "Dead Weight",
     "Virtue of Persistence",
     "Unholy Annex // Ritual Chamber",
-    "Takenuma, Abandoned Mire",
     "Grim Lavamancer",
     "Marauding Mako",
     "Voldaren Epicure",
@@ -470,7 +474,6 @@
     "Elvish Reclaimer",
     "Sazh's Chocobo",
     "Aftermath Analyst",
-    "Badgermole Cub",
     "Bristly Bill, Spine Sower",
     "Lotus Cobra",
     "Nishoba Brawler",
@@ -530,7 +533,6 @@
     "Mind Stone",
     "Grafted Wargear",
     "Monument to Endurance",
-    "Nettlecyst",
     "Bonehoard",
     "Westvale Abbey",
     "Sphinx's Revelation",
@@ -541,7 +543,6 @@
     "Bloodtithe Harvester",
     "Kroxa, Titan of Death's Hunger",
     "Territorial Kavu",
-    "Bloodbraid Elf",
     "Dragonlord Atarka",
     "Voice of Resurgence",
     "Kitchen Finks",
@@ -562,7 +563,6 @@
     "Shiko, Paragon of the Way",
     "Atraxa, Grand Unifier",
     "Creeping Tar Pit",
-    "Haunted Ridge",
     "Commercial District",
     "Gruul Turf",
     "Raging Ravine",
@@ -580,340 +580,410 @@
   ],
   "log": [
     {
+      "round": 41,
+      "seq": 318,
+      "player": "Tommi",
+      "card": "Welcoming Vampire",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 41,
+      "seq": 317,
+      "player": "Örvar",
+      "card": "Picklock Prankster",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 41,
+      "seq": 316,
+      "player": "Binni",
+      "card": "Bloodbraid Elf",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 40,
+      "seq": 315,
+      "player": "Binni",
+      "card": "Liliana of the Veil",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 40,
+      "seq": 314,
+      "player": "Örvar",
+      "card": "Faerie Mastermind",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 40,
+      "seq": 313,
+      "player": "Tommi",
+      "card": "Nettlecyst",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
       "round": 39,
-      "seq": 308,
+      "seq": 312,
       "player": "Aron Freyr",
       "card": "Kiki-Jiki, Mirror Breaker",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 39,
+      "seq": 311,
+      "player": "Aron Ívars.",
+      "card": "Yawgmoth, Thran Physician",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 39,
+      "seq": 310,
+      "player": "Óli",
+      "card": "Shark Typhoon",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 39,
+      "seq": 309,
+      "player": "Atli",
+      "card": "Witchstalker Frenzy",
+      "first_seen": "2026-08-05T00:33:51Z"
+    },
+    {
+      "round": 39,
+      "seq": 308,
+      "player": "Diddi",
+      "card": "Through the Breach",
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 39,
       "seq": 307,
-      "player": "Aron Ívars.",
-      "card": "Yawgmoth, Thran Physician",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "player": "Tommi",
+      "card": "Springleaf Drum",
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 39,
       "seq": 306,
-      "player": "Óli",
-      "card": "Shark Typhoon",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "player": "Örvar",
+      "card": "Badgermole Cub",
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 39,
       "seq": 305,
-      "player": "Atli",
-      "card": "Witchstalker Frenzy",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "player": "Binni",
+      "card": "Haunted Ridge",
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
-      "round": 39,
+      "round": 38,
       "seq": 304,
-      "player": "Diddi",
-      "card": "Through the Breach",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "player": "Binni",
+      "card": "Dauthi Voidwalker",
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
-      "round": 39,
+      "round": 38,
       "seq": 303,
-      "player": "Tommi",
-      "card": "Springleaf Drum",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "player": "Örvar",
+      "card": "Takenuma, Abandoned Mire",
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 38,
       "seq": 302,
       "player": "Tommi",
       "card": "Vault Skirge",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 38,
       "seq": 301,
       "player": "Diddi",
       "card": "Emrakul, the Aeons Torn",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 38,
       "seq": 300,
       "player": "Atli",
       "card": "Dreadhorde Arcanist",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 38,
       "seq": 299,
       "player": "Óli",
       "card": "Thing in the Ice",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 38,
       "seq": 298,
       "player": "Aron Ívars.",
       "card": "Bomat Courier",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 38,
       "seq": 297,
       "player": "Aron Freyr",
       "card": "Pestermite",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 296,
       "player": "Aron Freyr",
       "card": "Sun Titan",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 295,
       "player": "Aron Ívars.",
       "card": "Bitterblossom",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 294,
       "player": "Óli",
       "card": "Fiery Temper",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 293,
       "player": "Atli",
       "card": "Seal of Fire",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 292,
       "player": "Diddi",
       "card": "Haywire Mite",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 291,
       "player": "Tommi",
       "card": "Collective Effort",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 290,
       "player": "Örvar",
       "card": "Intimidation Tactics",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 37,
       "seq": 289,
       "player": "Binni",
       "card": "Grist, the Hunger Tide",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 288,
       "player": "Binni",
       "card": "Kalitas, Traitor of Ghet",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 287,
       "player": "Örvar",
       "card": "Valki, God of Lies",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 286,
       "player": "Tommi",
       "card": "Etched Champion",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 285,
       "player": "Diddi",
       "card": "Bonny Pall, Clearcutter",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 284,
       "player": "Atli",
       "card": "Serum Visions",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 283,
       "player": "Óli",
       "card": "Lightning Axe",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 282,
       "player": "Aron Ívars.",
       "card": "Hero of Bladehold",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 36,
       "seq": 281,
       "player": "Aron Freyr",
       "card": "Overlord of the Mistmoors",
-      "first_seen": "2026-08-04T23:18:38Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 280,
       "player": "Aron Freyr",
       "card": "Birthing Pod",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 279,
       "player": "Aron Ívars.",
       "card": "Sheoldred, the Apocalypse",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 278,
       "player": "Óli",
       "card": "Big Score",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 277,
       "player": "Atli",
       "card": "Kaito, Bane of Nightmares",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 276,
       "player": "Diddi",
       "card": "Herd Migration",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 275,
       "player": "Tommi",
       "card": "Celestial Armor",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 274,
       "player": "Örvar",
       "card": "Elegant Parlor",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 35,
       "seq": 273,
       "player": "Binni",
       "card": "Wastewood Verge",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 272,
       "player": "Binni",
       "card": "Assassin's Trophy",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 271,
       "player": "Örvar",
       "card": "Bleachbone Verge",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 270,
       "player": "Tommi",
       "card": "Syr Ginger, the Meal Ender",
-      "first_seen": "2026-08-04T21:56:34Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 269,
       "player": "Diddi",
       "card": "Spellskite",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 268,
       "player": "Atli",
       "card": "This Town Ain't Big Enough",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 267,
       "player": "Óli",
       "card": "Eddymurk Crab",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 266,
       "player": "Aron Ívars.",
       "card": "Preacher of the Schism",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 34,
       "seq": 265,
       "player": "Aron Freyr",
       "card": "Thragtusk",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 33,
       "seq": 264,
       "player": "Aron Freyr",
       "card": "Flickerwisp",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 33,
       "seq": 263,
       "player": "Aron Ívars.",
       "card": "Sunbaked Canyon",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 33,
       "seq": 262,
       "player": "Óli",
       "card": "Archmage's Charm",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 33,
       "seq": 261,
       "player": "Atli",
       "card": "Blazemire Verge",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 33,
@@ -976,28 +1046,28 @@
       "seq": 252,
       "player": "Atli",
       "card": "Gut Shot",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 32,
       "seq": 251,
       "player": "Óli",
       "card": "Wan Shi Tong, Librarian",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 32,
       "seq": 250,
       "player": "Aron Ívars.",
       "card": "Silent Clearing",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 32,
       "seq": 249,
       "player": "Aron Freyr",
       "card": "Noble Hierarch",
-      "first_seen": "2026-08-04T20:43:22Z"
+      "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 31,

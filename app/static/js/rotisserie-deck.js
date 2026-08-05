@@ -12,6 +12,7 @@ const S = window.STR;
 const els = {
   player: document.getElementById("rd-player"),
   counts: document.getElementById("rd-counts"),
+  mana: document.getElementById("rd-mana"),
   exportBtn: document.getElementById("rd-export"),
   reset: document.getElementById("rd-reset"),
   columns: document.getElementById("rd-columns"),
@@ -340,6 +341,101 @@ function renderCounts(boards) {
     <span>${esc(S.rotisserie_deck_creatures)}: <strong>${c.creatures}</strong></span>
     <span>${esc(S.rotisserie_deck_lands)}: <strong>${c.lands}</strong></span>
     <span>${esc(S.rotisserie_deck_sideboard)}: <strong>${c.side}</strong></span>`;
+}
+
+// ── Mana odds ──
+const BASIC_COLOURS = { Plains: "W", Island: "U", Swamp: "B", Mountain: "R", Forest: "G" };
+const WUBRG = ["W", "U", "B", "R", "G"];
+
+// Colour sources among the deck's lands (drafted lands + basics), exported
+// pure for console testing. A fetch land counts as one source for every
+// colour it can actually reach in THIS deck: a basic of a fetchable type, or
+// a non-fetch land whose type line carries that basic type (duals, shocks,
+// triomes). basicsCounts is a plain {Plains: n, ...} object.
+export function manaSources(landCards, basicsCounts) {
+  const counts = Object.fromEntries(WUBRG.map((c) => [c, 0]));
+  for (const [basic, n] of Object.entries(basicsCounts)) {
+    const colour = BASIC_COLOURS[basic];
+    if (colour) counts[colour] += Math.max(0, n);
+  }
+
+  const producers = landCards.filter((c) => !(c?.fetch_types || []).length);
+  for (const card of producers) {
+    for (const colour of card?.produced_mana || []) {
+      if (colour in counts) counts[colour] += 1;
+    }
+  }
+
+  const typeReachable = (type) => {
+    if ((basicsCounts[type] || 0) > 0) return true;
+    return producers.some((c) => (c?.type_line || "").includes(type));
+  };
+  for (const card of landCards) {
+    const fetchable = card?.fetch_types || [];
+    if (!fetchable.length) continue;
+    for (const type of fetchable) {
+      if (typeReachable(type)) counts[BASIC_COLOURS[type]] += 1;
+    }
+  }
+  return counts;
+}
+
+// P(at least one of K sources among the first `seen` cards of an N-card
+// deck) — hypergeometric, computed as 1 − the running miss product.
+export function hitProbability(deckSize, sources, seen) {
+  if (sources <= 0 || deckSize <= 0) return 0;
+  let miss = 1;
+  const draws = Math.min(seen, deckSize);
+  for (let i = 0; i < draws; i++) {
+    const nonSources = deckSize - sources - i;
+    if (nonSources <= 0) return 1;
+    miss *= nonSources / (deckSize - i);
+  }
+  return 1 - miss;
+}
+
+const TURNS = [1, 2, 3, 4];
+
+function renderMana(boards) {
+  const landCards = boards.lands.map((e) => e.card);
+  const sources = manaSources(landCards, state.basics);
+  const spellColours = new Set();
+  for (const col of boards.columns) {
+    for (const e of [...col.creatures, ...col.noncreatures]) {
+      for (const c of e.card?.colors || []) spellColours.add(c);
+    }
+  }
+  const rows = WUBRG.filter((c) => sources[c] > 0 || spellColours.has(c));
+  if (!rows.length) {
+    els.mana.hidden = true;
+    return;
+  }
+
+  const N = boards.counts.total;
+  const pipFor = Object.fromEntries(COLOUR_GROUPS.map((g) => [g.key, g.pip]));
+  const head = TURNS.map((t) => `<th>${esc(S.rotisserie_deck_turn)} ${t}</th>`).join("");
+  const body = rows
+    .map((colour) => {
+      // On the play: by turn t you have seen your 7-card hand + (t − 1) draws.
+      const cells = TURNS.map((t) => {
+        const p = hitProbability(N, sources[colour], 7 + t - 1);
+        return `<td>${Math.round(p * 100)}%</td>`;
+      }).join("");
+      return `<tr>
+          <td><i class="ms ${pipFor[colour]}" aria-hidden="true"></i>
+            <span class="rd-mana-k">${sources[colour]} ${esc(S.rotisserie_deck_sources)}</span></td>
+          ${cells}
+        </tr>`;
+    })
+    .join("");
+
+  els.mana.hidden = false;
+  els.mana.innerHTML = `
+    <div class="rd-mana-head">
+      <span class="rd-mana-title">${esc(S.rotisserie_deck_mana_title)}</span>
+      <span class="rd-mana-note">${esc(S.rotisserie_deck_mana_note)}</span>
+    </div>
+    <table><thead><tr><th></th>${head}</tr></thead><tbody>${body}</tbody></table>`;
 }
 
 // ── Available browser (same filter mechanics as the parent page) ──
@@ -795,6 +891,7 @@ function exportText() {
 function render() {
   const boards = deriveBoards();
   renderCounts(boards);
+  renderMana(boards);
   renderColumns(boards);
   renderSide(boards);
   renderAvailable();

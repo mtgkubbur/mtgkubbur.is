@@ -12,7 +12,7 @@
   },
   "additionalProperties": {
     "type": "object",
-    "required": ["name", "cmc", "type_line", "colors", "img_small", "img_normal"],
+    "required": ["name", "cmc", "type_line", "colors", "img_small", "img_normal", "produced_mana", "fetch_types"],
     "properties": {
       "name": { "type": "string", "minLength": 1 },
       "mana_cost": { "type": "string" },
@@ -20,6 +20,11 @@
       "type_line": { "type": "string" },
       "colors": { "type": "array", "items": { "type": "string", "enum": ["W", "U", "B", "R", "G"] } },
       "color_identity": { "type": "array", "items": { "type": "string" } },
+      "produced_mana": { "type": "array", "items": { "type": "string" } },
+      "fetch_types": {
+        "type": "array",
+        "items": { "type": "string", "enum": ["Plains", "Island", "Swamp", "Mountain", "Forest"] }
+      },
       "rarity": { "type": "string" },
       "layout": { "type": "string" },
       "img_small": { "type": "string", "minLength": 1 },

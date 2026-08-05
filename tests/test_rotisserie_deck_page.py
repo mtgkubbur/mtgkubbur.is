@@ -53,6 +53,7 @@ def test_page_has_the_mount_points_the_js_targets():
     for token in (
         'id="rd-player"',
         'id="rd-counts"',
+        'id="rd-mana"',
         'id="rd-export"',
         'id="rd-reset"',
         'id="rd-columns"',

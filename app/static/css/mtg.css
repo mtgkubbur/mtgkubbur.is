@@ -1373,8 +1373,15 @@
 .rd-counts { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.9rem; margin-inline: auto; }
 .rd-counts strong { font-variant-numeric: tabular-nums; }
 
-.rd-columns { display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 0.5rem; }
-.rd-col { flex: 0 0 auto; width: 146px; display: flex; flex-direction: column; gap: 0.5rem; }
+/* Grid + subgrid: row 2 is every column's creature pile and row 3 every
+   non-creature pile, so the lower piles all start level, just below the
+   tallest creature pile. (Lands column: stack in row 2, basics in row 3.) */
+.rd-columns {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 146px;
+  grid-template-rows: auto auto auto; column-gap: 0.75rem;
+  justify-content: start; overflow-x: auto; padding-bottom: 0.5rem;
+}
+.rd-col { grid-row: 1 / 4; display: grid; grid-template-rows: subgrid; row-gap: 0.5rem; }
 .rd-col-head {
   display: flex; justify-content: space-between;
   font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em;
@@ -1457,7 +1464,22 @@
 .rd-popover button:hover { background: var(--surface-soft); }
 
 @media (max-width: 640px) {
-  .rd-col, .rd-card { width: 120px; }
+  .rd-columns { grid-auto-columns: 120px; }
+  .rd-card { width: 120px; }
   .rd-stack .rd-card + .rd-card { margin-top: -135px; }
   .rd-side-stack .rd-card { width: 96px; }
 }
+
+.rd-mana {
+  display: flex; flex-direction: column; gap: 0.3rem;
+  padding: 0.6rem 0.8rem; border: 1px solid var(--border-default);
+  border-radius: 10px; background: var(--surface-soft);
+}
+.rd-mana-head { display: flex; align-items: baseline; gap: 0.6rem; }
+.rd-mana-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.75; }
+.rd-mana-note { font-size: 0.75rem; opacity: 0.55; }
+.rd-mana table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.rd-mana th, .rd-mana td { padding: 0.15rem 0.7rem 0.15rem 0; text-align: right; font-size: 0.85rem; }
+.rd-mana th { font-weight: 400; opacity: 0.6; }
+.rd-mana td:first-child, .rd-mana th:first-child { text-align: left; }
+.rd-mana .rd-mana-k { opacity: 0.55; font-size: 0.75rem; }

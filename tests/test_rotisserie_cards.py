@@ -66,6 +66,61 @@ def test_flatten_keeps_a_genuinely_colourless_card_colourless():
     assert out["mana_cost"] == "{1}"
 
 
+def test_flatten_extracts_fetch_types_from_a_typed_fetch_land():
+    fetch = {
+        "name": "Flooded Strand",
+        "type_line": "Land",
+        "oracle_text": (
+            "{T}, Pay 1 life, Sacrifice Flooded Strand: Search your library "
+            "for a Plains or Island card, put it onto the battlefield, then shuffle."
+        ),
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    out = scryfall.flatten_card(fetch)
+    assert out["fetch_types"] == ["Plains", "Island"]
+    assert out["produced_mana"] == []
+
+
+def test_flatten_generic_basic_fetcher_gets_all_five_types():
+    passage = {
+        "name": "Fabled Passage",
+        "type_line": "Land",
+        "oracle_text": (
+            "{T}, Sacrifice Fabled Passage: Search your library for a basic land card, "
+            "put it onto the battlefield tapped, then shuffle."
+        ),
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    assert scryfall.flatten_card(passage)["fetch_types"] == [
+        "Plains",
+        "Island",
+        "Swamp",
+        "Mountain",
+        "Forest",
+    ]
+
+
+def test_flatten_nonland_tutor_gets_no_fetch_types():
+    """A spell that searches for lands is not a fetch land."""
+    tutor = {
+        "name": "Traverse the Ulvenwald",
+        "type_line": "Sorcery",
+        "oracle_text": "Search your library for a basic land card ...",
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    assert scryfall.flatten_card(tutor)["fetch_types"] == []
+
+
+def test_flatten_passes_produced_mana_through():
+    dual = {
+        "name": "Blood Crypt",
+        "type_line": "Land — Swamp Mountain",
+        "produced_mana": ["B", "R"],
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    assert scryfall.flatten_card(dual)["produced_mana"] == ["B", "R"]
+
+
 def test_build_alias_index_maps_front_faces_and_split_halves():
     alias = scryfall.build_alias_index(SAMPLE)
     assert alias["Brazen Borrower"] == "Brazen Borrower // Petty Theft"

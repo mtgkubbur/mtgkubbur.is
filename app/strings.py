@@ -161,6 +161,13 @@ STRINGS: dict[str, dict[str, str]] = {
         "rotisserie_deck_remove_spec": "Fjarlægja speculation",
         "rotisserie_deck_dismiss": "Hunsa",
         "rotisserie_deck_empty": "Tómt",
+        "rotisserie_deck_mana_title": "Mana odds",
+        "rotisserie_deck_mana_note": (
+            "Líkur á að hafa séð a.m.k. eitt land af litnum (á play). "
+            "Fetch-lönd telja litina sem þau ná í."
+        ),
+        "rotisserie_deck_turn": "Turn",
+        "rotisserie_deck_sources": "sources",
         # MtG hugtök halda ensku heitunum — það er orðaforðinn sem er notaður
         # við borðið (standard English MtG vocabulary, per player request).
         "colour_w": "White",

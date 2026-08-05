@@ -26,7 +26,9 @@ REQUEST_PAUSE_S = 0.15  # Scryfall asks for <= 10 req/s; this is comfortably und
 # cache (schema, tests, the /data/rotisserie payload) must treat it as
 # bookkeeping, not a card.
 CACHE_META_KEY = "__cache_meta__"
-CACHE_VERSION = 2  # bump whenever flatten_card's output shape changes
+CACHE_VERSION = 3  # bump whenever flatten_card's output shape changes
+
+BASIC_TYPES = ("Plains", "Island", "Swamp", "Mountain", "Forest")
 
 
 def chunk(items: Sequence[str], size: int = BATCH_LIMIT) -> Iterator[list[str]]:
@@ -102,6 +104,21 @@ def flatten_card(card: dict) -> dict:
     colors = card["colors"] if "colors" in card else front.get("colors") or []
     mana_cost = card["mana_cost"] if "mana_cost" in card else front.get("mana_cost", "")
 
+    # Deckbuilder mana maths: what a land actually produces, and — for fetch
+    # lands — which basic land types it can go get. The type words appear
+    # verbatim in fetch oracle text ("Search your library for a Plains or
+    # Island card"); a generic basic-land fetcher (Fabled Passage) names no
+    # specific type and gets all five. Guarded to lands so land-tutor spells
+    # (Traverse the Ulvenwald) are not misread as fetches.
+    oracle = card.get("oracle_text")
+    if oracle is None:
+        oracle = front.get("oracle_text", "")
+    fetch_types: list[str] = []
+    if "search your library" in oracle.lower() and "Land" in card.get("type_line", ""):
+        fetch_types = [t for t in BASIC_TYPES if t in oracle]
+        if not fetch_types and "basic land" in oracle.lower():
+            fetch_types = list(BASIC_TYPES)
+
     uri = str(card.get("scryfall_uri", ""))
     return {
         "name": card.get("name", ""),
@@ -112,6 +129,8 @@ def flatten_card(card: dict) -> dict:
         "color_identity": list(card.get("color_identity") or []),
         "rarity": card.get("rarity", ""),
         "layout": card.get("layout", ""),
+        "produced_mana": list(card.get("produced_mana") or []),
+        "fetch_types": fetch_types,
         "img_small": images.get("small", ""),
         "img_normal": images.get("normal", ""),
         "scryfall_uri": uri.split("?", 1)[0],

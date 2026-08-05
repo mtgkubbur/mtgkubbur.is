@@ -17,6 +17,8 @@
     <button type="button" id="rd-reset" class="rot-clear-btn">{{ S.rotisserie_deck_reset }}</button>
   </div>
 
+  <div id="rd-mana" class="rd-mana" hidden></div>
+
   <h2 class="rot-section-title">{{ S.rotisserie_deck_deck }}</h2>
   <div id="rd-columns" class="rd-columns"></div>
 
@@ -41,5 +43,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script type="module" src="/static/js/rotisserie-deck.js?v=1"></script>
+<script type="module" src="/static/js/rotisserie-deck.js?v=2"></script>
 {% endblock %}
