@@ -346,12 +346,14 @@ function renderCounts(boards) {
 // ── Mana odds ──
 const BASIC_COLOURS = { Plains: "W", Island: "U", Swamp: "B", Mountain: "R", Forest: "G" };
 const WUBRG = ["W", "U", "B", "R", "G"];
+const MAX_TURN = 6;
 
 // Colour sources among the deck's lands (drafted lands + basics), exported
-// pure for console testing. A fetch land counts as one source for every
-// colour it can actually reach in THIS deck: a basic of a fetchable type, or
-// a non-fetch land whose type line carries that basic type (duals, shocks,
-// triomes). basicsCounts is a plain {Plains: n, ...} object.
+// pure for console testing. A TYPED fetch (Flooded Strand) counts as one
+// source of every colour reachable through its fetchable types — including
+// the off-type colours of typed duals (fetching Steam Vents via "Mountain"
+// also yields U). A basics-only fetch (Fabled Passage) counts only colours
+// of basics actually in the deck. basicsCounts is a plain {Plains: n, ...}.
 export function manaSources(landCards, basicsCounts) {
   const counts = Object.fromEntries(WUBRG.map((c) => [c, 0]));
   for (const [basic, n] of Object.entries(basicsCounts)) {
@@ -366,65 +368,139 @@ export function manaSources(landCards, basicsCounts) {
     }
   }
 
-  const typeReachable = (type) => {
-    if ((basicsCounts[type] || 0) > 0) return true;
-    return producers.some((c) => (c?.type_line || "").includes(type));
-  };
+  // Per basic type: every colour a fetched land of that type could produce.
+  const reachColours = {};
+  for (const [type, colour] of Object.entries(BASIC_COLOURS)) {
+    const set = new Set();
+    if ((basicsCounts[type] || 0) > 0) set.add(colour);
+    for (const card of producers) {
+      if ((card?.type_line || "").includes(type)) {
+        for (const c of card?.produced_mana || []) {
+          if (c in counts) set.add(c);
+        }
+      }
+    }
+    reachColours[type] = set;
+  }
+
   for (const card of landCards) {
     const fetchable = card?.fetch_types || [];
     if (!fetchable.length) continue;
+    const colours = new Set();
     for (const type of fetchable) {
-      if (typeReachable(type)) counts[BASIC_COLOURS[type]] += 1;
+      if (card.fetch_basics_only) {
+        if ((basicsCounts[type] || 0) > 0) colours.add(BASIC_COLOURS[type]);
+      } else {
+        for (const c of reachColours[type]) colours.add(c);
+      }
     }
+    for (const c of colours) counts[c] += 1;
   }
   return counts;
 }
 
-// P(at least one of K sources among the first `seen` cards of an N-card
-// deck) — hypergeometric, computed as 1 − the running miss product.
-export function hitProbability(deckSize, sources, seen) {
-  if (sources <= 0 || deckSize <= 0) return 0;
-  let miss = 1;
-  const draws = Math.min(seen, deckSize);
-  for (let i = 0; i < draws; i++) {
-    const nonSources = deckSize - sources - i;
-    if (nonSources <= 0) return 1;
-    miss *= nonSources / (deckSize - i);
-  }
-  return 1 - miss;
+// Float binomial: exact integers up to C(60,30) ≈ 1.2e17 are represented
+// with ~1e-15 relative error in doubles — far below display precision.
+function comb(n, k) {
+  if (k < 0 || k > n) return 0;
+  const m = Math.min(k, n - k);
+  let r = 1;
+  for (let i = 0; i < m; i++) r = (r * (n - i)) / (i + 1);
+  return r;
 }
 
-const TURNS = [1, 2, 3, 4];
+// Karsten-2022 castability: P(≥pips colour sources among cards seen by
+// `turn` on the play | ≥turn lands seen). Sources are a subset of lands.
+// Returns 0 when the conditioning event is impossible (e.g. lands < turn).
+export function castProbability(deckSize, lands, sources, pips, turn) {
+  const N = Math.floor(deckSize);
+  if (N <= 0 || pips <= 0 || turn < pips) return 0;
+  const L = Math.min(Math.floor(lands), N);
+  const K = Math.min(Math.floor(sources), L);
+  const n = Math.min(7 + turn - 1, N);
+  let den = 0;
+  for (let j = turn; j <= Math.min(L, n); j++) den += comb(L, j) * comb(N - L, n - j);
+  if (den <= 0) return 0;
+  let num = 0;
+  for (let s = pips; s <= Math.min(K, n); s++) {
+    for (let l = Math.max(0, turn - s); l <= Math.min(L - K, n - s); l++) {
+      num += comb(K, s) * comb(L - K, l) * comb(N - L, n - s - l);
+    }
+  }
+  return num / den;
+}
+
+// Smallest source count reaching Karsten's 89+turn % consistency target
+// (turn is already capped at MAX_TURN by pipRequirements), or null when
+// even all-lands-of-this-colour falls short.
+export function sourcesNeeded(deckSize, lands, pips, turn) {
+  const threshold = (89 + Math.min(turn, MAX_TURN)) / 100;
+  for (let K = pips; K <= lands; K++) {
+    if (castProbability(deckSize, lands, K, pips, turn) >= threshold) return K;
+  }
+  return null;
+}
+
+// The deck's actual colour requirements: for each colour, each distinct
+// same-colour pip count k among spell costs, at the earliest turn the deck
+// wants it — t = clamp(max(cmc, k), ·, MAX_TURN). Front face only for
+// adventures/MDFCs; hybrid and {X} symbols are not pure pips and don't
+// count (stated simplification in the panel note).
+export function pipRequirements(spellCards) {
+  const reqs = Object.fromEntries(WUBRG.map((c) => [c, {}]));
+  for (const card of spellCards) {
+    const cost = String(card?.mana_cost || "").split(" // ")[0];
+    const cmc = Math.floor(card?.cmc ?? 0);
+    const pipCounts = {};
+    for (const m of cost.matchAll(/\{([WUBRG])\}/g)) {
+      pipCounts[m[1]] = (pipCounts[m[1]] || 0) + 1;
+    }
+    for (const [colour, k] of Object.entries(pipCounts)) {
+      const t = Math.min(Math.max(cmc, k), MAX_TURN);
+      const cur = reqs[colour][k];
+      reqs[colour][k] = cur === undefined ? t : Math.min(cur, t);
+    }
+  }
+  return reqs;
+}
 
 function renderMana(boards) {
   const landCards = boards.lands.map((e) => e.card);
   const sources = manaSources(landCards, state.basics);
-  const spellColours = new Set();
-  for (const col of boards.columns) {
-    for (const e of [...col.creatures, ...col.noncreatures]) {
-      for (const c of e.card?.colors || []) spellColours.add(c);
-    }
+  const spellCards = boards.columns
+    .flatMap((c) => [...c.creatures, ...c.noncreatures])
+    .map((e) => e.card);
+  const reqs = pipRequirements(spellCards);
+
+  const rows = [];
+  for (const colour of WUBRG) {
+    const ks = Object.keys(reqs[colour]).map(Number).sort((a, b) => a - b);
+    for (const k of ks) rows.push({ colour, pips: k, turn: reqs[colour][k] });
   }
-  const rows = WUBRG.filter((c) => sources[c] > 0 || spellColours.has(c));
   if (!rows.length) {
     els.mana.hidden = true;
     return;
   }
 
   const N = boards.counts.total;
+  const L = boards.counts.lands;
   const pipFor = Object.fromEntries(COLOUR_GROUPS.map((g) => [g.key, g.pip]));
-  const head = TURNS.map((t) => `<th>${esc(S.rotisserie_deck_turn)} ${t}</th>`).join("");
   const body = rows
-    .map((colour) => {
-      // On the play: by turn t you have seen your 7-card hand + (t − 1) draws.
-      const cells = TURNS.map((t) => {
-        const p = hitProbability(N, sources[colour], 7 + t - 1);
-        return `<td>${Math.round(p * 100)}%</td>`;
-      }).join("");
-      return `<tr>
-          <td><i class="ms ${pipFor[colour]}" aria-hidden="true"></i>
-            <span class="rd-mana-k">${sources[colour]} ${esc(S.rotisserie_deck_sources)}</span></td>
-          ${cells}
+    .map(({ colour, pips, turn }) => {
+      const have = sources[colour];
+      const needed = sourcesNeeded(N, L, pips, turn);
+      const feasible = N > 0 && L >= turn;
+      const p = castProbability(N, L, have, pips, turn);
+      const pct = feasible ? `${Math.round(p * 100)}%` : "—";
+      const neededLabel = needed === null ? `${L}+` : String(needed);
+      const ok = needed !== null && have >= needed;
+      const badge = ok ? "✓" : needed === null ? "!" : `−${needed - have}`;
+      const icons = `<i class="ms ${pipFor[colour]}" aria-hidden="true"></i>`.repeat(pips);
+      return `<tr class="${ok ? "rd-mana-ok" : "rd-mana-short"}">
+          <td>${icons} <span class="rd-mana-k">${esc(S.rotisserie_deck_mana_turn_prefix)}${turn}</span></td>
+          <td>${pct}</td>
+          <td>${have}/${neededLabel} ${esc(S.rotisserie_deck_sources)}</td>
+          <td class="rd-mana-badge">${badge}</td>
         </tr>`;
     })
     .join("");
@@ -435,7 +511,7 @@ function renderMana(boards) {
       <span class="rd-mana-title">${esc(S.rotisserie_deck_mana_title)}</span>
       <span class="rd-mana-note">${esc(S.rotisserie_deck_mana_note)}</span>
     </div>
-    <table><thead><tr><th></th>${head}</tr></thead><tbody>${body}</tbody></table>`;
+    <table><tbody>${body}</tbody></table>`;
 }
 
 // ── Available browser (same filter mechanics as the parent page) ──

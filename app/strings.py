@@ -163,10 +163,11 @@ STRINGS: dict[str, dict[str, str]] = {
         "rotisserie_deck_empty": "Tómt",
         "rotisserie_deck_mana_title": "Mana odds",
         "rotisserie_deck_mana_note": (
-            "Líkur á að hafa séð a.m.k. eitt land af litnum (á play). "
-            "Fetch-lönd telja litina sem þau ná í."
+            "Líkur á að geta borgað lituð tákn á réttum turn (á play, engin "
+            "mulligan), gefið að þú hittir land drops. ✓ = nægar sources fyrir "
+            "90–95% öryggi (Karsten 2022). Fetch-lönd telja liti sem þau geta sótt."
         ),
-        "rotisserie_deck_turn": "Turn",
+        "rotisserie_deck_mana_turn_prefix": "á T",
         "rotisserie_deck_sources": "sources",
         # MtG hugtök halda ensku heitunum — það er orðaforðinn sem er notaður
         # við borðið (standard English MtG vocabulary, per player request).

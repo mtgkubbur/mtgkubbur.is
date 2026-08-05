@@ -1483,3 +1483,7 @@
 .rd-mana th { font-weight: 400; opacity: 0.6; }
 .rd-mana td:first-child, .rd-mana th:first-child { text-align: left; }
 .rd-mana .rd-mana-k { opacity: 0.55; font-size: 0.75rem; }
+.rd-mana .rd-mana-badge { text-align: center; font-weight: 600; }
+.rd-mana .rd-mana-ok .rd-mana-badge { color: var(--win); }
+.rd-mana .rd-mana-short .rd-mana-badge { color: var(--loss); }
+.rd-mana td .ms { font-size: 0.7rem; margin-right: 0.1rem; }
