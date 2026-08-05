@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-05T07:25:03Z",
-  "source_digest": "sha256:f2f6598444735a4dfbad8eeb5c77ca3d95face532782cef1679e2342281ba530",
+  "generated_at": "2026-08-05T11:35:48Z",
+  "source_digest": "sha256:eb4b9279010d31dbbc58b84777ef1d044b99fea4093c8f0f4e04e8cf09a34615",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 320,
-  "current_round": 41,
-  "next_player": "Binni",
+  "picks_made": 330,
+  "current_round": 42,
+  "next_player": "Óli",
   "players": [
     "Binni",
     "Örvar",
@@ -230,7 +230,9 @@
       "Serum Visions",
       "Seal of Fire",
       "Dreadhorde Arcanist",
-      "Witchstalker Frenzy"
+      "Witchstalker Frenzy",
+      "Dig Through Time",
+      "Thought Scour"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -271,7 +273,9 @@
       "Lightning Axe",
       "Fiery Temper",
       "Thing in the Ice",
-      "Shark Typhoon"
+      "Shark Typhoon",
+      "Champion of Wits",
+      "Search for Azcanta"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -312,7 +316,9 @@
       "Hero of Bladehold",
       "Bitterblossom",
       "Bomat Courier",
-      "Yawgmoth, Thran Physician"
+      "Yawgmoth, Thran Physician",
+      "Zulaport Cutthroat",
+      "Priest of Forgotten Gods"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -353,7 +359,11 @@
       "Overlord of the Mistmoors",
       "Sun Titan",
       "Pestermite",
-      "Kiki-Jiki, Mirror Breaker"
+      "Kiki-Jiki, Mirror Breaker",
+      "Avacyn's Pilgrim",
+      "Voice of Resurgence",
+      "Kitchen Finks",
+      "Knight of Autumn"
     ]
   },
   "remaining": [
@@ -395,7 +405,6 @@
     "Spectral Sailor",
     "Abhorrent Oculus",
     "Aether Channeler",
-    "Champion of Wits",
     "Dungeon Geists",
     "Sower of Temptation",
     "Body Double",
@@ -405,11 +414,8 @@
     "Thought Monitor",
     "Elder Deep-Fiend",
     "Tamiyo, the Moon Sage",
-    "Thought Scour",
     "Consult the Star Charts",
     "Gifts Ungiven",
-    "Dig Through Time",
-    "Search for Azcanta",
     "Cecil, Dark Knight",
     "Gravecrawler",
     "Moonshadow",
@@ -418,10 +424,8 @@
     "Accursed Marauder",
     "Bloodghast",
     "Pack Rat",
-    "Priest of Forgotten Gods",
     "Tenacious Underdog",
     "Vampire Hexmage",
-    "Zulaport Cutthroat",
     "Midnight Reaper",
     "Murderous Rider",
     "Plaguecrafter",
@@ -471,7 +475,6 @@
     "The Legend of Roku",
     "Den of the Bugbear",
     "Arbor Elf",
-    "Avacyn's Pilgrim",
     "Elvish Reclaimer",
     "Sazh's Chocobo",
     "Aftermath Analyst",
@@ -545,9 +548,6 @@
     "Kroxa, Titan of Death's Hunger",
     "Territorial Kavu",
     "Dragonlord Atarka",
-    "Voice of Resurgence",
-    "Kitchen Finks",
-    "Knight of Autumn",
     "Knight of the Reliquary",
     "Priest of Fell Rites",
     "Tidehollow Sculler",
@@ -580,60 +580,130 @@
   ],
   "log": [
     {
+      "round": 43,
+      "seq": 330,
+      "player": "Aron Freyr",
+      "card": "Knight of Autumn",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 42,
+      "seq": 329,
+      "player": "Aron Freyr",
+      "card": "Kitchen Finks",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
       "round": 41,
-      "seq": 320,
+      "seq": 328,
+      "player": "Aron Freyr",
+      "card": "Voice of Resurgence",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 41,
+      "seq": 327,
+      "player": "Aron Ívars.",
+      "card": "Priest of Forgotten Gods",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 41,
+      "seq": 326,
+      "player": "Óli",
+      "card": "Search for Azcanta",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 41,
+      "seq": 325,
+      "player": "Atli",
+      "card": "Thought Scour",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 41,
+      "seq": 324,
       "player": "Diddi",
       "card": "Tribal Flames",
       "first_seen": "2026-08-05T07:25:03Z"
     },
     {
       "round": 41,
-      "seq": 319,
+      "seq": 323,
       "player": "Tommi",
       "card": "Welcoming Vampire",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 41,
-      "seq": 318,
+      "seq": 322,
       "player": "Örvar",
       "card": "Picklock Prankster",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 41,
-      "seq": 317,
+      "seq": 321,
       "player": "Binni",
       "card": "Bloodbraid Elf",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 40,
-      "seq": 316,
+      "seq": 320,
       "player": "Binni",
       "card": "Liliana of the Veil",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 40,
-      "seq": 315,
+      "seq": 319,
       "player": "Örvar",
       "card": "Faerie Mastermind",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 40,
-      "seq": 314,
+      "seq": 318,
       "player": "Tommi",
       "card": "Nettlecyst",
       "first_seen": "2026-08-05T00:33:51Z"
     },
     {
       "round": 40,
-      "seq": 313,
+      "seq": 317,
       "player": "Diddi",
       "card": "Nahiri, the Harbinger",
       "first_seen": "2026-08-05T07:25:03Z"
+    },
+    {
+      "round": 40,
+      "seq": 316,
+      "player": "Atli",
+      "card": "Dig Through Time",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 40,
+      "seq": 315,
+      "player": "Óli",
+      "card": "Champion of Wits",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 40,
+      "seq": 314,
+      "player": "Aron Ívars.",
+      "card": "Zulaport Cutthroat",
+      "first_seen": "2026-08-05T11:35:48Z"
+    },
+    {
+      "round": 40,
+      "seq": 313,
+      "player": "Aron Freyr",
+      "card": "Avacyn's Pilgrim",
+      "first_seen": "2026-08-05T11:35:48Z"
     },
     {
       "round": 39,

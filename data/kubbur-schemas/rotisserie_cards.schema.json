@@ -12,7 +12,7 @@
   },
   "additionalProperties": {
     "type": "object",
-    "required": ["name", "cmc", "type_line", "colors", "img_small", "img_normal", "produced_mana", "fetch_types"],
+    "required": ["name", "cmc", "type_line", "colors", "img_small", "img_normal", "produced_mana", "fetch_types", "fetch_basics_only"],
     "properties": {
       "name": { "type": "string", "minLength": 1 },
       "mana_cost": { "type": "string" },
