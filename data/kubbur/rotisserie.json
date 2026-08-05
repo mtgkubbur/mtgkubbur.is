@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-05T12:19:43Z",
-  "source_digest": "sha256:ee43e40b9d0551c6e848f4ccebd42a5c09d33dc8a71b3be90739961d7979c78a",
+  "generated_at": "2026-08-05T13:53:10Z",
+  "source_digest": "sha256:eebcfc21b0eb5981de9a025db960f84858e1f529956790bc82d930c1f7930c7b",
   "cube": "Meta Memories",
   "cube_size": 539,
   "rounds_total": 45,
   "picks_total": 360,
-  "picks_made": 338,
-  "current_round": 43,
-  "next_player": "Tommi",
+  "picks_made": 360,
+  "current_round": 45,
+  "next_player": null,
   "players": [
     "Binni",
     "Örvar",
@@ -60,7 +60,11 @@
       "Dauthi Voidwalker",
       "Haunted Ridge",
       "Liliana of the Veil",
-      "Bloodbraid Elf"
+      "Bloodbraid Elf",
+      "Commercial District",
+      "Underground Mortuary",
+      "Vraska, Golgari Queen",
+      "Korvold, Fae-Cursed King"
     ],
     "Örvar": [
       "Psychic Frog",
@@ -103,7 +107,11 @@
       "Takenuma, Abandoned Mire",
       "Badgermole Cub",
       "Faerie Mastermind",
-      "Picklock Prankster"
+      "Picklock Prankster",
+      "Bloodchief's Thirst",
+      "Moonshadow",
+      "Scrapwork Mutt",
+      "Warden of the Inner Sky"
     ],
     "Tommi": [
       "Urza's Saga",
@@ -146,7 +154,11 @@
       "Vault Skirge",
       "Springleaf Drum",
       "Nettlecyst",
-      "Welcoming Vampire"
+      "Welcoming Vampire",
+      "Gingerbrute",
+      "Flitterwing Nuisance",
+      "The Wandering Emperor",
+      "Thought Monitor"
     ],
     "Diddi": [
       "Fury",
@@ -191,7 +203,9 @@
       "Nahiri, the Harbinger",
       "Tribal Flames",
       "Tarmogoyf",
-      "Abhorrent Oculus"
+      "Abhorrent Oculus",
+      "Wrath of God",
+      "Jetmir's Garden"
     ],
     "Atli": [
       "Dismember",
@@ -236,7 +250,9 @@
       "Dig Through Time",
       "Thought Scour",
       "Grim Lavamancer",
-      "Eidolon of the Great Revel"
+      "Eidolon of the Great Revel",
+      "Den of the Bugbear",
+      "Bonesplitter"
     ],
     "Óli": [
       "Lightning Bolt",
@@ -281,7 +297,9 @@
       "Champion of Wits",
       "Search for Azcanta",
       "Torrential Gearhulk",
-      "Sower of Temptation"
+      "Sower of Temptation",
+      "Tamiyo, the Moon Sage",
+      "Body Double"
     ],
     "Aron Ívars.": [
       "Ajani, Nacatl Pariah",
@@ -326,7 +344,9 @@
       "Zulaport Cutthroat",
       "Priest of Forgotten Gods",
       "Concealed Courtyard",
-      "Regal Bunnicorn"
+      "Regal Bunnicorn",
+      "Westvale Abbey",
+      "Brimaz, King of Oreskos"
     ],
     "Aron Freyr": [
       "Phelia, Exuberant Shepherd",
@@ -371,58 +391,50 @@
       "Avacyn's Pilgrim",
       "Voice of Resurgence",
       "Kitchen Finks",
-      "Knight of Autumn"
+      "Knight of Autumn",
+      "Chord of Calling",
+      "Skyclave Apparition"
     ]
   },
   "remaining": [
     "Champion of the Parish",
     "Giant Killer",
     "Recruitment Officer",
-    "Warden of the Inner Sky",
     "Kinscaer Sentry",
     "Luminarch Aspirant",
     "Thalia, Guardian of Thraben",
     "Thalia's Lieutenant",
-    "Brimaz, King of Oreskos",
     "Elite Spellbinder",
     "Fiend Hunter",
     "Monastery Mentor",
-    "Skyclave Apparition",
     "Thalia, Heretic Cathar",
     "Archangel Avacyn",
     "Archangel of Thune",
     "Knight-Errant of Eos",
     "Reveillark",
     "Venerated Loxodon",
-    "The Wandering Emperor",
     "Elspeth, Sun's Champion",
     "Secure the Wastes",
     "Get Lost",
     "Rally the Monastery",
     "Settle the Wreckage",
     "Recommission",
-    "Wrath of God",
     "Spectral Procession",
     "Legion's Landing",
     "Wedding Announcement",
     "Elspeth Conquers Death",
     "Virtue of Loyalty",
-    "Flitterwing Nuisance",
     "Pteramander",
     "Spectral Sailor",
     "Aether Channeler",
     "Dungeon Geists",
-    "Body Double",
     "Marang River Regent",
     "Hullbreaker Horror",
-    "Thought Monitor",
     "Elder Deep-Fiend",
-    "Tamiyo, the Moon Sage",
     "Consult the Star Charts",
     "Gifts Ungiven",
     "Cecil, Dark Knight",
     "Gravecrawler",
-    "Moonshadow",
     "Nethergoyf",
     "Stitcher's Supplier",
     "Accursed Marauder",
@@ -446,7 +458,6 @@
     "Doom Blade",
     "Goryo's Vengeance",
     "Makeshift Mannequin",
-    "Bloodchief's Thirst",
     "Collective Brutality",
     "Night's Whisper",
     "Persist",
@@ -459,7 +470,6 @@
     "Voldaren Epicure",
     "Fear of Missing Out",
     "Robber of the Rich",
-    "Scrapwork Mutt",
     "Searslicer Goblin",
     "Breya's Apprentice",
     "Detective's Phoenix",
@@ -475,7 +485,6 @@
     "Cool but Rude",
     "Splinter Twin",
     "The Legend of Roku",
-    "Den of the Bugbear",
     "Arbor Elf",
     "Elvish Reclaimer",
     "Sazh's Chocobo",
@@ -503,7 +512,6 @@
     "Master's Rebuke",
     "Tear Asunder",
     "Beast Within",
-    "Chord of Calling",
     "Traverse the Ulvenwald",
     "Eldritch Evolution",
     "Search for Tomorrow",
@@ -514,7 +522,6 @@
     "Marketback Walker",
     "Memnite",
     "Stonecoil Serpent",
-    "Gingerbrute",
     "Signal Pest",
     "Containment Construct",
     "Metallic Mimic",
@@ -531,7 +538,6 @@
     "Act of Aggression",
     "Engineered Explosives",
     "Welding Jar",
-    "Bonesplitter",
     "Expedition Map",
     "Cranial Plating",
     "Heart of Kiran",
@@ -539,7 +545,6 @@
     "Grafted Wargear",
     "Monument to Endurance",
     "Bonehoard",
-    "Westvale Abbey",
     "Sphinx's Revelation",
     "Teferi, Hero of Dominaria",
     "Drown in the Loch",
@@ -555,64 +560,213 @@
     "Pinnacle Emissary",
     "Saheeli, Sublime Artificer",
     "Fiend Artisan",
-    "Vraska, Golgari Queen",
     "Hogaak, Arisen Necropolis",
     "Hydroid Krasis",
     "Raffine, Scheming Seer",
-    "Korvold, Fae-Cursed King",
     "Siege Rhino",
     "Shiko, Paragon of the Way",
     "Atraxa, Grand Unifier",
     "Creeping Tar Pit",
-    "Commercial District",
     "Gruul Turf",
     "Raging Ravine",
     "Horizon Canopy",
     "Lush Portico",
     "Stirring Wildwood",
     "Golgari Rot Farm",
-    "Underground Mortuary",
     "Hedge Maze",
     "Simic Growth Chamber",
-    "Jetmir's Garden",
     "Indatha Triome",
     "Lotus Field"
   ],
   "log": [
     {
+      "round": 45,
+      "seq": 360,
+      "player": "Aron Freyr",
+      "card": "Skyclave Apparition",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 45,
+      "seq": 359,
+      "player": "Aron Ívars.",
+      "card": "Brimaz, King of Oreskos",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 45,
+      "seq": 358,
+      "player": "Óli",
+      "card": "Body Double",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 45,
+      "seq": 357,
+      "player": "Atli",
+      "card": "Bonesplitter",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 45,
+      "seq": 356,
+      "player": "Diddi",
+      "card": "Jetmir's Garden",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 45,
+      "seq": 355,
+      "player": "Tommi",
+      "card": "Thought Monitor",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 45,
+      "seq": 354,
+      "player": "Örvar",
+      "card": "Warden of the Inner Sky",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 45,
+      "seq": 353,
+      "player": "Binni",
+      "card": "Korvold, Fae-Cursed King",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 352,
+      "player": "Binni",
+      "card": "Vraska, Golgari Queen",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 351,
+      "player": "Örvar",
+      "card": "Scrapwork Mutt",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 350,
+      "player": "Tommi",
+      "card": "The Wandering Emperor",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 349,
+      "player": "Diddi",
+      "card": "Wrath of God",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 348,
+      "player": "Atli",
+      "card": "Den of the Bugbear",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 347,
+      "player": "Óli",
+      "card": "Tamiyo, the Moon Sage",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 346,
+      "player": "Aron Ívars.",
+      "card": "Westvale Abbey",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 44,
+      "seq": 345,
+      "player": "Aron Freyr",
+      "card": "Chord of Calling",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
       "round": 43,
-      "seq": 338,
+      "seq": 344,
       "player": "Aron Freyr",
       "card": "Knight of Autumn",
       "first_seen": "2026-08-05T11:35:48Z"
     },
     {
       "round": 43,
-      "seq": 337,
+      "seq": 343,
       "player": "Aron Ívars.",
       "card": "Regal Bunnicorn",
       "first_seen": "2026-08-05T12:19:43Z"
     },
     {
       "round": 43,
-      "seq": 336,
+      "seq": 342,
       "player": "Óli",
       "card": "Sower of Temptation",
       "first_seen": "2026-08-05T12:19:43Z"
     },
     {
       "round": 43,
-      "seq": 335,
+      "seq": 341,
       "player": "Atli",
       "card": "Eidolon of the Great Revel",
       "first_seen": "2026-08-05T12:19:43Z"
     },
     {
       "round": 43,
-      "seq": 334,
+      "seq": 340,
       "player": "Diddi",
       "card": "Abhorrent Oculus",
       "first_seen": "2026-08-05T12:19:43Z"
+    },
+    {
+      "round": 43,
+      "seq": 339,
+      "player": "Tommi",
+      "card": "Flitterwing Nuisance",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 43,
+      "seq": 338,
+      "player": "Örvar",
+      "card": "Moonshadow",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 43,
+      "seq": 337,
+      "player": "Binni",
+      "card": "Underground Mortuary",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 42,
+      "seq": 336,
+      "player": "Binni",
+      "card": "Commercial District",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 42,
+      "seq": 335,
+      "player": "Örvar",
+      "card": "Bloodchief's Thirst",
+      "first_seen": "2026-08-05T13:53:10Z"
+    },
+    {
+      "round": 42,
+      "seq": 334,
+      "player": "Tommi",
+      "card": "Gingerbrute",
+      "first_seen": "2026-08-05T13:53:10Z"
     },
     {
       "round": 42,
