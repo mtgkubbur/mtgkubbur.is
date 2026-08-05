@@ -121,6 +121,66 @@ def test_flatten_passes_produced_mana_through():
     assert scryfall.flatten_card(dual)["produced_mana"] == ["B", "R"]
 
 
+def test_flatten_typed_fetch_is_not_basics_only():
+    """Flooded Strand can fetch any Plains/Island CARD, duals included."""
+    fetch = {
+        "name": "Flooded Strand",
+        "type_line": "Land",
+        "oracle_text": (
+            "{T}, Pay 1 life, Sacrifice Flooded Strand: Search your library "
+            "for a Plains or Island card, put it onto the battlefield, then shuffle."
+        ),
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    assert scryfall.flatten_card(fetch)["fetch_basics_only"] is False
+
+
+def test_flatten_generic_basic_fetcher_is_basics_only():
+    passage = {
+        "name": "Fabled Passage",
+        "type_line": "Land",
+        "oracle_text": (
+            "{T}, Sacrifice Fabled Passage: Search your library for a basic land card, "
+            "put it onto the battlefield tapped, then shuffle."
+        ),
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    out = scryfall.flatten_card(passage)
+    assert out["fetch_basics_only"] is True
+    assert out["fetch_types"] == ["Plains", "Island", "Swamp", "Mountain", "Forest"]
+
+
+def test_flatten_typed_basic_fetcher_is_basics_only():
+    """Panorama-style: names types AND restricts to basics — both facts must survive."""
+    panorama = {
+        "name": "Bant Panorama",
+        "type_line": "Land",
+        "oracle_text": (
+            "{1}, {T}, Sacrifice Bant Panorama: Search your library for a basic "
+            "Plains, Island, or Forest card, put it onto the battlefield tapped, then shuffle."
+        ),
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    out = scryfall.flatten_card(panorama)
+    assert out["fetch_types"] == ["Plains", "Island", "Forest"]
+    assert out["fetch_basics_only"] is True
+
+
+def test_flatten_nonbasic_wording_does_not_trip_basics_only():
+    r"""\bbasic\b must not match inside 'nonbasic'."""
+    weirdo = {
+        "name": "Ruin Grinder Test Land",
+        "type_line": "Land",
+        "oracle_text": "Search your library for a nonbasic Mountain card and exile it.",
+        "image_uris": {"small": "s", "normal": "n"},
+    }
+    assert scryfall.flatten_card(weirdo)["fetch_basics_only"] is False
+
+
+def test_flatten_non_fetch_card_defaults_basics_only_false():
+    assert scryfall.flatten_card(SAMPLE["Lightning Bolt"])["fetch_basics_only"] is False
+
+
 def test_build_alias_index_maps_front_faces_and_split_halves():
     alias = scryfall.build_alias_index(SAMPLE)
     assert alias["Brazen Borrower"] == "Brazen Borrower // Petty Theft"

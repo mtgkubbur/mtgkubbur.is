@@ -25,6 +25,7 @@
         "type": "array",
         "items": { "type": "string", "enum": ["Plains", "Island", "Swamp", "Mountain", "Forest"] }
       },
+      "fetch_basics_only": { "type": "boolean" },
       "rarity": { "type": "string" },
       "layout": { "type": "string" },
       "img_small": { "type": "string", "minLength": 1 },

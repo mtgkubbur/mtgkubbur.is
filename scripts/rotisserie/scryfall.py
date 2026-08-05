@@ -7,6 +7,7 @@ output is committed. The site never calls Scryfall at runtime.
 from __future__ import annotations
 
 import json
+import re
 import time
 import urllib.error
 import urllib.parse
@@ -26,7 +27,7 @@ REQUEST_PAUSE_S = 0.15  # Scryfall asks for <= 10 req/s; this is comfortably und
 # cache (schema, tests, the /data/rotisserie payload) must treat it as
 # bookkeeping, not a card.
 CACHE_META_KEY = "__cache_meta__"
-CACHE_VERSION = 3  # bump whenever flatten_card's output shape changes
+CACHE_VERSION = 4  # bump whenever flatten_card's output shape changes
 
 BASIC_TYPES = ("Plains", "Island", "Swamp", "Mountain", "Forest")
 
@@ -114,10 +115,17 @@ def flatten_card(card: dict) -> dict:
     if oracle is None:
         oracle = front.get("oracle_text", "")
     fetch_types: list[str] = []
+    fetch_basics_only = False
     if "search your library" in oracle.lower() and "Land" in card.get("type_line", ""):
         fetch_types = [t for t in BASIC_TYPES if t in oracle]
         if not fetch_types and "basic land" in oracle.lower():
             fetch_types = list(BASIC_TYPES)
+        # Fabled Passage / Panoramas fetch only BASIC cards; Flooded Strand
+        # fetches any Plains/Island card, typed duals included. \b keeps
+        # "nonbasic" from matching.
+        fetch_basics_only = bool(fetch_types) and bool(
+            re.search(r"\bbasic\b", oracle, re.IGNORECASE)
+        )
 
     uri = str(card.get("scryfall_uri", ""))
     return {
@@ -131,6 +139,7 @@ def flatten_card(card: dict) -> dict:
         "layout": card.get("layout", ""),
         "produced_mana": list(card.get("produced_mana") or []),
         "fetch_types": fetch_types,
+        "fetch_basics_only": fetch_basics_only,
         "img_small": images.get("small", ""),
         "img_normal": images.get("normal", ""),
         "scryfall_uri": uri.split("?", 1)[0],
