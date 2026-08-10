@@ -1,11 +1,11 @@
 name: Rotisserie sync
 
 on:
-  schedule:
-    # Half-hourly, offset off the hour to dodge the top-of-hour scheduling crush.
-    # The check job stays cheap (stdlib-only, seconds) so this cadence is fine;
-    # the full sync only runs when the parsed pick state actually changed.
-    - cron: "17,47 * * * *"
+  # The half-hourly schedule was retired 2026-08-10: the Meta Memories draft is
+  # over, so every run since 2026-08-05 hit the gate and skipped the sync. The
+  # workflow stays dispatch-only so a corrected sheet cell can still be synced
+  # on demand (Actions → Rotisserie sync → Run workflow). To resume polling,
+  # restore:  schedule: [{cron: "17,47 * * * *"}]
   workflow_dispatch: {}
 
 permissions:

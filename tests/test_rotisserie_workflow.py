@@ -13,10 +13,16 @@ def test_workflow_exists():
     assert WF.exists()
 
 
-def test_runs_half_hourly_and_on_demand():
+def test_runs_on_demand_only():
+    """The draft is over: polling was retired 2026-08-10, manual sync kept.
+
+    The cron assertion is inverted rather than deleted so a re-enabled
+    schedule is a deliberate edit here, not an accidental revert.
+    """
     text = WF.read_text(encoding="utf-8")
-    assert "17,47 * * * *" in text
     assert "workflow_dispatch" in text
+    active_lines = [ln for ln in text.splitlines() if not ln.lstrip().startswith("#")]
+    assert not any("cron:" in ln for ln in active_lines)
 
 
 def test_sync_job_is_gated_on_the_check_output():
